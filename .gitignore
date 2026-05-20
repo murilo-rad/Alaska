@@ -1,0 +1,38 @@
+# Visual Studio
+
+*.VC.db
+*.VC.opendb
+
+# Build folders
+Debug/
+Release/
+x64/
+x86/
+
+# Compiled objects
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.exp
+*.ilk
+*.pdb
+
+# MSBuild
+*.log
+*.tlog
+*.lastbuildstate
+*.recipe
+
+# Clang/GCC
+*.dSYM/
+
+# Ignorar pastas de build do CMake
+build/
+out/
+
+# Ignorar pastas de cache do Visual Studio e VS Code
+.vs/
+.vscode/
+*.user
