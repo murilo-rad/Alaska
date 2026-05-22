@@ -17,6 +17,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Alaska src/main.cpp)
+add_executable(Alaska 
+src/main.cpp
+src/Ente.cpp
+src/Graficos.cpp
+)
 
+target_include_directories(Alaska PRIVATE include)
 target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
