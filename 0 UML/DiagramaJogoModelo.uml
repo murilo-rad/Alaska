@@ -1991,7 +1991,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[28]" type="UMLClassView" guid="RZIhR2u2QEiRlKPzyrknUwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">668</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">620</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">221</XPD:ATTR>
@@ -2062,7 +2062,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="m0gWV25KJ02i4p5Np+vYzgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="lZlDR/+Zck64tiZlBvn1SgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Ice Spike</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">NA</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="0C21m4qti029qkyZagEg3QAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Obstaculo 2&gt;&gt;</XPD:ATTR>
@@ -4069,7 +4069,7 @@
 <XPD:OBJ name="OwnedViews[68]" type="UMLClassView" guid="x2JmS74VlU+VEB5szm7YtwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">792</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">788</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">852</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">168</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">134</XPD:ATTR>
@@ -4077,7 +4077,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="V9vcs1i4TUadhRjS4ICipAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="H1Vtlpwgk0ifZTlpUmuXiAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Obst_Dificil</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Ice_Spike</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="C3aluRbyMUO9jyUUC7fkvQAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Obstaculo Difícii&gt;&gt;</XPD:ATTR>
@@ -5592,7 +5592,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[28]" type="UMLClass" guid="3qlNYY7AFUCR6Ic4Ei8bwQAA">
-<XPD:ATTR name="Name" type="string">Ice Spike</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">NA</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Obstaculo 2</XPD:ATTR>
 <XPD:REF name="Namespace">IoH8RzmxEE6xOc9zvj2jawAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -6384,7 +6384,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 <XPD:REF name="Views[0]">gEs9i5sYoEy3Je5m3LTBNgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[47]" type="UMLClass" guid="v/yCrnMMeEWoOuPwwGgIEQAA">
-<XPD:ATTR name="Name" type="string">Obst_Dificil</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Ice_Spike</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Obstaculo Difícii</XPD:ATTR>
 <XPD:REF name="Namespace">IoH8RzmxEE6xOc9zvj2jawAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
