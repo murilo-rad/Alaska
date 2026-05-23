@@ -10,8 +10,8 @@ Alaska::Gerenciadores::Graficos::~Graficos()
 
 }
 
-void Alaska::Gerenciadores::Graficos::desenharEnte(Alaska::Ente* pEnte)
+void Alaska::Gerenciadores::Graficos::desenharEnte(sf::Sprite* pSprite)
 {
-    if(pEnte && janela && janela->isOpen())
-        janela->draw(*(pEnte->getSprite()));
+    if(pSprite && janela && janela->isOpen())
+        janela->draw(*pSprite);        
 }

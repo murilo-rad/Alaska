@@ -14,8 +14,7 @@ namespace Alaska
                 Graficos();
                 ~Graficos();
 
-                void desenharEnte(Alaska::Ente* pEnte);
-                
+                void desenharEnte(sf::Sprite* pSprite);
                 void limpar();
                 void mostrar();
 

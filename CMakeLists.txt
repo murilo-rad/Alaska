@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.22)
 
 project(Alaska CXX)
 
@@ -20,6 +20,10 @@ FetchContent_MakeAvailable(SFML)
 add_executable(Alaska 
 src/main.cpp
 src/Ente.cpp
+src/Entidade.cpp
+src/Personagem.cpp
+src/Jogador.cpp
+src/Inimigo.cpp
 src/Graficos.cpp
 )
 
