@@ -9,7 +9,7 @@ namespace Alaska
         protected:
             static int I;
             const int id;
-            static Alaska::Gerenciadores::Graficos* pGG;
+            static Alaska::Gerenciadores::Graficos * pGG;
             sf::Texture textura;
             sf::Sprite sprite;
         public:

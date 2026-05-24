@@ -17,7 +17,6 @@ namespace Alaska
                     Inimigo(float x, float y, int mal, int v);
                     ~Inimigo();
                     virtual void executar() = 0;
-                    virtual void danificar(Jogador* pJ) = 0;
                     int getMaldade();
             };
         }

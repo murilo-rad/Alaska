@@ -16,7 +16,6 @@ namespace Alaska
                 virtual ~Entidade();
 
                 virtual void executar() = 0;
-                virtual void salvar() = 0;
 
                 const float getX();
                 const float getY();

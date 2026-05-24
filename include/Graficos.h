@@ -1,12 +1,11 @@
 #pragma once
 #include "pch.h"
-#include "Ente.h"
 
 namespace Alaska
 {
     namespace Gerenciadores
     {
-        class Graficos
+        class Graficos 
         {
             private:
                 sf::RenderWindow* janela;
@@ -17,7 +16,8 @@ namespace Alaska
                 void desenharEnte(sf::Sprite* pSprite);
                 void limpar();
                 void mostrar();
-
+                bool isJanelaAberta();
+                sf::RenderWindow* getJanela();
         };
     }
 }

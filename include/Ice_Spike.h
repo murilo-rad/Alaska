@@ -1,3 +1,4 @@
+#pragma once
 #include "pch.h"
 #include "Jogador.h"
 #include "Obstaculo.h"
@@ -16,7 +17,7 @@ namespace Alaska
                     Ice_Spike(bool d, short int dano);
                     ~Ice_Spike();
                     void executar();
-                    void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
+                    void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJogador);
             };
         }
     }

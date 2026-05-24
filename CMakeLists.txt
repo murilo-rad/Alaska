@@ -22,10 +22,15 @@ src/main.cpp
 src/Ente.cpp
 src/Entidade.cpp
 src/Personagem.cpp
-src/Jogador.cpp
 src/Inimigo.cpp
+src/Jogador.cpp
+src/Obstaculo.cpp
+src/Ice_Spike.cpp
+src/Plataforma.cpp
 src/Graficos.cpp
+src/Eventos.cpp
+src/Colisoes.cpp
 )
 
 target_include_directories(Alaska PRIVATE include)
-target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
+target_link_libraries(Alaska PRIVATE sfml-main sfml-graphics sfml-window sfml-system)

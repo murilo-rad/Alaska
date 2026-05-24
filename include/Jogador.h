@@ -16,6 +16,7 @@ namespace Alaska
                 public:
                     Jogador();
                     ~Jogador();
+                    void executar();
             };
         }
     }
