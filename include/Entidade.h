@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Ente.h"
-#define GRAVIDADE 0.35f
+
 
 namespace Alaska
 {
