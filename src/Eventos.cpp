@@ -41,8 +41,10 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
             if(pJogador->getNoChao())
             {
                 if (pJogador->getNoChao()) 
+                {
                     pJogador->setVelY(-12.0f);
                     pJogador->setNoChao(false);
+                }
             }
     }
 }
