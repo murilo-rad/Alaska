@@ -698,7 +698,7 @@
 <XPD:REF name="Views[3]">ppgTMgq9REeJlwXe9a0/PAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[22]" type="UMLClass" guid="dPwA/0a44ECqH3st+2zcFwAA">
-<XPD:ATTR name="Name" type="string">_Colisões</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Gerenciador_Colisões</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Mediador - STL</XPD:ATTR>
 <XPD:REF name="Namespace">XqTvRQqsnkuWZZwgQBMH+AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -874,7 +874,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[24]" type="UMLPackage" guid="8eETL5PWN0KpXI5B905SHwAA">
-<XPD:ATTR name="Name" type="string">es</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Gerenciadores</XPD:ATTR>
 <XPD:REF name="Namespace">XqTvRQqsnkuWZZwgQBMH+AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
 <XPD:REF name="Views[0]">rANjhtsFrEK3yDXk/eZ49AAA</XPD:REF>
@@ -1044,7 +1044,7 @@
 <XPD:REF name="Model">8eETL5PWN0KpXI5B905SHwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="pQKVjvXAwkW+Bay/gSbUGwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="eojc/4tI2ku4OjRLQyGt/wAA">
-<XPD:ATTR name="Text" type="string">es</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Gerenciadores</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="KEN80XqfMk6vNpo6ltW+3QAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -1077,7 +1077,7 @@
 <XPD:OBJ name="OwnedViews[3]" type="UMLPackageView" guid="3sZqSluPkEO2rtzsqXN5mwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">580</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">588</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">584</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">389</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">593</XPD:ATTR>
 <XPD:REF name="Model">s6u+XJk9R0qYzxHhF6j4VAAA</XPD:REF>
@@ -1116,7 +1116,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">clSilver</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">24</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">604</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">493</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">393</XPD:ATTR>
 <XPD:REF name="Model">tzRVM+1Z4ECkj/nRHfRT1gAA</XPD:REF>
@@ -1790,8 +1790,8 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[21]" type="UMLClassView" guid="9UOeYF9VTkaWLGI3odJlfQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">336</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1020</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">131</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">147</XPD:ATTR>
@@ -1799,7 +1799,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="oeUFa8uFWU6OGpWiFRuWdgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Z3WJC99bJEysNKXcGzu1QAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Jogo</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">JogoAlaska</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="cR2oHxDtjUCuYMw/8oD/zAAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;PRINCIPAL&gt;&gt;</XPD:ATTR>
@@ -3022,7 +3022,7 @@
 <XPD:ATTR name="LineColor" type="string">clGreen</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">clBlue</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">320,940;296,940;296,1092;336,1092</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">320,940;296,940;296,1092;332,1092</XPD:ATTR>
 <XPD:REF name="Model">Puw+q4xvHkieSeWtrBYqyAAA</XPD:REF>
 <XPD:REF name="Head">9UOeYF9VTkaWLGI3odJlfQAA</XPD:REF>
 <XPD:REF name="Tail">kvs6oq6ro0epESl22ysdwAAA</XPD:REF>
@@ -3107,7 +3107,7 @@
 <XPD:ATTR name="LineColor" type="string">clGreen</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">320,824;272,824;272,1132;336,1132</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">320,824;272,824;272,1132;332,1132</XPD:ATTR>
 <XPD:REF name="Model">yEDtrHFZVEC7I4DDpjTf/AAA</XPD:REF>
 <XPD:REF name="Head">9UOeYF9VTkaWLGI3odJlfQAA</XPD:REF>
 <XPD:REF name="Tail">uslvQORP4EGdRLZDAsxcQwAA</XPD:REF>
@@ -3620,7 +3620,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="yXUo9Vx/ek+qrm9THZSGowAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="2OiJvjdAAk+yOA2/xMIvmwAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">_Colisões</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Gerenciador_Colisões</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="rgqGLb72bkC0wrjWBKEcQAAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Mediador - STL&gt;&gt;</XPD:ATTR>
@@ -4068,7 +4068,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[68]" type="UMLClassView" guid="x2JmS74VlU+VEB5szm7YtwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">788</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">852</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">168</XPD:ATTR>
@@ -4646,7 +4646,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedElements" type="integer">57</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="lnmEeOvWxEGeGWwDLIc8QQAA">
-<XPD:ATTR name="Name" type="string">Jogo</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">JogoAlaska</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">PRINCIPAL</XPD:ATTR>
 <XPD:REF name="Namespace">IoH8RzmxEE6xOc9zvj2jawAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -4706,7 +4706,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="uXXYOygB/UuqDldLYkMfEAAA">
 <XPD:ATTR name="Name" type="string">GG</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Grafico</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GerenciadorGrafico</XPD:ATTR>
 <XPD:REF name="Owner">lnmEeOvWxEGeGWwDLIc8QQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -4820,7 +4820,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="zf0KIb/OIkmdI83DQcrBAgAA">
 <XPD:ATTR name="Name" type="string">GC</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">Colisoes</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">GerenciadorColisoes</XPD:ATTR>
 <XPD:REF name="Owner">ODk2x5mvlkqaWx4w1r8H2QAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -5449,13 +5449,13 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 <XPD:REF name="Views[3]">vUbzmpihykSoYlwdhENpxAAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="LUR0lWJPVE6Z+2VrdWkaggAA">
-<XPD:ATTR name="Name" type="string">_Grafico</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Gerenciador_Grafico</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">create</XPD:ATTR>
 <XPD:REF name="Owner">Bpx+ok2YEUa/BXA19tWAowAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[1]" type="UMLOperation" guid="7IA5N3h+f0u9CQl+OiG+nQAA">
-<XPD:ATTR name="Name" type="string">_Grafico</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Gerenciador_Grafico</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">destroy</XPD:ATTR>
 <XPD:REF name="Owner">Bpx+ok2YEUa/BXA19tWAowAA</XPD:REF>

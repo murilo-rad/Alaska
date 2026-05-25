@@ -29,7 +29,7 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
     if (pJogador) 
     {
-        float vel = 2.0f;
+        float vel = 4.0f;
         
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) 
             pJogador->setX(pJogador->getX() + vel);

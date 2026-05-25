@@ -34,6 +34,12 @@ void Alaska::Gerenciadores::Colisoes::calcularColisoes()
                         pJogador->Entidade::setVelY(0.0); 
                         pJogador->setNoChao(true);
                     }
+                    else if (pJogador->getY() > pPlataforma->getY()) 
+                    {
+                        pJogador->setY(pJogador->getY() + intersecao.height);
+                        pJogador->Entidade::setVelY(0.0); 
+                        pJogador->setNoChao(false);
+                    }
                 }
                 else 
                 {

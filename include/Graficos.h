@@ -9,6 +9,7 @@ namespace Alaska
         {
             private:
                 sf::RenderWindow* janela;
+                sf::View camera;
             public:
                 Graficos();
                 ~Graficos();
@@ -18,6 +19,8 @@ namespace Alaska
                 void mostrar();
                 bool isJanelaAberta();
                 sf::RenderWindow* getJanela();
+
+                void atualizarCamera(float x, float y);
         };
     }
 }

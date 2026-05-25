@@ -15,7 +15,6 @@ void Alaska::Fases::FaseNoite::criarCenario()
 {
 
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f)); 
-    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(400.0f, 400.0f)); 
-
-    listaEntidades.push_back(new Entidades::Obstaculos::Ice_Spike(true, 10)); 
+    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(1000.0f, 400.0f)); 
+    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(1200.0f, 200.0f));
 }

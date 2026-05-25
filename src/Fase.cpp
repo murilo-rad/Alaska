@@ -24,13 +24,16 @@ void Alaska::Fases::Fase::executar()
 {
     pJogador->executar();
 
-    for (int i = 0; i < listaEntidades.size(); i++) 
+    for(int i = 0; i < listaEntidades.size(); i++) 
         listaEntidades[i]->executar();
     
     if(pColisoes)
         pColisoes->calcularColisoes();
 
-    for (int i = 0; i < listaEntidades.size(); i++) 
+    if(pGG)
+        pGG->atualizarCamera(pJogador->getX() + 25.0f, pJogador->getY());
+
+    for(int i = 0; i < listaEntidades.size(); i++) 
         listaEntidades[i]->desenhar();
     
     pJogador->desenhar();

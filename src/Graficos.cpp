@@ -2,8 +2,10 @@
 
 Alaska::Gerenciadores::Graficos::Graficos() 
 {
-    janela = new sf::RenderWindow(sf::VideoMode(800, 600), "Demo Alaska - Eventos");
+    janela = new sf::RenderWindow(sf::VideoMode(800, 600), "Demo Alaska");
     janela->setFramerateLimit(60);
+
+    camera.setSize(800.0f, 600.0f);
 }
 
 Alaska::Gerenciadores::Graficos::~Graficos() 
@@ -37,4 +39,10 @@ bool Alaska::Gerenciadores::Graficos::isJanelaAberta()
 sf::RenderWindow* Alaska::Gerenciadores::Graficos::getJanela() 
 {
     return janela;
+}
+
+void Alaska::Gerenciadores::Graficos::atualizarCamera(float x, float y)
+{
+    camera.setCenter(x, 300.0f); 
+    janela->setView(camera);
 }
