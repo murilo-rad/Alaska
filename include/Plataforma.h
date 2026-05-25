@@ -13,7 +13,7 @@ namespace Alaska
                 private:
                     int altura;
                 public:
-                    Plataforma();
+                    Plataforma(float x, float y);
                     ~Plataforma();
                     void executar();
                     

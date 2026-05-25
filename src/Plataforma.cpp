@@ -1,6 +1,6 @@
 #include "Plataforma.h"
 
-Alaska::Entidades::Obstaculos::Plataforma::Plataforma() : Obstaculo(0.0f, 500.0f), altura(50)
+Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y), altura(50)
 {
     sf::Image img;
     img.create(800, 50, sf::Color::Green);

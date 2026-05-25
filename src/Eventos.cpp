@@ -38,6 +38,11 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) 
             pJogador->setY(pJogador->getY() + vel);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) 
-            pJogador->setY(pJogador->getY() - vel);
+            if(pJogador->getNoChao())
+            {
+                if (pJogador->getNoChao()) 
+                    pJogador->setVelY(-12.0f);
+                    pJogador->setNoChao(false);
+            }
     }
 }

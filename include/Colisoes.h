@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Jogador.h"
-#include "Plataforma.h"
-#include "Ice_Spike.h"
+#include "Entidade.h"
 
 namespace Alaska 
 {
@@ -12,13 +11,10 @@ namespace Alaska
         {
         private:
             Entidades::Personagens::Jogador* pJogador;
-            Entidades::Obstaculos::Plataforma* pPlataforma;
-            Entidades::Obstaculos::Ice_Spike* pEspinho;
+            std::vector<Entidades::Entidade*>* listaEntidades;
 
         public:
-            Colisoes(Entidades::Personagens::Jogador* j, 
-                     Entidades::Obstaculos::Plataforma* p, 
-                     Entidades::Obstaculos::Ice_Spike* e);
+            Colisoes(Entidades::Personagens::Jogador* pJ, std::vector<Entidades::Entidade*>* listaEnt);
             ~Colisoes();
 
             void calcularColisoes();

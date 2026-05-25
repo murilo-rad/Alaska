@@ -30,6 +30,8 @@ src/Plataforma.cpp
 src/Graficos.cpp
 src/Eventos.cpp
 src/Colisoes.cpp
+src/Fase.cpp
+src/FaseNoite.cpp
 )
 
 target_include_directories(Alaska PRIVATE include)
