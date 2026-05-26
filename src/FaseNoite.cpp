@@ -1,6 +1,7 @@
 #include "FaseNoite.h"
 #include "Plataforma.h"
 #include "Ice_Spike.h"
+#include "Inimigo.h"
 
 Alaska::Fases::FaseNoite::FaseNoite(Entidades::Personagens::Jogador* pJ): Fase(pJ)
 {
@@ -16,4 +17,7 @@ void Alaska::Fases::FaseNoite::criarCenario()
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
+
+    listaEntidades.push_back(
+        new Entidades::Personagens::InimigoSimples(400.0f, 100.0f, pJogador));
 }

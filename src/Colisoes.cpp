@@ -13,7 +13,14 @@ void Alaska::Gerenciadores::Colisoes::calcularColisoes()
 
     sf::FloatRect caixaJogador = pJogador->getSprite()->getGlobalBounds();
 
-    for (int i = 0; i < listaEntidades->size(); i++) 
+    for (int k = 0; k < (int)listaEntidades->size(); k++)
+    {
+        Entidades::Personagens::Inimigo* pIni =
+            dynamic_cast<Entidades::Personagens::Inimigo*>((*listaEntidades)[k]);
+        if (pIni != NULL) pIni->setNoChao(false);
+    }
+
+    for (int i = 0; i < (int)listaEntidades->size(); i++) 
     {
         Entidades::Entidade* pEntidade = (*listaEntidades)[i];
         sf::FloatRect caixaEntidade = pEntidade->getSprite()->getGlobalBounds();
@@ -21,10 +28,12 @@ void Alaska::Gerenciadores::Colisoes::calcularColisoes()
 
         if (caixaJogador.intersects(caixaEntidade, intersecao)) 
         {
-            auto* pPlataforma = dynamic_cast<Entidades::Obstaculos::Plataforma*>(pEntidade);
-            auto* pEspinho = dynamic_cast<Entidades::Obstaculos::Ice_Spike*>(pEntidade);
+            Entidades::Obstaculos::Plataforma* pPlataforma =
+                dynamic_cast<Entidades::Obstaculos::Plataforma*>(pEntidade);
+            Entidades::Obstaculos::Ice_Spike* pEspinho =
+                dynamic_cast<Entidades::Obstaculos::Ice_Spike*>(pEntidade);
 
-            if (pPlataforma != nullptr) 
+            if (pPlataforma != NULL) 
             {
                 if (intersecao.width > intersecao.height) 
                 {
@@ -34,11 +43,10 @@ void Alaska::Gerenciadores::Colisoes::calcularColisoes()
                         pJogador->Entidade::setVelY(0.0); 
                         pJogador->setNoChao(true);
                     }
-                    else if (pJogador->getY() > pPlataforma->getY()) 
+                    else 
                     {
                         pJogador->setY(pJogador->getY() + intersecao.height);
                         pJogador->Entidade::setVelY(0.0); 
-                        pJogador->setNoChao(false);
                     }
                 }
                 else 
@@ -48,13 +56,58 @@ void Alaska::Gerenciadores::Colisoes::calcularColisoes()
                     else
                         pJogador->setX(pJogador->getX() + intersecao.width);
                 }
-                
+
                 caixaJogador = pJogador->getSprite()->getGlobalBounds(); 
             }
-            
-            else if (pEspinho != nullptr) 
+            else if (pEspinho != NULL) 
             {
                 std::cout << "Ai!" << std::endl;
+            }
+        }
+
+        Entidades::Personagens::Inimigo* pInimigo =
+            dynamic_cast<Entidades::Personagens::Inimigo*>(pEntidade);
+
+        if (pInimigo != NULL)
+        {
+            sf::FloatRect caixaInimigo = pInimigo->getSprite()->getGlobalBounds();
+
+            for (int j = 0; j < (int)listaEntidades->size(); j++)
+            {
+                Entidades::Obstaculos::Plataforma* pPlat =
+                    dynamic_cast<Entidades::Obstaculos::Plataforma*>((*listaEntidades)[j]);
+
+                if (pPlat == NULL) continue;
+
+                sf::FloatRect caixaPlat = pPlat->getSprite()->getGlobalBounds();
+                sf::FloatRect inter;
+
+                if (caixaInimigo.intersects(caixaPlat, inter))
+                {
+                    if (inter.width > inter.height)
+                    {
+                        if (pInimigo->getY() < pPlat->getY())
+                        {
+                            pInimigo->setY(pInimigo->getY() - inter.height);
+                            pInimigo->setVelY(0.0f);
+                            pInimigo->setNoChao(true);
+                        }
+                        else
+                        {
+                            pInimigo->setY(pInimigo->getY() + inter.height);
+                            pInimigo->setVelY(0.0f);
+                        }
+                    }
+                    else
+                    {
+                        if (pInimigo->getX() < pPlat->getX())
+                            pInimigo->setX(pInimigo->getX() - inter.width);
+                        else
+                            pInimigo->setX(pInimigo->getX() + inter.width);
+                    }
+
+                    caixaInimigo = pInimigo->getSprite()->getGlobalBounds();
+                }
             }
         }
     }

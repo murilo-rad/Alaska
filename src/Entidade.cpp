@@ -1,4 +1,5 @@
 #include "Entidade.h"
+#include <cmath>
 
 Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy){}
 
@@ -12,6 +13,21 @@ const float Alaska::Entidades::Entidade::getX()
 const float Alaska::Entidades::Entidade::getY()
 {
     return y;
+}
+
+float Alaska::Entidades::Entidade::length(sf::Vector2f v)
+{
+    return std::sqrt(v.x * v.x + v.y * v.y);
+}
+
+sf::Vector2f Alaska::Entidades::Entidade::normalize(sf::Vector2f v)
+{
+    float len = length(v);
+
+    if (len != 0.f)
+        return v / len;
+
+    return sf::Vector2f(0.f, 0.f);
 }
 
 void Alaska::Entidades::Entidade::setX(const float xx)

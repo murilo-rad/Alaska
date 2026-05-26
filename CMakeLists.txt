@@ -35,4 +35,7 @@ src/FaseNoite.cpp
 )
 
 target_include_directories(Alaska PRIVATE include)
-target_link_libraries(Alaska PRIVATE sfml-main sfml-graphics sfml-window sfml-system)
+target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
+if(WIN32)
+    target_link_libraries(Alaska PRIVATE sfml-main)
+endif()

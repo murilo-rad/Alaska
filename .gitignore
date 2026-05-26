@@ -36,3 +36,5 @@ out/
 .vs/
 .vscode/
 *.user
+
+*.json
