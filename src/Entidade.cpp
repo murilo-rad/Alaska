@@ -1,7 +1,7 @@
 #include "Entidade.h"
 #include <cmath>
 
-Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy){}
+Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy), velX(0.0f), velY(0.0f){}
 
 Alaska::Entidades::Entidade::~Entidade(){}
 
@@ -33,11 +33,13 @@ sf::Vector2f Alaska::Entidades::Entidade::normalize(sf::Vector2f v)
 void Alaska::Entidades::Entidade::setX(const float xx)
 {
     x = xx;
+    sprite.setPosition(x, y);
 }
 
 void Alaska::Entidades::Entidade::setY(const float yy)
 {
     y = yy;
+    sprite.setPosition(x, y);
 }
 
 void Alaska::Entidades::Entidade::setVelY(const float velYy)

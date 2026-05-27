@@ -40,11 +40,8 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) 
             if(pJogador->getNoChao())
             {
-                if (pJogador->getNoChao()) 
-                {
-                    pJogador->setVelY(-11.0f);
-                    pJogador->setNoChao(false);
-                }
+                pJogador->setVelY(-11.0f);
+                pJogador->setNoChao(false);
             }
     }
 }
