@@ -43,6 +43,10 @@ sf::RenderWindow* Alaska::Gerenciadores::Graficos::getJanela()
 
 void Alaska::Gerenciadores::Graficos::atualizarCamera(float x, float y)
 {
-    camera.setCenter(x, 300.0f); 
-    janela->setView(camera);
+    camera.setCenter(x, y);
+    if (janela && janela->isOpen())
+    {
+        sf::View visualizacaoAtual = camera;
+        janela->setView(camera);
+    }
 }

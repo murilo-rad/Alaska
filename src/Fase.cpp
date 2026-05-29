@@ -31,7 +31,7 @@ void Alaska::Fases::Fase::executar()
         pColisoes->calcularColisoes();
 
     if(pGG)
-        pGG->atualizarCamera(pJogador->getX() + 25.0f, pJogador->getY());
+        pGG->atualizarCamera(pJogador->getX() + 25.0f, 300.0f);
 
     for(int i = 0; i < listaEntidades.size(); i++) 
         listaEntidades[i]->desenhar();
