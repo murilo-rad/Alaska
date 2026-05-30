@@ -32,7 +32,7 @@ src/Eventos.cpp
 src/Colisoes.cpp
 src/Fase.cpp
 src/FaseNoite.cpp
-)
+src/Alaskapp.cpp)
 
 set_target_properties(Alaska PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
@@ -45,3 +45,4 @@ target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
 if(WIN32)
     target_link_libraries(Alaska PRIVATE sfml-main)
 endif()
+target_compile_options(Alaska PRIVATE -Wall -Wextra -Wshadow)
