@@ -32,6 +32,7 @@ src/Eventos.cpp
 src/Colisoes.cpp
 src/Fase.cpp
 src/FaseNoite.cpp
+src/Menu.cpp
 src/Alaskapp.cpp)
 
 set_target_properties(Alaska PROPERTIES
