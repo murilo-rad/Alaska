@@ -3,8 +3,8 @@
 using namespace Alaska;
 
 Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
-	//pJog1 = new Entidades::Personagens::Jogador();
-	executar();
+    pJog1 = new Entidades::Personagens::Jogador();
+    executar();
 }
 
 Alaska::Alaskapp::~Alaskapp() {}
@@ -15,6 +15,11 @@ void Alaska::Alaskapp::executar() {
     Ente::setGG(&GG);
     eventos.setJanela(GG.getJanela());
 
+
+    Alaska::Menu menu(this, &eventos);
+    eventos.setMenu(&menu);
+    menu.executar();
+
     Entidades::Personagens::Jogador jogador;
     eventos.setJogador(&jogador);
 
@@ -22,13 +27,12 @@ void Alaska::Alaskapp::executar() {
 
     while (GG.isJanelaAberta())
     {
-        eventos.verificarEventos();
+            eventos.verificarEventos();
 
         GG.limpar();
 
-        fasePrimeira.executar();
+            fasePrimeira.executar();
 
         GG.mostrar();
     }
 }
-

@@ -1,17 +1,18 @@
 #pragma once
 #include "pch.h"
+#include "Menu.h"
 #include "Jogador.h"
 
-namespace Alaska 
+namespace Alaska
 {
-    namespace Gerenciadores 
+    namespace Gerenciadores
     {
-        
-        class Eventos 
+        class Eventos
         {
         private:
             sf::RenderWindow* janela;
             Alaska::Entidades::Personagens::Jogador* pJogador;
+			Alaska::Menu* pMenu;
 
         public:
             Eventos();
@@ -19,6 +20,7 @@ namespace Alaska
 
             void setJanela(sf::RenderWindow* pJ);
             void setJogador(Alaska::Entidades::Personagens::Jogador* pJ);
+            void setMenu(Alaska::Menu* pM);
             void verificarEventos();
         };
 

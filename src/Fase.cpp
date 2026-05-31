@@ -1,7 +1,8 @@
 #include "Fase.h"
+#include "Graficos.h"
 
 Alaska::Fases::Fase::Fase(Alaska::Entidades::Personagens::Jogador* pJ)
-{   
+{
     if(pJ)
         pJogador = pJ;
 
@@ -11,12 +12,12 @@ Alaska::Fases::Fase::Fase(Alaska::Entidades::Personagens::Jogador* pJ)
 Alaska::Fases::Fase::~Fase()
 {
     //Brunno, ainda não temos a classe Lista, então eu criei a lista provisoriamente aqui.
-    for (int i = 0; i < listaEntidades.size(); i++) 
+    for (int i = 0; i < listaEntidades.size(); i++)
     if(listaEntidades[i])
-        delete listaEntidades[i];
+            delete listaEntidades[i];
 
     listaEntidades.clear();
-    
+
     delete pColisoes;
 }
 
@@ -26,7 +27,7 @@ void Alaska::Fases::Fase::executar()
 
     for(int i = 0; i < listaEntidades.size(); i++) 
         listaEntidades[i]->executar();
-    
+
     if(pColisoes)
         pColisoes->calcularColisoes();
 
@@ -35,6 +36,6 @@ void Alaska::Fases::Fase::executar()
 
     for(int i = 0; i < listaEntidades.size(); i++) 
         listaEntidades[i]->desenhar();
-    
+
     pJogador->desenhar();
 }
