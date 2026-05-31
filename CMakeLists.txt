@@ -32,7 +32,7 @@ src/Eventos.cpp
 src/Colisoes.cpp
 src/Fase.cpp
 src/FaseNoite.cpp
-)
+src/Alaskapp.cpp)
 
 set_target_properties(Alaska PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
