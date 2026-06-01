@@ -23,10 +23,9 @@ Alaska::Fases::Fase::~Fase()
 
 void Alaska::Fases::Fase::executar()
 {
-    pJogador->executar();
-
     for(int i = 0; i < listaEntidades.size(); i++) 
-        listaEntidades[i]->executar();
+        if(listaEntidades[i])
+            listaEntidades[i]->executar();
 
     if(pColisoes)
         pColisoes->calcularColisoes();
@@ -34,8 +33,9 @@ void Alaska::Fases::Fase::executar()
     if(pGG)
         pGG->atualizarCamera(pJogador->getX() + 25.0f, 300.0f);
 
-    for(int i = 0; i < listaEntidades.size(); i++) 
-        listaEntidades[i]->desenhar();
+    for(int i = 0; i < listaEntidades.size(); i++)
+        if(listaEntidades[i])
+            listaEntidades[i]->desenhar();
 
     pJogador->desenhar();
 }

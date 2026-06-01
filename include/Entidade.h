@@ -27,6 +27,7 @@ namespace Alaska
                 
                 void setX(const float xx);
                 void setY(const float yy);
+                void setVelX(const float velXx);
                 void setVelY(const float velYy);
                 void aplicarGravidade();
         };
