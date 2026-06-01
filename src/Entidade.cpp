@@ -47,6 +47,11 @@ void Alaska::Entidades::Entidade::setVelY(const float velYy)
     velY = velYy;
 }
 
+void Alaska::Entidades::Entidade::setVelX(const float velXx)
+{
+    velX = velXx;
+}
+
 void Alaska::Entidades::Entidade::aplicarGravidade()
 {
     velY += GRAVIDADE;

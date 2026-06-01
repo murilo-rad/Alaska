@@ -14,6 +14,9 @@ Alaska::Fases::FaseNoite::~FaseNoite()
 
 void Alaska::Fases::FaseNoite::criarCenario() 
 {
+    if (pJogador)
+        listaEntidades.push_back(pJogador);
+
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
     listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
