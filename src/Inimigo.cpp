@@ -41,7 +41,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     sf::Vector2f dir = normalize(direcao);
     velX = dir.x * velocidade;
 
-    if (pJogador->getY() < y - 90.0f && noChao)
+    if (pJogador->getY() < y - 110.0f && noChao)
     {
         velY = -11.0f;
         setNoChao(false);
