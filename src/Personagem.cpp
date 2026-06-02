@@ -23,3 +23,10 @@ const bool Alaska::Entidades::Personagens::Personagem::getNoChao()const
 {
     return noChao;
 }
+
+Alaska::Entidades::Personagens::Personagem& Alaska::Entidades::Personagens::Personagem::operator--()
+{
+    if(vidas)
+        vidas--;
+    return *this;
+}

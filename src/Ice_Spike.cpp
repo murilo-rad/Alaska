@@ -2,7 +2,6 @@
 
 Alaska::Entidades::Obstaculos::Ice_Spike::Ice_Spike(bool d, short int dano): Obstaculo(400.0f, 450.0f), danosidade(dano) 
 {   
-    //Como ainda não temos sprites, estaremos criando corpos básicos para a demo.
     sf::Image img;
     img.create(30, 50, sf::Color::Cyan);
     textura.loadFromImage(img);

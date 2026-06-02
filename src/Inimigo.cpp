@@ -5,7 +5,7 @@
 Alaska::Entidades::Personagens::Inimigo::Inimigo(
     float x, float y, int mal, int v, Jogador* pJ)
     : Personagem(x, y, v)
-    , maldade(mal)
+    , nivel_maldade(mal)
     , pJogador(pJ)
     , velocidade(2.0f)
 {
@@ -28,7 +28,7 @@ Alaska::Entidades::Personagens::Inimigo::~Inimigo() {}
 
 int Alaska::Entidades::Personagens::Inimigo::getMaldade()
 {
-    return maldade;
+    return nivel_maldade;
 }
 
 void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
@@ -41,9 +41,9 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     sf::Vector2f dir = normalize(direcao);
     velX = dir.x * velocidade;
 
-    if (pJogador->getY() < y - 70.0f && noChao)
+    if (pJogador->getY() < y - 90.0f && noChao)
     {
-        velY = -11.0f;
+        velY = -8.0f;
         setNoChao(false);
     }
 
@@ -51,17 +51,4 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 }
 
 
-Alaska::Entidades::Personagens::InimigoSimples::InimigoSimples(
-    float x, float y, Jogador* pJ)
-    : Inimigo(x, y, 1, 1, pJ)
-{
-}
 
-Alaska::Entidades::Personagens::InimigoSimples::~InimigoSimples() {}
-
-void Alaska::Entidades::Personagens::InimigoSimples::executar()
-{
-    seguirJogador();
-    aplicarGravidade();
-    sprite.setPosition(x, y);
-}

@@ -1,114 +1,117 @@
 #include "Colisoes.h"
 #include "Plataforma.h"
-#include "Ice_Spike.h"
+#include "Inimigo.h"
+#include "Nevoso.h"
 
-Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, std::vector<Entidades::Entidade*>* listaEnt) 
-    : pJogador(pJ), listaEntidades(listaEnt) {}
+Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista) 
+    : pJog1(pJ), pListaEntidades(lista) {}
 
 Alaska::Gerenciadores::Colisoes::~Colisoes() {}
 
-void Alaska::Gerenciadores::Colisoes::calcularColisoes() 
+void Alaska::Gerenciadores::Colisoes::executar() 
 {
-    if (!pJogador || !listaEntidades) return;
+    tratarColisoesJogsObstacs();
+    tratarColisoesJogsInimigs();
+}
 
-    sf::FloatRect caixaJogador = pJogador->getSprite()->getGlobalBounds();
+const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2) const 
+{
+    sf::FloatRect caixa1 = pE1->getSprite()->getGlobalBounds();
+    sf::FloatRect caixa2 = pE2->getSprite()->getGlobalBounds();
+    return caixa1.intersects(caixa2);
+}
 
-    for (int k = 0; k < (int)listaEntidades->size(); k++)
+void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs() 
+{
+    if(!pJog1) return;
+    
+    // Varrendo usando o seu iterador customizado
+    auto lista = pListaEntidades->getLista();
+    for (auto it = lista->begin(); it != lista->end(); ++it) 
     {
-        Entidades::Personagens::Inimigo* pIni =
-            dynamic_cast<Entidades::Personagens::Inimigo*>((*listaEntidades)[k]);
-        if (pIni != NULL) pIni->setNoChao(false);
+        Entidades::Entidade* pEnt = *it;
+        Entidades::Obstaculos::Obstaculo* pObs = dynamic_cast<Entidades::Obstaculos::Obstaculo*>(pEnt);
+        
+        if (pObs && verificarColisao(pJog1, pObs))
+            pObs->obstaculizar(pJog1);
     }
+}
 
-    for (int i = 0; i < (int)listaEntidades->size(); i++) 
+void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs() 
+{
+    if(!pJog1) return;
+
+    if (!pListaEntidades) return;
+
+    auto lista = pListaEntidades->getLista();
+
+    for (auto it1 = lista->begin(); it1 != lista->end(); ++it1) 
     {
-        Entidades::Entidade* pEntidade = (*listaEntidades)[i];
-        sf::FloatRect caixaEntidade = pEntidade->getSprite()->getGlobalBounds();
-        sf::FloatRect intersecao;
+        Entidades::Entidade* pEnt1 = *it1;
+        Entidades::Personagens::Inimigo* pIni = dynamic_cast<Entidades::Personagens::Inimigo*>(pEnt1);
+        
+        if (!pIni) continue;
 
-        if (caixaJogador.intersects(caixaEntidade, intersecao)) 
+        for (auto it2 = lista->begin(); it2 != lista->end(); ++it2) 
         {
-            Entidades::Obstaculos::Plataforma* pPlataforma =
-                dynamic_cast<Entidades::Obstaculos::Plataforma*>(pEntidade);
-            Entidades::Obstaculos::Ice_Spike* pEspinho =
-                dynamic_cast<Entidades::Obstaculos::Ice_Spike*>(pEntidade);
+            Entidades::Entidade* pEnt2 = *it2;
+            Entidades::Obstaculos::Obstaculo* pObs = dynamic_cast<Entidades::Obstaculos::Obstaculo*>(pEnt2);
+            
+            if (!pObs) continue; 
 
-            if (pPlataforma != NULL) 
+            sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
+            sf::FloatRect caixaObs = pObs->getSprite()->getGlobalBounds();
+            sf::FloatRect inter; 
+            if (caixaIni.intersects(caixaObs, inter)) 
             {
-                if (intersecao.width > intersecao.height) 
+                
+                if (inter.width > inter.height) 
                 {
-                    if (pJogador->getY() < pPlataforma->getY()) 
+                    if (pIni->getY() < pObs->getY()) 
                     {
-                        pJogador->setY(pJogador->getY() - intersecao.height);
-                        pJogador->Entidade::setVelY(0.0); 
-                        pJogador->setNoChao(true);
-                    }
+                        pIni->setY(pIni->getY() - inter.height);
+                        pIni->setVelY(0.0f);
+                        pIni->setNoChao(true);
+                    } 
                     else 
                     {
-                        pJogador->setY(pJogador->getY() + intersecao.height);
-                        pJogador->Entidade::setVelY(0.0); 
+                        // Inimigo bateu a cabeça por baixo da plataforma
+                        pIni->setY(pIni->getY() + inter.height);
+                        pIni->setVelY(0.0f);
                     }
-                }
+                } 
                 else 
                 {
-                    if (pJogador->getX() < pPlataforma->getX())
-                        pJogador->setX(pJogador->getX() - intersecao.width); 
-                    else
-                        pJogador->setX(pJogador->getX() + intersecao.width);
+                    if (pIni->getX() < pObs->getX()) 
+                    {
+                        pIni->setX(pIni->getX() - inter.width);
+                    } 
+                    else 
+                    {
+                        pIni->setX(pIni->getX() + inter.width);
+                    }
                 }
-
-                caixaJogador = pJogador->getSprite()->getGlobalBounds(); 
-            }
-            else if (pEspinho != NULL) 
-            {
-                std::cout << "Ai!" << std::endl;
             }
         }
+    }
 
-        Entidades::Personagens::Inimigo* pInimigo =
-            dynamic_cast<Entidades::Personagens::Inimigo*>(pEntidade);
-
-        if (pInimigo != NULL)
+    for (auto it = lista->begin(); it != lista->end(); ++it) {
+        Entidades::Entidade* pEnt = *it;
+        Entidades::Personagens::Inimigo* pIni = dynamic_cast<Entidades::Personagens::Inimigo*>(pEnt);
+        
+        if (pIni && verificarColisao(pJog1, pIni)) 
         {
-            sf::FloatRect caixaInimigo = pInimigo->getSprite()->getGlobalBounds();
-
-            for (int j = 0; j < (int)listaEntidades->size(); j++)
+            sf::FloatRect caixaJog = pJog1->getSprite()->getGlobalBounds();
+            sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
+            
+            if(caixaJog.top + caixaJog.height < caixaIni.top + (caixaIni.height / 2.0f) && pJog1->getVelY() > 0.0f) 
             {
-                Entidades::Obstaculos::Plataforma* pPlat =
-                    dynamic_cast<Entidades::Obstaculos::Plataforma*>((*listaEntidades)[j]);
-
-                if (pPlat == NULL) continue;
-
-                sf::FloatRect caixaPlat = pPlat->getSprite()->getGlobalBounds();
-                sf::FloatRect inter;
-
-                if (caixaInimigo.intersects(caixaPlat, inter))
-                {
-                    if (inter.width > inter.height)
-                    {
-                        if (pInimigo->getY() < pPlat->getY())
-                        {
-                            pInimigo->setY(pInimigo->getY() - inter.height);
-                            pInimigo->setVelY(0.0f);
-                            pInimigo->setNoChao(true);
-                        }
-                        else
-                        {
-                            pInimigo->setY(pInimigo->getY() + inter.height);
-                            pInimigo->setVelY(0.0f);
-                        }
-                    }
-                    else
-                    {
-                        if (pInimigo->getX() < pPlat->getX())
-                            pInimigo->setX(pInimigo->getX() - inter.width);
-                        else
-                            pInimigo->setX(pInimigo->getX() + inter.width);
-                    }
-
-                    caixaInimigo = pInimigo->getSprite()->getGlobalBounds();
-                }
-            }
+                pIni->setVida(0); 
+                pJog1->setVelY(-10.0f);
+            } 
+            else 
+                pIni->danificar(); 
         }
     }
 }
+

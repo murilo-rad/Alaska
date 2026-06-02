@@ -1154,7 +1154,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[7]" type="UMLClassView" guid="4WhxfjP4Dka5cd7hXIlMpgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">392</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">380</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
@@ -1185,7 +1185,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[8]" type="UMLClassView" guid="a2BCGcgB6Ui3WkRIbAX3OAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">84</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">140</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">297</XPD:ATTR>
@@ -1215,7 +1215,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[9]" type="UMLClassView" guid="Z46Z1EcGdUWNdp6zT+hJ5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">132</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">340</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">227</XPD:ATTR>
@@ -1821,7 +1821,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[22]" type="UMLClassView" guid="XqepOezZpUWQX0PQTjRzNgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">88</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1020</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">121</XPD:ATTR>
@@ -2053,8 +2053,8 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[30]" type="UMLClassView" guid="SYpdG9PR3UuJz7Y+XHTPAAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">684</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">692</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1020</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">174</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">121</XPD:ATTR>
@@ -2062,7 +2062,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="m0gWV25KJ02i4p5Np+vYzgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="lZlDR/+Zck64tiZlBvn1SgAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">NA</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Neve</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="0C21m4qti029qkyZagEg3QAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Obstaculo 2&gt;&gt;</XPD:ATTR>
@@ -2370,7 +2370,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[41]" type="UMLClassView" guid="ZY9+MLImI0yg29f/o3RiqwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1004</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1044</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">152</XPD:ATTR>
@@ -2379,7 +2379,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="zTV0CvgjmEavtRcDOsvMcAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="wo3tyEJRk0ahY0ZWmB02iQAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Inim_Facil</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Nevoso</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="QrPmANvtuU+XSIh3tsL1ugAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Inimigo 1 - Fácil&gt;&gt;</XPD:ATTR>
@@ -4211,7 +4211,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[71]" type="UMLClassView" guid="S2jXUU8m+kWBPPOZn3PT2gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
-<XPD:ATTR name="FillColor" type="string">$008080FF</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$0080FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">1176</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">1044</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">123</XPD:ATTR>
@@ -4220,7 +4220,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="7vq9U+9kHkyTH88q1ng1igAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="ENjVYYQqpEqfnwVVBxZZewAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Inim_Medio</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Lobo</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="D1xPzeSNn0C4PmuLx9hrwwAA">
 <XPD:ATTR name="Text" type="string">&lt;&lt;Inimigo 2 - Médio&gt;&gt;</XPD:ATTR>
@@ -4391,7 +4391,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 <XPD:ATTR name="LineColor" type="string">$00408000</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00408000</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">684,1080;544,1080;544,944;454,944</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">692,1080;544,1080;544,944;454,944</XPD:ATTR>
 <XPD:REF name="Model">ZE3V1L77b0iKNBP1X1nCqgAA</XPD:REF>
 <XPD:REF name="Head">kvs6oq6ro0epESl22ysdwAAA</XPD:REF>
 <XPD:REF name="Tail">SYpdG9PR3UuJz7Y+XHTPAAAA</XPD:REF>
@@ -5592,7 +5592,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[28]" type="UMLClass" guid="3qlNYY7AFUCR6Ic4Ei8bwQAA">
-<XPD:ATTR name="Name" type="string">NA</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Neve</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Obstaculo 2</XPD:ATTR>
 <XPD:REF name="Namespace">IoH8RzmxEE6xOc9zvj2jawAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -6217,7 +6217,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[4]" type="UMLClass" guid="/kgpM0BGfE+a7qP01bw7hAAA">
-<XPD:ATTR name="Name" type="string">Inim_Facil</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Nevoso</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Inimigo 1 - Fácil</XPD:ATTR>
 <XPD:REF name="Namespace">WmMPnOmkFUaEn4CHmyLHQAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -6491,7 +6491,7 @@ Neste sentido, os atributos indicados também podem ser alterados, modificado et
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[51]" type="UMLClass" guid="LBycTmf5mUenHAL9OeMzyQAA">
-<XPD:ATTR name="Name" type="string">Inim_Medio</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Lobo</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">Inimigo 2 - Médio</XPD:ATTR>
 <XPD:REF name="Namespace">IoH8RzmxEE6xOc9zvj2jawAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>

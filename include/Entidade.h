@@ -21,7 +21,7 @@ namespace Alaska
 
                 virtual void executar() = 0;
 		
-		float length(sf::Vector2f v);
+		        float length(sf::Vector2f v);
                 const float getX();
                 const float getY();
                 
@@ -29,6 +29,8 @@ namespace Alaska
                 void setY(const float yy);
                 void setVelX(const float velXx);
                 void setVelY(const float velYy);
+                const float getVelX()const;
+                const float getVelY()const;
                 void aplicarGravidade();
         };
     }
