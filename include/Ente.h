@@ -21,7 +21,7 @@ namespace Alaska
         Ente();
         virtual ~Ente();
 
-        //virtual void executar() = 0;
+        virtual void executar() = 0;
         void desenhar();
         static void setGG(Alaska::Gerenciadores::Graficos* pG);
         sf::Sprite* getSprite();

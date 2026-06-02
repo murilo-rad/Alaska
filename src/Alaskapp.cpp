@@ -35,7 +35,7 @@ void Alaska::Alaskapp::executar() {
 
         GG.limpar();
 
-            //fasePrimeira.executar();
+            fasePrimeira.executar();
 
         GG.mostrar();
     }
