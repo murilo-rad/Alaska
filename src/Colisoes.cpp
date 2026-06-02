@@ -25,6 +25,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 {
     if(!pJog1) return;
     
+    // Varrendo usando o seu iterador customizado
     auto lista = pListaEntidades->getLista();
     for (auto it = lista->begin(); it != lista->end(); ++it) 
     {

@@ -26,7 +26,6 @@ void Alaska::Alaskapp::executar() {
         pJog1 = new Entidades::Personagens::Jogador();
 
     eventos.setJogador(pJog1);
-    
     Fases::FaseNoite fasePrimeira(pJog1);
 
     while (GG.isJanelaAberta())

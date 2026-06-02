@@ -10,11 +10,10 @@ namespace Alaska
         {
             class Gelo : public Obstaculo
             {
-                public:
-                    Gelo(float x, float y);
-                    ~Gelo();
-                    void executar();
-                    virtual void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
+                Gelo(float x, float y);
+                ~Gelo();
+                void executar();
+                virtual void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
             };
         }
     }
