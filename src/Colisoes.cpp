@@ -50,7 +50,8 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
         Entidades::Entidade* pEnt1 = *it1;
         Entidades::Personagens::Inimigo* pIni = dynamic_cast<Entidades::Personagens::Inimigo*>(pEnt1);
         
-        if (!pIni) continue;
+        if (!pIni) 
+            continue;
 
         for (auto it2 = lista->begin(); it2 != lista->end(); ++it2) 
         {
