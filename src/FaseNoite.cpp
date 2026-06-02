@@ -2,6 +2,7 @@
 #include "Plataforma.h"
 #include "Ice_Spike.h"
 #include "Nevoso.h"
+#include "Lobo.h"
 
 Alaska::Fases::FaseNoite::FaseNoite(Entidades::Personagens::Jogador* pJ): Fase(pJ)
 {
@@ -21,7 +22,7 @@ void Alaska::Fases::FaseNoite::criarCenario()
     lista_ents.incluir(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
     lista_ents.incluir(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
 
-    lista_ents.incluir(new Entidades::Personagens::Nevoso(400.0f, 100.0f, pJogador));
+    lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
 
 }
 

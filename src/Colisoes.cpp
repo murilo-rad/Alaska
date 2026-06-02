@@ -64,33 +64,14 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
             sf::FloatRect inter; 
             if (caixaIni.intersects(caixaObs, inter)) 
             {
-                
                 if (inter.width > inter.height) 
-                {
-                    if (pIni->getY() < pObs->getY()) 
-                    {
-                        pIni->setY(pIni->getY() - inter.height);
-                        pIni->setVelY(0.0f);
-                        pIni->setNoChao(true);
-                    } 
-                    else 
-                    {
-                        // Inimigo bateu a cabeça por baixo da plataforma
-                        pIni->setY(pIni->getY() + inter.height);
-                        pIni->setVelY(0.0f);
-                    }
-                } 
-                else 
-                {
-                    if (pIni->getX() < pObs->getX()) 
-                    {
-                        pIni->setX(pIni->getX() - inter.width);
-                    } 
-                    else 
-                    {
-                        pIni->setX(pIni->getX() + inter.width);
-                    }
-                }
+                    if (pIni->getVelY() > 0.0f)
+                        if (pIni->getY() < pObs->getY()) 
+                        {
+                            pIni->setY(pIni->getY() - inter.height);
+                            pIni->setVelY(0.0f);
+                            pIni->setNoChao(true);
+                        }    
             }
         }
     }

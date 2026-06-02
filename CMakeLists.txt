@@ -36,7 +36,8 @@ src/Menu.cpp
 src/Alaskapp.cpp
 src/ListaEntidades.cpp
 src/Nevoso.cpp
-src/Gelo.cpp)
+src/Gelo.cpp
+src/Lobo.cpp)
 
 set_target_properties(Alaska PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
