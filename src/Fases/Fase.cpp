@@ -11,23 +11,29 @@ Alaska::Fases::Fase::Fase(Alaska::Entidades::Personagens::Jogador* pJ)
 
 Alaska::Fases::Fase::~Fase()
 {
-    // Substitua todo o código antigo por este loop usando seu iterador:
     auto* lista = lista_ents.getLista();
     for (auto it = lista->begin(); it != lista->end(); ++it)
     {
         if (*it)
             delete *it;
     }
-    // Remova o listaEntidades.clear(); (Como é uma lista encadeada própria, 
+    //Como é uma lista encadeada própria, 
     // a liberação dos nós deve ser feita no próprio destruidor da classe Lista)
 
     delete pColisoes;
 }
 
-void Alaska::Fases::Fase::executar()
+
+
+
+
+
+
+
+
+/* void Alaska::Fases::Fase::executar()
 {
     auto* lista = lista_ents.getLista();
-
 
     for (auto it = lista->begin(); it != lista->end(); ++it)
     {
@@ -49,4 +55,4 @@ void Alaska::Fases::Fase::executar()
     }
 
     pJogador->desenhar();
-}
+} */
