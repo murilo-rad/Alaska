@@ -25,6 +25,7 @@ namespace Alaska
                 void criarCenario();
                 void criarInimiFaceis();
                 void criarPlataformas();
+                virtual void criarChao() = 0;
         };
     }
 }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
 project(Alaska CXX)
-
+ 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -37,13 +37,15 @@ src/Alaskapp.cpp
 src/ListaEntidades.cpp
 src/Nevoso.cpp
 src/Gelo.cpp
-src/Lobo.cpp)
+src/Lobo.cpp 
+src/Chao.cpp 
+)
 
 set_target_properties(Alaska PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/imgs DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/fonts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(Alaska PRIVATE include)
 target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)

@@ -3,6 +3,7 @@
 #include "Ice_Spike.h"
 #include "Nevoso.h"
 #include "Lobo.h"
+#include "Ente.h"
 
 Alaska::Fases::FaseNoite::FaseNoite(Entidades::Personagens::Jogador* pJ): Fase(pJ)
 {
