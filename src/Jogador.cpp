@@ -21,3 +21,13 @@ void Alaska::Entidades::Personagens::Jogador::executar()
     sprite.setPosition(x, y);
     setNoChao(false);
 }
+
+void Alaska::Entidades::Personagens::Jogador::salvar() 
+{
+    
+}
+
+void Alaska::Entidades::Personagens::Jogador::mover() 
+{
+  
+}

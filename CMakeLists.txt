@@ -33,13 +33,16 @@ src/Colisoes.cpp
 src/Fase.cpp
 src/FaseNoite.cpp
 src/Menu.cpp
-src/Alaskapp.cpp)
+src/Alaskapp.cpp
+src/ListaEntidades.cpp
+src/Nevoso.cpp
+src/Gelo.cpp)
 
 set_target_properties(Alaska PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
 )
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/imgs DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(Alaska PRIVATE include)
 target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)

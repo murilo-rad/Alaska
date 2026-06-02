@@ -1,7 +1,7 @@
 #include "FaseNoite.h"
 #include "Plataforma.h"
 #include "Ice_Spike.h"
-#include "Inimigo.h"
+#include "Nevoso.h"
 
 Alaska::Fases::FaseNoite::FaseNoite(Entidades::Personagens::Jogador* pJ): Fase(pJ)
 {
@@ -15,12 +15,22 @@ Alaska::Fases::FaseNoite::~FaseNoite()
 void Alaska::Fases::FaseNoite::criarCenario() 
 {
     if (pJogador)
-        listaEntidades.push_back(pJogador);
+        lista_ents.incluir(pJogador);
 
-    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
-    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
-    listaEntidades.push_back(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
+    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
+    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
+    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
 
-    listaEntidades.push_back(
-        new Entidades::Personagens::InimigoSimples(400.0f, 100.0f, pJogador));
+    lista_ents.incluir(new Entidades::Personagens::Nevoso(400.0f, 100.0f, pJogador));
+
+}
+
+void Alaska::Fases::FaseNoite::criarInimigos() 
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarObstaculos() 
+{
+
 }

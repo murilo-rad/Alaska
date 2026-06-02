@@ -52,6 +52,16 @@ void Alaska::Entidades::Entidade::setVelX(const float velXx)
     velX = velXx;
 }
 
+const float Alaska::Entidades::Entidade::getVelX()const
+{
+    return velX;
+}
+
+const float Alaska::Entidades::Entidade::getVelY()const
+{
+    return velY;
+}
+
 void Alaska::Entidades::Entidade::aplicarGravidade()
 {
     velY += GRAVIDADE;

@@ -1,130 +1,139 @@
 #pragma once
 #include "pch.h"
 
-template <class T>
-class Lista
+
+namespace Alaska
 {
-    private:
-        template <class TE>
-        class Elemento
+    namespace Listas
+    {
+        template <class T>
+        class Lista
         {
             private:
-                TE l_dado;
-                Elemento<TE>* l_proximo;
-            public:
-                Elemento();
-                Elemento(TE dado, Elemento<TE>* proximo);
-                ~Elemento();
-                void setDado(TE dado);
-                void setProximo(Elemento<TE>* proximo);
-                TE getDado() const;
-                Elemento<TE>* getProximo()const;
-        };
-    private:
-        Elemento<T>* l_primeiro;
-        Elemento<T>* l_ultimo;
-    public:
-        class Iterador
-        {
+                template <class TE>
+                class Elemento
+                {
+                    private:
+                        TE l_dado;
+                        Elemento<TE>* l_proximo;
+                    public:
+                        Elemento();
+                        Elemento(TE dado, Elemento<TE>* proximo);
+                        ~Elemento();
+                        void setDado(TE dado);
+                        void setProximo(Elemento<TE>* proximo);
+                        TE getDado() const;
+                        Elemento<TE>* getProximo()const;
+                };
             private:
-                Elemento<T>* l_posicao;
+                Elemento<T>* l_primeiro;
+                Elemento<T>* l_ultimo;
             public:
-                Iterador(Elemento<T>* posicao = nullptr);
-                ~Iterador();
-                T operator*();
-                Iterador proximo();
-                Iterador operator++();
-                Iterador operator++(int);
-                bool operator!=(const Iterador& it);
+                class Iterador
+                {
+                    private:
+                        Elemento<T>* l_posicao;
+                    public:
+                        Iterador(Elemento<T>* posicao = nullptr);
+                        ~Iterador();
+                        T operator*();
+                        Iterador proximo();
+                        Iterador operator++();
+                        Iterador operator++(int);
+                        bool operator!=(const Iterador& it);
+                };
+
+            private:
+                Elemento<T>* buscar(T elemento);
+            public:
+                Lista();
+                ~Lista();
+                void inserirNoFim(T elemento);
+                void removerE(T elemento);
+                bool contem(T elemento);
+                Elemento<T>* getPrimeiro()const;
+                Elemento<T>* getUltimo()const;
+                Iterador begin();
+                Iterador end();
         };
-
-    private:
-        Elemento<T>* buscar(T elemento);
-    public:
-        Lista();
-        ~Lista();
-        void inserirNoFim(T elemento);
-        void remover(T elemento);
-        bool contem(T elemento);
-        Elemento<T>* getPrimeiro()const;
-        Elemento<T>* getUltimo()const;
-};
+    }
+}
 
 
 template <class T>
 template <class TE>
-Lista<T>::Elemento<TE>::Elemento(): l_dado(), l_proximo(nullptr){}
+Alaska::Listas::Lista<T>::Elemento<TE>::Elemento(): l_dado(), l_proximo(nullptr){}
 
 template <class T>
 template <class TE>
-Lista<T>::Elemento<TE>::Elemento(TE dado, Elemento<TE>* proximo): l_dado(dado), l_proximo(proximo){}
+Alaska::Listas::Lista<T>::Elemento<TE>::Elemento(TE dado, Elemento<TE>* proximo): l_dado(dado), l_proximo(proximo){}
 
 template <class T>
 template <class TE>
-Lista<T>::Elemento<TE>::~Elemento() 
+Alaska::Listas::Lista<T>::Elemento<TE>::~Elemento() 
 {
     l_proximo = nullptr;
 }
 
 template <class T>
 template <class TE>
-void Lista<T>::Elemento<TE>::setDado(TE dado) 
+void Alaska::Listas::Lista<T>::Elemento<TE>::setDado(TE dado) 
 {
     l_dado = dado;
 }
 
 template <class T>
 template <class TE>
-void Lista<T>::Elemento<TE>::setProximo(Elemento<TE>* proximo) 
+void Alaska::Listas::Lista<T>::Elemento<TE>::setProximo(Elemento<TE>* proximo) 
 {
     l_proximo = proximo;
 }
 
 template <class T>
 template <class TE>
-TE Lista<T>::Elemento<TE>::getDado()const 
+TE Alaska::Listas::Lista<T>::Elemento<TE>::getDado()const 
 {
     return l_dado;
 }
 
 template <class T>
 template <class TE>
-typename Lista<T>::template Elemento<TE>* Lista<T>::Elemento<TE>::getProximo()const 
+typename Alaska::Listas::Lista<T>::template Elemento<TE>* Alaska::Listas::Lista<T>::Elemento<TE>::getProximo()const 
 {
     return l_proximo;
 }
 
 template <class T>
-Lista<T>::Iterador::Iterador(Lista<T>::Elemento<T>* posicao): l_posicao(posicao){}
+Alaska::Listas::Lista<T>::Iterador::Iterador(Alaska::Listas::Lista<T>::Elemento<T>* posicao): l_posicao(posicao){}
 
 template <class T>
-Lista<T>::Iterador::~Iterador() 
+Alaska::Listas::Lista<T>::Iterador::~Iterador() 
 {
     l_posicao = nullptr;
 }
 
 template <class T>
-T Lista<T>::Iterador::operator*()
+T Alaska::Listas::Lista<T>::Iterador::operator*()
 {
     return l_posicao->getDado();
 }
 
 template <class T>
-typename Lista<T>::Iterador Lista<T>::Iterador::proximo()
+typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::proximo()
 {
     Lista<T>::Iterador aux(this->l_posicao->getProximo());
     return aux;
 }
 
 template <class T>
-typename Lista<T>::Iterador Lista<T>::Iterador::operator++() 
+typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::operator++() 
 {
     l_posicao = l_posicao->getProximo();
     return *this;
 }
 
 template <class T>
-typename Lista<T>::Iterador Lista<T>::Iterador::operator++(int) 
+typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::operator++(int) 
 {
     Iterador temporario = *this;
     l_posicao = l_posicao->getProximo();
@@ -132,16 +141,29 @@ typename Lista<T>::Iterador Lista<T>::Iterador::operator++(int)
 }
 
 template <class T>
-bool Lista<T>::Iterador::operator!=(const Lista<T>::Iterador& it)
+bool Alaska::Listas::Lista<T>::Iterador::operator!=(const Alaska::Listas::Lista<T>::Iterador& it)
 {
     return this->l_posicao != it.l_posicao;
 }
 
 template <class T>
-Lista<T>::Lista(): l_primeiro(nullptr), l_ultimo(nullptr){}
+typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::begin()
+{
+    return Iterador(l_primeiro);
+}
 
 template <class T>
-Lista<T>::~Lista() 
+typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::end()
+{
+    return Iterador(nullptr);
+}
+
+
+template <class T>
+Alaska::Listas::Lista<T>::Lista(): l_primeiro(nullptr), l_ultimo(nullptr){}
+
+template <class T>
+Alaska::Listas::Lista<T>::~Lista() 
 {
     Elemento<T>* elementoAtual = this->getPrimeiro(); 
     Elemento<T>* temporario;
@@ -155,7 +177,7 @@ Lista<T>::~Lista()
 }
 
 template <class T>
-typename Lista<T>::template Elemento<T>* Lista<T>::buscar(T elemento) 
+typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::buscar(T elemento) 
 {
     Elemento<T>* temporario = l_primeiro;
 
@@ -169,7 +191,7 @@ typename Lista<T>::template Elemento<T>* Lista<T>::buscar(T elemento)
 }
 
 template <class T>
-void Lista<T>::inserirNoFim(T elemento) 
+void Alaska::Listas::Lista<T>::inserirNoFim(T elemento) 
 {
     Elemento<T>* temporario = new Elemento<T>;
     temporario->setDado(elemento);
@@ -184,7 +206,7 @@ void Lista<T>::inserirNoFim(T elemento)
 }
 
 template <class T>
-void Lista<T>::remover(T elemento) 
+void Alaska::Listas::Lista<T>::removerE(T elemento) 
 {
     Elemento<T>* atual = l_primeiro;
     Elemento<T>* anterior = nullptr;
@@ -211,20 +233,20 @@ void Lista<T>::remover(T elemento)
 }
 
 template <class T>
-bool Lista<T>::contem(T elemento) 
+bool Alaska::Listas::Lista<T>::contem(T elemento) 
 {
     Elemento<T>* temporario = buscar(elemento);
     return temporario != nullptr;
 }
 
 template <class T>
-typename Lista<T>::template Elemento<T>* Lista<T>::getPrimeiro()const 
+typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::getPrimeiro()const 
 {
     return l_primeiro;
 }
 
 template <class T>
-typename Lista<T>::template Elemento<T>* Lista<T>::getUltimo()const 
+typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::getUltimo()const 
 {
     return l_ultimo;
 }

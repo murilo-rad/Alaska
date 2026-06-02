@@ -12,6 +12,8 @@ namespace Alaska
                 FaseNoite(Entidades::Personagens::Jogador* pJ);
                 ~FaseNoite();
                 void criarCenario();
+                void criarInimigos();
+                void criarObstaculos();
        };
     }
 }

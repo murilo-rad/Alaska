@@ -6,36 +6,47 @@ Alaska::Fases::Fase::Fase(Alaska::Entidades::Personagens::Jogador* pJ)
     if(pJ)
         pJogador = pJ;
 
-    pColisoes = new Alaska::Gerenciadores::Colisoes(pJogador, &listaEntidades);
+    pColisoes = new Alaska::Gerenciadores::Colisoes(pJogador, &lista_ents);
 }
 
 Alaska::Fases::Fase::~Fase()
 {
-    //Brunno, ainda não temos a classe Lista, então eu criei a lista provisoriamente aqui.
-    for (int i = 0; i < listaEntidades.size(); i++)
-    if(listaEntidades[i])
-            delete listaEntidades[i];
-
-    listaEntidades.clear();
+    // Substitua todo o código antigo por este loop usando seu iterador:
+    auto* lista = lista_ents.getLista();
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            delete *it;
+    }
+    // Remova o listaEntidades.clear(); (Como é uma lista encadeada própria, 
+    // a liberação dos nós deve ser feita no próprio destruidor da classe Lista)
 
     delete pColisoes;
 }
 
 void Alaska::Fases::Fase::executar()
 {
-    for(int i = 0; i < listaEntidades.size(); i++) 
-        if(listaEntidades[i])
-            listaEntidades[i]->executar();
+    auto* lista = lista_ents.getLista();
+
+
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            (*it)->executar();
+    }
 
     if(pColisoes)
-        pColisoes->calcularColisoes();
+        pColisoes->executar(); 
 
     if(pGG)
         pGG->atualizarCamera(pJogador->getX() + 25.0f, 300.0f);
 
-    for(int i = 0; i < listaEntidades.size(); i++)
-        if(listaEntidades[i])
-            listaEntidades[i]->desenhar();
+
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            (*it)->desenhar();
+    }
 
     pJogador->desenhar();
 }
