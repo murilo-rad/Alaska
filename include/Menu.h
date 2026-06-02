@@ -17,7 +17,7 @@ namespace Alaska {
 	public:
 		Menu(Alaska::Alaskapp* pAlaskapp, Alaska::Gerenciadores::Eventos* pEventos);
 		~Menu();
-		void executar();
+		void executar() override;
 		void confirmarOpcao();
 		void mudarOpcao(int direcao);
 	};
