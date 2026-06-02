@@ -56,7 +56,15 @@ set_target_properties(Alaska PROPERTIES
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/fonts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(Alaska PRIVATE include)
+target_include_directories(Alaska PRIVATE 
+     ${CMAKE_CURRENT_SOURCE_DIR}/include
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades/Personagens
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades/Obstaculos
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Gerenciadores
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Fases
+     ${CMAKE_CURRENT_SOURCE_DIR}/include/Listas
+)
 target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
 if(WIN32)
     target_link_libraries(Alaska PRIVATE sfml-main)
