@@ -43,7 +43,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 
     if (pJogador->getY() < y - 90.0f && noChao)
     {
-        velY = -8.0f;
+        velY = -11.0f;
         setNoChao(false);
     }
 
