@@ -8,12 +8,19 @@ namespace Alaska
     {
        class FaseNoite : public Fase
        {
+            private:
+                const int maxLobos;
+                const int maxGelos;
             public:
-                FaseNoite(Entidades::Personagens::Jogador* pJ);
+                FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~FaseNoite();
-                void criarCenario();
+                void criarChao();
                 void criarInimigos();
                 void criarObstaculos();
+                void criarLobos();
+                void criarGelos();
+                void executar();
+                
        };
     }
 }

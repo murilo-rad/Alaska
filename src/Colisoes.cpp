@@ -14,14 +14,34 @@ void Alaska::Gerenciadores::Colisoes::executar()
     tratarColisoesJogsInimigs();
 }
 
-const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2) const 
+const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const 
 {
     sf::FloatRect caixa1 = pE1->getSprite()->getGlobalBounds();
     sf::FloatRect caixa2 = pE2->getSprite()->getGlobalBounds();
     return caixa1.intersects(caixa2);
 }
 
-void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs() 
+void Alaska::Gerenciadores::Colisoes::incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni)
+{
+    if(pIni)
+        LIs.push_back(pIni);
+}
+
+void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs)
+{
+    if(pObs)
+        LOs.push_back(pObs);
+}
+
+void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
+{
+    
+}
+
+
+
+
+/* void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs() 
 {
     if(!pJog1) return;
     
@@ -94,5 +114,5 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
                 pIni->danificar(); 
         }
     }
-}
+} */
 

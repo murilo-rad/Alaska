@@ -5,16 +5,49 @@
 #include "Lobo.h"
 #include "Ente.h"
 
-Alaska::Fases::FaseNoite::FaseNoite(Entidades::Personagens::Jogador* pJ): Fase(pJ)
+Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
 {
     criarCenario();
 }
 
 Alaska::Fases::FaseNoite::~FaseNoite()
 {
+
 }
 
-void Alaska::Fases::FaseNoite::criarCenario() 
+void Alaska::Fases::FaseNoite::executar() 
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarChao()
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarInimigos()
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarObstaculos()
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarLobos() 
+{
+
+}
+
+void Alaska::Fases::FaseNoite::criarGelos() 
+{
+
+}
+
+
+
+/* void Alaska::Fases::FaseNoite::criarCenario()
 {
     if (pJogador)
         lista_ents.incluir(pJogador);
@@ -25,14 +58,4 @@ void Alaska::Fases::FaseNoite::criarCenario()
 
     lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
 
-}
-
-void Alaska::Fases::FaseNoite::criarInimigos() 
-{
-
-}
-
-void Alaska::Fases::FaseNoite::criarObstaculos() 
-{
-
-}
+} */

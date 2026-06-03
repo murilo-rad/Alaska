@@ -4,18 +4,18 @@ Alaska::Listas::ListaEntidades::ListaEntidades(): LEs(){}
 
 Alaska::Listas::ListaEntidades::~ListaEntidades(){}
 
-void Alaska::Listas::ListaEntidades::incluir(Alaska::Entidades::Entidade* pEnti)
+void Alaska::Listas::ListaEntidades::incluir(Alaska::Entidades::Entidade* pE)
 {
-    if(!pEnti)
+    if(!pE)
         return;
-    LEs.inserirNoFim(pEnti);
+    LEs.inserirNoFim(pE);
 }
 
-void Alaska::Listas::ListaEntidades::remover(Alaska::Entidades::Entidade* pEnti)
+void Alaska::Listas::ListaEntidades::remover(Alaska::Entidades::Entidade* pE)
 {
-    if(!pEnti)
+    if(!pE)
         return;
-    LEs.removerE(pEnti);
+    LEs.removerE(pE);
 }
 
 Alaska::Listas::Lista<Alaska::Entidades::Entidade*>* Alaska::Listas::ListaEntidades::getLista() 
@@ -23,10 +23,11 @@ Alaska::Listas::Lista<Alaska::Entidades::Entidade*>* Alaska::Listas::ListaEntida
     return &LEs;
 }
 
-int Alaska::Listas::ListaEntidades::getTamanho() 
+void Alaska::Listas::ListaEntidades::percorrer()
 {
-    int cont = 0;
-    Lista<Alaska::Entidades::Entidade*>::Iterador it = LEs.getPrimeiro();
-    return cont;
+    for (Lista<Alaska::Entidades::Entidade*>::Iterador it = LEs.begin(); it != LEs.end(); ++it)
+    {
+        if (*it)
+            (*it)->executar();
+    }
 }
-
