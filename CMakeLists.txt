@@ -38,7 +38,6 @@ src/ListaEntidades.cpp
 src/Nevoso.cpp
 src/Gelo.cpp
 src/Lobo.cpp 
-src/Chao.cpp 
 )
 
 set_target_properties(Alaska PROPERTIES

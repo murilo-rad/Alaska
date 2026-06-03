@@ -16,6 +16,7 @@ namespace Alaska
                     float velX; 
                     float velY;
                 public:
+                    Personagem(float x, float y, int v);
                     Personagem(float x, float y, float vX, float vY, int v);
                     ~Personagem();
 
