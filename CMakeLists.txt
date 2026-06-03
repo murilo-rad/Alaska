@@ -18,26 +18,26 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(SFML)
 
 add_executable(Alaska 
-src/main.cpp
-src/Ente.cpp
-src/Entidade.cpp
-src/Personagem.cpp
-src/Inimigo.cpp
-src/Jogador.cpp
-src/Obstaculo.cpp
-src/Ice_Spike.cpp
-src/Plataforma.cpp
-src/Graficos.cpp
-src/Eventos.cpp
-src/Colisoes.cpp
-src/Fase.cpp
-src/FaseNoite.cpp
-src/Menu.cpp
-src/Alaskapp.cpp
-src/ListaEntidades.cpp
-src/Nevoso.cpp
-src/Gelo.cpp
-src/Lobo.cpp 
+    src/main.cpp
+    src/Ente.cpp
+    src/Entidades/Entidade.cpp
+    src/Entidades/Personagens/Personagem.cpp
+    src/Entidades/Personagens/Inimigo.cpp
+    src/Entidades/Personagens/Jogador.cpp
+    src/Entidades/Obstaculos/Obstaculo.cpp
+    src/Entidades/Obstaculos/Ice_Spike.cpp
+    src/Entidades/Obstaculos/Plataforma.cpp
+    src/Gerenciadores/Graficos.cpp
+    src/Gerenciadores/Eventos.cpp
+    src/Gerenciadores/Colisoes.cpp
+    src/Fases/Fase.cpp
+    src/Fases/FaseNoite.cpp
+    src/Menu.cpp
+    src/Alaskapp.cpp
+    src/Listas/ListaEntidades.cpp
+    src/Entidades/Personagens/Nevoso.cpp
+    src/Entidades/Obstaculos/Gelo.cpp
+    src/Entidades/Personagens/Lobo.cpp 
 )
 
 set_target_properties(Alaska PROPERTIES
@@ -46,7 +46,15 @@ set_target_properties(Alaska PROPERTIES
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/fonts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-target_include_directories(Alaska PRIVATE include)
+target_include_directories(Alaska PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades/Personagens/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Entidades/Obstaculos/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Gerenciadores/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Fases/
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Listas/
+)
 target_link_libraries(Alaska PRIVATE sfml-graphics sfml-window sfml-system)
 if(WIN32)
     target_link_libraries(Alaska PRIVATE sfml-main)
