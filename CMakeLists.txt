@@ -34,17 +34,10 @@ src/Fases/Fase.cpp
 src/Fases/FaseNoite.cpp
 src/Menu.cpp
 src/Alaskapp.cpp
-<<<<<<< HEAD
-src/ListaEntidades.cpp
-src/Nevoso.cpp
-src/Gelo.cpp
-src/Lobo.cpp 
-=======
 src/Listas/ListaEntidades.cpp
 src/Entidades/Personagens/Nevoso.cpp
 src/Entidades/Obstaculos/Gelo.cpp
 src/Entidades/Personagens/Lobo.cpp 
->>>>>>> parent of ce3691b (Revert no outro commit tb e a tela segue preta)
 )
 
 set_target_properties(Alaska PROPERTIES
