@@ -2,7 +2,7 @@
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
+/*Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
     pJog1 = new Alaska::Entidades::Personagens::Jogador();
     executar();
 }
@@ -39,7 +39,7 @@ void Alaska::Alaskapp::executar() {
 
         GG.mostrar();
     }
-}
+}*/
 
 void Alaska::Alaskapp::sementear()
 {

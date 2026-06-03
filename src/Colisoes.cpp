@@ -32,16 +32,16 @@ void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstac
     if(pObs)
         LOs.push_back(pObs);
 }
-//
-//void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
-//{
-//    
-//}
+
+void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
+{
+    
+}
 
 
 
 
- void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs() 
+/*void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 {
     if(!pJog1) return;
     
@@ -114,4 +114,4 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
                 pIni->danificar(); 
         }
     }
-} 
+}*/ 
