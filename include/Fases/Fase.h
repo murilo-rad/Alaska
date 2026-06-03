@@ -4,7 +4,6 @@
 #include "Entidade.h"
 #include "Colisoes.h"
 #include "ListaEntidades.h"
-#include "Graficos.h"
 
 namespace Alaska
 {

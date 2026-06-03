@@ -1,4 +1,5 @@
 #include "Fase.h"
+#include "Graficos.h"
 
 Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : max_nevosos(n), max_plataformas(p)
 {

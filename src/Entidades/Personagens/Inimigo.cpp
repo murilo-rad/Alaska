@@ -1,4 +1,5 @@
 #include "Inimigo.h"
+#include "Jogador.h"
 
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo(

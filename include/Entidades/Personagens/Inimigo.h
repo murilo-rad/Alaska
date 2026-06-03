@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Personagem.h"
-#include "Jogador.h"
 
 
 namespace Alaska

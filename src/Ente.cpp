@@ -1,4 +1,5 @@
 #include "Ente.h"
+#include "Graficos.h"
 
 int Alaska::Ente::I = 0;
 Alaska::Gerenciadores::Graficos* Alaska::Ente::pGG = nullptr;

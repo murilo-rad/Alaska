@@ -1,5 +1,9 @@
 #include "FaseNoite.h"
-
+#include "Plataforma.h"
+#include "Ice_Spike.h"
+#include "Nevoso.h"
+#include "Lobo.h"
+#include "Ente.h"
 
 Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
 {

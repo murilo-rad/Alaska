@@ -1,4 +1,5 @@
 #include "Entidade.h"
+#include <cmath>
 
 Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy){}
 

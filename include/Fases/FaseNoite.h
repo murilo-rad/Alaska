@@ -1,11 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Fase.h"
-#include "Plataforma.h"
-#include "Ice_Spike.h"
-#include "Nevoso.h"
-#include "Lobo.h"
-#include "Ente.h"
 
 namespace Alaska
 {
