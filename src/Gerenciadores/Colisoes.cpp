@@ -1,7 +1,5 @@
 #include "Colisoes.h"
-#include "Plataforma.h"
-#include "Inimigo.h"
-#include "Nevoso.h"
+
 
 Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista) 
     : pJog1(pJ), pListaEntidades(lista) {}

@@ -1,7 +1,4 @@
 #include "Menu.h"
-#include "Ente.h"
-#include "Alaskapp.h"
-#include "Eventos.h"
 
 using namespace Alaska;
 

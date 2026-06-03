@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "Ente.h"
+#include "Alaskapp.h"
+#include "Eventos.h"
 
 namespace Alaska {
 	class Alaskapp;

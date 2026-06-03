@@ -6,6 +6,10 @@
 #include "ListaEntidades.h"
 #include "Obstaculo.h"
 #include "Personagem.h"
+#include "Plataforma.h"
+#include "Inimigo.h"
+#include "Nevoso.h"
+
 
 namespace Alaska 
 {
