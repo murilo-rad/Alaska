@@ -12,23 +12,20 @@ namespace Alaska
             protected:
                 float x;
                 float y;
-                float velX; 
-                float velY;
-		sf::Vector2f normalize(const sf::Vector2f vec);
+                //buffer
+            protected:
+                //void salvarDataBuffer();
             public:
                 Entidade(float xx, float yy);
                 virtual ~Entidade();
 
                 virtual void executar() = 0;
 		
-		float length(sf::Vector2f v);
-                const float getX();
-                const float getY();
+                const float getX()const;
+                const float getY()const;
                 
                 void setX(const float xx);
                 void setY(const float yy);
-                void setVelY(const float velYy);
-                void aplicarGravidade();
         };
     }
 }

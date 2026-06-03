@@ -2,8 +2,8 @@
 #include "pch.h"
 #include "Ente.h"
 #include "Entidade.h"
-#include "Jogador.h"
 #include "Colisoes.h"
+#include "ListaEntidades.h"
 
 namespace Alaska
 {
@@ -11,15 +11,25 @@ namespace Alaska
     {
         class Fase : public Ente
         {
+            private:
+                const int max_nevosos;
+                const int max_plataformas;
             protected:
-                Entidades::Personagens::Jogador* pJogador;
                 Alaska::Gerenciadores::Colisoes* pColisoes;
-                std::vector<Entidades::Entidade*> listaEntidades;
+                Alaska::Listas::ListaEntidades lista_ents;
+                Alaska::Entidades::Personagens::Jogador* pJogador;
             public:
-                Fase(Entidades::Personagens::Jogador* pJ);
-                virtual ~Fase();
-                virtual void criarCenario() = 0;
-                void executar();
+                Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ);
+                ~Fase();
+                virtual void executar() = 0;
+            protected:
+                virtual void criarInimigos() = 0;
+                virtual void criarObstaculos() = 0;
+                virtual void criarChao() = 0;
+                void criarCenario();
+                void criarNevosos();
+                void criarPlataformas();
+                
         };
     }
 }

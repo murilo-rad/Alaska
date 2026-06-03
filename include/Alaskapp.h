@@ -19,5 +19,6 @@ namespace Alaska
         Alaskapp();
         ~Alaskapp();
         void executar();
+        void sementear();
     };
 }

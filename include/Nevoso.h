@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-#include "Personagem.h"
 #include "Inimigo.h"
 
 namespace Alaska
@@ -9,13 +8,12 @@ namespace Alaska
     {
         namespace Personagens
         {
-            class Jogador : public Personagem
+            class Nevoso : public Inimigo
             {
-                protected:
-                    int pontos;
                 public:
-                    Jogador();
-                    ~Jogador();
+                    Nevoso(float x, float y, Jogador* pJ);
+                    ~Nevoso();
+                    void danificar();
                     void executar();
                     void salvar();
                     void mover();

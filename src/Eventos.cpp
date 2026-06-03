@@ -49,19 +49,20 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
     if (pJogador)
     {
-        float vel = 4.0f;
+        float velocidadeAndar = 4.0f;
+        float velocidadeX = 0.0f;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            pJogador->setX(pJogador->getX() + vel);
+            velocidadeX += velocidadeAndar;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            pJogador->setX(pJogador->getX() - vel);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            pJogador->setY(pJogador->getY() + vel);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            if(pJogador->getNoChao())
-            {
-                pJogador->setVelY(-11.0f);
-                pJogador->setNoChao(false);
-            }
+            velocidadeX -= velocidadeAndar;
+
+        pJogador->setVelX(velocidadeX);
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && pJogador->getNoChao())
+        {
+            pJogador->setVelY(-11.0f);
+            pJogador->setNoChao(false);
+        }
     }
 }

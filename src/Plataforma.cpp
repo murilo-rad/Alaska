@@ -12,3 +12,15 @@ Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstac
 Alaska::Entidades::Obstaculos::Plataforma::~Plataforma() {}
 
 void Alaska::Entidades::Obstaculos::Plataforma::executar() {}
+
+void Alaska::Entidades::Obstaculos::Plataforma::obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ) {
+    sf::FloatRect caixaJog = pJ->getSprite()->getGlobalBounds();
+    sf::FloatRect caixaPlat = sprite.getGlobalBounds();
+    
+    if (pJ->getVelY() > 0 && caixaJog.top < caixaPlat.top) 
+    { 
+        pJ->setY(caixaPlat.top - caixaJog.height);
+        pJ->setVelY(0.0f);
+        pJ->setNoChao(true);
+    }
+}

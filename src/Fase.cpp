@@ -1,41 +1,67 @@
 #include "Fase.h"
 #include "Graficos.h"
 
-Alaska::Fases::Fase::Fase(Alaska::Entidades::Personagens::Jogador* pJ)
+Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : max_nevosos(n), max_plataformas(p)
 {
     if(pJ)
         pJogador = pJ;
 
-    pColisoes = new Alaska::Gerenciadores::Colisoes(pJogador, &listaEntidades);
+    pColisoes = new Alaska::Gerenciadores::Colisoes(pJogador, &lista_ents);
 }
 
 Alaska::Fases::Fase::~Fase()
 {
-    //Brunno, ainda não temos a classe Lista, então eu criei a lista provisoriamente aqui.
-    for (int i = 0; i < listaEntidades.size(); i++)
-    if(listaEntidades[i])
-            delete listaEntidades[i];
 
-    listaEntidades.clear();
+    auto* lista = lista_ents.getLista();
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            delete *it;
+    }
 
     delete pColisoes;
 }
 
-void Alaska::Fases::Fase::executar()
+void Alaska::Fases::Fase::criarCenario()
 {
-    pJogador->executar();
 
-    for(int i = 0; i < listaEntidades.size(); i++) 
-        listaEntidades[i]->executar();
+}
+
+void Alaska::Fases::Fase::criarNevosos()
+{
+
+}
+
+void Alaska::Fases::Fase::criarPlataformas()
+{
+
+}
+
+
+
+/* void Alaska::Fases::Fase::executar()
+{
+    auto* lista = lista_ents.getLista();
+
+
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            (*it)->executar();
+    }
 
     if(pColisoes)
-        pColisoes->calcularColisoes();
+        pColisoes->executar(); 
 
     if(pGG)
         pGG->atualizarCamera(pJogador->getX() + 25.0f, 300.0f);
 
-    for(int i = 0; i < listaEntidades.size(); i++) 
-        listaEntidades[i]->desenhar();
+
+    for (auto it = lista->begin(); it != lista->end(); ++it)
+    {
+        if (*it)
+            (*it)->desenhar();
+    }
 
     pJogador->desenhar();
-}
+} */
