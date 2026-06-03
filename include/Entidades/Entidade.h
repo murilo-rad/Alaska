@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Ente.h"
-#include <cmath>
 
 
 namespace Alaska

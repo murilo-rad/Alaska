@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-#include "Graficos.h"
 
 namespace Alaska { 
     namespace Gerenciadores { 
