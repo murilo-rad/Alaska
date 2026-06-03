@@ -18,14 +18,13 @@ namespace Alaska
             public:
                 Fase(Alaska::Entidades::Personagens::Jogador* pJ);
                 ~Fase();
-                virtual void executar();
+                virtual void executar() = 0;
             protected:
                 virtual void criarInimigos() = 0;
                 virtual void criarObstaculos() = 0;
                 void criarCenario();
                 void criarInimiFaceis();
                 void criarPlataformas();
-                virtual void criarChao() = 0;
         };
     }
 }
