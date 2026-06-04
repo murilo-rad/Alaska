@@ -14,11 +14,10 @@ namespace Alaska
             public:
                 ListaEntidades();
                 ~ListaEntidades();
-                void incluir(Entidades::Entidade* pEnti);
-                void remover(Entidades::Entidade* pEnti);
+                void incluir(Entidades::Entidade* pE);
+                void percorrer();
+                void remover(Entidades::Entidade* pE);
                 Lista<Alaska::Entidades::Entidade*>* getLista();
-                int getTamanho();
-                Alaska::Entidades::Entidade* operator[](int indice);
         };
     }
 }

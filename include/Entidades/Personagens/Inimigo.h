@@ -1,6 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "Personagem.h"
+#include "Jogador.h"
+#include <cmath>
 
 
 namespace Alaska
@@ -23,6 +25,7 @@ namespace Alaska
                     virtual void executar() = 0;
                     virtual void danificar() = 0;
                     int getMaldade();
+                    sf::Vector2f normalizarVetor(sf::Vector2f v);
             };
         }
     }

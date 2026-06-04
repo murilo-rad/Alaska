@@ -1,8 +1,8 @@
-#include <Alaskapp.h>
+#include "Alaskapp.h"
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
+/*Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
     pJog1 = new Alaska::Entidades::Personagens::Jogador();
     executar();
 }
@@ -10,6 +10,7 @@ Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
 Alaska::Alaskapp::~Alaskapp() {}
 
 void Alaska::Alaskapp::executar() {
+    sementear();
     Gerenciadores::Eventos eventos;
 
     Ente::setGG(&GG);
@@ -26,7 +27,7 @@ void Alaska::Alaskapp::executar() {
         pJog1 = new Entidades::Personagens::Jogador();
 
     eventos.setJogador(pJog1);
-    Fases::FaseNoite fasePrimeira(pJog1);
+    Fases::FaseNoite fasePrimeira(MAX_TI, MAX_TO, MAX_TI, MAX_TO, pJog1);
 
     while (GG.isJanelaAberta())
     {
@@ -38,4 +39,9 @@ void Alaska::Alaskapp::executar() {
 
         GG.mostrar();
     }
+}*/
+
+void Alaska::Alaskapp::sementear()
+{
+    srand(time(NULL));
 }
