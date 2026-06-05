@@ -7,7 +7,7 @@ Alaska::Gerenciadores::Graficos::Graficos()
 
     camera.setSize(800.0f, 600.0f);
 
-    fontMenu.loadFromFile("assets/fonts/Roboto-VariableFont_wdth,wght.ttf");
+    fontMenu.loadFromFile("fonts/Roboto/static/Roboto-Regular.ttf");
     text.setFont(fontMenu);
 }
 
