@@ -2,7 +2,7 @@
 
 using namespace Alaska;
 
-/*Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
+Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
     pJog1 = new Alaska::Entidades::Personagens::Jogador();
     executar();
 }
@@ -31,15 +31,15 @@ void Alaska::Alaskapp::executar() {
 
     while (GG.isJanelaAberta())
     {
-            eventos.verificarEventos();
+        eventos.verificarEventos();
 
         GG.limpar();
 
-            fasePrimeira.executar();
+        fasePrimeira.executar();
 
         GG.mostrar();
     }
-}*/
+}
 
 void Alaska::Alaskapp::sementear()
 {

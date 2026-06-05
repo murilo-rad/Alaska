@@ -66,3 +66,8 @@ void Alaska::Entidades::Personagens::Personagem::aplicarGravidade()
         
     y += velY;
 }
+
+void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
+{
+    //implementar
+}

@@ -1,10 +1,12 @@
 #pragma once
 #include "pch.h"
-#include "Menu.h"
+//#include "Menu.h"
 #include "Jogador.h"
 
 namespace Alaska
 {
+    class Menu;
+
     namespace Gerenciadores
     {
         class Eventos

@@ -12,6 +12,7 @@ namespace Alaska
                 const int maxLobos;
                 const int maxGelos;
             public:
+                FaseNoite();
                 FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~FaseNoite();
                 void criarChao();
@@ -20,7 +21,7 @@ namespace Alaska
                 void criarLobos();
                 void criarGelos();
                 void executar();
-                
+                void criarCenario();
        };
     }
 }

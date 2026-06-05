@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Personagem.h"
-#include "Inimigo.h"
 
 namespace Alaska
 {
@@ -9,6 +8,7 @@ namespace Alaska
     {
         namespace Personagens
         {
+			class Inimigo;   //pra n dar pau
             class Jogador : public Personagem
             {
                 protected:
@@ -19,6 +19,7 @@ namespace Alaska
                     void executar();
                     void salvar();
                     void mover();
+					void colidir(Inimigo* pIni);
             };
         }
     }

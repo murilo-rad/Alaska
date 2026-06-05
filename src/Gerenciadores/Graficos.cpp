@@ -31,7 +31,7 @@ void Alaska::Gerenciadores::Graficos::mostrar()
 void Alaska::Gerenciadores::Graficos::desenharEnte(Alaska::Ente* pEnte)
 {
     if (pEnte && janela && janela->isOpen())
-        janela->draw(*pEnte->getSprite());
+        janela->draw(*(pEnte->getSprite()));
 }
 
 void Alaska::Gerenciadores::Graficos::desenharTexto(sf::Text* pTexto)

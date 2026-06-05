@@ -19,6 +19,7 @@ namespace Alaska
                 Alaska::Listas::ListaEntidades lista_ents;
                 Alaska::Entidades::Personagens::Jogador* pJogador;
             public:
+                Fase();
                 Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ);
                 ~Fase();
                 virtual void executar() = 0;

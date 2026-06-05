@@ -1,9 +1,10 @@
 #include "Entidade.h"
 #include <cmath>
 
-Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy){}
+Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy), buffer(NULL) {}
+Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0), buffer(NULL) {}
 
-Alaska::Entidades::Entidade::~Entidade(){}
+//Alaska::Entidades::Entidade::~Entidade(){}
 
 const float Alaska::Entidades::Entidade::getX()const
 {
@@ -27,4 +28,7 @@ void Alaska::Entidades::Entidade::setY(const float yy)
     sprite.setPosition(x, y);
 }
 
-
+void Alaska::Entidades::Entidade::salvarDataBuffer()
+{
+    //implementar
+}

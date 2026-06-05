@@ -15,7 +15,7 @@ namespace Alaska
         static int I;
         const int id;
         static Alaska::Gerenciadores::Graficos * pGG;
-        sf::Texture textura;
+        sf::Texture* pFig;
         sf::Sprite sprite;
     public:
         Ente();
@@ -25,6 +25,7 @@ namespace Alaska
         void desenhar();
         static void setGG(Alaska::Gerenciadores::Graficos* pG);
         sf::Sprite* getSprite();
+
     };
 
 }

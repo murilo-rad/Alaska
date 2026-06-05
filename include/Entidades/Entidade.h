@@ -12,20 +12,22 @@ namespace Alaska
             protected:
                 float x;
                 float y;
-                //buffer
+                std::ostream buffer;
             protected:
-                //void salvarDataBuffer();
+                void salvarDataBuffer();
             public:
-                Entidade(float xx, float yy);
+                Entidade(float x, float y);
+                Entidade();
                 virtual ~Entidade();
-
-                virtual void executar() = 0;
 		
                 const float getX()const;
                 const float getY()const;
                 
                 void setX(const float xx);
                 void setY(const float yy);
+
+                virtual void executar() = 0;
+				virtual void salvar() = 0;
         };
     }
 }

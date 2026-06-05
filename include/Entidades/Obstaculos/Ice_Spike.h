@@ -14,7 +14,8 @@ namespace Alaska
                 private:
                     short int danosidade;
                 public:
-                    Ice_Spike(bool d, short int dano);
+                    Ice_Spike();
+                    Ice_Spike(float x, float y, bool d, short int dano);
                     ~Ice_Spike();
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJogador);

@@ -1,6 +1,7 @@
 #include "Inimigo.h"
 #include "Jogador.h"
 
+Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0.0f, 0.0f, 1), nivel_maldade(0), pJogador(nullptr), velocidade(0.0f) {}
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo(
     float x, float y, int mal, int v, Jogador* pJ)
@@ -11,16 +12,17 @@ Alaska::Entidades::Personagens::Inimigo::Inimigo(
 {
     velX = 0.0f;
     velY = 0.0f;
+    pFig = new sf::Texture();
 
-    if (!textura.loadFromFile("assets/im/JogadorAlaska.png"))
+    if (!pFig->loadFromFile("assets/imgs/JogadorAlaska.png"))
     {
         std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
         sf::Image img;
         img.create(50, 50, sf::Color::Red);
-        textura.loadFromImage(img);
+        pFig->loadFromImage(img);
     }
 
-    sprite.setTexture(textura);
+    sprite.setTexture(*pFig);
     sprite.setPosition(this->x, this->y);
 }
 
@@ -61,4 +63,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 }
 
 
-
+void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
+{
+    //implementar
+}

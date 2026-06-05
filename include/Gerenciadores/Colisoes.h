@@ -24,13 +24,15 @@ namespace Alaska
             const bool verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const;
             void tratarColisoesJogsObstacs();
             void tratarColisoesJogsInimigs();
-            //void tratarColisoesJogsProjeteis();
+            void tratarColisoesJogsProjeteis();
         public:
+            Colisoes();
             Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista);
             ~Colisoes();
-            void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
-            void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
+            //void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
             //void incluirProjetil();
+			void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
+			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
             void executar();
         };
     }

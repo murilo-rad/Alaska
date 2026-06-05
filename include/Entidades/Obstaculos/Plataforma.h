@@ -18,6 +18,7 @@ namespace Alaska
                     ~Plataforma();
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
+                    void salvar();
             };
         }
 

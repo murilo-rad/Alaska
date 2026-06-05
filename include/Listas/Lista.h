@@ -50,6 +50,7 @@ namespace Alaska
                 ~Lista();
                 void inserirNoFim(T elemento);
                 void removerE(T elemento);
+				void limpar();
                 bool contem(T elemento);
                 Elemento<T>* getPrimeiro()const;
                 Elemento<T>* getUltimo()const;
@@ -176,6 +177,9 @@ Alaska::Listas::Lista<T>::~Lista()
     }
 }
 
+
+//implementar limpar
+
 template <class T>
 typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::buscar(T elemento) 
 {
@@ -249,4 +253,18 @@ template <class T>
 typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::getUltimo()const 
 {
     return l_ultimo;
+}
+
+template <class T>
+void Alaska::Listas::Lista<T>::limpar()
+{
+    Elemento<T>* atual = l_primeiro;
+    while (atual)
+    {
+        Elemento<T>* tmp = atual;
+        atual = atual->getProximo();
+        delete tmp;
+    }
+    l_primeiro = nullptr;
+    l_ultimo = nullptr;
 }

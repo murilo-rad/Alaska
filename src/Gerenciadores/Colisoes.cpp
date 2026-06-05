@@ -3,6 +3,8 @@
 #include "Inimigo.h"
 #include "Nevoso.h"
 
+Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
+
 Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista) 
     : pJog1(pJ), pListaEntidades(lista) {}
 
@@ -33,15 +35,15 @@ void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstac
         LOs.push_back(pObs);
 }
 
+//void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
+//{
+//    
+//}
+
+
+
+
 void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
-{
-    
-}
-
-
-
-
-/*void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 {
     if(!pJog1) return;
     
@@ -114,4 +116,14 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
                 pIni->danificar(); 
         }
     }
-}*/ 
+}
+
+void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
+{
+	// Implementar
+}
+
+//void Alaska::Gerenciadores::Colisoes::incluirProjetil()
+//{
+//	// Implementar
+//}

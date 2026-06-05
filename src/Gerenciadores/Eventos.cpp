@@ -1,4 +1,5 @@
 #include "Eventos.h"
+#include "Menu.h"
 
 Alaska::Gerenciadores::Eventos::Eventos() : janela(nullptr), pJogador(nullptr), pMenu(nullptr) {}
 

@@ -35,16 +35,16 @@ void Menu::mudarOpcao(int direcao) {
 void Menu::confirmarOpcao() {
     if (opcao == 0)
     {
-        ativo = false;   // start game
+        ativo = false;
     }
     else if (opcao == 1)
     {
     
-    }               // Opções - placeholder
+    }
     else if (opcao == 2) 
     {
 
-    }          // Scoreboard - placeholder
+    }          
     else if (opcao == 3) 
     {
         pGG->getJanela()->close();

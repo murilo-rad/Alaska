@@ -4,7 +4,7 @@
 int Alaska::Ente::I = 0;
 Alaska::Gerenciadores::Graficos* Alaska::Ente::pGG = nullptr;
 
-Alaska::Ente::Ente(): id(I++){}
+Alaska::Ente::Ente(): id(I++), pFig(nullptr), sprite(){}
 
 Alaska::Ente::~Ente(){}
 
@@ -22,5 +22,8 @@ void Alaska::Ente::setGG(Alaska::Gerenciadores::Graficos* pG)
 
 sf::Sprite* Alaska::Ente::getSprite()
 {
+    if (pFig) {
+		sprite.setTexture(*pFig);
+    }
     return &sprite;
 }
