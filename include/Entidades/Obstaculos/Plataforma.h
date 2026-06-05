@@ -12,14 +12,14 @@ namespace Alaska
             class Plataforma : public Obstaculo
             {
                 private:
-                    int altura;
+                    int largura;
                 public:
                     Plataforma(float x, float y);
+                    Plataforma();
                     ~Plataforma();
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
             };
         }
-
     }
 }

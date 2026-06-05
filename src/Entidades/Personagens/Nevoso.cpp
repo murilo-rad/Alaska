@@ -1,16 +1,26 @@
 #include "Nevoso.h"
 
-Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : Inimigo(x, y, 1, 1, pJ) 
+Alaska::Entidades::Personagens::Nevoso::Nevoso
+(float vx, float vy, int v, int mal, Alaska::Entidades::Personagens::Jogador* pJ, float vel) : 
+Inimigo(vx, vy, v, mal, pJ, vel), tamanho()
 {
-    sf::Image img;
-    img.create(50, 50, sf::Color::White);
-    textura.loadFromImage(img);
-    sprite.setTexture(textura);
-    sprite.setPosition(x, y);
+    if (!textura.loadFromFile("assets/img/Nevoso.png"))
+    {
+        std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
+        sf::Image img;
+        img.create(T_NEVOSO, T_NEVOSO, sf::Color::White);
+        textura.loadFromImage(img);
+    }
 
-    velX = 0.0f;
-    velY = 0.0f;
+    float aux = 1.0f + (rand() % 101) / 100.0f;
+    float tamanho = T_NEVOSO * aux;
+    
+    sprite.setTexture(textura);
+    ajustarSprite(sprite, tamanho);
+    sprite.setPosition(x, y);
 }
+
+Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
 
 Alaska::Entidades::Personagens::Nevoso::~Nevoso() {}
 

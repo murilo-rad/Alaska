@@ -12,6 +12,7 @@ namespace Alaska
             {
                 public:
                     Lobo(float x, float y, Jogador* pJ);
+                    Lobo();
                     ~Lobo();
                     void danificar();
                     void executar();

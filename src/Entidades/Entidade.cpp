@@ -3,6 +3,8 @@
 
 Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy){}
 
+Alaska::Entidades::Entidade::Entidade(){}
+
 Alaska::Entidades::Entidade::~Entidade(){}
 
 const float Alaska::Entidades::Entidade::getX()const
@@ -27,4 +29,13 @@ void Alaska::Entidades::Entidade::setY(const float yy)
     sprite.setPosition(x, y);
 }
 
+void Alaska::Entidades::Entidade::ajustarSprite(sf::Sprite& sprite, float tam)
+{
+    sf::FloatRect bounds = sprite.getLocalBounds();
 
+    sprite.setScale
+    (
+        tam / bounds.width,
+        tam / bounds.height
+    );
+}

@@ -31,7 +31,7 @@ add_executable(Alaska
     src/Gerenciadores/Eventos.cpp
     src/Gerenciadores/Colisoes.cpp
     src/Fases/Fase.cpp
-    src/Fases/FaseNoite.cpp
+    src/Fases/Tundra.cpp
     src/Menu.cpp
     src/Alaskapp.cpp
     src/Listas/ListaEntidades.cpp
@@ -45,6 +45,7 @@ set_target_properties(Alaska PROPERTIES
 )
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/fonts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/img DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 target_include_directories(Alaska PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/

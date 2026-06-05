@@ -1,6 +1,10 @@
 #include "Lobo.h"
 
-Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inimigo(x, y, 1, 1, pJ) 
+Alaska::Entidades::Personagens::Lobo::Lobo(){}
+
+Alaska::Entidades::Personagens::Lobo::~Lobo(){}
+
+/* Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inimigo(x, y, 1, 1, pJ) 
 {
     sf::Image img;
     img.create(50, 50, sf::Color::Red);
@@ -12,7 +16,7 @@ Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inim
     velY = 0.0f;
 }
 
-Alaska::Entidades::Personagens::Lobo::~Lobo() {}
+
 
 void Alaska::Entidades::Personagens::Lobo::executar()
 {
@@ -34,4 +38,4 @@ void Alaska::Entidades::Personagens::Lobo::mover()
 void Alaska::Entidades::Personagens::Lobo::danificar()
 {
 
-}
+} */

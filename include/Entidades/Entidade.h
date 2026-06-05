@@ -17,6 +17,7 @@ namespace Alaska
                 //void salvarDataBuffer();
             public:
                 Entidade(float xx, float yy);
+                Entidade();
                 virtual ~Entidade();
 
                 virtual void executar() = 0;
@@ -26,6 +27,8 @@ namespace Alaska
                 
                 void setX(const float xx);
                 void setY(const float yy);
+
+                void ajustarSprite(sf::Sprite& sprite, float tam);
         };
     }
 }

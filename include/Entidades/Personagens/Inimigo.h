@@ -20,12 +20,11 @@ namespace Alaska
                     float velocidade;
                     void seguirJogador();
                 public:
-                    Inimigo(float x, float y, int mal, int v, Jogador* pJ);
+                    Inimigo(float vx, float vy, int v, int mal, Jogador* pJ, float vel);
+                    Inimigo();
                     virtual ~Inimigo();
                     virtual void executar() = 0;
                     virtual void danificar() = 0;
-                    int getMaldade();
-                    sf::Vector2f normalizarVetor(sf::Vector2f v);
             };
         }
     }
