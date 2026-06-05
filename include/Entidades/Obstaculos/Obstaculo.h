@@ -15,6 +15,7 @@ namespace Alaska
                     bool danoso;
                 public:
                     Obstaculo(float x, float y);
+                    Obstaculo();
                     ~Obstaculo();
                     virtual void executar() = 0;
                     virtual void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;

@@ -4,7 +4,7 @@
 #include <SFML/System/String.hpp>
 
 namespace Alaska { 
-    class Ente; //pra delcarar só
+    class Ente; //pra declarar só
 }
 
 namespace Alaska

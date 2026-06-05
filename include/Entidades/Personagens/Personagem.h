@@ -18,6 +18,7 @@ namespace Alaska
                 public:
                     Personagem(float x, float y, int v);
                     Personagem(float x, float y, float vX, float vY, int v);
+                    Personagem();
                     ~Personagem();
 
                     //void salvarDataBuffer();

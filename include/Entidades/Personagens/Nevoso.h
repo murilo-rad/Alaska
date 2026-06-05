@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Inimigo.h"
+#include "Jogador.h"
 
 namespace Alaska
 {
@@ -10,8 +11,11 @@ namespace Alaska
         {
             class Nevoso : public Inimigo
             {
+                private:
+                    float tamanho;
                 public:
-                    Nevoso(float x, float y, Jogador* pJ);
+                    Nevoso(float vx, float vy, int v, int mal, Jogador* pJ, float vel);
+                    Nevoso();
                     ~Nevoso();
                     void danificar();
                     void executar();
