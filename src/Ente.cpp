@@ -27,3 +27,8 @@ sf::Sprite* Alaska::Ente::getSprite()
     }
     return &sprite;
 }
+
+const int Alaska::Ente::getID()const
+{
+    return id;
+}

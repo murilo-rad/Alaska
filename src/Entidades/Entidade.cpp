@@ -32,3 +32,14 @@ void Alaska::Entidades::Entidade::salvarDataBuffer()
 {
     //implementar
 }
+
+void Alaska::Entidades::Entidade::ajustarSprite(sf::Sprite& sprite, float tam)
+{
+    sf::FloatRect bounds = sprite.getLocalBounds();
+
+    sprite.setScale
+    (
+        tam / bounds.width,
+        tam / bounds.height
+    );
+}
