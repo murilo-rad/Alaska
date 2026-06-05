@@ -26,6 +26,8 @@ namespace Alaska
                 void setX(const float xx);
                 void setY(const float yy);
 
+                void ajustarSprite(sf::Sprite& sprite, float tam);
+
                 virtual void executar() = 0;
 				virtual void salvar() = 0;
         };

@@ -4,6 +4,10 @@
 #include "Entidade.h"
 #include "Colisoes.h"
 #include "ListaEntidades.h"
+#include "Nevoso.h"
+#include "Plataforma.h"
+#include "Inimigo.h"
+#include "Obstaculo.h"
 
 namespace Alaska
 {
@@ -12,10 +16,10 @@ namespace Alaska
         class Fase : public Ente
         {
             private:
-                const int max_nevosos;
+                const int maxNevosos;
                 const int max_plataformas;
             protected:
-                Alaska::Gerenciadores::Colisoes* pColisoes;
+                Alaska::Gerenciadores::Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
                 Alaska::Entidades::Personagens::Jogador* pJogador;
             public:

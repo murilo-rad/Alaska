@@ -1,8 +1,9 @@
 #include "Nevoso.h"
 
-Alaska::Entidades::Personagens::Nevoso::Nevoso() : tamanho(0), Inimigo() {}
 
-Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : tamanho(y), Inimigo(x, y, 1, 1, pJ) 
+Alaska::Entidades::Personagens::Nevoso::Nevoso
+(float vx, float vy, int v, int mal, Alaska::Entidades::Personagens::Jogador* pJ, float vel) : 
+Inimigo(vx, vy, mal, v, pJ), tamanho()
 {
     pFig = new sf::Texture();
     sf::Image img;
@@ -10,10 +11,9 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : 
     pFig->loadFromImage(img);
     sprite.setTexture(*pFig);
     sprite.setPosition(x, y);
-
-    velX = 0.0f;
-    velY = 0.0f;
 }
+
+Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
 
 Alaska::Entidades::Personagens::Nevoso::~Nevoso() {}
 

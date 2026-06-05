@@ -8,6 +8,13 @@
 #include <time.h>
 
 #define GRAVIDADE 0.35f
-#define MAX_TI 10
-#define MAX_TO 10
+#define MAX 10
+#define MIN 3
+
+#define T_NEVOSO 30
+#define T_LOBO 40
+#define T_YETI 50
+#define T_JOG 30
+
+
 

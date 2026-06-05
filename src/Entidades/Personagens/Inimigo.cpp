@@ -3,7 +3,30 @@
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0.0f, 0.0f, 1), nivel_maldade(0), pJogador(nullptr), velocidade(0.0f) {}
 
-Alaska::Entidades::Personagens::Inimigo::Inimigo(
+
+Alaska::Entidades::Personagens::Inimigo::~Inimigo(){}
+
+
+void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
+{
+    if (!pJogador)
+        return;
+
+    sf::Vector2f direcao(pJogador->getX() - x, pJogador->getY() - y);
+
+    sf::Vector2f dir = normalizarVetor(direcao);
+    velX = dir.x * velocidade;
+
+    if (pJogador->getY() < y - 110.0f && noChao)
+    {
+        velY = -11.0f;
+        setNoChao(false);
+    }
+    x += velX;
+}
+
+
+ Alaska::Entidades::Personagens::Inimigo::Inimigo(
     float x, float y, int mal, int v, Jogador* pJ)
     : Personagem(x, y, v)
     , nivel_maldade(mal)
@@ -26,8 +49,6 @@ Alaska::Entidades::Personagens::Inimigo::Inimigo(
     sprite.setPosition(this->x, this->y);
 }
 
-Alaska::Entidades::Personagens::Inimigo::~Inimigo() {}
-
 int Alaska::Entidades::Personagens::Inimigo::getMaldade()
 {
     return nivel_maldade;
@@ -41,27 +62,6 @@ sf::Vector2f Alaska::Entidades::Personagens::Inimigo::normalizarVetor(sf::Vector
 
     return vetorNormalizado;
 }
-
-
-void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
-{
-    if (!pJogador)
-        return;
-
-    sf::Vector2f direcao(pJogador->getX() - x, pJogador->getY() - y);
-
-    sf::Vector2f dir = normalizarVetor(direcao);
-    velX = dir.x * velocidade;
-
-    if (pJogador->getY() < y - 110.0f && noChao)
-    {
-        velY = -11.0f;
-        setNoChao(false);
-    }
-
-    x += velX;
-}
-
 
 void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
 {

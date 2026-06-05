@@ -2,7 +2,8 @@
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) {
+Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr) 
+{
     pJog1 = new Alaska::Entidades::Personagens::Jogador();
     executar();
 }
@@ -27,7 +28,7 @@ void Alaska::Alaskapp::executar() {
         pJog1 = new Entidades::Personagens::Jogador();
 
     eventos.setJogador(pJog1);
-    Fases::FaseNoite fasePrimeira(MAX_TI, MAX_TO, MAX_TI, MAX_TO, pJog1);
+    Fases::Tundra fasePrimeira(MAX, MAX, MAX, MAX, pJog1);
 
     while (GG.isJanelaAberta())
     {

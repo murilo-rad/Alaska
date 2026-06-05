@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Inimigo.h"
+#include "Jogador.h"
 
 namespace Alaska
 {
@@ -11,10 +12,10 @@ namespace Alaska
             class Nevoso : public Inimigo
             {
                 private:
-				    int tamanho;    //atributo iunico da classe q tem q ter
+                    float tamanho;
                 public:
-					Nevoso();
-                    Nevoso(float x, float y, Jogador* pJ);
+                    Nevoso(float vx, float vy, int v, int mal, Jogador* pJ, float vel);
+                    Nevoso();
                     ~Nevoso();
                     void danificar();
                     void executar();

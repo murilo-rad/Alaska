@@ -8,9 +8,9 @@ Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nu
 Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista) 
     : pJog1(pJ), pListaEntidades(lista) {}
 
-Alaska::Gerenciadores::Colisoes::~Colisoes() {}
+Alaska::Gerenciadores::Colisoes::~Colisoes(){}
 
-void Alaska::Gerenciadores::Colisoes::executar() 
+void Alaska::Gerenciadores::Colisoes::executar()
 {
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimigs();
@@ -37,7 +37,26 @@ void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstac
 
 //void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 //{
-//    
+//    if(!LOs.empty())
+//    {
+//        Alaska::Entidades::Obstaculos::Obstaculo* pObs;
+//        pObs = nullptr;
+//
+//        std::list<Alaska::Entidades::Obstaculos::Obstaculo*>::iterator it;
+//        it = LOs.begin();
+//        
+//        while(it != LOs.end())
+//        {
+//            pObs = (*it);
+//            if(pObs)
+//                if(verificarColisao(pJog1, pObs))
+//                    pObs->obstaculizar(pJog1);
+//            pObs = nullptr;
+//            it++;
+//        }
+//        pObs = nullptr;
+//        delete pObs;
+//    }
 //}
 
 
@@ -47,7 +66,6 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 {
     if(!pJog1) return;
     
-    // Varrendo usando o seu iterador customizado
     auto lista = pListaEntidades->getLista();
     for (auto it = lista->begin(); it != lista->end(); ++it) 
     {
@@ -72,7 +90,8 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
         Entidades::Entidade* pEnt1 = *it1;
         Entidades::Personagens::Inimigo* pIni = dynamic_cast<Entidades::Personagens::Inimigo*>(pEnt1);
         
-        if (!pIni) continue;
+        if (!pIni) 
+            continue;
 
         for (auto it2 = lista->begin(); it2 != lista->end(); ++it2) 
         {

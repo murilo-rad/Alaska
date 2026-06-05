@@ -8,6 +8,8 @@ Alaska::Entidades::Personagens::Personagem::Personagem
 (float x, float y, float vX, float vY, int v): 
 Entidade(x, y), velX(vX), velY(vY), num_vidas(v), noChao(false){}
 
+Alaska::Entidades::Personagens::Personagem::Personagem(){}
+
 Alaska::Entidades::Personagens::Personagem::~Personagem(){}
 
 void Alaska::Entidades::Personagens::Personagem::setVida(const int v)

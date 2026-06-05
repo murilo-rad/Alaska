@@ -4,7 +4,7 @@
 Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy), buffer(NULL) {}
 Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0), buffer(NULL) {}
 
-//Alaska::Entidades::Entidade::~Entidade(){}
+Alaska::Entidades::Entidade::~Entidade(){}
 
 const float Alaska::Entidades::Entidade::getX()const
 {
