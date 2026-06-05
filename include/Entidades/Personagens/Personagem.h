@@ -25,6 +25,7 @@ namespace Alaska
 
                     void setVida(const int v);
                     const int getVidas()const;
+                    void verificarVida();
 
                     void setNoChao(bool c);
                     const bool getNoChao() const;

@@ -6,6 +6,8 @@
 #include <set>
 #include <stdlib.h>
 #include <time.h>
+#include <cmath>
+
 
 #define GRAVIDADE 0.35f
 #define MAX 10

@@ -74,3 +74,11 @@ void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
 {
     //implementar
 }
+
+void Alaska::Entidades::Personagens::Personagem::verificarVida()
+{
+    if(!num_vidas)
+    {
+        getID();
+    }
+}

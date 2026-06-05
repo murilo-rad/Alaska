@@ -29,7 +29,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
  Alaska::Entidades::Personagens::Inimigo::Inimigo(
     float x, float y, int mal, int v, Jogador* pJ)
     : Personagem(x, y, v)
-    , nivel_maldade(mal)
+    , nivel_maldade()
     , pJogador(pJ)
     , velocidade(2.0f)
 {
@@ -37,17 +37,23 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     velY = 0.0f;
     pFig = new sf::Texture();
 
-    if (!pFig->loadFromFile("assets/imgs/JogadorAlaska.png"))
-    {
-        std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
-        sf::Image img;
-        img.create(50, 50, sf::Color::Red);
-        pFig->loadFromImage(img);
-    }
+    
+    std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
+    sf::Image img;
+    img.create(50, 50, sf::Color::Red);
+    pFig->loadFromImage(img);
+    
 
     sprite.setTexture(*pFig);
     sprite.setPosition(this->x, this->y);
 }
+
+void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
+{
+    float aux = 1.0f + (rand() % 51) / 100.0f;
+    nivel_maldade = aux;
+}
+
 
 int Alaska::Entidades::Personagens::Inimigo::getMaldade()
 {
@@ -66,4 +72,9 @@ sf::Vector2f Alaska::Entidades::Personagens::Inimigo::normalizarVetor(sf::Vector
 void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
 {
     //implementar
+}
+
+void Alaska::Entidades::Personagens::Inimigo::recuar()
+{
+    setVelX(20.0f);
 }
