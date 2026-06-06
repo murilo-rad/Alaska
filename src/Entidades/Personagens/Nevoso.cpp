@@ -46,7 +46,6 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
         pJ->setVelY(-8.0f);
         pJ->setNoChao(false);
         operator--();
-        recuar();
     }
     else
     {
