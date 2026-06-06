@@ -18,27 +18,36 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(SFML)
 
 add_executable(Alaska 
+    #src
     src/main.cpp
     src/Ente.cpp
+    src/Menu.cpp
+    src/Alaskapp.cpp
+
+    #Entidades
     src/Entidades/Entidade.cpp
     src/Entidades/Chao.cpp
+    src/Entidades/Obstaculos/Obstaculo.cpp
+    src/Entidades/Obstaculos/Ice_Spike.cpp
+    src/Entidades/Obstaculos/Gelo.cpp
+    src/Entidades/Obstaculos/Plataforma.cpp
+    src/Entidades/Personagens/Nevoso.cpp
     src/Entidades/Personagens/Personagem.cpp
     src/Entidades/Personagens/Inimigo.cpp
     src/Entidades/Personagens/Jogador.cpp
-    src/Entidades/Obstaculos/Obstaculo.cpp
-    src/Entidades/Obstaculos/Ice_Spike.cpp
-    src/Entidades/Obstaculos/Plataforma.cpp
+    src/Entidades/Personagens/Lobo.cpp 
+    
+    #Gerenciadores
     src/Gerenciadores/Graficos.cpp
     src/Gerenciadores/Eventos.cpp
     src/Gerenciadores/Colisoes.cpp
+    
+    #Fases
     src/Fases/Fase.cpp
     src/Fases/Tundra.cpp
-    src/Menu.cpp
-    src/Alaskapp.cpp
+
+    #Listas
     src/Listas/ListaEntidades.cpp
-    src/Entidades/Personagens/Nevoso.cpp
-    src/Entidades/Obstaculos/Gelo.cpp
-    src/Entidades/Personagens/Lobo.cpp 
 )
 
 set_target_properties(Alaska PROPERTIES

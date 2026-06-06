@@ -16,7 +16,7 @@ Menu::~Menu() {
 void Menu::executar() {
     ativo = true;
     while (pGG->isJanelaAberta() && ativo) {
-        pEventos->verificarEventos(); // processes input → calls mudarOpcao/confirmarOpcao
+        pEventos->verificarEventos(); 
 
         pGG->limpar();
         pGG->desenharTituloMenu("Alaska");
