@@ -1,3 +1,4 @@
+#pragma once
 #include "pch.h"
 #include "Entidade.h"
 #include "Personagem.h"

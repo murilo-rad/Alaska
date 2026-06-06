@@ -10,7 +10,7 @@ Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador*
     if(pJ)
         pJogador = pJ;
 
-    GC = new Alaska::Gerenciadores::Colisoes(pJogador, &lista_ents);
+    GC = new Alaska::Gerenciadores::Colisoes();
 }
 
 Alaska::Fases::Fase::~Fase()

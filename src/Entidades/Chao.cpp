@@ -2,7 +2,9 @@
 
 Alaska::Entidades::Chao::Chao(sf::Texture &chao)
 {
-
+    pFig = &chao;
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, A_CHAO, L_CHAO);
 }
 
 Alaska::Entidades::Chao::~Chao(){}
