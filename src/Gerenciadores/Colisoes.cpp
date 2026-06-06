@@ -132,7 +132,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
                 pJog1->setVelY(-10.0f);
             } 
             else 
-                pIni->danificar(); 
+                pIni->danificar(pJog1); 
         }
     }
 }

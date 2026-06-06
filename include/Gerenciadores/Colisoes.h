@@ -19,6 +19,7 @@ namespace Alaska
             //std::set<Alaska::Entidades::Projetil*> LPs;
             Alaska::Entidades::Personagens::Jogador* pJog1;
             //Alaska::Entidades::Personagens::Jogador* pJog2;
+        
             Alaska::Listas::ListaEntidades* pListaEntidades;
         private:
             const bool verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const;
