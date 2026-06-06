@@ -7,20 +7,19 @@ Inimigo(vx, vy, mal, v, pJ), acumulacao()
 {
     calcularMaldade();
     pFig = new sf::Texture();
-    sf::Image img;
-    img.create(50, 50, sf::Color::White);
-    pFig->loadFromImage(img);
+    pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
     sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
 
-Alaska::Entidades::Personagens::Nevoso::~Nevoso() {}
+Alaska::Entidades::Personagens::Nevoso::~Nevoso(){}
 
 void Alaska::Entidades::Personagens::Nevoso::executar()
 {
     mover();
+    desenhar();
 }
 
 void Alaska::Entidades::Personagens::Nevoso::salvar()

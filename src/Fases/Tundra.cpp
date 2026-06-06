@@ -14,17 +14,24 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
+    criarCenario();
+}
 
+void Alaska::Fases::Tundra::criarCenario()
+{
+    criarInimigos();
+    criarObstaculos();
 }
 
 void Alaska::Fases::Tundra::criarInimigos()
 {
-
+    criarNevosos();
+    criarLobos();
 }
 
 void Alaska::Fases::Tundra::criarObstaculos()
 {
-
+    criarPlataformas();
 }
 
 void Alaska::Fases::Tundra::criarChao()
