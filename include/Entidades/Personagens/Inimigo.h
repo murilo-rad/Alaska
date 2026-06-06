@@ -26,6 +26,7 @@ namespace Alaska
                     virtual void executar() = 0;
                     virtual void danificar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
                     virtual void salvar() = 0;
+                    virtual void mover() = 0;
 
                     void recuar();
                     void calcularMaldade();
