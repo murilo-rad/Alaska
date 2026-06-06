@@ -15,6 +15,10 @@
 
 #define L_CHAO 2400.0f
 #define A_CHAO 200.0f
+
+#define L_PLAT 50.0f
+#define A_PLAT 15.0f
+
 #define T_NEVOSO 30.0f
 #define T_LOBO 40.0f
 #define T_YETI 50.0f

@@ -11,7 +11,7 @@ namespace Alaska
             class Lobo : public Inimigo
             {
                 private:
-                    int voracidade;    
+                    float voracidade;
                 public:
                     Lobo();
                     Lobo(float x, float y, Jogador* pJ);

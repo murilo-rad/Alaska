@@ -4,14 +4,10 @@
 Alaska::Entidades::Personagens::Jogador::Jogador(): Personagem(100.0f, 100.0f, 3), pontos(0) 
 {
     pFig = new sf::Texture();
-    sf::Image img;
-    img.create(50, 50, sf::Color::Blue);
-    pFig->loadFromImage(img);
+    pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_JOG, T_JOG);
     sprite.setPosition(x, y);
-
-    velX = 0.0f;
-    velY = 0.0f;
 }
 
 Alaska::Entidades::Personagens::Jogador::~Jogador() {}
@@ -29,7 +25,6 @@ void Alaska::Entidades::Personagens::Jogador::salvar()
 
 void Alaska::Entidades::Personagens::Jogador::mover() 
 {
-    x += velX;
     aplicarGravidade();
     sprite.setPosition(x, y);
     setNoChao(false);
