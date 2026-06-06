@@ -35,5 +35,30 @@ void Alaska::Entidades::Personagens::Jogador::mover() {
 
 void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
 {
-	//implementar
+	sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
+    sf::FloatRect caixaJog = sprite.getGlobalBounds();
+    
+    if (caixaJog.top < caixaIni.top)
+    {
+        setY(caixaIni.top - caixaJog.height);
+        setVelY(-8.0f);
+        setNoChao(false);
+        pIni->recuar();
+        pIni->operator--();
+    }
+    else
+    {
+
+        float centroJog = caixaJog.left + caixaJog.width / 2.f;
+        float centroIni = caixaIni.left + caixaIni.width / 2.f;
+
+        const float empurrao = 8.0f;
+
+        if (centroJog < centroIni)
+            setVelX(-empurrao);
+        else
+            setVelX(empurrao);
+
+        pIni->danificar(this);
+    }
 }

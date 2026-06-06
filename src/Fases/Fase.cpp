@@ -35,7 +35,7 @@ void Alaska::Fases::Fase::criarNevosos()
     int quantidade = (rand()%maxNevosos);
     if(quantidade < MIN)
         quantidade = MIN;
-    
+
     Alaska::Entidades::Personagens::Inimigo* pInimigo;
     pInimigo = nullptr;
 
@@ -44,8 +44,8 @@ void Alaska::Fases::Fase::criarNevosos()
         pInimigo = new Alaska::Entidades::Personagens::Nevoso();
         if(pInimigo)
         {
+            lista_ents.incluir(pInimigo);
             GC->incluirInimigo(pInimigo);
-            lista_ents.incluir(dynamic_cast<Alaska::Entidades::Entidade*>(pInimigo));
         }
     }
 
@@ -62,6 +62,54 @@ void Alaska::Fases::Fase::criarPlataformas()
     Alaska::Entidades::Obstaculos::Obstaculo* pObstaculo;
     pObstaculo = nullptr;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //void Alaska::Fases::Fase::executar()
 //{
 //    auto* lista = lista_ents.getLista();

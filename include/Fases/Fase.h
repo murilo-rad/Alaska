@@ -34,7 +34,6 @@ namespace Alaska
                 void criarCenario();
                 void criarNevosos();
                 void criarPlataformas();
-                
         };
     }
 }

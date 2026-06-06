@@ -1,4 +1,4 @@
-#include "FaseNoite.h"
+/* #include "FaseNoite.h"
 #include "Plataforma.h"
 #include "Ice_Spike.h"
 #include "Nevoso.h"
@@ -86,3 +86,4 @@ void Alaska::Fases::FaseNoite::criarCenario()
     lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
     printf("fase1\n");
 }
+ */

@@ -26,11 +26,11 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizar(Alaska::Entidades::Person
         {
             pJ->setY(caixaGelo.top - caixaJog.height);
             pJ->setVelY(0.0f);
-            pJ->setNoChao(true);
+            pJ->setNoChao(false);
 
-            if (pJ->getVelX() > 0)
+            if(pJ->getVelX() > 0)
                 pJ->setVelX(pJ->getVelX() + 0.1f);
-            else if (pJ->getVelX() < 0)
+            else if(pJ->getVelX() < 0)
                 pJ->setVelX(pJ->getVelX() - 0.1f);
         }
     }

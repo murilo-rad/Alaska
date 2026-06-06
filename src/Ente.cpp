@@ -32,3 +32,8 @@ const int Alaska::Ente::getID()const
 {
     return id;
 }
+
+void Alaska::Ente::setTexture(sf::Texture& tx)
+{
+    pFig = &tx;
+}
