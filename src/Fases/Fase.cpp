@@ -24,12 +24,6 @@ Alaska::Fases::Fase::~Fase()
     delete GC;
 }
 
-void Alaska::Fases::Fase::criarCenario()
-{
-    criarPlataformas();
-    criarNevosos();
-}
-
 void Alaska::Fases::Fase::criarNevosos()
 {
     int quantidade = (rand()%maxNevosos);

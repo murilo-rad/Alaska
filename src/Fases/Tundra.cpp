@@ -34,8 +34,6 @@ void Alaska::Fases::Tundra::criarObstaculos()
     criarPlataformas();
 }
 
-
-
 void Alaska::Fases::Tundra::criarChao()
 {
     sf::Texture t_chao;
