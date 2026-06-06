@@ -1,9 +1,6 @@
 #include "Tundra.h"
-#include "Plataforma.h"
-#include "Ice_Spike.h"
-#include "Nevoso.h"
-#include "Lobo.h"
-#include "Ente.h"
+
+
 
 Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
 {
@@ -20,11 +17,6 @@ void Alaska::Fases::Tundra::executar()
 
 }
 
-void Alaska::Fases::Tundra::criarChao()
-{
-
-}
-
 void Alaska::Fases::Tundra::criarInimigos()
 {
 
@@ -33,6 +25,20 @@ void Alaska::Fases::Tundra::criarInimigos()
 void Alaska::Fases::Tundra::criarObstaculos()
 {
 
+}
+
+void Alaska::Fases::Tundra::criarChao()
+{
+    sf::Texture t_chao;
+    t_chao.loadFromFile("imgs/ChaoTundra.png");
+    Alaska::Entidades::Chao* pChao = nullptr;
+    pChao = new Alaska::Entidades::Chao(t_chao);
+
+    if(pChao)
+    {
+        lista_ents.incluir(pChao);
+    }
+    
 }
 
 void Alaska::Fases::Tundra::criarLobos() 
@@ -48,7 +54,10 @@ void Alaska::Fases::Tundra::criarLobos()
     {
         pInimigo = new Alaska::Entidades::Personagens::Lobo();
         if(pInimigo)
+        {
+            lista_ents.incluir(pInimigo);
             GC->incluirInimigo(pInimigo);
+        }
     }
 
     pInimigo = nullptr;

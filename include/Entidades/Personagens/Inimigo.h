@@ -19,7 +19,6 @@ namespace Alaska
                     float velocidade;
                 protected:
                     void seguirJogador();
-                    void recuar();
                 public:
                     Inimigo();
                     Inimigo(float x, float y, int mal, int v, Jogador* pJ);
@@ -28,6 +27,7 @@ namespace Alaska
                     virtual void danificar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
                     virtual void salvar() = 0;
 
+                    void recuar();
                     void calcularMaldade();
                     int getMaldade();
                     sf::Vector2f normalizarVetor(sf::Vector2f v);

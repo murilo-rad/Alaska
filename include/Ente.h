@@ -28,6 +28,7 @@ namespace Alaska
 
         static void setGG(Alaska::Gerenciadores::Graficos* pG);
         sf::Sprite* getSprite();
+        void setTexture(sf::Texture& tx);
 
     };
 

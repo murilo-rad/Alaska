@@ -21,6 +21,7 @@ add_executable(Alaska
     src/main.cpp
     src/Ente.cpp
     src/Entidades/Entidade.cpp
+    src/Entidades/Chao.cpp
     src/Entidades/Personagens/Personagem.cpp
     src/Entidades/Personagens/Inimigo.cpp
     src/Entidades/Personagens/Jogador.cpp
