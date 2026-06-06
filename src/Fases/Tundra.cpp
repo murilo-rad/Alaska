@@ -36,6 +36,7 @@ void Alaska::Fases::Tundra::criarChao()
 
     if(pChao)
     {
+        GC->setChao(pChao);
         lista_ents.incluir(pChao);
     }
     

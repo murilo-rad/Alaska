@@ -17,6 +17,7 @@ namespace Alaska
             private:
                 const int maxLobos;
                 const int maxGelos;
+                Entidades::Personagens::Jogador* pJogador;
             public:
                 Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~Tundra();

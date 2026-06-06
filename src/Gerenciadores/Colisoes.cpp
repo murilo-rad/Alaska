@@ -3,10 +3,10 @@
 #include "Inimigo.h"
 #include "Nevoso.h"
 
-Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
+// Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
+// usado para testes
 
-Alaska::Gerenciadores::Colisoes::Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista) 
-    : pJog1(pJ), pListaEntidades(lista) {}
+Alaska::Gerenciadores::Colisoes::Colisoes() : LIs(), LOs(), pJog1(), pChao(){}
 
 Alaska::Gerenciadores::Colisoes::~Colisoes(){}
 
@@ -35,6 +35,18 @@ void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstac
         LOs.push_back(pObs);
 }
 
+void Alaska::Gerenciadores::Colisoes::setJogadorUm(Alaska::Entidades::Personagens::Jogador* pJ1)
+{
+    pJog1 = pJ1;
+}
+
+void Alaska::Gerenciadores::Colisoes::setChao(Alaska::Entidades::Chao* pCh)
+{
+    if(pCh)
+        pChao = pCh;
+}
+
+
 void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 {
    if(!LOs.empty())
@@ -61,19 +73,65 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
 
 void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
 {
-    
+    if(!LIs.empty())
+   {
+       Alaska::Entidades::Personagens::Inimigo* pIni;
+       pIni = nullptr;
+
+       std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator it;
+       it = LIs.begin();
+       
+       while(it != LIs.end())
+       {
+           pIni = (*it);
+           if(pIni)
+               if(verificarColisao(pJog1, pIni))
+                   pJog1->colidir(pIni);
+           pIni = nullptr;
+           it++;
+       }
+       pIni = nullptr;
+       delete pIni;
+   }
 }
 
 
+// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
+// {
+// 	// Implementar
+// }
 
-
-// 
-
-void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
+void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
 {
-	// Implementar
-}
+    if(pChao)
+    {
+        if(pJog1)
+            if(verificarColisao(pJog1, pChao))
+                pChao->empurrar(pJog1);
+        
 
+        if(!LIs.empty())
+        {
+            Alaska::Entidades::Personagens::Inimigo* pIni;
+            pIni = nullptr;
+
+            std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator it;
+            it = LIs.begin();
+        
+            while(it != LIs.end())
+            {
+                pIni = (*it);
+                if(pIni)
+                    if(verificarColisao(pIni, pChao))
+                        pChao->empurrar(pIni);
+                pIni = nullptr;
+                it++;
+            }
+            pIni = nullptr;
+            delete pIni;
+        }
+    }
+}
 //void Alaska::Gerenciadores::Colisoes::incluirProjetil()
 //{
 	// Implementar

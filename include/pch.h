@@ -13,10 +13,12 @@
 #define MAX 10
 #define MIN 3
 
-#define T_NEVOSO 30
-#define T_LOBO 40
-#define T_YETI 50
-#define T_JOG 30
+#define L_CHAO 2400.0f
+#define A_CHAO 200.0f
+#define T_NEVOSO 30.0f
+#define T_LOBO 40.0f
+#define T_YETI 50.0f
+#define T_JOG 30.0f
 
 
 
