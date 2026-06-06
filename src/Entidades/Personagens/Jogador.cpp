@@ -18,10 +18,8 @@ Alaska::Entidades::Personagens::Jogador::~Jogador() {}
 
 void Alaska::Entidades::Personagens::Jogador::executar() 
 {
-    x += velX;
-    aplicarGravidade();
-    sprite.setPosition(x, y);
-    setNoChao(false);
+    mover();
+    desenhar();
 }
 
 void Alaska::Entidades::Personagens::Jogador::salvar() 
@@ -29,8 +27,12 @@ void Alaska::Entidades::Personagens::Jogador::salvar()
     
 }
 
-void Alaska::Entidades::Personagens::Jogador::mover() {
-
+void Alaska::Entidades::Personagens::Jogador::mover() 
+{
+    x += velX;
+    aplicarGravidade();
+    sprite.setPosition(x, y);
+    setNoChao(false);
 }
 
 void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
