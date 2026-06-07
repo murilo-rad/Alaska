@@ -26,6 +26,7 @@ namespace Alaska
             void tratarColisoesJogsObstacs();
             void tratarColisoesJogsInimigs();
             //void tratarColisoesJogsProjeteis();
+            void tratarColisoesInimigosObstacs();
             void tratarColisoesChao();
         public:
             Colisoes();

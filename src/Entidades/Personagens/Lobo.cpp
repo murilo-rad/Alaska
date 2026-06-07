@@ -33,6 +33,7 @@ void Alaska::Entidades::Personagens::Lobo::mover()
 
 void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personagens::Jogador* pJ)
 {
+    printf("hit lobo\n");
     pJ->operator--();
 }
 

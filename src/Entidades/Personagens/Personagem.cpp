@@ -48,6 +48,7 @@ void Alaska::Entidades::Personagens::Personagem::setVelY(const float velYy)
 void Alaska::Entidades::Personagens::Personagem::setVelX(const float velXx)
 {
     velX = velXx;
+	x += velX;
 }
 
 const float Alaska::Entidades::Personagens::Personagem::getVelX()const

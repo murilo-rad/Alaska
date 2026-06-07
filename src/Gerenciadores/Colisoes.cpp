@@ -75,6 +75,34 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
    }
 }
 
+void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
+{
+    if (!LOs.empty())
+    {
+        if (!LIs.empty()) {
+            Alaska::Entidades::Obstaculos::Obstaculo* pObs;
+            pObs = nullptr;
+
+            std::list<Alaska::Entidades::Obstaculos::Obstaculo*>::iterator it;
+            it = LOs.begin();
+            while (it != LOs.end())
+            {
+                Alaska::Entidades::Personagens::Inimigo* pInis;
+                pInis = nullptr;
+                pObs = (*it);
+                if (pObs)
+                    if (verificarColisao(pInis, pObs))
+                        pObs->obstaculizarInimigo(pInis);
+                pObs = nullptr;
+                it++;
+            }
+            pObs = nullptr;
+            delete pObs;
+        }
+    }
+}
+
+
 void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
 {
     if(!LIs.empty())
@@ -99,34 +127,28 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
    }
 }
 
-
-// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
-// {
-// 	// Implementar
-// }
-
 void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
 {
-    if(pChao)
+    if (pChao)
     {
-        if(pJog1)
-            if(verificarColisao(pJog1, pChao))
+        if (pJog1)
+            if (verificarColisao(pJog1, pChao))
                 pChao->empurrar(pJog1);
-        
 
-        if(!LIs.empty())
+
+        if (!LIs.empty())
         {
             Alaska::Entidades::Personagens::Inimigo* pIni;
             pIni = nullptr;
 
             std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator it;
             it = LIs.begin();
-        
-            while(it != LIs.end())
+
+            while (it != LIs.end())
             {
                 pIni = (*it);
-                if(pIni)
-                    if(verificarColisao(pIni, pChao))
+                if (pIni)
+                    if (verificarColisao(pIni, pChao))
                         pChao->empurrar(pIni);
                 pIni = nullptr;
                 it++;
@@ -136,6 +158,12 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
         }
     }
 }
+
+// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
+// {
+// 	// Implementar
+// }
+// 
 //void Alaska::Gerenciadores::Colisoes::incluirProjetil()
 //{
 	// Implementar

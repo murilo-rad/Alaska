@@ -9,7 +9,7 @@
 #include <cmath>
 
 
-#define GRAVIDADE 0.35f
+#define GRAVIDADE 0.50f
 #define MAX 10
 #define MIN 3
 

@@ -1,4 +1,5 @@
 #include "Plataforma.h"
+#include "Inimigo.h"
 
 Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y), largura()
 {
@@ -31,6 +32,18 @@ void Alaska::Entidades::Obstaculos::Plataforma::obstaculizar(Alaska::Entidades::
         pJ->setY(caixaPlat.top - caixaJog.height);
         pJ->setVelY(0.0f);
         pJ->setNoChao(true);
+    }
+}
+
+void Alaska::Entidades::Obstaculos::Plataforma::obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI)
+{
+	sf::FloatRect caixaIni = pI->getSprite()->getGlobalBounds();
+    sf::FloatRect caixaPlat = sprite.getGlobalBounds();
+
+    if (pI->getVelY() > 0 && caixaIni.top < caixaPlat.top)
+    {
+        pI->setY(caixaPlat.top - caixaIni.height);
+        pI->setVelY(0.0f);
     }
 }
     //sf::FloatRect inter;

@@ -39,5 +39,6 @@ void Alaska::Entidades::Personagens::Nevoso::mover()
 
 void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Personagens::Jogador* pJ)
 {
+	printf("hit nevoso\n");
     pJ->operator--();
 }
