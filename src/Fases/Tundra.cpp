@@ -14,6 +14,7 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
+
     lista_ents.percorrer();
     if (GC)
         GC->executar();

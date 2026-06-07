@@ -36,7 +36,7 @@ void Alaska::Fases::Fase::criarNevosos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Nevoso();
+        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posicaoRandX(), posicaoRandY(), pJogador);
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);

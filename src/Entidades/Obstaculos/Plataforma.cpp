@@ -5,15 +5,21 @@ Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstac
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Plataforma.png");
     sprite.setTexture(*pFig);
+	sprite.setColor(sf::Color::White);
     ajustarSprite(sprite, A_PLAT, L_PLAT);
     sprite.setPosition(x, y);
+    executar();
 }
 
-Alaska::Entidades::Obstaculos::Plataforma::Plataforma(){}
+Alaska::Entidades::Obstaculos::Plataforma::Plataforma(){
+	executar();
+}
 
 Alaska::Entidades::Obstaculos::Plataforma::~Plataforma() {}
 
-void Alaska::Entidades::Obstaculos::Plataforma::executar() {}
+void Alaska::Entidades::Obstaculos::Plataforma::executar() {
+    desenhar();
+}
 
 void Alaska::Entidades::Obstaculos::Plataforma::obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ) 
 {

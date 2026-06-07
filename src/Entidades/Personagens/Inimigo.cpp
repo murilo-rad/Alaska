@@ -37,12 +37,11 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     velY = 0.0f;
     pFig = new sf::Texture();
 
-    sf::Image img;
-    img.create(50, 50, sf::Color::Red);
-    pFig->loadFromImage(img);
-    
+    //sf::Image img;
+    //img.create(50, 50, sf::Color::Red);
+    //pFig->loadFromImage(img);
+    //sprite.setTexture(*pFig);
 
-    sprite.setTexture(*pFig);
     sprite.setPosition(this->getX(), this->getY());
 }
 

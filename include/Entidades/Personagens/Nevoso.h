@@ -14,7 +14,7 @@ namespace Alaska
                 private:
                     float acumulacao;
                 public:
-                    Nevoso(float vx, float vy, int v, int mal, Jogador* pJ, float vel);
+                    Nevoso(float vx, float vy, Jogador* pJ);
                     Nevoso();
                     ~Nevoso();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);

@@ -2,14 +2,15 @@
 
 
 Alaska::Entidades::Personagens::Nevoso::Nevoso
-(float vx, float vy, int v, int mal, Alaska::Entidades::Personagens::Jogador* pJ, float vel) : 
-Inimigo(vx, vy, mal, v, pJ), acumulacao()
+(float xx, float yy, Alaska::Entidades::Personagens::Jogador* pJ) : 
+Inimigo(xx, yy, 1, 1, pJ), acumulacao()
 {
     calcularMaldade();
     acumulacao = (T_NEVOSO * nivel_maldade);
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
+    sprite.setColor(sf::Color::White);
     ajustarSprite(sprite, acumulacao, acumulacao);
     sprite.setPosition(x, y);
 }

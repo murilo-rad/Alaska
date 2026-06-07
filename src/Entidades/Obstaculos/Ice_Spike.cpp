@@ -6,10 +6,10 @@ Alaska::Entidades::Obstaculos::Ice_Spike::Ice_Spike(float x, float y, bool d, sh
     : Obstaculo(x, y), danosidade(dano)
 {
     pFig = new sf::Texture();
-    sf::Image img;
-    img.create(30, 50, sf::Color::Cyan);
-    pFig->loadFromImage(img);
-    sprite.setTexture(*pFig);
+    //sf::Image img;
+    //img.create(30, 50, sf::Color::Cyan);
+    //pFig->loadFromImage(img);
+    //sprite.setTexture(*pFig);
     sprite.setPosition(x, y);
     danoso = d;
 }
