@@ -47,7 +47,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 
 void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
 {
-    float aux = 1.0f + (rand() % 51) / 100.0f;
+    float aux = 1.0f + (rand() % 301) / 100.0f;
     nivel_maldade = aux;
 }
 

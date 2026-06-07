@@ -7,6 +7,7 @@ Alaska::Fases::Fase::Fase() : maxNevosos(0), max_plataformas(0), pJogador(nullpt
 
 Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : maxNevosos(n), max_plataformas(p)
 {
+
     if(pJ)
         pJogador = pJ;
 

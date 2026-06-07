@@ -18,6 +18,7 @@
 
 #define L_PLAT 65.0f
 #define A_PLAT 15.0f
+#define MAX_PLAT 100
 
 #define T_NEVOSO 50.0f
 #define T_LOBO 60.0f

@@ -6,7 +6,7 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso
 Inimigo(xx, yy, 1, 1, pJ), acumulacao()
 {
     calcularMaldade();
-    acumulacao = (T_NEVOSO * nivel_maldade);
+    acumulacao = (float)(T_NEVOSO * nivel_maldade);
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
