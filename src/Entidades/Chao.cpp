@@ -1,16 +1,19 @@
 #include "Chao.h"
 
-Alaska::Entidades::Chao::Chao(sf::Texture &chao)
+Alaska::Entidades::Chao::Chao() : Entidade(0, 550)
 {
-    pFig = &chao;
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/ChaoTundra.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, A_CHAO, L_CHAO);
+    sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Chao::~Chao(){}
 
 void Alaska::Entidades::Chao::executar()
 {
+    desenhar();
 }
 
 void Alaska::Entidades::Chao::empurrar(Alaska::Entidades::Personagens::Personagem* pP)
@@ -19,7 +22,7 @@ void Alaska::Entidades::Chao::empurrar(Alaska::Entidades::Personagens::Personage
     sf::FloatRect caixaChao = sprite.getGlobalBounds();
 
     sf::FloatRect inter;
-    if (caixaEnti.intersects(caixaChao))
+    if (caixaEnti.intersects(caixaChao, inter))
     {
        if (inter.width > inter.height)
        {

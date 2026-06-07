@@ -5,7 +5,8 @@ Alaska::Gerenciadores::Eventos::Eventos() : janela(nullptr), pJogador(nullptr), 
 
 Alaska::Gerenciadores::Eventos::~Eventos(){}
 
-void Alaska::Gerenciadores::Eventos::setJanela(sf::RenderWindow* pJ) {
+void Alaska::Gerenciadores::Eventos::setJanela(sf::RenderWindow* pJ) 
+{
     janela = pJ;
 }
 

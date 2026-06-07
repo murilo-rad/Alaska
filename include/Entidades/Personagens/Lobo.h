@@ -14,7 +14,7 @@ namespace Alaska
                     float voracidade;
                 public:
                     Lobo();
-                    Lobo(float x, float y, Jogador* pJ);
+                    Lobo(float xx, float yy, Jogador* pJ);
                     ~Lobo();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();

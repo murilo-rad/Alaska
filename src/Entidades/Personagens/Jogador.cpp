@@ -25,6 +25,7 @@ void Alaska::Entidades::Personagens::Jogador::salvar()
 
 void Alaska::Entidades::Personagens::Jogador::mover() 
 {
+    x += velX;
     aplicarGravidade();
     sprite.setPosition(x, y);
     setNoChao(false);

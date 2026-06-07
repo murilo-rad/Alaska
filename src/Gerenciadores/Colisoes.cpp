@@ -6,12 +6,16 @@
 // Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
 // usado para testes
 
-Alaska::Gerenciadores::Colisoes::Colisoes() : LIs(), LOs(), pJog1(), pChao(){}
+Alaska::Gerenciadores::Colisoes::Colisoes() : LIs(), LOs(), pJog1(), pChao()
+{
+    
+}
 
 Alaska::Gerenciadores::Colisoes::~Colisoes(){}
 
 void Alaska::Gerenciadores::Colisoes::executar()
 {
+    tratarColisoesChao();
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimigs();
 }

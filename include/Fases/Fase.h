@@ -34,6 +34,8 @@ namespace Alaska
                 virtual void criarCenario() = 0;
                 void criarNevosos();
                 void criarPlataformas();
+                float posicaoRandX();
+                float posicaoRandY();
         };
     }
 }

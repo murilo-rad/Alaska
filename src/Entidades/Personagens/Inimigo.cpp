@@ -27,8 +27,8 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 
 
  Alaska::Entidades::Personagens::Inimigo::Inimigo(
-    float x, float y, int mal, int v, Jogador* pJ)
-    : Personagem(x, y, v)
+    float xx, float yy, int mal, int v, Jogador* pJ)
+    : Personagem(xx, yy, v)
     , nivel_maldade()
     , pJogador(pJ)
     , velocidade(2.0f)
@@ -37,15 +37,13 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     velY = 0.0f;
     pFig = new sf::Texture();
 
-    
-    std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
     sf::Image img;
     img.create(50, 50, sf::Color::Red);
     pFig->loadFromImage(img);
     
 
     sprite.setTexture(*pFig);
-    sprite.setPosition(this->x, this->y);
+    sprite.setPosition(this->getX(), this->getY());
 }
 
 void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
