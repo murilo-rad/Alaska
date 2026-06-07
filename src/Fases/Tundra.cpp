@@ -2,7 +2,7 @@
 
 
 
-Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
+Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g), pJogador(pJ)
 {
     criarCenario();
 }
@@ -14,13 +14,18 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
-    criarCenario();
+    lista_ents.percorrer();
+    if (GC)
+        GC->executar();
 }
 
 void Alaska::Fases::Tundra::criarCenario()
 {
+    if (pJogador)
+        lista_ents.incluir(pJogador);
     criarInimigos();
     criarObstaculos();
+    criarChao();
 }
 
 void Alaska::Fases::Tundra::criarInimigos()
@@ -36,10 +41,9 @@ void Alaska::Fases::Tundra::criarObstaculos()
 
 void Alaska::Fases::Tundra::criarChao()
 {
-    sf::Texture t_chao;
-    t_chao.loadFromFile("imgs/ChaoTundra.png");
-    Alaska::Entidades::Chao* pChao = nullptr;
-    pChao = new Alaska::Entidades::Chao(t_chao);
+    Alaska::Entidades::Chao* pChao;
+    pChao = nullptr;
+    pChao = new Alaska::Entidades::Chao();
 
     if(pChao)
     {
@@ -60,7 +64,7 @@ void Alaska::Fases::Tundra::criarLobos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Lobo();
+        pInimigo = new Alaska::Entidades::Personagens::Lobo(posicaoRandX(), posicaoRandY(), pJogador);
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);

@@ -3,10 +3,9 @@
 Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y), largura()
 {
     pFig = new sf::Texture();
-    sf::Image img;
-    img.create(800, 50, sf::Color::Green);
-    pFig->loadFromImage(img);
+    pFig->loadFromFile("imgs/Plataforma.png");
     sprite.setTexture(*pFig);
+    ajustarSprite(sprite, A_PLAT, L_PLAT);
     sprite.setPosition(x, y);
 }
 

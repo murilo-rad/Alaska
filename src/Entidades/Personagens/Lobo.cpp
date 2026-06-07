@@ -2,7 +2,7 @@
 
 Alaska::Entidades::Personagens::Lobo::Lobo() : voracidade(), Inimigo() {}
 
-Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : voracidade(), Inimigo(x, y, 1, 1, pJ) 
+Alaska::Entidades::Personagens::Lobo::Lobo(float xx, float yy, Jogador* pJ) : voracidade(), Inimigo(xx, yy, 1, 2, pJ) 
 {
     calcularMaldade();
     velocidade *= nivel_maldade;
@@ -13,6 +13,7 @@ Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : vora
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_LOBO, T_LOBO);
     sprite.setPosition(x, y);
+
 }
 
 Alaska::Entidades::Personagens::Lobo::~Lobo() {}

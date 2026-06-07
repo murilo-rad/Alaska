@@ -10,8 +10,10 @@ Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr)
 
 Alaska::Alaskapp::~Alaskapp() {}
 
-void Alaska::Alaskapp::executar() {
+void Alaska::Alaskapp::executar() 
+{
     sementear();
+
     Gerenciadores::Eventos eventos;
 
     Ente::setGG(&GG);
@@ -33,6 +35,8 @@ void Alaska::Alaskapp::executar() {
     while (GG.isJanelaAberta())
     {
         eventos.verificarEventos();
+
+        GG.atualizarCamera(pJog1->getX(), 300.0f);
 
         GG.limpar();
 

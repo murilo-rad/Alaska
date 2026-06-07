@@ -12,7 +12,7 @@ namespace Alaska
             private:
                 int fase;
             public:
-                Chao(sf::Texture &chao);
+                Chao();
                 ~Chao();
                 void executar();
                 void salvar();
