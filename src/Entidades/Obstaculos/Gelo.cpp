@@ -20,6 +20,7 @@ void Alaska::Entidades::Obstaculos::Gelo::executar()
 
 void Alaska::Entidades::Obstaculos::Gelo::obstaculizar(Alaska::Entidades::Personagens::Jogador *pJ)
 {
+
     sf::FloatRect caixaJogador = pJ->getSprite()->getGlobalBounds();
     sf::FloatRect caixaGelo = sprite.getGlobalBounds();
 
@@ -54,7 +55,7 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizar(Alaska::Entidades::Person
     }
 }
 
-void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI)
+void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo *pI)
 {
     sf::FloatRect caixaInimigo = pI->getSprite()->getGlobalBounds();
     sf::FloatRect caixaGelo = sprite.getGlobalBounds();
@@ -90,7 +91,6 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades:
                 pI->setX(pI->getX() + inter.width);
         }
     }
-
 }
 
 void Alaska::Entidades::Obstaculos::Gelo::salvar()

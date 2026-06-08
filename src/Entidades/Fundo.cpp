@@ -3,7 +3,7 @@
 Alaska::Entidades::Fundo::Fundo() : Entidade(0.0f, 0.0f)
 {
     pFig = new sf::Texture();
-    pFig->loadFromFile("imgs/FundoTundra.png");
+    pFig->loadFromFile("imgs/Tundra.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, A_FUNDO, L_FUNDO);
     sprite.setPosition(x, y);

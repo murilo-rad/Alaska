@@ -14,21 +14,22 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
-
     lista_ents.percorrer();
     if (GC)
         GC->executar();
+    lista_ents.cemiterio();
 }
 
 void Alaska::Fases::Tundra::criarCenario()
 {
     criarFundo();
     criarChao();
+    criarObstaculos();
 
     if (pJogador)
         lista_ents.incluir(pJogador);
     criarInimigos();
-    criarObstaculos();
+    
 }
 
 void Alaska::Fases::Tundra::criarInimigos()

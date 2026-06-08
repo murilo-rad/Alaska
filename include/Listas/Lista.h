@@ -129,8 +129,11 @@ typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::
 template <class T>
 typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::operator++() 
 {
-    l_posicao = l_posicao->getProximo();
-    return *this;
+    if(l_posicao)
+    {
+        l_posicao = l_posicao->getProximo();
+        return *this;
+    }
 }
 
 template <class T>

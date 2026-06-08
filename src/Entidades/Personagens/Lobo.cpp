@@ -5,8 +5,8 @@ Alaska::Entidades::Personagens::Lobo::Lobo() : voracidade(), Inimigo() {}
 Alaska::Entidades::Personagens::Lobo::Lobo(float xx, float yy, Jogador* pJ) : voracidade(), Inimigo(xx, yy, 1, 2, pJ) 
 {
     calcularMaldade();
-    velocidade *= nivel_maldade;
-    voracidade = velocidade;
+    voracidade = velocidade * nivel_maldade;
+    velocidade = voracidade;
 
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Lobo.png");
@@ -20,6 +20,7 @@ Alaska::Entidades::Personagens::Lobo::~Lobo() {}
 
 void Alaska::Entidades::Personagens::Lobo::executar()
 {
+
     mover();
     desenhar();
 }
@@ -35,6 +36,10 @@ void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personag
 {
     printf("hit lobo\n");
     pJ->operator--();
+    if(pJ->getVidas() == 0)
+        pJ->setMorto();
+    pJ->setX(10.0f);
+    pJ->setY(500.0f);
 }
 
 void Alaska::Entidades::Personagens::Lobo::salvar() 

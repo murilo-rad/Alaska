@@ -1,7 +1,7 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Personagens::Jogador::Jogador(): Personagem(100.0f, 100.0f, 3), pontos(0) 
+Alaska::Entidades::Personagens::Jogador::Jogador(): Personagem(10.0f, 500.0f, 3), pontos(0) 
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
@@ -42,7 +42,7 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
         setVelY(-8.0f);
         setNoChao(false);
         printf("hit jogador\n");
-        pIni->operator--();
+        danificar(pIni);
     }
     else if(caixaJog.top >= caixaIni.top)
     {
@@ -59,4 +59,11 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
 
         pIni->danificar(this);
     }
+}
+
+void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo* pIni)
+{
+    pIni->operator--();
+    if(pIni->getVidas() == 0)
+        pIni->setMorto();
 }

@@ -13,19 +13,20 @@ namespace Alaska
                 protected:
                     int num_vidas;
                     bool noChao;
+                    bool vivo;
                     float velX; 
                     float velY;
                 public:
                     Personagem(float x, float y, int v);
-                    Personagem(float x, float y, float vX, float vY, int v);
                     Personagem();
                     ~Personagem();
 
                     void salvarDataBuffer();
 
-                    void setVida(const int v);
+                    void setMorto();
+
                     const int getVidas()const;
-                    void verificarVida();
+                    const bool estaVivo()const;
 
                     void setNoChao(bool c);
                     const bool getNoChao() const;
@@ -36,7 +37,7 @@ namespace Alaska
                     const float getVelY()const;
                     void aplicarGravidade();
 
-                    Personagem& operator--();
+                    void operator--();
 
                     virtual void executar() = 0;
                     virtual void salvar() = 0;
