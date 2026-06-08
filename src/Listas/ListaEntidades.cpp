@@ -31,3 +31,19 @@ void Alaska::Listas::ListaEntidades::percorrer()
             (*it)->executar();
     }
 }
+
+void Alaska::Listas::ListaEntidades::cemiterio()
+{
+    for (Lista<Alaska::Entidades::Entidade*>::Iterador it = LEs.begin(); it != LEs.end();)
+    {
+        auto atual = it++;
+
+        auto* p = dynamic_cast<Entidades::Personagens::Personagem*>(*atual);
+        if (p && !p->estaVivo())
+        {
+            Entidades::Entidade* ptr = *atual;
+            LEs.removerE(ptr);
+            delete ptr;
+        }
+    }
+}

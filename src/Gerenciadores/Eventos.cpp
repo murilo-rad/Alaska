@@ -51,7 +51,7 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
     if (pJogador)
     {
-        float velocidadeAndar = 4.0f;
+        float velocidadeAndar = 1.5f;
         float velocidadeX = 0.0f;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -63,7 +63,7 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && pJogador->getNoChao())
         {
-            pJogador->setVelY(-11.0f);
+            pJogador->setVelY(-14.0f);
             pJogador->setNoChao(false);
         }
     }

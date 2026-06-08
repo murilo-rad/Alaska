@@ -19,7 +19,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 
     if (pJogador->getY() < y - 80.0f && noChao)
     {
-        velY = -11.0f;
+        velY = -12.0f;
         setNoChao(false);
     }
     x += velX;
@@ -31,23 +31,15 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     : Personagem(xx, yy, v)
     , nivel_maldade()
     , pJogador(pJ)
-    , velocidade(2.0f)
+    , velocidade(1.0f)
 {
     velX = 0.0f;
     velY = 0.0f;
-    pFig = new sf::Texture();
-
-    //sf::Image img;
-    //img.create(50, 50, sf::Color::Red);
-    //pFig->loadFromImage(img);
-    //sprite.setTexture(*pFig);
-
-    sprite.setPosition(this->getX(), this->getY());
 }
 
 void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
 {   
-    float aux = (((rand() % 100)/100.0f)+1.0f);
+    float aux = ((rand() % 100) / 100.0f) + 1.0f;
     nivel_maldade = aux;
 }
 

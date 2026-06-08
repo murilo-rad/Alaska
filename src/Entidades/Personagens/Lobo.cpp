@@ -20,6 +20,7 @@ Alaska::Entidades::Personagens::Lobo::~Lobo() {}
 
 void Alaska::Entidades::Personagens::Lobo::executar()
 {
+
     mover();
     desenhar();
 }
@@ -35,6 +36,10 @@ void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personag
 {
     printf("hit lobo\n");
     pJ->operator--();
+    if(pJ->getVidas() == 0)
+        pJ->setMorto();
+    pJ->setX(10.0f);
+    pJ->setY(500.0f);
 }
 
 void Alaska::Entidades::Personagens::Lobo::salvar() 

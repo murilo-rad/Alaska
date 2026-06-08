@@ -7,10 +7,10 @@ Inimigo(xx, yy, 1, 1, pJ), acumulacao()
 {
     calcularMaldade();
     acumulacao = (float)(T_NEVOSO * nivel_maldade);
+    
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
-    sprite.setColor(sf::Color::White);
     ajustarSprite(sprite, acumulacao, acumulacao);
     sprite.setPosition(x, y);
 }
@@ -41,4 +41,8 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
 {
 	printf("hit nevoso\n");
     pJ->operator--();
+    if(pJ->getVidas() == 0)
+        pJ->setMorto();
+    pJ->setX(10.0f);
+    pJ->setY(500.0f);
 }

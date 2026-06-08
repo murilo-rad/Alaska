@@ -81,15 +81,14 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
     {
        Alaska::Entidades::Obstaculos::Obstaculo* pObs;
        pObs = nullptr;
-
        std::list<Alaska::Entidades::Obstaculos::Obstaculo*>::iterator itObs;
-       itObs = LOs.begin();
+       
 
        Alaska::Entidades::Personagens::Inimigo* pIni;
        pIni = nullptr;
-
        std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator itIni;
        
+       itObs = LOs.begin();
        while(itObs != LOs.end())
        {
             itIni = LIs.begin();
@@ -129,14 +128,18 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
        
        while(it != LIs.end())
        {
-           pIni = (*it);
-           if(pIni)
-               if(verificarColisao(pJog1, pIni))
-                   pJog1->colidir(pIni);
+            pIni = (*it);
+            if(pIni)
+            {
+                if(pIni->estaVivo())
+                    if(verificarColisao(pJog1, pIni))
+                        pJog1->colidir(pIni);
+            }
+            else
+                removerInimigo(pIni);
            pIni = nullptr;
            it++;
        }
-       pIni = nullptr;
        delete pIni;
     }
 }
@@ -167,12 +170,21 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
                 pIni = nullptr;
                 it++;
             }
-            pIni = nullptr;
             delete pIni;
         }
     }
 }
 
+void Alaska::Gerenciadores::Colisoes::removerInimigo(Alaska::Entidades::Personagens::Inimigo* pIni)
+{
+    for (auto it = LIs.begin(); it != LIs.end(); )
+    {
+        if (*it == pIni)
+            it = LIs.erase(it);
+        else
+            ++it;
+    }
+}
 // void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
 // {
 // 	// Implementar

@@ -73,7 +73,7 @@ void Alaska::Fases::Fase::criarPlataformas()
 float Alaska::Fases::Fase::posicaoRandX()
 {
     float pos_x;
-    pos_x = (rand()%1900) + 100;
+    pos_x = (rand()%1800) + 200;
     return pos_x;
 }
 
