@@ -5,8 +5,8 @@ Alaska::Entidades::Personagens::Lobo::Lobo() : voracidade(), Inimigo() {}
 Alaska::Entidades::Personagens::Lobo::Lobo(float xx, float yy, Jogador* pJ) : voracidade(), Inimigo(xx, yy, 1, 2, pJ) 
 {
     calcularMaldade();
-    velocidade *= nivel_maldade;
-    voracidade = velocidade;
+    voracidade = velocidade * nivel_maldade;
+    velocidade = voracidade;
 
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Lobo.png");

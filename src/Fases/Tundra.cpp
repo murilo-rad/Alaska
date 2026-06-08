@@ -14,11 +14,10 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
-
-    lista_ents.cemiterio();
     lista_ents.percorrer();
     if (GC)
         GC->executar();
+    lista_ents.cemiterio();
 }
 
 void Alaska::Fases::Tundra::criarCenario()

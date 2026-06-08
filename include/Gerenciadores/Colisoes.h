@@ -38,6 +38,7 @@ namespace Alaska
             void setJogadorUm(Alaska::Entidades::Personagens::Jogador* pJ1);
             //void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
             void removerInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
+            void limparMortos();
             void setChao(Alaska::Entidades::Chao* pCh);
             void executar();
         };
