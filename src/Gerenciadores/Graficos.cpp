@@ -18,14 +18,8 @@ Alaska::Gerenciadores::Graficos::~Graficos()
 
 void Alaska::Gerenciadores::Graficos::limpar()
 {
-	sf::Texture background;
-	background.loadFromFile("imgs/FundoTundra.png");
-	sf::Sprite backgroundSprite;
-	backgroundSprite.setTexture(background);
-    if (janela && janela->isOpen()) {
+    if (janela && janela->isOpen()) 
         janela->clear();
-		janela->draw(backgroundSprite);
-    }
 }
 
 void Alaska::Gerenciadores::Graficos::mostrar()

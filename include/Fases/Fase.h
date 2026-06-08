@@ -16,8 +16,8 @@ namespace Alaska
         class Fase : public Ente
         {
             private:
-                const int maxNevosos;
-                const int max_plataformas;
+                const int max_Nevosos;
+                const int max_Plataformas;
             protected:
                 Alaska::Gerenciadores::Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
@@ -31,6 +31,7 @@ namespace Alaska
                 virtual void criarInimigos() = 0;
                 virtual void criarObstaculos() = 0;
                 virtual void criarChao() = 0;
+                virtual void criarFundo() = 0;
                 virtual void criarCenario() = 0;
                 void criarNevosos();
                 void criarPlataformas();

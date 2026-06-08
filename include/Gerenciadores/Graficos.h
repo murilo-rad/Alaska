@@ -26,7 +26,6 @@ namespace Alaska
             void desenharTexto(sf::Text* pTexto);
 			void desenharTituloMenu(const sf::String& pStrTitulo);
 			void desenharOpcaoMenu(const sf::String& pStrOpcao, int indice, bool selecionado);
-            void desenharFundo();
             void limpar();
             void mostrar();
             bool isJanelaAberta();

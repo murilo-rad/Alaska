@@ -1,11 +1,11 @@
 #include "Fase.h"
 #include "Graficos.h"
 
-Alaska::Fases::Fase::Fase() : maxNevosos(0), max_plataformas(0), pJogador(nullptr)
+Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador(nullptr)
 {
 }
 
-Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : maxNevosos(n), max_plataformas(p)
+Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : max_Nevosos(n), max_Plataformas(p)
 {
 
     if(pJ)
@@ -28,7 +28,7 @@ Alaska::Fases::Fase::~Fase()
 
 void Alaska::Fases::Fase::criarNevosos()
 {
-    int quantidade = (rand()%maxNevosos);
+    int quantidade = (rand()%max_Nevosos);
     if(quantidade < MIN)
         quantidade = MIN;
 
@@ -50,7 +50,7 @@ void Alaska::Fases::Fase::criarNevosos()
 
 void Alaska::Fases::Fase::criarPlataformas()
 {
-    int quantidade = (rand() % max_plataformas);
+    int quantidade = (rand() % max_Plataformas);
     if (quantidade < MIN)
         quantidade = MIN;
 
@@ -73,14 +73,14 @@ void Alaska::Fases::Fase::criarPlataformas()
 float Alaska::Fases::Fase::posicaoRandX()
 {
     float pos_x;
-    pos_x = (rand()%2200) + 100.0f;
+    pos_x = (rand()%1900) + 100;
     return pos_x;
 }
 
 float Alaska::Fases::Fase::posicaoRandY()
 {
     float pos_y;
-    pos_y = (rand()%500) + 50.0f;
+    pos_y = (rand()%300) + 200.0f;
     return pos_y;
 }
 

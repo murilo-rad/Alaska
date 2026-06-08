@@ -7,6 +7,8 @@
 #include "Lobo.h"
 #include "Ente.h"
 #include "Chao.h"
+#include "Fundo.h"
+#include "Gelo.h"
 
 namespace Alaska
 {
@@ -15,12 +17,13 @@ namespace Alaska
        class Tundra : public Fase
        {
             private:
-                const int maxLobos;
-                const int maxGelos;
+                const int max_Lobos;
+                const int max_Gelos;
                 Entidades::Personagens::Jogador* pJogador;
             public:
                 Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~Tundra();
+                void criarFundo();
                 void criarCenario();
                 void criarInimigos();
                 void criarObstaculos();

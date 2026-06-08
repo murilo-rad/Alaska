@@ -41,7 +41,6 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
         setY(caixaIni.top - caixaJog.height);
         setVelY(-8.0f);
         setNoChao(false);
-        pIni->recuar();
         printf("hit jogador\n");
         pIni->operator--();
     }
@@ -51,7 +50,7 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
         float centroJog = caixaJog.left + caixaJog.width / 2.f;
         float centroIni = caixaIni.left + caixaIni.width / 2.f;
 
-        const float empurrao = 8.0f;
+        const float empurrao = 30.0f;
 
         if (centroJog < centroIni)
             setVelX(-empurrao);

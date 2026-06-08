@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Obstaculo.h"
+#include "Inimigo.h"
 
 namespace Alaska
 {
@@ -11,12 +12,14 @@ namespace Alaska
             class Gelo : public Obstaculo
             {
                 private:
-                    float largura;
+                    float atrito;
                 public:
                     Gelo(float x, float y);
                     ~Gelo();
+                    void salvar();
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
+                    void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
             };
         }
     }

@@ -14,7 +14,7 @@ namespace Alaska
             class Inimigo : public Personagem
             {
                 protected:
-                    int nivel_maldade;
+                    float nivel_maldade;
                     Jogador* pJogador;
                     float velocidade;
                 protected:
@@ -28,7 +28,6 @@ namespace Alaska
                     virtual void salvar() = 0;
                     virtual void mover() = 0;
 
-                    void recuar();
                     void calcularMaldade();
                     int getMaldade();
                     sf::Vector2f normalizarVetor(sf::Vector2f v);

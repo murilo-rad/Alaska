@@ -18,6 +18,7 @@ void Alaska::Gerenciadores::Colisoes::executar()
     tratarColisoesChao();
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimigs();
+    tratarColisoesInimigosObstacs();
 }
 
 const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const 
@@ -70,35 +71,48 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
            pObs = nullptr;
            it++;
        }
-       pObs = nullptr;
        delete pObs;
    }
 }
 
 void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
 {
-    if (!LOs.empty())
+    if(!LIs.empty() && !LOs.empty())
     {
-        if (!LIs.empty()) {
-            Alaska::Entidades::Obstaculos::Obstaculo* pObs;
-            pObs = nullptr;
+       Alaska::Entidades::Obstaculos::Obstaculo* pObs;
+       pObs = nullptr;
 
-            std::list<Alaska::Entidades::Obstaculos::Obstaculo*>::iterator it;
-            it = LOs.begin();
-            while (it != LOs.end())
-            {
-                Alaska::Entidades::Personagens::Inimigo* pInis;
-                pInis = nullptr;
-                pObs = (*it);
-                if (pObs)
-                    if (verificarColisao(pInis, pObs))
-                        pObs->obstaculizarInimigo(pInis);
-                pObs = nullptr;
-                it++;
-            }
+       std::list<Alaska::Entidades::Obstaculos::Obstaculo*>::iterator itObs;
+       itObs = LOs.begin();
+
+       Alaska::Entidades::Personagens::Inimigo* pIni;
+       pIni = nullptr;
+
+       std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator itIni;
+       
+       while(itObs != LOs.end())
+       {
+            itIni = LIs.begin();
+            pObs = (*itObs);
+                if(pObs)
+                    while(itIni != LIs.end())
+                    {
+                        
+                        pIni = (*itIni);
+                        if(pIni)
+                        {
+                            if(verificarColisao(pIni, pObs))
+                                pObs->obstaculizarInimigo(pIni);
+                        }
+                        pIni = nullptr;
+                        itIni++;
+                    }
             pObs = nullptr;
-            delete pObs;
-        }
+            itObs++;
+       }
+       delete pIni;
+       delete pObs;
+
     }
 }
 
@@ -106,7 +120,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
 void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
 {
     if(!LIs.empty())
-   {
+    {
        Alaska::Entidades::Personagens::Inimigo* pIni;
        pIni = nullptr;
 
@@ -124,7 +138,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
        }
        pIni = nullptr;
        delete pIni;
-   }
+    }
 }
 
 void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
