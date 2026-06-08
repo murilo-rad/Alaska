@@ -27,6 +27,7 @@ add_executable(Alaska
     #Entidades
     src/Entidades/Entidade.cpp
     src/Entidades/Chao.cpp
+    src/Entidades/Fundo.cpp
     src/Entidades/Obstaculos/Obstaculo.cpp
     src/Entidades/Obstaculos/Ice_Spike.cpp
     src/Entidades/Obstaculos/Gelo.cpp

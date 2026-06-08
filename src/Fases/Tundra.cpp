@@ -2,7 +2,7 @@
 
 
 
-Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g), pJogador(pJ)
+Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), max_Lobos(l), max_Gelos(g), pJogador(pJ)
 {
     criarCenario();
 }
@@ -22,11 +22,13 @@ void Alaska::Fases::Tundra::executar()
 
 void Alaska::Fases::Tundra::criarCenario()
 {
+    criarFundo();
+    criarChao();
+
     if (pJogador)
         lista_ents.incluir(pJogador);
     criarInimigos();
     criarObstaculos();
-    criarChao();
 }
 
 void Alaska::Fases::Tundra::criarInimigos()
@@ -38,6 +40,7 @@ void Alaska::Fases::Tundra::criarInimigos()
 void Alaska::Fases::Tundra::criarObstaculos()
 {
     criarPlataformas();
+    criarGelos();
 }
 
 void Alaska::Fases::Tundra::criarChao()
@@ -54,9 +57,21 @@ void Alaska::Fases::Tundra::criarChao()
     
 }
 
+void Alaska::Fases::Tundra::criarFundo()
+{
+    Alaska::Entidades::Fundo* pFundo;
+    pFundo = nullptr;
+    pFundo = new Alaska::Entidades::Fundo();
+
+    if(pFundo)
+    {
+        lista_ents.incluir(pFundo);
+    }
+}
+
 void Alaska::Fases::Tundra::criarLobos() 
 {
-    int quantidade = (rand()%maxLobos);
+    int quantidade = (rand()%max_Lobos);
     if(quantidade < MIN)
         quantidade = MIN;
     
@@ -79,7 +94,25 @@ void Alaska::Fases::Tundra::criarLobos()
 
 void Alaska::Fases::Tundra::criarGelos() 
 {
+    int quantidade = (rand() % max_Gelos);
+    if (quantidade < MIN)
+        quantidade = MIN;
 
+    Alaska::Entidades::Obstaculos::Obstaculo* pObstaculo;
+    pObstaculo = nullptr;
+    for(int i = 0; i < quantidade; i++)
+    {
+        printf("novo gelo\n");
+        pObstaculo = new Alaska::Entidades::Obstaculos::Gelo(posicaoRandX(), 549.0f);
+        if(pObstaculo)
+        {
+            lista_ents.incluir(pObstaculo);
+            GC->incluirObstaculo(pObstaculo);
+        }
+        pObstaculo = nullptr;
+    }
+
+    delete pObstaculo;
 }
 
 

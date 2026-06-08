@@ -17,7 +17,7 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     sf::Vector2f dir = normalizarVetor(direcao);
     velX = dir.x * velocidade;
 
-    if (pJogador->getY() < y - 110.0f && noChao)
+    if (pJogador->getY() < y - 80.0f && noChao)
     {
         velY = -11.0f;
         setNoChao(false);
@@ -46,8 +46,8 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 }
 
 void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
-{
-    float aux = 1.0f + (rand() % 301) / 100.0f;
+{   
+    float aux = (((rand() % 100)/100.0f)+1.0f);
     nivel_maldade = aux;
 }
 
@@ -71,7 +71,7 @@ void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
     //implementar
 }
 
-void Alaska::Entidades::Personagens::Inimigo::recuar()
-{
-    setVelX(20.0f);
-}
+// void Alaska::Entidades::Personagens::Inimigo::recuar()
+// {
+//     setVelX(100.0f);
+// }

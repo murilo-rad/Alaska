@@ -6,11 +6,11 @@
 #include "Ente.h"
 #include "Graficos.h"
 
-Alaska::Fases::FaseNoite::FaseNoite() : Fase(), maxLobos(0), maxGelos(0)
+Alaska::Fases::FaseNoite::FaseNoite() : Fase(), max_Lobos(0), max_Gelos(0)
 {
 }
 
-Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
+Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), max_Lobos(l), max_Gelos(g)
 {
     criarCenario();
 }
