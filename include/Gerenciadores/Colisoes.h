@@ -7,6 +7,8 @@
 #include "Obstaculo.h"
 #include "Personagem.h"
 #include "Chao.h"
+#include "Plataforma.h"
+#include "Nevoso.h"
 
 namespace Alaska 
 {

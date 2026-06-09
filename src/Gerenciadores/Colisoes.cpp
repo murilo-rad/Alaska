@@ -1,7 +1,4 @@
 #include "Colisoes.h"
-#include "Plataforma.h"
-#include "Inimigo.h"
-#include "Nevoso.h"
 
 // Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
 // usado para testes

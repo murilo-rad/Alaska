@@ -1,5 +1,4 @@
 #include "Inimigo.h"
-#include "Jogador.h"
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jogador* pJ) 
 : Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f)

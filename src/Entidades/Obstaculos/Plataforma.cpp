@@ -1,5 +1,4 @@
 #include "Plataforma.h"
-#include "Inimigo.h"
 
 Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y, false), largura(L_PLAT)
 {

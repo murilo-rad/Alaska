@@ -1,5 +1,4 @@
 #include "Entidade.h"
-#include <cmath>
 
 Alaska::Entidades::Entidade::Entidade(float x, float y, float vX, float vY): Ente(), x(x), y(y), velX(vX), velY(vY), buffer(NULL) {}
 Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0), buffer(NULL) {}

@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
-//#include "Menu.h"
 #include "Jogador.h"
+#include "Menu.h"
 
 namespace Alaska
 {

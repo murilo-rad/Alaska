@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "Obstaculo.h"
 #include "Jogador.h"
+#include "Inimigo.h"
 
 namespace Alaska
 {
