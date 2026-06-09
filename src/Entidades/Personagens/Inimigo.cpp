@@ -1,11 +1,16 @@
 #include "Inimigo.h"
 #include "Jogador.h"
 
-Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0.0f, 0.0f, 1), nivel_maldade(0), pJogador(nullptr), velocidade(0.0f) {}
+Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jogador* pJ) 
+: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f)
+{
+    if(pJ)
+      pJogador = pJ;
+}
 
+Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
 
 Alaska::Entidades::Personagens::Inimigo::~Inimigo(){}
-
 
 void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 {
@@ -25,22 +30,10 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     x += velX;
 }
 
-
- Alaska::Entidades::Personagens::Inimigo::Inimigo(
-    float xx, float yy, int mal, int v, Jogador* pJ)
-    : Personagem(xx, yy, v)
-    , nivel_maldade()
-    , pJogador(pJ)
-    , velocidade(1.0f)
-{
-    velX = 0.0f;
-    velY = 0.0f;
-}
-
-void Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
+float Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
 {   
     float aux = ((rand() % 100) / 100.0f) + 1.0f;
-    nivel_maldade = aux;
+    return aux;
 }
 
 

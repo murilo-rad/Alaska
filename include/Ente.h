@@ -27,7 +27,9 @@ namespace Alaska
         const int getID()const;
 
         static void setGG(Alaska::Gerenciadores::Graficos* pG);
+
         sf::Sprite* getSprite();
+        void ajustarSprite(sf::Sprite& sprite, float alt, float larg);
         void setTexture(sf::Texture& tx);
 
     };

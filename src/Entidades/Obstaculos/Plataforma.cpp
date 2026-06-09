@@ -1,7 +1,7 @@
 #include "Plataforma.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y), largura()
+Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstaculo(x, y, false), largura(L_PLAT)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Plataforma.png");
@@ -10,9 +10,7 @@ Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstac
     sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Plataforma::Plataforma()
-{
-}
+Alaska::Entidades::Obstaculos::Plataforma::Plataforma() : Obstaculo(), largura(){}
 
 Alaska::Entidades::Obstaculos::Plataforma::~Plataforma() {}
 

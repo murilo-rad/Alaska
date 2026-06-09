@@ -23,11 +23,11 @@ add_executable(Alaska
     src/Ente.cpp
     src/Menu.cpp
     src/Alaskapp.cpp
+    src/Fundo.cpp
 
     #Entidades
     src/Entidades/Entidade.cpp
     src/Entidades/Chao.cpp
-    src/Entidades/Fundo.cpp
     src/Entidades/Obstaculos/Obstaculo.cpp
     src/Entidades/Obstaculos/Ice_Spike.cpp
     src/Entidades/Obstaculos/Gelo.cpp

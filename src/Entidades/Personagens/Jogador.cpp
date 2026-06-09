@@ -1,13 +1,13 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Personagens::Jogador::Jogador(): Personagem(10.0f, 500.0f, 3), pontos(0) 
+Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500.0f, 0.0f, 0.0f, 3)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
-    sprite.setPosition(x, y);
+    sprite.setPosition(x, y); 
 }
 
 Alaska::Entidades::Personagens::Jogador::~Jogador() {}

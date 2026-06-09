@@ -1,7 +1,7 @@
 #include "Entidade.h"
 #include <cmath>
 
-Alaska::Entidades::Entidade::Entidade(float xx, float yy): Ente(), x(xx), y(yy), buffer(NULL) {}
+Alaska::Entidades::Entidade::Entidade(float x, float y, float vX, float vY): Ente(), x(x), y(y), velX(vX), velY(vY), buffer(NULL) {}
 Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0), buffer(NULL) {}
 
 Alaska::Entidades::Entidade::~Entidade(){}
@@ -33,13 +33,33 @@ void Alaska::Entidades::Entidade::salvarDataBuffer()
     //implementar
 }
 
-void Alaska::Entidades::Entidade::ajustarSprite(sf::Sprite& sprite, float alt, float larg)
+void Alaska::Entidades::Entidade::setVelY(const float velYy)
 {
-    sf::FloatRect bounds = sprite.getLocalBounds();
+    velY = velYy;
+}
 
-    sprite.setScale
-    (
-        larg / bounds.width,
-        alt / bounds.height
-    );
+void Alaska::Entidades::Entidade::setVelX(const float velXx)
+{
+    velX = velXx;
+	x += velX;
+}
+
+const float Alaska::Entidades::Entidade::getVelX()const
+{
+    return velX;
+}
+
+const float Alaska::Entidades::Entidade::getVelY()const
+{
+    return velY;
+}
+
+void Alaska::Entidades::Entidade::aplicarGravidade()
+{
+    velY += GRAVIDADE;
+
+    if (velY > 15.0f) 
+        velY = 15.0f;
+        
+    y += velY;
 }

@@ -14,6 +14,7 @@ namespace Alaska
                 protected:
                     int pontos;
                 public:
+                    Jogador(float x, float y);
                     Jogador();
                     ~Jogador();
                     void executar();

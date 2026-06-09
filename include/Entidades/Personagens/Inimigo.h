@@ -10,7 +10,6 @@ namespace Alaska
     {
         namespace Personagens
         {
-            class Jogador;   //pra n dar pau
             class Inimigo : public Personagem
             {
                 protected:
@@ -20,15 +19,15 @@ namespace Alaska
                 protected:
                     void seguirJogador();
                 public:
+                    Inimigo(float x, float y, short nv, Jogador* pJ);
                     Inimigo();
-                    Inimigo(float xx, float yy, int mal, int v, Jogador* pJ);
                     virtual ~Inimigo();
                     virtual void executar() = 0;
                     virtual void danificar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
                     virtual void salvar() = 0;
                     virtual void mover() = 0;
 
-                    void calcularMaldade();
+                    float calcularMaldade();
                     int getMaldade();
                     sf::Vector2f normalizarVetor(sf::Vector2f v);
 					void salvarDataBuffer();

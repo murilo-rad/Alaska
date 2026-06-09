@@ -1,13 +1,8 @@
 #include "Nevoso.h"
 
 
-Alaska::Entidades::Personagens::Nevoso::Nevoso
-(float xx, float yy, Alaska::Entidades::Personagens::Jogador* pJ) : 
-Inimigo(xx, yy, 1, 1, pJ), acumulacao()
+Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : Inimigo(x, y, 1, pJ), acumulacao(calcularAcumulacao())
 {
-    calcularMaldade();
-    acumulacao = (float)(T_NEVOSO * nivel_maldade);
-    
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
@@ -25,11 +20,6 @@ void Alaska::Entidades::Personagens::Nevoso::executar()
     desenhar();
 }
 
-void Alaska::Entidades::Personagens::Nevoso::salvar()
-{
-  
-}
-
 void Alaska::Entidades::Personagens::Nevoso::mover()
 {
     seguirJogador();
@@ -45,4 +35,15 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
         pJ->setMorto();
     pJ->setX(10.0f);
     pJ->setY(500.0f);
+}
+
+float Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()
+{
+    acumulacao = (float)(nivel_maldade * T_NEVOSO);
+    return acumulacao;
+}
+
+void Alaska::Entidades::Personagens::Nevoso::salvar()
+{
+  
 }
