@@ -33,7 +33,6 @@ namespace Alaska
         public:
             Colisoes();
             ~Colisoes();
-            //void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
             //void incluirProjetil();
 			void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
 			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
