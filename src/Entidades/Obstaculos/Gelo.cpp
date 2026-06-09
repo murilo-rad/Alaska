@@ -1,6 +1,6 @@
 #include "Gelo.h"
 
-Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y), atrito(0.1f)
+Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y, false), atrito(0.1f)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Gelo.png");
@@ -9,9 +9,9 @@ Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y), a
     sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Gelo::~Gelo()
-{
-}
+Alaska::Entidades::Obstaculos::Gelo::Gelo() : Obstaculo(), atrito() {}
+
+Alaska::Entidades::Obstaculos::Gelo::~Gelo() {}
 
 void Alaska::Entidades::Obstaculos::Gelo::executar()
 {

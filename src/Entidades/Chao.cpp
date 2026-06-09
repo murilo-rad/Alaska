@@ -1,6 +1,6 @@
 #include "Chao.h"
 
-Alaska::Entidades::Chao::Chao() : Entidade(0, 550)
+Alaska::Entidades::Chao::Chao(short f) : Entidade(0, 550, 0, 0), fase(f)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/ChaoTundra.png");
@@ -8,6 +8,8 @@ Alaska::Entidades::Chao::Chao() : Entidade(0, 550)
     ajustarSprite(sprite, A_CHAO, L_CHAO);
     sprite.setPosition(x, y);
 }
+
+Alaska::Entidades::Chao::Chao() : Entidade(), fase() {}
 
 Alaska::Entidades::Chao::~Chao() {}
 

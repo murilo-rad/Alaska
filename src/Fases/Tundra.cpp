@@ -14,6 +14,7 @@ Alaska::Fases::Tundra::~Tundra()
 
 void Alaska::Fases::Tundra::executar() 
 {
+    pFundo->executar();
     lista_ents.percorrer();
     if (GC)
         GC->executar();
@@ -48,7 +49,7 @@ void Alaska::Fases::Tundra::criarChao()
 {
     Alaska::Entidades::Chao* pChao;
     pChao = nullptr;
-    pChao = new Alaska::Entidades::Chao();
+    pChao = new Alaska::Entidades::Chao(1);
 
     if(pChao)
     {
@@ -60,17 +61,10 @@ void Alaska::Fases::Tundra::criarChao()
 
 void Alaska::Fases::Tundra::criarFundo()
 {
-    Alaska::Entidades::Fundo* pFundo;
-    pFundo = nullptr;
-    pFundo = new Alaska::Entidades::Fundo();
-
-    if(pFundo)
-    {
-        lista_ents.incluir(pFundo);
-    }
+    pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO);
 }
 
-void Alaska::Fases::Tundra::criarLobos() 
+void Alaska::Fases::Tundra::criarLobos()
 {
     int quantidade = (rand()%max_Lobos);
     if(quantidade < MIN)

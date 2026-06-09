@@ -15,6 +15,7 @@ namespace Alaska
                     float atrito;
                 public:
                     Gelo(float x, float y);
+                    Gelo();
                     ~Gelo();
                     void salvar();
                     void executar();

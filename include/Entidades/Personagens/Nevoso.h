@@ -17,6 +17,7 @@ namespace Alaska
                     Nevoso(float vx, float vy, Jogador* pJ);
                     Nevoso();
                     ~Nevoso();
+                    float calcularAcumulacao();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
                     void salvar();

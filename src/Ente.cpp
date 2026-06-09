@@ -34,3 +34,14 @@ void Alaska::Ente::setTexture(sf::Texture& tx)
 {
     pFig = &tx;
 }
+
+void Alaska::Ente::ajustarSprite(sf::Sprite& sprite, float alt, float larg)
+{
+    sf::FloatRect bounds = sprite.getLocalBounds();
+
+    sprite.setScale
+    (
+        larg / bounds.width,
+        alt / bounds.height
+    );
+}

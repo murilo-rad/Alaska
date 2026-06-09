@@ -11,13 +11,11 @@ namespace Alaska
             class Personagem : public Entidade
             {
                 protected:
-                    int num_vidas;
+                    short num_vidas;
                     bool noChao;
                     bool vivo;
-                    float velX; 
-                    float velY;
                 public:
-                    Personagem(float x, float y, int v);
+                    Personagem(float x, float y, float vX, float vY, short nv);
                     Personagem();
                     ~Personagem();
 
@@ -30,12 +28,6 @@ namespace Alaska
 
                     void setNoChao(bool c);
                     const bool getNoChao() const;
-
-                    void setVelX(const float velXx);
-                    void setVelY(const float velYy);
-                    const float getVelX()const;
-                    const float getVelY()const;
-                    void aplicarGravidade();
 
                     void operator--();
 

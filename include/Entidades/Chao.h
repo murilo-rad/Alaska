@@ -10,8 +10,9 @@ namespace Alaska
         class Chao : public Entidade
         {
             private:
-                int fase;
+                short fase;
             public:
+                Chao(short f);
                 Chao();
                 ~Chao();
                 void executar();

@@ -1,10 +1,10 @@
 #include "Personagem.h"
 
 Alaska::Entidades::Personagens::Personagem::Personagem
-(float x, float y, int v) :
-Entidade(x, y), velX(0), velY(0), num_vidas(v), noChao(false), vivo(true){}
+(float x, float y, float vX, float vY, short nv) :
+Entidade(x, y, vX, vY), num_vidas(nv), noChao(false), vivo(true) {}
 
-Alaska::Entidades::Personagens::Personagem::Personagem(){}
+Alaska::Entidades::Personagens::Personagem::Personagem() : Entidade(), num_vidas(1), noChao(false), vivo(true){}
 
 Alaska::Entidades::Personagens::Personagem::~Personagem(){}
 
@@ -32,37 +32,6 @@ void Alaska::Entidades::Personagens::Personagem::operator--()
 {
     if(vivo)
         num_vidas--;
-}
-
-void Alaska::Entidades::Personagens::Personagem::setVelY(const float velYy)
-{
-    velY = velYy;
-}
-
-void Alaska::Entidades::Personagens::Personagem::setVelX(const float velXx)
-{
-    velX = velXx;
-	x += velX;
-}
-
-const float Alaska::Entidades::Personagens::Personagem::getVelX()const
-{
-    return velX;
-}
-
-const float Alaska::Entidades::Personagens::Personagem::getVelY()const
-{
-    return velY;
-}
-
-void Alaska::Entidades::Personagens::Personagem::aplicarGravidade()
-{
-    velY += GRAVIDADE;
-
-    if (velY > 15.0f) 
-        velY = 15.0f;
-        
-    y += velY;
 }
 
 void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
