@@ -8,7 +8,7 @@ namespace Alaska
     {
         namespace Personagens
         {
-			class Inimigo;   //pra n dar pau
+			class Inimigo;
             class Jogador : public Personagem
             {
                 protected:
