@@ -21,7 +21,7 @@ namespace Alaska
                 public:
                     Inimigo(float x, float y, short nv, Jogador* pJ);
                     Inimigo();
-                    virtual ~Inimigo();
+                    ~Inimigo();
                     virtual void executar() = 0;
                     virtual void danificar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
                     virtual void salvar() = 0;

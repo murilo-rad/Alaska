@@ -12,9 +12,10 @@ namespace Alaska
 {
     class Ente
     {
-    protected:
+    private:
         static int I;
-        const int id;
+    protected:
+        int id;
         static Alaska::Gerenciadores::Graficos* pGG;
         sf::Texture* pFig;
         sf::Sprite sprite;

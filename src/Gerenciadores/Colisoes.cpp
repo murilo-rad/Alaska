@@ -11,11 +11,11 @@ Alaska::Gerenciadores::Colisoes::~Colisoes() {}
 
 void Alaska::Gerenciadores::Colisoes::executar()
 {
-    limparMortos();
     tratarColisoesChao();
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimigs();
     tratarColisoesInimigosObstacs();
+    limparMortos();
 }
 
 const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade *pE1, Alaska::Entidades::Entidade *pE2)const
