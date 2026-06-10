@@ -20,6 +20,7 @@ Alaska::Entidades::Personagens::Jogador::~Jogador()
 void Alaska::Entidades::Personagens::Jogador::executar() 
 {
     mover();
+    gravitar();
     desenhar();
 }
 
@@ -31,7 +32,6 @@ void Alaska::Entidades::Personagens::Jogador::salvar()
 void Alaska::Entidades::Personagens::Jogador::mover() 
 {
     x += velX;
-    gravitar();
     sprite.setPosition(x, y);
     setNoChao(false);
 }
