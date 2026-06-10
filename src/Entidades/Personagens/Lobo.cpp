@@ -15,15 +15,14 @@ Alaska::Entidades::Personagens::Lobo::~Lobo() {}
 
 void Alaska::Entidades::Personagens::Lobo::executar()
 {
-
     mover();
+    gravitar();
     desenhar();
 }
 
 void Alaska::Entidades::Personagens::Lobo::mover()
 {
     seguirJogador();
-    gravitar();
     sprite.setPosition(x, y);
 }
 

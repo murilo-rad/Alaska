@@ -15,6 +15,8 @@ Alaska::Entidades::Obstaculos::Plataforma::~Plataforma() {}
 
 void Alaska::Entidades::Obstaculos::Plataforma::executar()
 {
+    gravitar();
+    antiGravitar();
     desenhar();
 }
 

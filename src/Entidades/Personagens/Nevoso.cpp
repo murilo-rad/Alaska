@@ -17,13 +17,13 @@ Alaska::Entidades::Personagens::Nevoso::~Nevoso(){}
 void Alaska::Entidades::Personagens::Nevoso::executar()
 {
     mover();
+    gravitar();
     desenhar();
 }
 
 void Alaska::Entidades::Personagens::Nevoso::mover()
 {
     seguirJogador();
-    gravitar();
     sprite.setPosition(x, y);
 }
 
