@@ -6,12 +6,15 @@
 #include "ListaEntidades.h"
 #include "Obstaculo.h"
 #include "Personagem.h"
+#include "Chao.h"
+#include "Plataforma.h"
+#include "Nevoso.h"
 
 namespace Alaska 
 {
     namespace Gerenciadores 
     {
-        class Colisoes
+        class Gerenciador_Colisoes
         {
         private:
             std::vector<Alaska::Entidades::Personagens::Inimigo*> LIs;
@@ -19,20 +22,25 @@ namespace Alaska
             //std::set<Alaska::Entidades::Projetil*> LPs;
             Alaska::Entidades::Personagens::Jogador* pJog1;
             //Alaska::Entidades::Personagens::Jogador* pJog2;
-            Alaska::Listas::ListaEntidades* pListaEntidades;
+            Alaska::Entidades::Chao* pChao;
         private:
             const bool verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const;
             void tratarColisoesJogsObstacs();
             void tratarColisoesJogsInimigs();
-            void tratarColisoesJogsProjeteis();
+            //void tratarColisoesJogsProjeteis();
+            void tratarColisoesInimigosObstacs();
+            void tratarColisoesChao();
         public:
-            Colisoes();
-            Colisoes(Entidades::Personagens::Jogador* pJ, Listas::ListaEntidades* lista);
-            ~Colisoes();
-            //void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
+            Gerenciador_Colisoes();
+            ~Gerenciador_Colisoes();
             //void incluirProjetil();
 			void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
 			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
+            void setJogadorUm(Alaska::Entidades::Personagens::Jogador* pJ1);
+            //void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
+            void removerInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
+            void limparMortos();
+            void incluirChao(Alaska::Entidades::Chao* pCh);
             void executar();
         };
     }

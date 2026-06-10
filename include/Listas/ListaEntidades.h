@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "Lista.h"
 #include "Entidade.h"
+#include "Personagem.h"
 
 namespace Alaska
 {
@@ -16,6 +17,7 @@ namespace Alaska
                 ~ListaEntidades();
                 void incluir(Entidades::Entidade* pE);
                 void percorrer();
+                void cemiterio();
                 void remover(Entidades::Entidade* pE);
                 Lista<Alaska::Entidades::Entidade*>* getLista();
         };

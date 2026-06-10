@@ -1,11 +1,15 @@
 #include "Inimigo.h"
-#include "Jogador.h"
 
-Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0.0f, 0.0f, 1), nivel_maldade(0), pJogador(nullptr), velocidade(0.0f) {}
+Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jogador* pJ) 
+: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f)
+{
+    if(pJ)
+      pJogador = pJ;
+}
 
+Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
 
 Alaska::Entidades::Personagens::Inimigo::~Inimigo(){}
-
 
 void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 {
@@ -17,37 +21,20 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     sf::Vector2f dir = normalizarVetor(direcao);
     velX = dir.x * velocidade;
 
-    if (pJogador->getY() < y - 110.0f && noChao)
+    if (pJogador->getY() < y - 80.0f && noChao)
     {
-        velY = -11.0f;
+        velY = -12.0f;
         setNoChao(false);
     }
     x += velX;
 }
 
-
- Alaska::Entidades::Personagens::Inimigo::Inimigo(
-    float x, float y, int mal, int v, Jogador* pJ)
-    : Personagem(x, y, v)
-    , nivel_maldade(mal)
-    , pJogador(pJ)
-    , velocidade(2.0f)
-{
-    velX = 0.0f;
-    velY = 0.0f;
-    pFig = new sf::Texture();
-
-    if (!pFig->loadFromFile("assets/imgs/JogadorAlaska.png"))
-    {
-        std::cerr << "Erro ao carregar a textura do Inimigo!" << std::endl;
-        sf::Image img;
-        img.create(50, 50, sf::Color::Red);
-        pFig->loadFromImage(img);
-    }
-
-    sprite.setTexture(*pFig);
-    sprite.setPosition(this->x, this->y);
+float Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
+{   
+    float aux = ((rand() % 100) / 100.0f) + 1.0f;
+    return aux;
 }
+
 
 int Alaska::Entidades::Personagens::Inimigo::getMaldade()
 {
@@ -67,3 +54,8 @@ void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
 {
     //implementar
 }
+
+// void Alaska::Entidades::Personagens::Inimigo::recuar()
+// {
+//     setVelX(100.0f);
+// }

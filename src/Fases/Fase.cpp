@@ -1,16 +1,18 @@
 #include "Fase.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
-Alaska::Fases::Fase::Fase() : maxNevosos(0), max_plataformas(0), pJogador(nullptr)
+Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador(nullptr)
 {
 }
 
-Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : maxNevosos(n), max_plataformas(p)
+Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : max_Nevosos(n), max_Plataformas(p)
 {
+
     if(pJ)
         pJogador = pJ;
 
-    GC = new Alaska::Gerenciadores::Colisoes(pJogador, &lista_ents);
+    GC = new Alaska::Gerenciadores::Gerenciador_Colisoes();
+    GC->setJogadorUm(pJogador); 
 }
 
 Alaska::Fases::Fase::~Fase()
@@ -24,44 +26,109 @@ Alaska::Fases::Fase::~Fase()
     delete GC;
 }
 
-void Alaska::Fases::Fase::criarCenario()
-{
-    criarPlataformas();
-    criarNevosos();
-}
-
 void Alaska::Fases::Fase::criarNevosos()
 {
-    int quantidade = (rand()%maxNevosos);
+    int quantidade = (rand()%max_Nevosos);
     if(quantidade < MIN)
         quantidade = MIN;
-    
+
     Alaska::Entidades::Personagens::Inimigo* pInimigo;
     pInimigo = nullptr;
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Nevoso();
+        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posicaoRandX(), posicaoRandY(), pJogador);
         if(pInimigo)
         {
+            lista_ents.incluir(pInimigo);
             GC->incluirInimigo(pInimigo);
-            lista_ents.incluir(dynamic_cast<Alaska::Entidades::Entidade*>(pInimigo));
         }
+        pInimigo = nullptr;
     }
-
-    pInimigo = nullptr;
     delete pInimigo;
 }
 
 void Alaska::Fases::Fase::criarPlataformas()
 {
-    int quantidade = (rand() % max_plataformas);
+    int quantidade = (rand() % max_Plataformas);
     if (quantidade < MIN)
         quantidade = MIN;
 
     Alaska::Entidades::Obstaculos::Obstaculo* pObstaculo;
     pObstaculo = nullptr;
+    for(int i = 0; i < quantidade; i++)
+    {
+        pObstaculo = new Alaska::Entidades::Obstaculos::Plataforma(posicaoRandX(), posicaoRandY());
+        if(pObstaculo)
+        {
+            lista_ents.incluir(pObstaculo);
+            GC->incluirObstaculo(pObstaculo);
+        }
+        pObstaculo = nullptr;
+    }
+
+    delete pObstaculo;
 }
+
+float Alaska::Fases::Fase::posicaoRandX()
+{
+    float pos_x;
+    pos_x = (rand()%1800) + 200;
+    return pos_x;
+}
+
+float Alaska::Fases::Fase::posicaoRandY()
+{
+    float pos_y;
+    pos_y = (rand()%300) + 200.0f;
+    return pos_y;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //void Alaska::Fases::Fase::executar()
 //{
 //    auto* lista = lista_ents.getLista();

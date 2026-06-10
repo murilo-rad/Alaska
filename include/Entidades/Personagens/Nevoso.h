@@ -12,12 +12,13 @@ namespace Alaska
             class Nevoso : public Inimigo
             {
                 private:
-                    float tamanho;
+                    float acumulacao;
                 public:
-                    Nevoso(float vx, float vy, int v, int mal, Jogador* pJ, float vel);
+                    Nevoso(float vx, float vy, Jogador* pJ);
                     Nevoso();
                     ~Nevoso();
-                    void danificar();
+                    float calcularAcumulacao();
+                    void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
                     void salvar();
                     void mover();

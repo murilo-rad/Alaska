@@ -6,15 +6,34 @@
 #include <set>
 #include <stdlib.h>
 #include <time.h>
+#include <cmath>
+#include <windows.h>
 
-#define GRAVIDADE 0.35f
-#define MAX 10
+
+#define GRAVIDADE 0.50f
+#define MAX_INI 5
 #define MIN 3
 
-#define T_NEVOSO 30
-#define T_LOBO 40
-#define T_YETI 50
-#define T_JOG 30
+#define L_CHAO 2400.0f
+#define A_CHAO 50.0f
+
+#define L_FUNDO 2400.0f
+#define A_FUNDO 600.0f
+
+#define L_PLAT 150.0f
+#define A_PLAT 30.0f
+#define MAX_PLAT 20
+
+#define L_GELO 400.0f
+#define A_GELO 30.0f
+#define MAX_GELO 5
+
+#define T_NEVOSO 50.0f
+#define T_LOBO 60.0f
+#define T_YETI 80.0f
+#define T_JOG 50.0f
+
+
 
 
 

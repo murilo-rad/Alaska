@@ -11,7 +11,7 @@ namespace Alaska
 {
     namespace Gerenciadores
     {
-        class Graficos
+        class Gerenciador_Grafico
         {
         private:
             sf::RenderWindow* janela;
@@ -19,8 +19,8 @@ namespace Alaska
             sf::Text text;
 			sf::Font fontMenu;
         public:
-            Graficos();
-            ~Graficos();
+            Gerenciador_Grafico();
+            ~Gerenciador_Grafico();
 
             void desenharEnte(Ente* pEnte);
             void desenharTexto(sf::Text* pTexto);

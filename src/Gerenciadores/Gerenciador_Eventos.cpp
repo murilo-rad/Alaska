@@ -1,25 +1,25 @@
-#include "Eventos.h"
-#include "Menu.h"
+#include "Gerenciador_Eventos.h"
 
-Alaska::Gerenciadores::Eventos::Eventos() : janela(nullptr), pJogador(nullptr), pMenu(nullptr) {}
+Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos() : janela(nullptr), pJogador(nullptr), pMenu(nullptr) {}
 
-Alaska::Gerenciadores::Eventos::~Eventos(){}
+Alaska::Gerenciadores::Gerenciador_Eventos::~Gerenciador_Eventos(){}
 
-void Alaska::Gerenciadores::Eventos::setJanela(sf::RenderWindow* pJ) {
+void Alaska::Gerenciadores::Gerenciador_Eventos::setJanela(sf::RenderWindow* pJ) 
+{
     janela = pJ;
 }
 
-void Alaska::Gerenciadores::Eventos::setJogador(Alaska::Entidades::Personagens::Jogador* pJ)
+void Alaska::Gerenciadores::Gerenciador_Eventos::setJogador(Alaska::Entidades::Personagens::Jogador* pJ)
 {
     pJogador = pJ;
 }
 
-void Alaska::Gerenciadores::Eventos::setMenu(Alaska::Menu* pM)
+void Alaska::Gerenciadores::Gerenciador_Eventos::setMenu(Alaska::Menu* pM)
 {
     pMenu = pM;
 }
 
-void Alaska::Gerenciadores::Eventos::verificarEventos()
+void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
 {
     if (!janela) return;
 
@@ -50,7 +50,7 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
     if (pJogador)
     {
-        float velocidadeAndar = 4.0f;
+        float velocidadeAndar = 1.5f;
         float velocidadeX = 0.0f;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -62,7 +62,7 @@ void Alaska::Gerenciadores::Eventos::verificarEventos()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && pJogador->getNoChao())
         {
-            pJogador->setVelY(-11.0f);
+            pJogador->setVelY(-14.0f);
             pJogador->setNoChao(false);
         }
     }

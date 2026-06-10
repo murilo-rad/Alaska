@@ -1,16 +1,16 @@
-#include "FaseNoite.h"
+/* #include "FaseNoite.h"
 #include "Plataforma.h"
-#include "Ice_Spike.h"
+#include "Conjunto_Estalagmites.h"
 #include "Nevoso.h"
 #include "Lobo.h"
 #include "Ente.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
-Alaska::Fases::FaseNoite::FaseNoite() : Fase(), maxLobos(0), maxGelos(0)
+Alaska::Fases::FaseNoite::FaseNoite() : Fase(), max_Lobos(0), max_Gelos(0)
 {
 }
 
-Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), maxLobos(l), maxGelos(g)
+Alaska::Fases::FaseNoite::FaseNoite(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), max_Lobos(l), max_Gelos(g)
 {
     criarCenario();
 }
@@ -86,3 +86,4 @@ void Alaska::Fases::FaseNoite::criarCenario()
     lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
     printf("fase1\n");
 }
+ */

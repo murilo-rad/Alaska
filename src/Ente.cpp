@@ -1,8 +1,7 @@
 #include "Ente.h"
-#include "Graficos.h"
 
 int Alaska::Ente::I = 0;
-Alaska::Gerenciadores::Graficos* Alaska::Ente::pGG = nullptr;
+Alaska::Gerenciadores::Gerenciador_Grafico* Alaska::Ente::pGG = nullptr;
 
 Alaska::Ente::Ente(): id(I++), pFig(nullptr), sprite(){}
 
@@ -14,7 +13,7 @@ void Alaska::Ente::desenhar()
         pGG->desenharEnte(this);
 }
 
-void Alaska::Ente::setGG(Alaska::Gerenciadores::Graficos* pG)
+void Alaska::Ente::setGG(Alaska::Gerenciadores::Gerenciador_Grafico* pG)
 {
     if(pG)
         pGG = pG;
@@ -22,8 +21,26 @@ void Alaska::Ente::setGG(Alaska::Gerenciadores::Graficos* pG)
 
 sf::Sprite* Alaska::Ente::getSprite()
 {
-    if (pFig) {
-		sprite.setTexture(*pFig);
-    }
     return &sprite;
+}
+
+const int Alaska::Ente::getID()const
+{
+    return id;
+}
+
+void Alaska::Ente::setTexture(sf::Texture& tx)
+{
+    pFig = &tx;
+}
+
+void Alaska::Ente::ajustarSprite(sf::Sprite& sprite, float alt, float larg)
+{
+    sf::FloatRect bounds = sprite.getLocalBounds();
+
+    sprite.setScale
+    (
+        larg / bounds.width,
+        alt / bounds.height
+    );
 }

@@ -10,29 +10,33 @@ Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr)
 
 Alaska::Alaskapp::~Alaskapp() {}
 
-void Alaska::Alaskapp::executar() {
+void Alaska::Alaskapp::executar() 
+{
     sementear();
-    Gerenciadores::Eventos eventos;
+
+    Gerenciadores::Gerenciador_Eventos Gerenciador_Eventos;
 
     Ente::setGG(&GG);
-    eventos.setJanela(GG.getJanela());
+    Gerenciador_Eventos.setJanela(GG.getJanela());
 
 
-    Alaska::Menu menu(this, &eventos);
-    eventos.setMenu(&menu);
+    Alaska::Menu menu(this, &Gerenciador_Eventos);
+    Gerenciador_Eventos.setMenu(&menu);
     menu.executar();
 
-    eventos.setMenu(nullptr);
+    Gerenciador_Eventos.setMenu(nullptr);
 
     if (pJog1 == nullptr)
         pJog1 = new Entidades::Personagens::Jogador();
 
-    eventos.setJogador(pJog1);
-    Fases::Tundra fasePrimeira(MAX, MAX, MAX, MAX, pJog1);
+    Gerenciador_Eventos.setJogador(pJog1);
+    Fases::Tundra fasePrimeira(MAX_INI, MAX_PLAT, MAX_INI, MAX_GELO, pJog1);
 
-    while (GG.isJanelaAberta())
+    while (GG.isJanelaAberta() && pJog1->getPontos() > -1)
     {
-        eventos.verificarEventos();
+        Gerenciador_Eventos.verificarEventos();
+
+        GG.atualizarCamera(pJog1->getX(), 300.0f);
 
         GG.limpar();
 

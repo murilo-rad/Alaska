@@ -6,7 +6,7 @@ namespace Alaska
 {
     namespace Listas
     {
-        template <class T>
+        template <class TL>
         class Lista
         {
             private:
@@ -26,17 +26,17 @@ namespace Alaska
                         Elemento<TE>* getProximo()const;
                 };
             private:
-                Elemento<T>* l_primeiro;
-                Elemento<T>* l_ultimo;
+                Elemento<TL>* l_primeiro;
+                Elemento<TL>* l_ultimo;
             public:
                 class Iterador
                 {
                     private:
-                        Elemento<T>* l_posicao;
+                        Elemento<TL>* l_posicao;
                     public:
-                        Iterador(Elemento<T>* posicao = nullptr);
+                        Iterador(Elemento<TL>* posicao = nullptr);
                         ~Iterador();
-                        T operator*();
+                        TL operator*();
                         Iterador proximo();
                         Iterador operator++();
                         Iterador operator++(int);
@@ -44,16 +44,16 @@ namespace Alaska
                 };
 
             private:
-                Elemento<T>* buscar(T elemento);
+                Elemento<TL>* buscar(TL elemento);
             public:
                 Lista();
                 ~Lista();
-                void inserirNoFim(T elemento);
-                void removerE(T elemento);
+                void inserirNoFim(TL elemento);
+                void removerE(TL elemento);
 				void limpar();
-                bool contem(T elemento);
-                Elemento<T>* getPrimeiro()const;
-                Elemento<T>* getUltimo()const;
+                bool contem(TL elemento);
+                Elemento<TL>* getPrimeiro()const;
+                Elemento<TL>* getUltimo()const;
                 Iterador begin();
                 Iterador end();
         };
@@ -61,113 +61,113 @@ namespace Alaska
 }
 
 
-template <class T>
+template <class TL>
 template <class TE>
-Alaska::Listas::Lista<T>::Elemento<TE>::Elemento(): l_dado(), l_proximo(nullptr){}
+Alaska::Listas::Lista<TL>::Elemento<TE>::Elemento(): l_dado(), l_proximo(nullptr){}
 
-template <class T>
+template <class TL>
 template <class TE>
-Alaska::Listas::Lista<T>::Elemento<TE>::Elemento(TE dado, Elemento<TE>* proximo): l_dado(dado), l_proximo(proximo){}
+Alaska::Listas::Lista<TL>::Elemento<TE>::Elemento(TE dado, Elemento<TE>* proximo): l_dado(dado), l_proximo(proximo){}
 
-template <class T>
+template <class TL>
 template <class TE>
-Alaska::Listas::Lista<T>::Elemento<TE>::~Elemento() 
+Alaska::Listas::Lista<TL>::Elemento<TE>::~Elemento() 
 {
     l_proximo = nullptr;
 }
 
-template <class T>
+template <class TL>
 template <class TE>
-void Alaska::Listas::Lista<T>::Elemento<TE>::setDado(TE dado) 
+void Alaska::Listas::Lista<TL>::Elemento<TE>::setDado(TE dado) 
 {
     l_dado = dado;
 }
 
-template <class T>
+template <class TL>
 template <class TE>
-void Alaska::Listas::Lista<T>::Elemento<TE>::setProximo(Elemento<TE>* proximo) 
+void Alaska::Listas::Lista<TL>::Elemento<TE>::setProximo(Elemento<TE>* proximo) 
 {
     l_proximo = proximo;
 }
 
-template <class T>
+template <class TL>
 template <class TE>
-TE Alaska::Listas::Lista<T>::Elemento<TE>::getDado()const 
+TE Alaska::Listas::Lista<TL>::Elemento<TE>::getDado()const 
 {
     return l_dado;
 }
 
-template <class T>
+template <class TL>
 template <class TE>
-typename Alaska::Listas::Lista<T>::template Elemento<TE>* Alaska::Listas::Lista<T>::Elemento<TE>::getProximo()const 
+typename Alaska::Listas::Lista<TL>::template Elemento<TE>* Alaska::Listas::Lista<TL>::Elemento<TE>::getProximo()const 
 {
     return l_proximo;
 }
 
-template <class T>
-Alaska::Listas::Lista<T>::Iterador::Iterador(Alaska::Listas::Lista<T>::Elemento<T>* posicao): l_posicao(posicao){}
+template <class TL>
+Alaska::Listas::Lista<TL>::Iterador::Iterador(Alaska::Listas::Lista<TL>::Elemento<TL>* posicao): l_posicao(posicao){}
 
-template <class T>
-Alaska::Listas::Lista<T>::Iterador::~Iterador() 
+template <class TL>
+Alaska::Listas::Lista<TL>::Iterador::~Iterador() 
 {
     l_posicao = nullptr;
 }
 
-template <class T>
-T Alaska::Listas::Lista<T>::Iterador::operator*()
+template <class TL>
+TL Alaska::Listas::Lista<TL>::Iterador::operator*()
 {
     return l_posicao->getDado();
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::proximo()
+template <class TL>
+typename Alaska::Listas::Lista<TL>::Iterador Alaska::Listas::Lista<TL>::Iterador::proximo()
 {
-    Lista<T>::Iterador aux(this->l_posicao->getProximo());
+    Lista<TL>::Iterador aux(this->l_posicao->getProximo());
     return aux;
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::operator++() 
+template <class TL>
+typename Alaska::Listas::Lista<TL>::Iterador Alaska::Listas::Lista<TL>::Iterador::operator++() 
 {
     l_posicao = l_posicao->getProximo();
     return *this;
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::Iterador::operator++(int) 
+template <class TL>
+typename Alaska::Listas::Lista<TL>::Iterador Alaska::Listas::Lista<TL>::Iterador::operator++(int) 
 {
     Iterador temporario = *this;
     l_posicao = l_posicao->getProximo();
     return temporario;
 }
 
-template <class T>
-bool Alaska::Listas::Lista<T>::Iterador::operator!=(const Alaska::Listas::Lista<T>::Iterador& it)
+template <class TL>
+bool Alaska::Listas::Lista<TL>::Iterador::operator!=(const Alaska::Listas::Lista<TL>::Iterador& it)
 {
     return this->l_posicao != it.l_posicao;
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::begin()
+template <class TL>
+typename Alaska::Listas::Lista<TL>::Iterador Alaska::Listas::Lista<TL>::begin()
 {
     return Iterador(l_primeiro);
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::Iterador Alaska::Listas::Lista<T>::end()
+template <class TL>
+typename Alaska::Listas::Lista<TL>::Iterador Alaska::Listas::Lista<TL>::end()
 {
     return Iterador(nullptr);
 }
 
 
-template <class T>
-Alaska::Listas::Lista<T>::Lista(): l_primeiro(nullptr), l_ultimo(nullptr){}
+template <class TL>
+Alaska::Listas::Lista<TL>::Lista(): l_primeiro(nullptr), l_ultimo(nullptr){}
 
-template <class T>
-Alaska::Listas::Lista<T>::~Lista() 
+template <class TL>
+Alaska::Listas::Lista<TL>::~Lista() 
 {
-    Elemento<T>* elementoAtual = this->getPrimeiro(); 
-    Elemento<T>* temporario;
+    Elemento<TL>* elementoAtual = this->getPrimeiro(); 
+    Elemento<TL>* temporario;
 
     while (elementoAtual != nullptr) 
     {
@@ -180,10 +180,10 @@ Alaska::Listas::Lista<T>::~Lista()
 
 //implementar limpar
 
-template <class T>
-typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::buscar(T elemento) 
+template <class TL>
+typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::buscar(TL elemento) 
 {
-    Elemento<T>* temporario = l_primeiro;
+    Elemento<TL>* temporario = l_primeiro;
 
     while (temporario != nullptr) 
     {
@@ -194,10 +194,10 @@ typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T
     return nullptr;
 }
 
-template <class T>
-void Alaska::Listas::Lista<T>::inserirNoFim(T elemento) 
+template <class TL>
+void Alaska::Listas::Lista<TL>::inserirNoFim(TL elemento) 
 {
-    Elemento<T>* temporario = new Elemento<T>;
+    Elemento<TL>* temporario = new Elemento<TL>;
     temporario->setDado(elemento);
     temporario->setProximo(nullptr);
 
@@ -209,11 +209,11 @@ void Alaska::Listas::Lista<T>::inserirNoFim(T elemento)
     l_ultimo = temporario;
 }
 
-template <class T>
-void Alaska::Listas::Lista<T>::removerE(T elemento) 
+template <class TL>
+void Alaska::Listas::Lista<TL>::removerE(TL elemento) 
 {
-    Elemento<T>* atual = l_primeiro;
-    Elemento<T>* anterior = nullptr;
+    Elemento<TL>* atual = l_primeiro;
+    Elemento<TL>* anterior = nullptr;
 
 
     while (atual != nullptr && atual->getDado() != elemento) 
@@ -236,32 +236,32 @@ void Alaska::Listas::Lista<T>::removerE(T elemento)
     delete atual; 
 }
 
-template <class T>
-bool Alaska::Listas::Lista<T>::contem(T elemento) 
+template <class TL>
+bool Alaska::Listas::Lista<TL>::contem(TL elemento) 
 {
-    Elemento<T>* temporario = buscar(elemento);
+    Elemento<TL>* temporario = buscar(elemento);
     return temporario != nullptr;
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::getPrimeiro()const 
+template <class TL>
+typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::getPrimeiro()const 
 {
     return l_primeiro;
 }
 
-template <class T>
-typename Alaska::Listas::Lista<T>::template Elemento<T>* Alaska::Listas::Lista<T>::getUltimo()const 
+template <class TL>
+typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::getUltimo()const 
 {
     return l_ultimo;
 }
 
-template <class T>
-void Alaska::Listas::Lista<T>::limpar()
+template <class TL>
+void Alaska::Listas::Lista<TL>::limpar()
 {
-    Elemento<T>* atual = l_primeiro;
+    Elemento<TL>* atual = l_primeiro;
     while (atual)
     {
-        Elemento<T>* tmp = atual;
+        Elemento<TL>* tmp = atual;
         atual = atual->getProximo();
         delete tmp;
     }

@@ -8,7 +8,7 @@ namespace Alaska
     {
         namespace Personagens
         {
-			class Inimigo;   //pra n dar pau
+			class Inimigo;
             class Jogador : public Personagem
             {
                 protected:
@@ -20,6 +20,8 @@ namespace Alaska
                     void salvar();
                     void mover();
 					void colidir(Inimigo* pIni);
+                    void danificar(Inimigo* pIni);
+					int getPontos();
             };
         }
     }

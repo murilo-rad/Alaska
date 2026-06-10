@@ -1,11 +1,8 @@
 #include "Menu.h"
-#include "Ente.h"
-#include "Alaskapp.h"
-#include "Eventos.h"
 
 using namespace Alaska;
 
-Menu::Menu(Alaskapp* pAlaskapp, Gerenciadores::Eventos* pEventos)
+Menu::Menu(Alaskapp* pAlaskapp, Gerenciadores::Gerenciador_Eventos* pEventos)
     : opcao(0), ativo(true), pAlaskapp(pAlaskapp), pEventos(pEventos), Ente() {}
 
 Menu::~Menu() {
@@ -16,7 +13,7 @@ Menu::~Menu() {
 void Menu::executar() {
     ativo = true;
     while (pGG->isJanelaAberta() && ativo) {
-        pEventos->verificarEventos(); // processes input → calls mudarOpcao/confirmarOpcao
+        pEventos->verificarEventos(); 
 
         pGG->limpar();
         pGG->desenharTituloMenu("Alaska");

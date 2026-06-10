@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "Obstaculo.h"
 #include "Jogador.h"
+#include "Inimigo.h"
 
 namespace Alaska
 {
@@ -19,6 +20,7 @@ namespace Alaska
                     ~Plataforma();
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
+                    void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
                     void salvar();
             };
         }

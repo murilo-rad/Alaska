@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Personagem.h"
-#include <cmath>
+#include "Jogador.h"
 
 
 namespace Alaska
@@ -10,25 +10,28 @@ namespace Alaska
     {
         namespace Personagens
         {
-            class Jogador;   //pra n dar pau
             class Inimigo : public Personagem
             {
                 protected:
-                    int nivel_maldade;
+                    float nivel_maldade;
                     Jogador* pJogador;
                     float velocidade;
                 protected:
                     void seguirJogador();
                 public:
+                    Inimigo(float x, float y, short nv, Jogador* pJ);
                     Inimigo();
-                    Inimigo(float x, float y, int mal, int v, Jogador* pJ);
-                    virtual ~Inimigo();
+                    ~Inimigo();
                     virtual void executar() = 0;
-                    virtual void danificar() = 0;
+                    virtual void danificar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
+                    virtual void salvar() = 0;
+                    virtual void mover() = 0;
+
+                    float calcularMaldade();
                     int getMaldade();
                     sf::Vector2f normalizarVetor(sf::Vector2f v);
 					void salvarDataBuffer();
-                    virtual void salvar() = 0;
+
             };
         }
     }
