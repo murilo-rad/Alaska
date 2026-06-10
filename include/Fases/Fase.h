@@ -8,6 +8,8 @@
 #include "Plataforma.h"
 #include "Inimigo.h"
 #include "Obstaculo.h"
+#include "Fundo.h"
+#include "Chao.h"
 
 namespace Alaska
 {
@@ -19,6 +21,7 @@ namespace Alaska
                 const int max_Nevosos;
                 const int max_Plataformas;
             protected:
+                Fundo* pFundo;
                 Alaska::Gerenciadores::Gerenciador_Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
                 Alaska::Entidades::Personagens::Jogador* pJogador;
@@ -30,9 +33,9 @@ namespace Alaska
             protected:
                 virtual void criarInimigos() = 0;
                 virtual void criarObstaculos() = 0;
-                virtual void criarChao() = 0;
-                virtual void criarFundo() = 0;
-                virtual void criarCenario() = 0;
+                void criarChao(short fase);
+                void criarFundo(short fase);
+                void criarCenario(short fase);
                 void criarNevosos();
                 void criarPlataformas();
                 float posicaoRandX();

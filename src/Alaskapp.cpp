@@ -23,7 +23,6 @@ void Alaska::Alaskapp::executar()
     Alaska::Menu menu(this, &Gerenciador_Eventos);
     Gerenciador_Eventos.setMenu(&menu);
     menu.executar();
-
     Gerenciador_Eventos.setMenu(nullptr);
 
     if (pJog1 == nullptr)
@@ -31,7 +30,7 @@ void Alaska::Alaskapp::executar()
 
     Gerenciador_Eventos.setJogador(pJog1);
     Fases::Tundra fasePrimeira(MAX_INI, MAX_PLAT, MAX_INI, MAX_GELO, pJog1);
-
+    fasePrimeira.inicarFase(1);
     while (GG.isJanelaAberta() && pJog1->getPontos() > -1)
     {
         Gerenciador_Eventos.verificarEventos();

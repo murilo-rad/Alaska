@@ -4,7 +4,7 @@
 
 Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), max_Lobos(l), max_Gelos(g), pJogador(pJ)
 {
-    criarCenario();
+
 }
 
 Alaska::Fases::Tundra::~Tundra()
@@ -21,16 +21,6 @@ void Alaska::Fases::Tundra::executar()
     lista_ents.cemiterio();
 }
 
-void Alaska::Fases::Tundra::criarCenario()
-{
-    criarFundo();
-    criarChao();
-    criarObstaculos();
-    if (pJogador)
-        lista_ents.incluir(pJogador);
-    criarInimigos();
-}
-
 void Alaska::Fases::Tundra::criarInimigos()
 {
     criarNevosos();
@@ -43,23 +33,6 @@ void Alaska::Fases::Tundra::criarObstaculos()
     criarGelos();
 }
 
-void Alaska::Fases::Tundra::criarChao()
-{
-    Alaska::Entidades::Chao* pChao;
-    pChao = nullptr;
-    pChao = new Alaska::Entidades::Chao(1);
-
-    if(pChao)
-    {
-        GC->incluirChao(pChao);
-        lista_ents.incluir(pChao);
-    }
-}
-
-void Alaska::Fases::Tundra::criarFundo()
-{
-    pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO);
-}
 
 void Alaska::Fases::Tundra::criarLobos()
 {
@@ -95,7 +68,7 @@ void Alaska::Fases::Tundra::criarGelos()
     for(int i = 0; i < quantidade; i++)
     {
         printf("novo gelo\n");
-        pObstaculo = new Alaska::Entidades::Obstaculos::Gelo(posicaoRandX(), 549.0f);
+        pObstaculo = new Alaska::Entidades::Obstaculos::Gelo(posicaoRandX(), A_MAX_GERAL+1);
         if(pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
@@ -107,17 +80,9 @@ void Alaska::Fases::Tundra::criarGelos()
     delete pObstaculo;
 }
 
-
-
-/* void Alaska::Fases::Tundra::criarCenario()
+void Alaska::Fases::Tundra::inicarFase(short fase)
 {
-    if (pJogador)
-        lista_ents.incluir(pJogador);
-
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(500.0f, 400.0f));
-
-    lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
-
-} */
+	criarCenario(fase);
+    criarObstaculos();
+    criarInimigos();
+}

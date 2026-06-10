@@ -51,33 +51,6 @@ void Alaska::Entidades::Obstaculos::Plataforma::obstaculizarInimigo(Alaska::Enti
         pI->setNoChao(true);
     }
 }
-// sf::FloatRect inter;
-
-// if (caixaJog.intersects(caixaPlat, inter))
-//{
-//     if (inter.width > inter.height)
-//     {
-//         if (pJ->getVelY() > 0 && caixaJog.top < caixaPlat.top)
-//         {
-//             pJ->setY(caixaPlat.top - caixaJog.height);
-//             pJ->setVelY(0.0f);
-//             pJ->setNoChao(true);
-//         }
-//         else if (pJ->getVelY() < 0 && caixaJog.top > caixaPlat.top)
-//         {
-//             pJ->setY(caixaPlat.top + caixaPlat.height);
-//             pJ->setVelY(0.0f);
-//         }
-//     }
-//     else
-//     {
-//         if (caixaJog.left < caixaPlat.left)
-//             pJ->setX(pJ->getX() - inter.width);
-//         else
-//             pJ->setX(pJ->getX() + inter.width);
-//     }
-// }
-//}
 
 void Alaska::Entidades::Obstaculos::Plataforma::salvar()
 {
