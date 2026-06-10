@@ -1,7 +1,7 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500.0f, 0.0f, 0.0f, 3)
+Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, A_MAX_GERAL, 0.0f, 0.0f, 3)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");

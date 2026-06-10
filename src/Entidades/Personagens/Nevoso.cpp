@@ -34,7 +34,7 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
     if(pJ->getVidas() == 0)
         pJ->setMorto();
     pJ->setX(10.0f);
-    pJ->setY(500.0f);
+    pJ->setY(A_MAX_GERAL );
 }
 
 float Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()

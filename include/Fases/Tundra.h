@@ -20,18 +20,18 @@ namespace Alaska
                 const int max_Lobos;
                 const int max_Gelos;
                 Entidades::Personagens::Jogador* pJogador;
-                Fundo* pFundo;
             public:
                 Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~Tundra();
-                void criarFundo();
-                void criarCenario();
+                //void criarFundo();
+                //void criarCenario();
                 void criarInimigos();
                 void criarObstaculos();
                 void criarLobos();
                 void criarGelos();
-                void criarChao();
+                //void criarChao();
                 void executar();
+                void inicarFase(short fase);
        };
     }
 }

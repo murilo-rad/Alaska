@@ -10,8 +10,9 @@ namespace Alaska
           private:
             float altura;
             float largura;
+            short fase;
         public:
-            Fundo(float altr, float largr);
+            Fundo(float altr, float largr, short f);
             Fundo();
             ~Fundo();
             void executar();

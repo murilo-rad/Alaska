@@ -12,7 +12,8 @@ Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador*
         pJogador = pJ;
 
     GC = new Alaska::Gerenciadores::Gerenciador_Colisoes();
-    GC->setJogadorUm(pJogador); 
+    GC->setJogadorUm(pJogador);
+	lista_ents.incluir(pJogador);
 }
 
 Alaska::Fases::Fase::~Fase()
@@ -70,6 +71,12 @@ void Alaska::Fases::Fase::criarPlataformas()
     delete pObstaculo;
 }
 
+void Alaska::Fases::Fase::criarCenario(short fase)
+{
+    criarFundo(fase);
+	criarChao(fase);
+}
+
 float Alaska::Fases::Fase::posicaoRandX()
 {
     float pos_x;
@@ -85,7 +92,22 @@ float Alaska::Fases::Fase::posicaoRandY()
 }
 
 
+void Alaska::Fases::Fase::criarChao(short fase)
+{
+	Alaska::Entidades::Chao* pChao;
+	pChao = nullptr;
+	pChao = new Alaska::Entidades::Chao(fase);
+	if (pChao)
+	{
+		GC->incluirChao(pChao);
+		lista_ents.incluir(pChao);
+	}
+}
 
+void Alaska::Fases::Fase::criarFundo(short fase)
+{
+    pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO, fase);
+}
 
 
 
