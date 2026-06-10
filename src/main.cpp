@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "Graficos.h"
-#include "Eventos.h"
+#include "Gerenciador_Grafico.h"
+#include "Gerenciador_Eventos.h"
 #include "Jogador.h"
 #include "Tundra.h" 
 #include "Alaskapp.h"

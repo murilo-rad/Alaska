@@ -9,14 +9,14 @@
 //     {
 //         namespace Obstaculos
 //         {
-//             class Ice_Spike : public Obstaculo
+//             class Conjunto_Estalagmites : public Obstaculo
 //             {
 //                 private:
 //                     short int danosidade;
 //                 public:
-//                     Ice_Spike();
-//                     Ice_Spike(float x, float y, bool d, short int dano);
-//                     ~Ice_Spike();
+//                     Conjunto_Estalagmites();
+//                     Conjunto_Estalagmites(float x, float y, bool d, short int dano);
+//                     ~Conjunto_Estalagmites();
 //                     void executar();
 //                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJogador);
 //             };

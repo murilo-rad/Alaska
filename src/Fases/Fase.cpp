@@ -1,5 +1,5 @@
 #include "Fase.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
 Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador(nullptr)
 {
@@ -11,7 +11,7 @@ Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador*
     if(pJ)
         pJogador = pJ;
 
-    GC = new Alaska::Gerenciadores::Colisoes();
+    GC = new Alaska::Gerenciadores::Gerenciador_Colisoes();
     GC->setJogadorUm(pJogador); 
 }
 

@@ -2,7 +2,7 @@
 
 using namespace Alaska;
 
-Menu::Menu(Alaskapp* pAlaskapp, Gerenciadores::Eventos* pEventos)
+Menu::Menu(Alaskapp* pAlaskapp, Gerenciadores::Gerenciador_Eventos* pEventos)
     : opcao(0), ativo(true), pAlaskapp(pAlaskapp), pEventos(pEventos), Ente() {}
 
 Menu::~Menu() {

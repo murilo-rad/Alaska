@@ -29,7 +29,7 @@ add_executable(Alaska
     src/Entidades/Entidade.cpp
     src/Entidades/Chao.cpp
     src/Entidades/Obstaculos/Obstaculo.cpp
-    src/Entidades/Obstaculos/Ice_Spike.cpp
+    src/Entidades/Obstaculos/Conjunto_Estalagmites.cpp
     src/Entidades/Obstaculos/Gelo.cpp
     src/Entidades/Obstaculos/Plataforma.cpp
     src/Entidades/Personagens/Nevoso.cpp
@@ -39,9 +39,9 @@ add_executable(Alaska
     src/Entidades/Personagens/Lobo.cpp 
     
     #Gerenciadores
-    src/Gerenciadores/Graficos.cpp
-    src/Gerenciadores/Eventos.cpp
-    src/Gerenciadores/Colisoes.cpp
+    src/Gerenciadores/Gerenciador_Grafico.cpp
+    src/Gerenciadores/Gerenciador_Eventos.cpp
+    src/Gerenciadores/Gerenciador_Colisoes.cpp
     
     #Fases
     src/Fases/Fase.cpp

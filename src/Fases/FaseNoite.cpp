@@ -1,10 +1,10 @@
 /* #include "FaseNoite.h"
 #include "Plataforma.h"
-#include "Ice_Spike.h"
+#include "Conjunto_Estalagmites.h"
 #include "Nevoso.h"
 #include "Lobo.h"
 #include "Ente.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
 Alaska::Fases::FaseNoite::FaseNoite() : Fase(), max_Lobos(0), max_Gelos(0)
 {

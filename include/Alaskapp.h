@@ -1,8 +1,8 @@
 #pragma once
 #include "pch.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 #include "Personagem.h"
-#include "Eventos.h"
+#include "Gerenciador_Eventos.h"
 #include "Jogador.h"
 #include "Fase.h"
 #include "Tundra.h"
@@ -13,7 +13,7 @@ namespace Alaska
     class Alaskapp
     {
     private:
-        Alaska::Gerenciadores::Graficos GG;
+        Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
     public:
         Alaskapp();
