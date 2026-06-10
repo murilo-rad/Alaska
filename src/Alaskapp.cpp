@@ -36,8 +36,6 @@ void Alaska::Alaskapp::executar()
     {
         Gerenciador_Eventos.verificarEventos();
 
-        GG.atualizarCamera(pJog1->getX(), 300.0f);
-
         GG.limpar();
 
         fasePrimeira.executar();
