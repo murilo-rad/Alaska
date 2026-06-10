@@ -15,6 +15,8 @@ Alaska::Entidades::Obstaculos::Gelo::~Gelo() {}
 
 void Alaska::Entidades::Obstaculos::Gelo::executar()
 {
+    gravitar();
+    antiGravitar();
     desenhar();
 }
 

@@ -26,11 +26,9 @@ void Alaska::Fases::Tundra::criarCenario()
     criarFundo();
     criarChao();
     criarObstaculos();
-
     if (pJogador)
         lista_ents.incluir(pJogador);
     criarInimigos();
-    
 }
 
 void Alaska::Fases::Tundra::criarInimigos()
@@ -56,7 +54,6 @@ void Alaska::Fases::Tundra::criarChao()
         GC->incluirChao(pChao);
         lista_ents.incluir(pChao);
     }
-    
 }
 
 void Alaska::Fases::Tundra::criarFundo()
