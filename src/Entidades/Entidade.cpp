@@ -53,7 +53,7 @@ const float Alaska::Entidades::Entidade::getVelY()const
     return velY;
 }
 
-void Alaska::Entidades::Entidade::aplicarGravidade()
+void Alaska::Entidades::Entidade::gravitar()
 {
     velY += GRAVIDADE;
 

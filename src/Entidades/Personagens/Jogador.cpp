@@ -11,7 +11,8 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500.0f, 
 	pontos = 0;
 }
 
-Alaska::Entidades::Personagens::Jogador::~Jogador() {
+Alaska::Entidades::Personagens::Jogador::~Jogador() 
+{
 	pontos = -1;
     printf("morte");
 }
@@ -30,7 +31,7 @@ void Alaska::Entidades::Personagens::Jogador::salvar()
 void Alaska::Entidades::Personagens::Jogador::mover() 
 {
     x += velX;
-    aplicarGravidade();
+    gravitar();
     sprite.setPosition(x, y);
     setNoChao(false);
 }

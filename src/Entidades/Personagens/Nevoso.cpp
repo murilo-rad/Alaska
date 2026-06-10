@@ -23,7 +23,7 @@ void Alaska::Entidades::Personagens::Nevoso::executar()
 void Alaska::Entidades::Personagens::Nevoso::mover()
 {
     seguirJogador();
-    aplicarGravidade();
+    gravitar();
     sprite.setPosition(x, y);
 }
 

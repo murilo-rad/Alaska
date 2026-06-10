@@ -32,7 +32,7 @@ namespace Alaska
                 void setVelY(const float velYy);
                 const float getVelX()const;
                 const float getVelY()const;
-                void aplicarGravidade();
+                void gravitar();
 
                 virtual void executar() = 0;
 				virtual void salvar() = 0;
