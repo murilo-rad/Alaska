@@ -8,9 +8,13 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500.0f, 
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
     sprite.setPosition(x, y); 
+	pontos = 0;
 }
 
-Alaska::Entidades::Personagens::Jogador::~Jogador() {}
+Alaska::Entidades::Personagens::Jogador::~Jogador() {
+	pontos = -1;
+    printf("morte");
+}
 
 void Alaska::Entidades::Personagens::Jogador::executar() 
 {
@@ -29,6 +33,11 @@ void Alaska::Entidades::Personagens::Jogador::mover()
     aplicarGravidade();
     sprite.setPosition(x, y);
     setNoChao(false);
+}
+
+int Alaska::Entidades::Personagens::Jogador::getPontos()
+{
+    return pontos;
 }
 
 void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)

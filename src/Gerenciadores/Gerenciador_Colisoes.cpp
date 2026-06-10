@@ -46,7 +46,7 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::setJogadorUm(Alaska::Entidades
     pJog1 = pJ1;
 }
 
-void Alaska::Gerenciadores::Gerenciador_Colisoes::setChao(Alaska::Entidades::Chao *pCh)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirChao(Alaska::Entidades::Chao *pCh)
 {
     if (pCh)
         pChao = pCh;
