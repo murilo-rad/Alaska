@@ -23,7 +23,7 @@ void Alaska::Entidades::Personagens::Lobo::executar()
 void Alaska::Entidades::Personagens::Lobo::mover()
 {
     seguirJogador();
-    aplicarGravidade();
+    gravitar();
     sprite.setPosition(x, y);
 }
 

@@ -12,7 +12,7 @@ void Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer()
 	//implementar
 }
 
-void Alaska::Entidades::Obstaculos::Obstaculo::antiGravidade() 
+void Alaska::Entidades::Obstaculos::Obstaculo::antiGravitar() 
 {
 	velY -= GRAVIDADE;
 	if (velY < -15.0f) 
