@@ -1,6 +1,6 @@
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
-Alaska::Gerenciadores::Graficos::Graficos()
+Alaska::Gerenciadores::Gerenciador_Grafico::Gerenciador_Grafico()
 {
     janela = new sf::RenderWindow(sf::VideoMode(800, 600), "Demo Alaska");
     janela->setFramerateLimit(60);
@@ -11,35 +11,35 @@ Alaska::Gerenciadores::Graficos::Graficos()
     text.setFont(fontMenu);
 }
 
-Alaska::Gerenciadores::Graficos::~Graficos()
+Alaska::Gerenciadores::Gerenciador_Grafico::~Gerenciador_Grafico()
 {
     delete janela;
 }
 
-void Alaska::Gerenciadores::Graficos::limpar()
+void Alaska::Gerenciadores::Gerenciador_Grafico::limpar()
 {
     if (janela && janela->isOpen()) 
         janela->clear();
 }
 
-void Alaska::Gerenciadores::Graficos::mostrar()
+void Alaska::Gerenciadores::Gerenciador_Grafico::mostrar()
 {
     if (janela && janela->isOpen())
         janela->display();
 }
 
-void Alaska::Gerenciadores::Graficos::desenharEnte(Alaska::Ente* pEnte)
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharEnte(Alaska::Ente* pEnte)
 {
     if (pEnte && janela && janela->isOpen())
         janela->draw(*(pEnte->getSprite()));
 }
 
-void Alaska::Gerenciadores::Graficos::desenharTexto(sf::Text* pTexto)
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharTexto(sf::Text* pTexto)
 {
     if (pTexto && janela && janela->isOpen())
         janela->draw(*pTexto);
 }
-void Alaska::Gerenciadores::Graficos::desenharTituloMenu(const sf::String& pStrTitulo)
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharTituloMenu(const sf::String& pStrTitulo)
 {
     text.setString(pStrTitulo);
     text.setCharacterSize(72);
@@ -48,7 +48,7 @@ void Alaska::Gerenciadores::Graficos::desenharTituloMenu(const sf::String& pStrT
     if (janela && janela->isOpen())
         janela->draw(text);
 }
-void Alaska::Gerenciadores::Graficos::desenharOpcaoMenu(const sf::String& pStrOpcao, int indice, bool selecionado)
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharOpcaoMenu(const sf::String& pStrOpcao, int indice, bool selecionado)
 {
     const float BASE_Y      = 300.f;
     const float ESPACAMENTO = 60.f;
@@ -61,17 +61,17 @@ void Alaska::Gerenciadores::Graficos::desenharOpcaoMenu(const sf::String& pStrOp
         janela->draw(text);
 }
 
-bool Alaska::Gerenciadores::Graficos::isJanelaAberta()
+bool Alaska::Gerenciadores::Gerenciador_Grafico::isJanelaAberta()
 {
     return janela->isOpen();
 }
 
-sf::RenderWindow* Alaska::Gerenciadores::Graficos::getJanela()
+sf::RenderWindow* Alaska::Gerenciadores::Gerenciador_Grafico::getJanela()
 {
     return janela;
 }
 
-void Alaska::Gerenciadores::Graficos::atualizarCamera(float x, float y)
+void Alaska::Gerenciadores::Gerenciador_Grafico::atualizarCamera(float x, float y)
 {
     camera.setCenter(x, y);
     if (janela && janela->isOpen())

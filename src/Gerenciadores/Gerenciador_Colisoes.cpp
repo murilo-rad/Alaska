@@ -1,15 +1,15 @@
-#include "Colisoes.h"
+#include "Gerenciador_Colisoes.h"
 
-// Alaska::Gerenciadores::Colisoes::Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
+// Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
 // usado para testes
 
-Alaska::Gerenciadores::Colisoes::Colisoes() : LIs(), LOs(), pJog1(), pChao()
+Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), pJog1(), pChao()
 {
 }
 
-Alaska::Gerenciadores::Colisoes::~Colisoes() {}
+Alaska::Gerenciadores::Gerenciador_Colisoes::~Gerenciador_Colisoes() {}
 
-void Alaska::Gerenciadores::Colisoes::executar()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::executar()
 {
     tratarColisoesChao();
     tratarColisoesJogsObstacs();
@@ -18,7 +18,7 @@ void Alaska::Gerenciadores::Colisoes::executar()
     limparMortos();
 }
 
-const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::Entidade *pE1, Alaska::Entidades::Entidade *pE2)const
+const bool Alaska::Gerenciadores::Gerenciador_Colisoes::verificarColisao(Alaska::Entidades::Entidade *pE1, Alaska::Entidades::Entidade *pE2)const
 {
     if(pE1 && pE2)
     {
@@ -29,30 +29,30 @@ const bool Alaska::Gerenciadores::Colisoes::verificarColisao(Alaska::Entidades::
     return false;
 }
 
-void Alaska::Gerenciadores::Colisoes::incluirInimigo(Alaska::Entidades::Personagens::Inimigo *pIni)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirInimigo(Alaska::Entidades::Personagens::Inimigo *pIni)
 {
     if (pIni)
         LIs.push_back(pIni);
 }
 
-void Alaska::Gerenciadores::Colisoes::incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo *pObs)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo *pObs)
 {
     if (pObs)
         LOs.push_back(pObs);
 }
 
-void Alaska::Gerenciadores::Colisoes::setJogadorUm(Alaska::Entidades::Personagens::Jogador *pJ1)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::setJogadorUm(Alaska::Entidades::Personagens::Jogador *pJ1)
 {
     pJog1 = pJ1;
 }
 
-void Alaska::Gerenciadores::Colisoes::setChao(Alaska::Entidades::Chao *pCh)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::setChao(Alaska::Entidades::Chao *pCh)
 {
     if (pCh)
         pChao = pCh;
 }
 
-void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsObstacs()
 {
     if (!LOs.empty())
     {
@@ -75,7 +75,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
     }
 }
 
-void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesInimigosObstacs()
 {
     if (!LIs.empty() && !LOs.empty())
     {
@@ -113,7 +113,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesInimigosObstacs()
     }
 }
 
-void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsInimigs()
 {
     if (!LIs.empty())
     {
@@ -136,7 +136,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
     }
 }
 
-void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesChao()
 {
     if (pChao)
     {
@@ -166,7 +166,7 @@ void Alaska::Gerenciadores::Colisoes::tratarColisoesChao()
     }
 }
 
-void Alaska::Gerenciadores::Colisoes::removerInimigo(Alaska::Entidades::Personagens::Inimigo *pIni)
+void Alaska::Gerenciadores::Gerenciador_Colisoes::removerInimigo(Alaska::Entidades::Personagens::Inimigo *pIni)
 {
     for (auto it = LIs.begin(); it != LIs.end();)
     {
@@ -177,7 +177,7 @@ void Alaska::Gerenciadores::Colisoes::removerInimigo(Alaska::Entidades::Personag
     }
 }
 
-void Alaska::Gerenciadores::Colisoes::limparMortos()
+void Alaska::Gerenciadores::Gerenciador_Colisoes::limparMortos()
 {
     for (auto it = LIs.begin(); it != LIs.end(); )
     {
@@ -188,17 +188,17 @@ void Alaska::Gerenciadores::Colisoes::limparMortos()
     }
 }
 
-// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsProjeteis()
+// void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsProjeteis()
 // {
 // 	// Implementar
 // }
 //
-// void Alaska::Gerenciadores::Colisoes::incluirProjetil()
+// void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirProjetil()
 //{
 // Implementar
 //}
 
-// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsObstacs()
+// void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsObstacs()
 //  {
 //      if(!pJog1) return;
 
@@ -213,7 +213,7 @@ void Alaska::Gerenciadores::Colisoes::limparMortos()
 //     }
 // }
 
-// void Alaska::Gerenciadores::Colisoes::tratarColisoesJogsInimigs()
+// void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsInimigs()
 // {
 //     if(!pJog1) return;
 

@@ -14,7 +14,7 @@ namespace Alaska
 {
     namespace Gerenciadores 
     {
-        class Colisoes
+        class Gerenciador_Colisoes
         {
         private:
             std::vector<Alaska::Entidades::Personagens::Inimigo*> LIs;
@@ -31,8 +31,8 @@ namespace Alaska
             void tratarColisoesInimigosObstacs();
             void tratarColisoesChao();
         public:
-            Colisoes();
-            ~Colisoes();
+            Gerenciador_Colisoes();
+            ~Gerenciador_Colisoes();
             //void incluirProjetil();
 			void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
 			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);

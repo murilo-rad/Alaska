@@ -1,10 +1,10 @@
 #pragma once
 #include "pch.h"
-#include "Graficos.h"
+#include "Gerenciador_Grafico.h"
 
 namespace Alaska { 
     namespace Gerenciadores { 
-        class Graficos; //pra declarar só
+        class Gerenciador_Grafico; //pra declarar só
     } 
 }
 
@@ -16,7 +16,7 @@ namespace Alaska
         static int I;
     protected:
         int id;
-        static Alaska::Gerenciadores::Graficos* pGG;
+        static Alaska::Gerenciadores::Gerenciador_Grafico* pGG;
         sf::Texture* pFig;
         sf::Sprite sprite;
     public:
@@ -28,7 +28,7 @@ namespace Alaska
         void desenhar();
         const int getID()const;
 
-        static void setGG(Alaska::Gerenciadores::Graficos* pG);
+        static void setGG(Alaska::Gerenciadores::Gerenciador_Grafico* pG);
 
         sf::Sprite* getSprite();
         void ajustarSprite(sf::Sprite& sprite, float alt, float larg);

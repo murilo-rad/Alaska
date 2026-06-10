@@ -2,7 +2,7 @@
 #include "pch.h"
 #include "Ente.h"
 #include "Entidade.h"
-#include "Colisoes.h"
+#include "Gerenciador_Colisoes.h"
 #include "ListaEntidades.h"
 #include "Nevoso.h"
 #include "Plataforma.h"
@@ -19,7 +19,7 @@ namespace Alaska
                 const int max_Nevosos;
                 const int max_Plataformas;
             protected:
-                Alaska::Gerenciadores::Colisoes* GC;
+                Alaska::Gerenciadores::Gerenciador_Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
                 Alaska::Entidades::Personagens::Jogador* pJogador;
             public:

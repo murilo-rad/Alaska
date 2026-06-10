@@ -1,7 +1,7 @@
 #include "Ente.h"
 
 int Alaska::Ente::I = 0;
-Alaska::Gerenciadores::Graficos* Alaska::Ente::pGG = nullptr;
+Alaska::Gerenciadores::Gerenciador_Grafico* Alaska::Ente::pGG = nullptr;
 
 Alaska::Ente::Ente(): id(I++), pFig(nullptr), sprite(){}
 
@@ -13,7 +13,7 @@ void Alaska::Ente::desenhar()
         pGG->desenharEnte(this);
 }
 
-void Alaska::Ente::setGG(Alaska::Gerenciadores::Graficos* pG)
+void Alaska::Ente::setGG(Alaska::Gerenciadores::Gerenciador_Grafico* pG)
 {
     if(pG)
         pGG = pG;
