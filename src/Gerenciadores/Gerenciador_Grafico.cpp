@@ -2,10 +2,8 @@
 
 Alaska::Gerenciadores::Gerenciador_Grafico::Gerenciador_Grafico()
 {
-    janela = new sf::RenderWindow(sf::VideoMode(800, 600), "Demo Alaska");
+    janela = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Demo Alaska");
     janela->setFramerateLimit(60);
-
-    camera.setSize(800.0f, 600.0f);
 
     fontMenu.loadFromFile("fonts/Roboto/static/Roboto-Regular.ttf");
     text.setFont(fontMenu);
@@ -71,12 +69,3 @@ sf::RenderWindow* Alaska::Gerenciadores::Gerenciador_Grafico::getJanela()
     return janela;
 }
 
-void Alaska::Gerenciadores::Gerenciador_Grafico::atualizarCamera(float x, float y)
-{
-    camera.setCenter(x, y);
-    if (janela && janela->isOpen())
-    {
-        sf::View visualizacaoAtual = camera;
-        janela->setView(camera);
-    }
-}
