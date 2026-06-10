@@ -21,17 +21,6 @@ void Alaska::Fases::Tundra::executar()
     lista_ents.cemiterio();
 }
 
-//void Alaska::Fases::Tundra::criarCenario()
-//{
-//    
-//    criarChao();
-//    criarObstaculos();
-//
-//    if (pJogador)
-//        lista_ents.incluir(pJogador);
-//    criarInimigos();
-//}
-
 void Alaska::Fases::Tundra::criarInimigos()
 {
     criarNevosos();
@@ -44,24 +33,6 @@ void Alaska::Fases::Tundra::criarObstaculos()
     criarGelos();
 }
 
-//void Alaska::Fases::Tundra::criarChao()
-//{
-//    Alaska::Entidades::Chao* pChao;
-//    pChao = nullptr;
-//    pChao = new Alaska::Entidades::Chao(fase);
-//
-//    if(pChao)
-//    {
-//        GC->incluirChao(pChao);
-//        lista_ents.incluir(pChao);
-//    }
-//    
-//}
-//
-//void Alaska::Fases::Tundra::criarFundo()
-//{
-//    pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO);
-//}
 
 void Alaska::Fases::Tundra::criarLobos()
 {
@@ -115,17 +86,3 @@ void Alaska::Fases::Tundra::inicarFase(short fase)
     criarObstaculos();
     criarInimigos();
 }
-
-
-/* void Alaska::Fases::Tundra::criarCenario()
-{
-    if (pJogador)
-        lista_ents.incluir(pJogador);
-
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(0.0f, 550.0f));
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(1000.0f, 550.0f));
-    lista_ents.incluir(new Entidades::Obstaculos::Plataforma(A_MAX_GERAL , 400.0f));
-
-    lista_ents.incluir(new Entidades::Personagens::Lobo(400.0f, 100.0f, pJogador));
-
-} */

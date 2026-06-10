@@ -23,13 +23,10 @@ namespace Alaska
             public:
                 Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
                 ~Tundra();
-                //void criarFundo();
-                //void criarCenario();
                 void criarInimigos();
                 void criarObstaculos();
                 void criarLobos();
                 void criarGelos();
-                //void criarChao();
                 void executar();
                 void inicarFase(short fase);
        };
