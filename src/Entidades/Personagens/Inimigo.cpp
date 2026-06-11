@@ -55,6 +55,22 @@ void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
     //implementar
 }
 
+void Alaska::Entidades::Personagens::Inimigo::impedirSobrePosicao(Entidade* pI)
+{
+	if (pI && pI != this)
+	{
+		sf::FloatRect caixaIni1 = getSprite()->getGlobalBounds();
+		sf::FloatRect caixaIni2 = pI->getSprite()->getGlobalBounds();
+		if (caixaIni1.intersects(caixaIni2))
+		{
+			if (caixaIni1.left < caixaIni2.left)
+				setX(caixaIni2.left - caixaIni1.width);
+			else
+				setX(caixaIni2.left + caixaIni2.width);
+		}
+	}
+}
+
 // void Alaska::Entidades::Personagens::Inimigo::recuar()
 // {
 //     setVelX(100.0f);

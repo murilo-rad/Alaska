@@ -15,6 +15,7 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::executar()
     tratarColisoesJogsObstacs();
     tratarColisoesJogsInimigs();
     tratarColisoesInimigosObstacs();
+    tratarColisoesInimigosInimigos();
     limparMortos();
 }
 
@@ -133,6 +134,43 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsInimigs()
             it++;
         }
         delete pIni;
+    }
+}
+
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesInimigosInimigos()
+{
+    if (!LIs.empty())
+    {
+        Alaska::Entidades::Personagens::Inimigo* pIni1;
+        pIni1 = nullptr;
+        std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator itIni1;
+        Alaska::Entidades::Personagens::Inimigo* pIni2;
+        pIni2 = nullptr;
+        std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator itIni2;
+        itIni1 = LIs.begin();
+        while (itIni1 != LIs.end())
+        {
+            itIni2 = LIs.begin();
+            pIni1 = (*itIni1);
+            if (pIni1)
+                while (itIni2 != LIs.end())
+                {
+                    pIni2 = (*itIni2);
+                    if (pIni2 && pIni1 != pIni2)
+                    {
+                        if (verificarColisao(pIni1, pIni2))
+                        {
+                            pIni1->impedirSobrePosicao(pIni2);
+                        }
+                    }
+                    pIni2 = nullptr;
+                    itIni2++;
+                }
+            pIni1 = nullptr;
+            itIni1++;
+        }
+        delete pIni1;
+        delete pIni2;
     }
 }
 

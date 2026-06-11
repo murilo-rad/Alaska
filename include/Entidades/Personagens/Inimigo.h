@@ -31,7 +31,7 @@ namespace Alaska
                     int getMaldade();
                     sf::Vector2f normalizarVetor(sf::Vector2f v);
 					void salvarDataBuffer();
-
+					void impedirSobrePosicao(Entidade* pI);
             };
         }
     }
