@@ -84,14 +84,7 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades:
             }
         }
         else
-        {
-            if (caixaInimigo.left < caixaGelo.left)
-            {
-                pI->setX(pI->getX() - inter.width);
-            }
-            else
-                pI->setX(pI->getX() + inter.width);
-        }
+            pI->setY(pI->getY() - 8.0f);
     }
 }
 
