@@ -11,12 +11,12 @@ namespace Alaska
             class Lobo : public Inimigo
             {
                 private:
-                    float voracidade;
+                    int voracidade;
                 public:
                     Lobo(float x, float y, Jogador* pJ);
                     Lobo();
                     ~Lobo();
-                    float calcularVoracidade();
+                    int calcularVoracidade();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
                     void salvar();

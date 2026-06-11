@@ -34,12 +34,12 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
     if(pJ->getVidas() == 0)
         pJ->setMorto();
     pJ->setX(10.0f);
-    pJ->setY(A_MAX_GERAL );
+    pJ->setY(A_MAX_GERAL);
 }
 
-float Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()
+int Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()
 {
-    acumulacao = (float)(nivel_maldade * T_NEVOSO);
+    acumulacao = nivel_maldade * T_NEVOSO;
     return acumulacao;
 }
 

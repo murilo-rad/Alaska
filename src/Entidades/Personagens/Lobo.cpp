@@ -29,18 +29,19 @@ void Alaska::Entidades::Personagens::Lobo::mover()
 void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personagens::Jogador* pJ)
 {
     printf("hit lobo\n");
-    pJ->operator--();
+    pJ->operator--(voracidade);
     if(pJ->getVidas() == 0)
         pJ->setMorto();
+    operator++(voracidade);
     pJ->setX(10.0f);
     pJ->setY(A_MAX_GERAL);
 }
 
-float Alaska::Entidades::Personagens::Lobo::calcularVoracidade()
+int Alaska::Entidades::Personagens::Lobo::calcularVoracidade()
 {
-    float aux = velocidade * nivel_maldade;
-    velocidade = aux;
-    return aux;
+    voracidade = velocidade * nivel_maldade;
+    velocidade = voracidade;
+    return voracidade;
 }
 
 void Alaska::Entidades::Personagens::Lobo::salvar() 

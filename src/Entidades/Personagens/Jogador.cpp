@@ -49,7 +49,7 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
     if (caixaJog.top < caixaIni.top && !getNoChao())
     {
         setY(caixaIni.top - caixaJog.height);
-        setVelY(-8.0f);
+        setVelY(-11.0f);
         setNoChao(false);
         printf("hit jogador\n");
         danificar(pIni);

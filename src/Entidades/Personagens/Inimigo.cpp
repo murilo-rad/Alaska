@@ -29,9 +29,9 @@ void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
     x += velX;
 }
 
-float Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
+int Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
 {   
-    float aux = ((rand() % 100) / 100.0f) + 1.0f;
+    int aux = (rand() % 2) + 1;
     return aux;
 }
 
