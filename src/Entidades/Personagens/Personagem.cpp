@@ -28,6 +28,19 @@ const bool Alaska::Entidades::Personagens::Personagem::getNoChao()const
     return noChao;
 }
 
+void Alaska::Entidades::Personagens::Personagem::operator++()
+{
+    if(vivo)
+        num_vidas++;
+}
+
+void Alaska::Entidades::Personagens::Personagem::operator++(int vida)
+{
+    if(vivo)
+        num_vidas += vida;
+}
+
+
 void Alaska::Entidades::Personagens::Personagem::operator--()
 {
     if(vivo)

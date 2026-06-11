@@ -32,6 +32,8 @@ namespace Alaska
                     void setNoChao(bool c);
                     const bool getNoChao() const;
 
+                    void operator++();
+                    void operator++(int vida);
                     void operator--();
                     void operator--(int dano);
 

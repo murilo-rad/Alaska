@@ -46,10 +46,10 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
 	sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
     sf::FloatRect caixaJog = sprite.getGlobalBounds();
     
-    if (caixaJog.top < caixaIni.top && !getNoChao())
+    if (getVelY() > 0 && caixaJog.top < caixaIni.top && !getNoChao())
     {
         setY(caixaIni.top - caixaJog.height);
-        setVelY(-8.0f);
+        setVelY(-11.0f);
         setNoChao(false);
         printf("hit jogador\n");
         danificar(pIni);

@@ -68,7 +68,7 @@ void Alaska::Fases::Tundra::criarGelos()
     for(int i = 0; i < quantidade; i++)
     {
         printf("novo gelo\n");
-        pObstaculo = new Alaska::Entidades::Obstaculos::Gelo(posicaoRandX(), A_MAX_GERAL+1);
+        pObstaculo = new Alaska::Entidades::Obstaculos::Gelo(posicaoRandX(), A_MAX_GERAL);
         if(pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
