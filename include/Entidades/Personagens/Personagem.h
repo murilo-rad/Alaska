@@ -33,6 +33,7 @@ namespace Alaska
                     const bool getNoChao() const;
 
                     void operator--();
+                    void operator--(int dano);
 
                     
             };

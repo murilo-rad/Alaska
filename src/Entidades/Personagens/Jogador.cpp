@@ -56,17 +56,14 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
     }
     else if(caixaJog.top >= caixaIni.top)
     {
-
-        float centroJog = caixaJog.left + caixaJog.width / 2.f;
-        float centroIni = caixaIni.left + caixaIni.width / 2.f;
-
-        const float empurrao = 30.0f;
-
-        if (centroJog < centroIni)
-            setVelX(-empurrao);
-        else
-            setVelX(empurrao);
-
+        sf::FloatRect inter;
+        if (caixaJog.intersects(caixaIni, inter))
+        {
+            if (caixaJog.left < caixaIni.left)
+                setX(getX() - inter.width);
+            else
+                setX(getX() + inter.width);
+        }
         pIni->danificar(this);
     }
 }

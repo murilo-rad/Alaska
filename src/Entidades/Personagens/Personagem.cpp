@@ -32,6 +32,16 @@ void Alaska::Entidades::Personagens::Personagem::operator--()
 {
     if(vivo)
         num_vidas--;
+    if(num_vidas < 0)
+        num_vidas = 0;
+}
+
+void Alaska::Entidades::Personagens::Personagem::operator--(int dano)
+{
+    if(vivo)
+        num_vidas -= dano;
+    if(num_vidas < 0)
+        num_vidas = 0;
 }
 
 void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
