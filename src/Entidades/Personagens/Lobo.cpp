@@ -33,7 +33,7 @@ void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personag
     if(pJ->getVidas() == 0)
         pJ->setMorto();
     pJ->setX(10.0f);
-    pJ->setY(A_MAX_GERAL );
+    pJ->setY(A_MAX_GERAL);
 }
 
 float Alaska::Entidades::Personagens::Lobo::calcularVoracidade()

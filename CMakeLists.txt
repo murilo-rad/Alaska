@@ -28,6 +28,7 @@ add_executable(Alaska
     #Entidades
     src/Entidades/Entidade.cpp
     src/Entidades/Chao.cpp
+    src/Entidades/Bola_de_Neve.cpp
     src/Entidades/Obstaculos/Obstaculo.cpp
     src/Entidades/Obstaculos/Conjunto_Estalagmites.cpp
     src/Entidades/Obstaculos/Gelo.cpp
@@ -37,6 +38,7 @@ add_executable(Alaska
     src/Entidades/Personagens/Inimigo.cpp
     src/Entidades/Personagens/Jogador.cpp
     src/Entidades/Personagens/Lobo.cpp 
+    src/Entidades/Personagens/Abominavel.cpp
     
     #Gerenciadores
     src/Gerenciadores/Gerenciador_Grafico.cpp
