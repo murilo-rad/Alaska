@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Inimigo.h"
+#include "Jogador.h"
 
 namespace Alaska
 {
