@@ -23,6 +23,7 @@ namespace Alaska
                     void executar();
                     void salvar();
                     void mover();
+                    //void setPBola(Alaska::Entidades::Bola_de_Neve* pProj);
             };
         }
     }

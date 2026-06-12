@@ -17,6 +17,7 @@ namespace Alaska
                 ~Bola_de_Neve();
                 void executar();
                 void salvar();
+                //void setPAbm(Alaska::Entidades::Personagens::Abominavel* Ab);
         };
     }
 }
