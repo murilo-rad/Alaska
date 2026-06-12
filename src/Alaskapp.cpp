@@ -23,14 +23,15 @@ void Alaska::Alaskapp::executar()
     Alaska::Menu menu(this, &Gerenciador_Eventos);
     Gerenciador_Eventos.setMenu(&menu);
     menu.executar();
-    Gerenciador_Eventos.setMenu(nullptr);
+	printf("Menu finalizado %d\n", menu.getOpcao());
 
     if (pJog1 == nullptr)
         pJog1 = new Entidades::Personagens::Jogador();
 
     Gerenciador_Eventos.setJogador(pJog1);
     Fases::Tundra fasePrimeira(MAX_INI, MAX_PLAT, MAX_INI, MAX_GELO, pJog1);
-    fasePrimeira.inicarFase(1);
+    fasePrimeira.inicarFase(menu.getOpcao()+1);
+    Gerenciador_Eventos.setMenu(nullptr);
     while (GG.isJanelaAberta() && pJog1->getPontos() > -1)
     {
         Gerenciador_Eventos.verificarEventos();

@@ -17,10 +17,11 @@ void Menu::executar() {
 
         pGG->limpar();
         pGG->desenharTituloMenu("Alaska");
-        pGG->desenharOpcaoMenu("Iniciar",    0, opcao == 0);
-        pGG->desenharOpcaoMenu("Opcoes",     1, opcao == 1);
-        pGG->desenharOpcaoMenu("Scoreboard", 2, opcao == 2);
-        pGG->desenharOpcaoMenu("Sair",       3, opcao == 3);
+        pGG->desenharOpcaoMenu("Iniciar fase 1",    0, opcao == 0);
+        pGG->desenharOpcaoMenu("Iniciar fase 2",    1, opcao == 1);
+        pGG->desenharOpcaoMenu("Opcoes",     2, opcao == 2);
+        pGG->desenharOpcaoMenu("Scoreboard", 3, opcao == 3);
+        pGG->desenharOpcaoMenu("Sair",       4, opcao == 4);
         pGG->mostrar();
     }
 }
@@ -30,13 +31,9 @@ void Menu::mudarOpcao(int direcao) {
 }
 
 void Menu::confirmarOpcao() {
-    if (opcao == 0)
+    if (opcao == 0 || opcao == 1)
     {
         ativo = false;
-    }
-    else if (opcao == 1)
-    {
-    
     }
     else if (opcao == 2) 
     {
