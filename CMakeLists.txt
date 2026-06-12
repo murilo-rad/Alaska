@@ -48,6 +48,7 @@ add_executable(Alaska
     #Fases
     src/Fases/Fase.cpp
     src/Fases/Tundra.cpp
+    src/Fases/Caverna.cpp
 
     #Listas
     src/Listas/ListaEntidades.cpp

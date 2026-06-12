@@ -36,7 +36,8 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizar(Alaska::
             pJ->setY(caixaEstalagmites.top - caixaJogador.height);
             pJ->setVelY(0.0f);
             pJ->operator--();
-            pJ->setNoChao(true);
+            pJ->setVelY(-11.0f);
+            pJ->setNoChao(false);
          }
          else if (pJ->getVelY() < 0 && caixaJogador.top > caixaEstalagmites.top)
          {
