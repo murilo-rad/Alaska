@@ -1,11 +1,10 @@
 #pragma once
 #include "pch.h"
 #include "Fase.h"
+#include "Ente.h"
 #include "Plataforma.h"
-#include "Conjunto_Estalagmites.h"
 #include "Nevoso.h"
 #include "Lobo.h"
-#include "Ente.h"
 #include "Chao.h"
 #include "Fundo.h"
 #include "Gelo.h"

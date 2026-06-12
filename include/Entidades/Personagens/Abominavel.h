@@ -14,12 +14,12 @@ namespace Alaska
             {
                 private:
                     Alaska::Entidades::Bola_de_Neve* pBola;
-                    float forca;
+                    int forca;
                 public:
                     Abominavel(float x, float y, Jogador* pJ);
                     Abominavel();
                     ~Abominavel();
-                    float calcularForca();
+                    int calcularForca();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
                     void salvar();
