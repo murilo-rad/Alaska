@@ -23,5 +23,6 @@ namespace Alaska {
 		void confirmarOpcao();
 		void mudarOpcao(int direcao);
 		int getOpcao() const { return opcao; }
+		void reset();
 	};
 }

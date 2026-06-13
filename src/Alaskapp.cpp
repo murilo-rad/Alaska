@@ -29,16 +29,18 @@ void Alaska::Alaskapp::executar()
         pJog1 = new Entidades::Personagens::Jogador();
 
     Gerenciador_Eventos.setJogador(pJog1);
-    Fases::Tundra fasePrimeira(MAX_INI, MAX_PLAT, MAX_INI, MAX_GELO, pJog1);
-    fasePrimeira.inicarFase(menu.getOpcao()+1);
+    
+	if (faseSelecionada)
+		faseSelecionada->iniciarFase(menu.getOpcao() + 1);
+
     Gerenciador_Eventos.setMenu(nullptr);
     while (GG.isJanelaAberta() && pJog1->getPontos() > -1)
     {
         Gerenciador_Eventos.verificarEventos();
 
         GG.limpar();
-
-        fasePrimeira.executar();
+        if (faseSelecionada)
+            faseSelecionada->executar();
 
         GG.mostrar();
     }

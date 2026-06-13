@@ -8,7 +8,7 @@ Alaska::Fundo::Fundo(float altr, float largr, short f) : Ente(), altura(altr), l
         pFig->loadFromFile("imgs/Tundra.png");
     }
     else if (fase == 2) {
-        pFig->loadFromFile("imgs/fundoTundra.png");
+        pFig->loadFromFile("imgs/Caverna.png");
     }
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, altura, largura);

@@ -27,9 +27,10 @@ namespace Alaska
                 Alaska::Entidades::Personagens::Jogador* pJogador;
             public:
                 Fase();
-                Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ);
+                Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2);
                 ~Fase();
                 virtual void executar() = 0;
+                virtual void iniciarFase(short fase) = 0;
             protected:
                 virtual void criarInimigos() = 0;
                 virtual void criarObstaculos() = 0;
@@ -38,6 +39,7 @@ namespace Alaska
                 void criarCenario(short fase);
                 void criarNevosos();
                 void criarPlataformas();
+                void gerarFase();
                 float posicaoRandX();
                 float posicaoRandY();
         };

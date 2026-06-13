@@ -17,9 +17,9 @@ namespace Alaska
                 const int max_Abominaveis;
                 const int max_Conjunto_Estalagmites;
                 std::vector<Entidades::Personagens::Abominavel*>lAbms;
-                Entidades::Personagens::Jogador* pJogador;
+                //Entidades::Personagens::Jogador* pJogador;
             public:
-                Caverna(Entidades::Personagens::Jogador* pJ);
+                Caverna(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2);
                 ~Caverna();
                 void executar();
                 void iniciarFase(short fase);

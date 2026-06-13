@@ -2,9 +2,9 @@
 
 
 
-Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ): Fase(MAX_INI, MAX_OBS, pJ), max_Lobos(MAX_INI), max_Gelos(MAX_OBS), pJogador(pJ)
+Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2) : Fase(MAX_INI, MAX_OBS, pJ1, pJ2), max_Lobos(MAX_INI), max_Gelos(MAX_OBS), pJogador1(pJ1), pJogador2(pJ2 ? pJ2 : nullptr)
 {
-
+ 
 }
 
 Alaska::Fases::Tundra::~Tundra()
@@ -45,7 +45,7 @@ void Alaska::Fases::Tundra::criarLobos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Lobo(posicaoRandX(), posicaoRandY(), pJogador);
+        pInimigo = new Alaska::Entidades::Personagens::Lobo(posicaoRandX(), posicaoRandY(), (pJogador2 ? ((rand()%2) ? pJogador1 : pJogador2) : pJogador1));
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
