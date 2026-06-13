@@ -20,11 +20,13 @@ namespace Alaska
                     Abominavel();
                     ~Abominavel();
                     int calcularForca();
+                    int getForca();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
+                    void arremessar();
                     void salvar();
                     void mover();
-                    //void setPBola(Alaska::Entidades::Bola_de_Neve* pProj);
+                    void setBola(Alaska::Entidades::Bola_de_Neve* pProj);
             };
         }
     }

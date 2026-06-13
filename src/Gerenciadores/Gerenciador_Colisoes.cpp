@@ -42,6 +42,12 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirObstaculo(Alaska::Entid
         LOs.push_back(pObs);
 }
 
+void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirProjetil(Alaska::Entidades::Bola_de_Neve *pProj)
+{
+    if (pProj)
+        LPs.insert(pProj);
+}
+
 void Alaska::Gerenciadores::Gerenciador_Colisoes::setJogadorUm(Alaska::Entidades::Personagens::Jogador *pJ1)
 {
     pJog1 = pJ1;
@@ -201,17 +207,6 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesChao()
             }
             delete pIni;
         }
-    }
-}
-
-void Alaska::Gerenciadores::Gerenciador_Colisoes::removerInimigo(Alaska::Entidades::Personagens::Inimigo *pIni)
-{
-    for (auto it = LIs.begin(); it != LIs.end();)
-    {
-        if (*it == pIni)
-            it = LIs.erase(it);
-        else
-            ++it;
     }
 }
 

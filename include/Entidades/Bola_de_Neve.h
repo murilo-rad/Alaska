@@ -12,10 +12,12 @@ namespace Alaska
                 Alaska::Entidades::Personagens::Abominavel* pAbm;
                 bool ativo;
             public:
-                Bola_de_Neve(short f);
-                Bola_de_Neve();
+                Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA);
                 ~Bola_de_Neve();
+                void setAtivo();
+                const bool getAtivo()const;
                 void executar();
+                void mover();
                 void salvar();
                 //void setPAbm(Alaska::Entidades::Personagens::Abominavel* Ab);
         };

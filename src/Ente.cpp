@@ -5,7 +5,7 @@ Alaska::Gerenciadores::Gerenciador_Grafico* Alaska::Ente::pGG = nullptr;
 
 Alaska::Ente::Ente(): id(I++), pFig(nullptr), sprite(){}
 
-Alaska::Ente::~Ente(){}
+Alaska::Ente::~Ente(){pFig = nullptr;}
 
 void Alaska::Ente::desenhar()
 {
