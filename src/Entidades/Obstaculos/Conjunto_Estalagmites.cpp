@@ -33,6 +33,10 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizar(Alaska::
       {
          if (caixaJogador.top < caixaEstalagmites.top)
          {
+			 printf("hit estalagmites\n");
+             if (pJ->getVidas() == 0)
+                 pJ->setMorto();
+
             pJ->setY(caixaEstalagmites.top - caixaJogador.height);
             pJ->setVelY(0.0f);
             pJ->setVelY(-11.0f);
