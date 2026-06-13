@@ -24,6 +24,7 @@ namespace Alaska
                     virtual void salvar() = 0;
                     virtual void mover() = 0;
 
+					void verificarSaude();
                     void setMorto();
 
                     const int getVidas()const;
