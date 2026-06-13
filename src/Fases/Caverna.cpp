@@ -6,14 +6,6 @@ Alaska::Fases::Caverna::Caverna(Alaska::Entidades::Personagens::Jogador *pJ) : m
 
 Alaska::Fases::Caverna::~Caverna()
 {
-    pJogador = nullptr;
-
-    for (auto it = lAbms.begin(); it != lAbms.end(); ++it)
-    {
-        if (*it)
-            delete *it;
-    }
-
     lAbms.clear();
 }
 
