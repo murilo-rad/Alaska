@@ -24,7 +24,9 @@ Alaska::Fases::Fase::~Fase()
         if (*it)
             delete *it;
     }
-    delete GC;
+
+    GC = nullptr;
+    pFundo = nullptr;
 }
 
 void Alaska::Fases::Fase::criarNevosos()
@@ -42,7 +44,8 @@ void Alaska::Fases::Fase::criarNevosos()
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
-            GC->incluirInimigo(pInimigo);
+            if(GC)
+                GC->incluirInimigo(pInimigo);
         }
         pInimigo = nullptr;
     }
@@ -63,7 +66,8 @@ void Alaska::Fases::Fase::criarPlataformas()
         if(pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
-            GC->incluirObstaculo(pObstaculo);
+            if(GC)
+                GC->incluirObstaculo(pObstaculo);
         }
         pObstaculo = nullptr;
     }
@@ -99,8 +103,9 @@ void Alaska::Fases::Fase::criarChao(short fase)
 	pChao = new Alaska::Entidades::Chao(fase);
 	if (pChao)
 	{
-		GC->incluirChao(pChao);
 		lista_ents.incluir(pChao);
+        if(GC)
+            GC->incluirChao(pChao);
 	}
 }
 

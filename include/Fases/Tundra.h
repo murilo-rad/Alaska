@@ -1,11 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Fase.h"
-#include "Plataforma.h"
-#include "Conjunto_Estalagmites.h"
-#include "Nevoso.h"
 #include "Lobo.h"
-#include "Ente.h"
 #include "Chao.h"
 #include "Fundo.h"
 #include "Gelo.h"
@@ -21,14 +17,15 @@ namespace Alaska
                 const int max_Gelos;
                 Entidades::Personagens::Jogador* pJogador;
             public:
-                Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ);
+                Tundra(Entidades::Personagens::Jogador* pJ);
                 ~Tundra();
+                void executar();
+                void iniciarFase(short fase);
+            protected:
                 void criarInimigos();
                 void criarObstaculos();
                 void criarLobos();
                 void criarGelos();
-                void executar();
-                void inicarFase(short fase);
        };
     }
 }

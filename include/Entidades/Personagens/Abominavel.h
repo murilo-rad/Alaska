@@ -1,6 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Inimigo.h"
+#include "Jogador.h"
 
 namespace Alaska
 {
@@ -13,17 +14,19 @@ namespace Alaska
             {
                 private:
                     Alaska::Entidades::Bola_de_Neve* pBola;
-                    float forca;
+                    int forca;
                 public:
                     Abominavel(float x, float y, Jogador* pJ);
                     Abominavel();
                     ~Abominavel();
-                    float calcularForca();
+                    int calcularForca();
+                    int getForca();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
+                    void arremessar();
                     void salvar();
                     void mover();
-                    //void setPBola(Alaska::Entidades::Bola_de_Neve* pProj);
+                    void setBola(Alaska::Entidades::Bola_de_Neve* pProj);
             };
         }
     }

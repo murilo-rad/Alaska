@@ -9,6 +9,7 @@
 #include "Chao.h"
 #include "Plataforma.h"
 #include "Nevoso.h"
+#include "Bola_de_Neve.h"
 
 namespace Alaska 
 {
@@ -19,7 +20,7 @@ namespace Alaska
         private:
             std::vector<Alaska::Entidades::Personagens::Inimigo*> LIs;
             std::list<Alaska::Entidades::Obstaculos::Obstaculo*> LOs;
-            //std::set<Alaska::Entidades::Projetil*> LPs;
+            std::set<Alaska::Entidades::Bola_de_Neve*> LPs;
             Alaska::Entidades::Personagens::Jogador* pJog1;
             //Alaska::Entidades::Personagens::Jogador* pJog2;
             Alaska::Entidades::Chao* pChao;
@@ -34,12 +35,11 @@ namespace Alaska
         public:
             Gerenciador_Colisoes();
             ~Gerenciador_Colisoes();
-            //void incluirProjetil();
 			void incluirInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
 			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
+            void incluirProjetil(Alaska::Entidades::Bola_de_Neve* pProj);
             void setJogadorUm(Alaska::Entidades::Personagens::Jogador* pJ1);
             //void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
-            void removerInimigo(Alaska::Entidades::Personagens::Inimigo* pIni);
             void limparMortos();
             void incluirChao(Alaska::Entidades::Chao* pCh);
             void executar();

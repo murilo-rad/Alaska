@@ -2,7 +2,7 @@
 
 
 
-Alaska::Fases::Tundra::Tundra(int n, int p, int l, int g, Entidades::Personagens::Jogador* pJ): Fase(n, p, pJ), max_Lobos(l), max_Gelos(g), pJogador(pJ)
+Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ): Fase(MAX_INI, MAX_OBS, pJ), max_Lobos(MAX_INI), max_Gelos(MAX_OBS), pJogador(pJ)
 {
 
 }
@@ -49,7 +49,8 @@ void Alaska::Fases::Tundra::criarLobos()
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
-            GC->incluirInimigo(pInimigo);
+            if(GC)
+                GC->incluirInimigo(pInimigo);
         }
     }
 
@@ -72,7 +73,8 @@ void Alaska::Fases::Tundra::criarGelos()
         if(pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
-            GC->incluirObstaculo(pObstaculo);
+            if(GC)
+                GC->incluirObstaculo(pObstaculo);
         }
         pObstaculo = nullptr;
     }
@@ -80,7 +82,7 @@ void Alaska::Fases::Tundra::criarGelos()
     delete pObstaculo;
 }
 
-void Alaska::Fases::Tundra::inicarFase(short fase)
+void Alaska::Fases::Tundra::iniciarFase(short fase)
 {
 	criarCenario(fase);
     criarObstaculos();
