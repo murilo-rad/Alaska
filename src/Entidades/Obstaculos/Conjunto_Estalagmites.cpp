@@ -35,8 +35,8 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizar(Alaska::
          {
             pJ->setY(caixaEstalagmites.top - caixaJogador.height);
             pJ->setVelY(0.0f);
-            pJ->operator--();
             pJ->setVelY(-11.0f);
+            pJ->operator--();
             pJ->setNoChao(false);
          }
          else if (pJ->getVelY() < 0 && caixaJogador.top > caixaEstalagmites.top)
@@ -61,7 +61,7 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizarInimigo(A
    sf::FloatRect caixaEstalagmites = sprite.getGlobalBounds();
    sf::FloatRect inter;
 
-   if (caixaInimigo.intersects(caixaEstalagmites))
+   if (caixaInimigo.intersects(caixaEstalagmites, inter))
    {
       if (inter.width > inter.height)
       {

@@ -14,8 +14,8 @@ void Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer()
 
 void Alaska::Entidades::Obstaculos::Obstaculo::antiGravitar() 
 {
-	velY -= GRAVIDADE;
-	if (velY < -15.0f) 
-        velY = -15.0f;
     y -= velY;
+    velY = 0.0f;
+
+	sprite.setPosition(x,y);
 }

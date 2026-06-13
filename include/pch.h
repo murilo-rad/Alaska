@@ -34,7 +34,7 @@
 
 #define T_NEVOSO 50.0f
 #define T_LOBO 60.0f
-#define T_ABO 80.0f
+#define T_ABO 120.0f
 #define T_BOLA 20.0f
 #define T_JOG 50.0f
 
