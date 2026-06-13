@@ -1,6 +1,6 @@
 #include "Caverna.h"
 
-Alaska::Fases::Caverna::Caverna(Alaska::Entidades::Personagens::Jogador *pJ) : max_Abominaveis(MAX_INI), max_Conjunto_Estalagmites(MAX_OBS)
+Alaska::Fases::Caverna::Caverna(Alaska::Entidades::Personagens::Jogador *pJ1, Alaska::Entidades::Personagens::Jogador *pJ2) : Fase(MAX_INI, MAX_OBS, pJ1, pJ2), max_Abominaveis(MAX_INI), max_Conjunto_Estalagmites(MAX_OBS)
 {
 }
 
@@ -48,7 +48,7 @@ void Alaska::Fases::Caverna::criarConjuntos_Estalagmites()
     for (int i = 0; i < quantidade; i++)
     {
         printf("novo gelo\n");
-        pObstaculo = new Alaska::Entidades::Obstaculos::Conjunto_Estalagmites(posicaoRandX(), A_MAX_GERAL);
+        pObstaculo = new Alaska::Entidades::Obstaculos::Conjunto_Estalagmites(posicaoRandX(), A_MAX_GERAL-21);
         if (pObstaculo)
         {
             lista_ents.incluir(pObstaculo);

@@ -6,6 +6,7 @@
 #include "Jogador.h"
 #include "Fase.h"
 #include "Tundra.h"
+#include "Caverna.h"
 #include "Menu.h"
 
 namespace Alaska
@@ -15,10 +16,15 @@ namespace Alaska
     private:
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
+		Alaska::Fases::Tundra* faseTundra;
+		Alaska::Fases::Caverna* faseCaverna;
+		Alaska::Fases::Fase* faseSelecionada;
     public:
         Alaskapp();
         ~Alaskapp();
         void executar();
         void sementear();
+		void setFaseSelecionada(Alaska::Fases::Fase* fase) { faseSelecionada = fase; }
+        Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
     };
 }

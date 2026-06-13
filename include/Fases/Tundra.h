@@ -15,9 +15,10 @@ namespace Alaska
             private:
                 const int max_Lobos;
                 const int max_Gelos;
-                Entidades::Personagens::Jogador* pJogador;
+                Entidades::Personagens::Jogador* pJogador1;
+				Entidades::Personagens::Jogador* pJogador2;
             public:
-                Tundra(Entidades::Personagens::Jogador* pJ);
+                Tundra(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2);
                 ~Tundra();
                 void executar();
                 void iniciarFase(short fase);

@@ -17,8 +17,8 @@ void Menu::executar() {
 
         pGG->limpar();
         pGG->desenharTituloMenu("Alaska");
-        pGG->desenharOpcaoMenu("Iniciar",    0, opcao == 0);
-        pGG->desenharOpcaoMenu("Opcoes",     1, opcao == 1);
+        pGG->desenharOpcaoMenu("Iniciar fase 1",    0, opcao == 0);
+        pGG->desenharOpcaoMenu("Iniciar fase 2",    1, opcao == 1);
         pGG->desenharOpcaoMenu("Scoreboard", 2, opcao == 2);
         pGG->desenharOpcaoMenu("Sair",       3, opcao == 3);
         pGG->mostrar();
@@ -33,10 +33,12 @@ void Menu::confirmarOpcao() {
     if (opcao == 0)
     {
         ativo = false;
+		pAlaskapp->setFaseSelecionada(new Fases::Tundra(pAlaskapp->getPJog1(), nullptr));
     }
-    else if (opcao == 1)
-    {
-    
+	else if (opcao == 1)
+	{
+		ativo = false;
+        pAlaskapp->setFaseSelecionada(new Fases::Caverna(pAlaskapp->getPJog1(), nullptr));
     }
     else if (opcao == 2) 
     {
@@ -46,4 +48,9 @@ void Menu::confirmarOpcao() {
     {
         pGG->getJanela()->close();
     }
+}
+
+void Menu::reset() {
+	opcao = 0;
+	ativo = true;
 }

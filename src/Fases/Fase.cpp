@@ -5,15 +5,18 @@ Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador(nullp
 {
 }
 
-Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ) : max_Nevosos(n), max_Plataformas(p)
+Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2) : max_Nevosos(n), max_Plataformas(p)
 {
 
-    if(pJ)
-        pJogador = pJ;
-
+    if(pJ1)
+        pJogador = pJ1;
     GC = new Alaska::Gerenciadores::Gerenciador_Colisoes();
     GC->setJogadorUm(pJogador);
 	lista_ents.incluir(pJogador);
+
+    if (pJ2) {
+		//implementar jogador 2
+    }
 }
 
 Alaska::Fases::Fase::~Fase()
@@ -95,7 +98,6 @@ float Alaska::Fases::Fase::posicaoRandY()
     return pos_y;
 }
 
-
 void Alaska::Fases::Fase::criarChao(short fase)
 {
 	Alaska::Entidades::Chao* pChao;
@@ -112,4 +114,10 @@ void Alaska::Fases::Fase::criarChao(short fase)
 void Alaska::Fases::Fase::criarFundo(short fase)
 {
     pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO, fase);
+}
+
+void Alaska::Fases::Fase::gerarFase() {
+	criarCenario(2);
+	criarNevosos();
+	criarPlataformas();
 }
