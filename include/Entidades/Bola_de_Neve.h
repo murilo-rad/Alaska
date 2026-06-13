@@ -18,8 +18,8 @@ namespace Alaska
                 const bool getAtivo()const;
                 void executar();
                 void mover();
+                void antiGravitar();
                 void salvar();
-                //void setPAbm(Alaska::Entidades::Personagens::Abominavel* Ab);
         };
     }
 }

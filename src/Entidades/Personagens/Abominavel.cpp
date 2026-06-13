@@ -20,6 +20,7 @@ Alaska::Entidades::Personagens::Abominavel::~Abominavel(){}
 void Alaska::Entidades::Personagens::Abominavel::executar()
 {
     gravitar();
+    arremessar();
     mover();
     desenhar();
 }
@@ -70,7 +71,7 @@ void Alaska::Entidades::Personagens::Abominavel::arremessar()
         if(!pBola->getAtivo())
         {
             pBola->setAtivo();
-            pBola->setVelX((float)(getForca() * 2));
+            pBola->setVelX((float)(getForca() * 5));
         }
 }
 

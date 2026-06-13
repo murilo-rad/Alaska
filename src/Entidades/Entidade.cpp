@@ -40,7 +40,7 @@ void Alaska::Entidades::Entidade::setVelY(const float velYy)
 void Alaska::Entidades::Entidade::setVelX(const float velXx)
 {
     velX = velXx;
-	x += velX;
+    x+= velX;
 }
 
 const float Alaska::Entidades::Entidade::getVelX()const
@@ -61,4 +61,5 @@ void Alaska::Entidades::Entidade::gravitar()
         velY = 15.0f;
         
     y += velY;
+    sprite.setPosition(x, y);
 }

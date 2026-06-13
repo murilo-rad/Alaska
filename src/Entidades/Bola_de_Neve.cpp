@@ -1,12 +1,15 @@
 #include "Bola_de_Neve.h"
 #include "Abominavel.h"
 
-Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA) : ativo(false), pAbm(nullptr)
+Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA) : 
+                                    ativo(false), pAbm(nullptr), Entidade()
 {
     if(pA)
     {
         pAbm = pA;
         pAbm->setBola(this);
+        x = pAbm->getX();
+        y = pAbm->getY();
     }
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/BolaDeNeve.png");
@@ -21,16 +24,20 @@ Alaska::Entidades::Bola_de_Neve::~Bola_de_Neve()
 
 void Alaska::Entidades::Bola_de_Neve::executar()
 {
-    mover();
-    gravitar();
-    desenhar();
+    if(ativo)
+    {
+        mover();
+        gravitar();
+        antiGravitar();
+        desenhar();
+    }
 }
 
 void Alaska::Entidades::Bola_de_Neve::mover()
 {
     if(ativo)
     {
-        if(getY() > A_MAX_GERAL)
+        if(getY() > A_MAX_GERAL + 200.0f)
         {
             ativo = false;
             setVelX(0.0f);
@@ -40,7 +47,8 @@ void Alaska::Entidades::Bola_de_Neve::mover()
                 y = pAbm->getY();
             }
         }
-        x += velX;
+        x -= velX;
+        sprite.setPosition(x,y);
     }
 }
 
@@ -53,6 +61,12 @@ const bool Alaska::Entidades::Bola_de_Neve::getAtivo()const
 {
     return ativo;
 }
+
+void Alaska::Entidades::Bola_de_Neve::antiGravitar() 
+{
+    velY *= 0.8f;
+}
+
 
 void Alaska::Entidades::Bola_de_Neve::salvar()
 {
