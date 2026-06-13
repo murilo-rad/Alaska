@@ -7,7 +7,7 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, A_MAX_GE
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
-    sprite.setPosition(x, y); 
+    //sprite.setPosition(x, y); 
 	pontos = 0;
 }
 

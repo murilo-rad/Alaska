@@ -1,21 +1,21 @@
 #include "Abominavel.h"
-//#include "Bola_de_Neve.h"
+#include "Bola_de_Neve.h"
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska::Entidades::Personagens::Jogador* pJ)
 : Inimigo(x, y, 3, pJ), forca(calcularForca())
 {
-
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Yeti.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_ABO, T_ABO);
+    //sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel()
 {
-
 }
 
-Alaska::Entidades::Personagens::Abominavel::~Abominavel()
-{
-
-}
+Alaska::Entidades::Personagens::Abominavel::~Abominavel(){}
 
 void Alaska::Entidades::Personagens::Abominavel::executar()
 {
@@ -59,12 +59,28 @@ int Alaska::Entidades::Personagens::Abominavel::calcularForca()
     return forca;
 }
 
+int Alaska::Entidades::Personagens::Abominavel::getForca()
+{
+    return forca;
+}
+
+void Alaska::Entidades::Personagens::Abominavel::arremessar()
+{
+    if(pBola)
+        if(!pBola->getAtivo())
+        {
+            pBola->setAtivo();
+            pBola->setVelX((float)(getForca() * 2));
+        }
+}
+
+void Alaska::Entidades::Personagens::Abominavel::setBola(Alaska::Entidades::Bola_de_Neve* pProj) 
+{
+	pBola = pProj;
+}
+
 void Alaska::Entidades::Personagens::Abominavel::salvar()
 {
 
 }
 
-//
-//void Alaska::Entidades::Personagens::Abominavel::setPBola(Alaska::Entidades::Bola_de_Neve* pProj) {
-//	pBola = pProj;
-//}

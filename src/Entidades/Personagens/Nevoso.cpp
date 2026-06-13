@@ -7,7 +7,7 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : 
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, acumulacao, acumulacao);
-    sprite.setPosition(x, y);
+    //sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Personagens::Nevoso::Nevoso(){}

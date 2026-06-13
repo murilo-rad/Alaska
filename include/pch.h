@@ -22,7 +22,7 @@
 
 #define L_PLAT 150.0f
 #define A_PLAT 30.0f
-#define MAX_PLAT 5
+#define MAX_OBS 5
 
 #define L_GELO 400.0f
 #define A_GELO 30.0f
@@ -34,7 +34,8 @@
 
 #define T_NEVOSO 50.0f
 #define T_LOBO 60.0f
-#define T_YETI 80.0f
+#define T_ABO 80.0f
+#define T_BOLA 20.0f
 #define T_JOG 50.0f
 
 #define A_MAX_GERAL 719.0f
