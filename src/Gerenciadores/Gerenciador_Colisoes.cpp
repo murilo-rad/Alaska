@@ -7,7 +7,13 @@ Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs
 {
 }
 
-Alaska::Gerenciadores::Gerenciador_Colisoes::~Gerenciador_Colisoes() {}
+Alaska::Gerenciadores::Gerenciador_Colisoes::~Gerenciador_Colisoes() 
+{
+    pJog1 = nullptr;
+    LIs.clear();
+    LOs.clear();
+    LPs.clear();
+}
 
 void Alaska::Gerenciadores::Gerenciador_Colisoes::executar()
 {

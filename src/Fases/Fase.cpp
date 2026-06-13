@@ -24,7 +24,9 @@ Alaska::Fases::Fase::~Fase()
         if (*it)
             delete *it;
     }
-    delete GC;
+
+    GC = nullptr;
+    pFundo = nullptr;
 }
 
 void Alaska::Fases::Fase::criarNevosos()
