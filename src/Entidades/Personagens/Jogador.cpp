@@ -72,6 +72,4 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
 void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo* pIni)
 {
     pIni->operator--();
-    //if(pIni->getVidas() == 0)
-    //    pIni->setMorto();
 }
