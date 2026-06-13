@@ -18,6 +18,7 @@ void Alaska::Entidades::Personagens::Lobo::executar()
     mover();
     gravitar();
     desenhar();
+    verificarSaude();
 }
 
 void Alaska::Entidades::Personagens::Lobo::mover()
@@ -31,9 +32,6 @@ void Alaska::Entidades::Personagens::Lobo::danificar(Alaska::Entidades::Personag
     printf("hit lobo\n");
 
     pJ->operator--(voracidade);
-
-    if(pJ->getVidas() == 0)
-        pJ->setMorto();
 
     operator++(voracidade);
 

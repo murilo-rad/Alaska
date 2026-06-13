@@ -47,6 +47,7 @@ void Alaska::Entidades::Personagens::Personagem::operator--()
         num_vidas--;
     if(num_vidas < 0)
         num_vidas = 0;
+	printf("-1 vida\nvida: %d\n", num_vidas);
 }
 
 void Alaska::Entidades::Personagens::Personagem::operator--(int dano)
@@ -65,4 +66,10 @@ void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
 const bool Alaska::Entidades::Personagens::Personagem::estaVivo()const
 {
     return vivo;
+}
+
+void Alaska::Entidades::Personagens::Personagem::verificarSaude()
+{
+	if (num_vidas <= 0)
+		setMorto();
 }

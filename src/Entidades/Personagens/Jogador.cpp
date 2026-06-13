@@ -22,6 +22,7 @@ void Alaska::Entidades::Personagens::Jogador::executar()
     mover();
     gravitar();
     desenhar();
+    verificarSaude();
 }
 
 void Alaska::Entidades::Personagens::Jogador::salvar() 
@@ -71,6 +72,6 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
 void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo* pIni)
 {
     pIni->operator--();
-    if(pIni->getVidas() == 0)
-        pIni->setMorto();
+    //if(pIni->getVidas() == 0)
+    //    pIni->setMorto();
 }
