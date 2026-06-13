@@ -19,6 +19,7 @@ void Alaska::Entidades::Personagens::Nevoso::executar()
     mover();
     gravitar();
     desenhar();
+    verificarSaude();
 }
 
 void Alaska::Entidades::Personagens::Nevoso::mover()
@@ -32,9 +33,6 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
     printf("hit nevoso\n");
 
     pJ->operator--();
-
-    if(pJ->getVidas() == 0)
-        pJ->setMorto();
 
     sf::FloatRect caixaJog = pJ->getSprite()->getGlobalBounds();
     sf::FloatRect caixaNev = sprite.getGlobalBounds();

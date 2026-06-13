@@ -23,6 +23,7 @@ void Alaska::Entidades::Personagens::Abominavel::executar()
     arremessar();
     mover();
     desenhar();
+    verificarSaude();
 }
 
 void Alaska::Entidades::Personagens::Abominavel::mover()
@@ -37,8 +38,6 @@ void Alaska::Entidades::Personagens::Abominavel::danificar(Alaska::Entidades::Pe
 
     pJ->operator--(forca);
 
-    if(pJ->getVidas() == 0)
-        pJ->setMorto();
 
     sf::FloatRect caixaJog = pJ->getSprite()->getGlobalBounds();
     sf::FloatRect caixaAbm = sprite.getGlobalBounds();
