@@ -20,15 +20,15 @@
 #define L_FUNDO 1388.0f
 #define A_FUNDO 768.0f
 
-#define L_PLAT 150.0f
+#define L_PLAT 200.0f
 #define A_PLAT 30.0f
 #define MAX_OBS 5
 
-#define L_GELO 400.0f
+#define L_GELO 200.0f
 #define A_GELO 30.0f
 #define MAX_GELO 5
 
-#define L_MITE 300.0f
+#define L_MITE 200.0f
 #define A_MITE 30.0f
 #define MAX_MITE 5
 

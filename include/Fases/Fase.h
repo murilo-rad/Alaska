@@ -20,17 +20,23 @@ namespace Alaska
             private:
                 const int max_Nevosos;
                 const int max_Plataformas;
+
+                std::vector<sf::Vector2f> posPlataformas;
+                std::vector<sf::Vector2f> posNevosos;
+
             protected:
                 Fundo* pFundo;
                 Alaska::Gerenciadores::Gerenciador_Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
                 Alaska::Entidades::Personagens::Jogador* pJogador;
+
             public:
                 Fase();
                 Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2);
                 ~Fase();
                 virtual void executar() = 0;
                 virtual void iniciarFase(short fase) = 0;
+                
             protected:
                 virtual void criarInimigos() = 0;
                 virtual void criarObstaculos() = 0;

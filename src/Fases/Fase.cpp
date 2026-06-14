@@ -17,6 +17,24 @@ Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador*
     if (pJ2) {
 		//implementar jogador 2
     }
+
+    posPlataformas =
+    {
+        {100.f, 580.f},
+        {350.f, 470.f},
+        {650.f, 360.f},
+        {950.f, 470.f},
+        {1150.f, 300.f}
+    };
+
+    posNevosos =
+    {
+        {350.f, 370.f},   // plataforma {350,470}
+        {1150.f, 200.f},  // plataforma {1150,300}
+        {850.f, 668.f},
+        {1080.f, 668.f},
+        {1280.f, 668.f}
+    };
 }
 
 Alaska::Fases::Fase::~Fase()
@@ -43,7 +61,7 @@ void Alaska::Fases::Fase::criarNevosos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posicaoRandX(), posicaoRandY(), pJogador);
+        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posNevosos[i].x, posNevosos[i].y, pJogador);
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
@@ -65,7 +83,7 @@ void Alaska::Fases::Fase::criarPlataformas()
     pObstaculo = nullptr;
     for(int i = 0; i < quantidade; i++)
     {
-        pObstaculo = new Alaska::Entidades::Obstaculos::Plataforma(posicaoRandX(), posicaoRandY());
+        pObstaculo = new Alaska::Entidades::Obstaculos::Plataforma(posPlataformas[i].x, posPlataformas[i].y);
         if(pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
