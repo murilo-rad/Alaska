@@ -61,7 +61,7 @@ void Alaska::Fases::Tundra::criarLobos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Lobo(posLobos[i].x, posLobos[i].y, (pJogador2 ? ((rand()%2) ? pJogador1 : pJogador2) : pJogador1));
+        pInimigo = new Alaska::Entidades::Personagens::Lobo(posLobos[i].x, posLobos[i].y, pJogador1);
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
