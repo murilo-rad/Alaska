@@ -16,6 +16,7 @@ namespace Alaska
     private:
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
+        Alaska::Entidades::Personagens::Jogador* pJog2;
 		Alaska::Fases::Tundra* faseTundra;
 		Alaska::Fases::Caverna* faseCaverna;
 		Alaska::Fases::Fase* faseSelecionada;
@@ -26,5 +27,8 @@ namespace Alaska
         void sementear();
 		void setFaseSelecionada(Alaska::Fases::Fase* fase) { faseSelecionada = fase; }
         Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
+        Alaska::Entidades::Personagens::Jogador* getPJog2() const { return pJog2; }
+        void criarJogadores(int qntd);
+        bool verificarJogadores() const;
     };
 }

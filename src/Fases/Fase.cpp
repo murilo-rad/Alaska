@@ -1,21 +1,23 @@
 #include "Fase.h"
 #include "Gerenciador_Grafico.h"
 
-Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador(nullptr)
+Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
 {
 }
 
-Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2) : max_Nevosos(n), max_Plataformas(p)
+Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2)
+    : max_Nevosos(n), max_Plataformas(p), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
 {
-
     if(pJ1)
-        pJogador = pJ1;
+        pJogador1 = pJ1;
     GC = new Alaska::Gerenciadores::Gerenciador_Colisoes();
-    GC->setJogadorUm(pJogador);
-	lista_ents.incluir(pJogador);
+    GC->setJogadorUm(pJogador1);
+	lista_ents.incluir(pJogador1);
 
     if (pJ2) {
-		//implementar jogador 2
+		pJogador2 = pJ2;
+		GC->setJogadorDois(pJ2);
+		lista_ents.incluir(pJ2);
     }
 
     posPlataformas =
@@ -42,8 +44,8 @@ Alaska::Fases::Fase::~Fase()
     auto* lista = lista_ents.getLista();
     for (auto it = lista->begin(); it != lista->end(); ++it)
     {
-        if (*it)
-            delete *it;
+        if (*it && *it != pJogador1 && *it != pJogador2)
+            delete* it;
     }
 
     GC = nullptr;
@@ -61,7 +63,7 @@ void Alaska::Fases::Fase::criarNevosos()
 
     for(int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posNevosos[i].x, posNevosos[i].y, pJogador);
+        pInimigo = new Alaska::Entidades::Personagens::Nevoso(posNevosos[i].x, posNevosos[i].y, randJogador());
         if(pInimigo)
         {
             lista_ents.incluir(pInimigo);
@@ -138,4 +140,9 @@ void Alaska::Fases::Fase::gerarFase() {
 	criarCenario(2);
 	criarNevosos();
 	criarPlataformas();
+}
+
+Alaska::Entidades::Personagens::Jogador* Alaska::Fases::Fase::randJogador()
+{
+    return (pJogador2 ? (rand() % 2) ? pJogador1 : pJogador2 : pJogador1);
 }

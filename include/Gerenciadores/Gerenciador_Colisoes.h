@@ -22,7 +22,7 @@ namespace Alaska
             std::list<Alaska::Entidades::Obstaculos::Obstaculo*> LOs;
             std::set<Alaska::Entidades::Bola_de_Neve*> LPs;
             Alaska::Entidades::Personagens::Jogador* pJog1;
-            //Alaska::Entidades::Personagens::Jogador* pJog2;
+            Alaska::Entidades::Personagens::Jogador* pJog2;
             Alaska::Entidades::Chao* pChao;
         private:
             const bool verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const;
@@ -39,9 +39,10 @@ namespace Alaska
 			void incluirObstaculo(Alaska::Entidades::Obstaculos::Obstaculo* pObs);
             void incluirProjetil(Alaska::Entidades::Bola_de_Neve* pProj);
             void setJogadorUm(Alaska::Entidades::Personagens::Jogador* pJ1);
-            //void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
+            void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
             void limparMortos();
             void incluirChao(Alaska::Entidades::Chao* pCh);
+			void tratarColisoesParedeInvisivel();
             void executar();
         };
     }

@@ -3,7 +3,7 @@
 // Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : pJog1(nullptr), pListaEntidades(nullptr) {}
 // usado para testes
 
-Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), pJog1(), pChao()
+Alaska::Gerenciadores::Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), pJog1(nullptr), pJog2(nullptr), pChao(nullptr)
 {
 }
 
@@ -22,6 +22,7 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::executar()
     tratarColisoesJogsInimigs();
     tratarColisoesInimigosObstacs();
     tratarColisoesInimigosInimigos();
+    tratarColisoesParedeInvisivel();
     limparMortos();
 }
 
@@ -59,6 +60,11 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::setJogadorUm(Alaska::Entidades
     pJog1 = pJ1;
 }
 
+void Alaska::Gerenciadores::Gerenciador_Colisoes::setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2)
+{
+    pJog2 = pJ2;
+}
+
 void Alaska::Gerenciadores::Gerenciador_Colisoes::incluirChao(Alaska::Entidades::Chao *pCh)
 {
     if (pCh)
@@ -78,9 +84,14 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsObstacs()
         while (it != LOs.end())
         {
             pObs = (*it);
-            if (pObs)
+            if (pObs) {
                 if (verificarColisao(pJog1, pObs))
                     pObs->obstaculizar(pJog1);
+                if (pJog2) {
+					if (verificarColisao(pJog2, pObs))
+						pObs->obstaculizar(pJog2);
+                }
+            }
             pObs = nullptr;
             it++;
         }
@@ -130,22 +141,27 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsInimigs()
 {
     if (!LIs.empty())
     {
-        Alaska::Entidades::Personagens::Inimigo *pIni;
+        Alaska::Entidades::Personagens::Inimigo* pIni;
         pIni = nullptr;
 
-        std::vector<Alaska::Entidades::Personagens::Inimigo *>::iterator it;
+        std::vector<Alaska::Entidades::Personagens::Inimigo*>::iterator it;
         it = LIs.begin();
 
         while (it != LIs.end())
         {
             pIni = (*it);
-            if (pIni)
+            if (pIni) {
                 if (verificarColisao(pJog1, pIni))
                     pJog1->colidir(pIni);
-            pIni = nullptr;
-            it++;
+                if (pJog2) {
+                    if (verificarColisao(pJog2, pIni))
+                        pJog2->colidir(pIni);
+                }
+                pIni = nullptr;
+                it++;
+            }
+            delete pIni;
         }
-        delete pIni;
     }
 }
 
@@ -193,6 +209,9 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesChao()
         if (pJog1)
             if (verificarColisao(pJog1, pChao))
                 pChao->empurrar(pJog1);
+        if(pJog2)
+			if (verificarColisao(pJog2, pChao))
+				pChao->empurrar(pJog2);
 
         if (!LIs.empty())
         {
@@ -224,5 +243,31 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::limparMortos()
             it = LIs.erase(it);
         else
             ++it;
+    }
+}
+
+void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesParedeInvisivel()
+{
+    for (auto* pIni : LIs)
+    {
+        if (!pIni) continue;
+        if (pIni->getX() < 0)
+            pIni->setX(1);
+        else if (pIni->getX() + pIni->getSprite()->getGlobalBounds().width > L_TELA)
+            pIni->setX(L_TELA - pIni->getSprite()->getGlobalBounds().width);
+    }
+
+    if (pJog1) {
+        if (pJog1->getX() <= 0)
+            pJog1->setX(1);
+        else if (pJog1->getX() + pJog1->getSprite()->getGlobalBounds().width > L_TELA)
+            pJog1->setX(L_TELA - pJog1->getSprite()->getGlobalBounds().width);
+    }
+
+    if (pJog2) {
+        if (pJog2->getX() <= 0)
+            pJog2->setX(1);
+        else if (pJog2->getX() + pJog2->getSprite()->getGlobalBounds().width > L_TELA)
+            pJog2->setX(L_TELA - pJog2->getSprite()->getGlobalBounds().width);
     }
 }

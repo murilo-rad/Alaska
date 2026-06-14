@@ -14,7 +14,11 @@ namespace Alaska {
 		Alaska::Alaskapp* pAlaskapp;
 		Alaska::Gerenciadores::Gerenciador_Eventos* pEventos;
 		int opcao;
+		int nmrJogadores;
+		int nmrFase;
+		int maxOpcoes;
 		bool ativo;
+		int estagio; // 0 para seleção de fase, 1 para seleção de número de jogadores
 
 	public:
 		Menu(Alaska::Alaskapp* pAlaskapp, Alaska::Gerenciadores::Gerenciador_Eventos* pEventos);
@@ -24,5 +28,6 @@ namespace Alaska {
 		void mudarOpcao(int direcao);
 		int getOpcao() const { return opcao; }
 		void reset();
+		void desenharEstagio();
 	};
 }
