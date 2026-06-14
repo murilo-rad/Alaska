@@ -20,7 +20,6 @@ namespace Alaska
                 std::vector<Entidades::Personagens::Abominavel*>lAbms;
                 std::vector<sf::Vector2f> posEstalagmites;
                 std::vector<sf::Vector2f> posAbominaveis;
-                //Entidades::Personagens::Jogador* pJogador;
             public:
                 Caverna(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2);
                 ~Caverna();

@@ -2,9 +2,8 @@
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), faseTundra(nullptr), faseCaverna(nullptr), faseSelecionada(nullptr)
+Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), faseSelecionada(nullptr)
 {
-    //pJog1 = new Alaska::Entidades::Personagens::Jogador();
     executar();
 }
 
@@ -24,9 +23,6 @@ void Alaska::Alaskapp::executar()
     Gerenciador_Eventos.setMenu(&menu);
     menu.executar();
 	printf("Menu finalizado %d\n", menu.getOpcao());
-
-    //if (pJog1 == nullptr)
-    //    pJog1 = new Entidades::Personagens::Jogador();
 
     Gerenciador_Eventos.setJogadores(pJog1, pJog2);
     

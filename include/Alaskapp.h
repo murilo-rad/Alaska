@@ -17,8 +17,6 @@ namespace Alaska
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
         Alaska::Entidades::Personagens::Jogador* pJog2;
-		Alaska::Fases::Tundra* faseTundra;
-		Alaska::Fases::Caverna* faseCaverna;
 		Alaska::Fases::Fase* faseSelecionada;
     public:
         Alaskapp();
