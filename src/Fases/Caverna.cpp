@@ -56,7 +56,7 @@ void Alaska::Fases::Caverna::criarObstaculos()
 
 void Alaska::Fases::Caverna::criarConjuntos_Estalagmites()
 {
-    int quantidade = (rand() % max_Conjunto_Estalagmites);
+    int quantidade = ((rand() % max_Conjunto_Estalagmites) + 1);
     if (quantidade < MIN)
         quantidade = MIN;
 
@@ -80,7 +80,7 @@ void Alaska::Fases::Caverna::criarConjuntos_Estalagmites()
 
 void Alaska::Fases::Caverna::criarAbominaveis()
 {
-    int quantidade = (rand() % max_Abominaveis);
+    int quantidade = ((rand() % max_Abominaveis) + 1);
     if (quantidade < MIN)
         quantidade = MIN;
 

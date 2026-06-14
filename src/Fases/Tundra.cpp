@@ -52,7 +52,7 @@ void Alaska::Fases::Tundra::criarObstaculos()
 
 void Alaska::Fases::Tundra::criarLobos()
 {
-    int quantidade = (rand()%max_Lobos);
+    int quantidade = ((rand()%max_Lobos) + 1);
     if(quantidade < MIN)
         quantidade = MIN;
     
@@ -76,7 +76,7 @@ void Alaska::Fases::Tundra::criarLobos()
 
 void Alaska::Fases::Tundra::criarGelos() 
 {
-    int quantidade = (rand() % max_Gelos);
+    int quantidade = ((rand() % max_Gelos) + 1);
     if (quantidade < MIN)
         quantidade = MIN;
 
