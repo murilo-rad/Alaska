@@ -28,7 +28,8 @@ namespace Alaska
                 Fundo* pFundo;
                 Alaska::Gerenciadores::Gerenciador_Colisoes* GC;
                 Alaska::Listas::ListaEntidades lista_ents;
-                Alaska::Entidades::Personagens::Jogador* pJogador;
+                Alaska::Entidades::Personagens::Jogador* pJogador1;
+                Alaska::Entidades::Personagens::Jogador* pJogador2;
 
             public:
                 Fase();
@@ -48,6 +49,7 @@ namespace Alaska
                 void gerarFase();
                 float posicaoRandX();
                 float posicaoRandY();
+                Alaska::Entidades::Personagens::Jogador* randJogador();
         };
     }
 }

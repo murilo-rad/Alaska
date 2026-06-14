@@ -1,6 +1,6 @@
 #include "Gerenciador_Eventos.h"
 
-Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos() : janela(nullptr), pJogador(nullptr), pMenu(nullptr) {}
+Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos() : janela(nullptr), pJogador1(nullptr), pJogador2(nullptr), pMenu(nullptr) {}
 
 Alaska::Gerenciadores::Gerenciador_Eventos::~Gerenciador_Eventos(){}
 
@@ -9,9 +9,11 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::setJanela(sf::RenderWindow* pJ)
     janela = pJ;
 }
 
-void Alaska::Gerenciadores::Gerenciador_Eventos::setJogador(Alaska::Entidades::Personagens::Jogador* pJ)
+void Alaska::Gerenciadores::Gerenciador_Eventos::setJogadores(Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2)
 {
-    pJogador = pJ;
+    pJogador1 = pJ1;
+    if(pJ2)
+	    pJogador2 = pJ2;
 }
 
 void Alaska::Gerenciadores::Gerenciador_Eventos::setMenu(Alaska::Menu* pM)
@@ -48,7 +50,7 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
         }
     }
 
-    if (pJogador)
+    if (pJogador1)
     {
         float velocidadeAndar = 1.5f;
         float velocidadeX = 0.0f;
@@ -58,12 +60,30 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             velocidadeX -= velocidadeAndar;
 
-        pJogador->setVelX(velocidadeX);
+        pJogador1->setVelX(velocidadeX);
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && pJogador->getNoChao())
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && pJogador1->getNoChao())
         {
-            pJogador->setVelY(-14.0f);
-            pJogador->setNoChao(false);
+            pJogador1->setVelY(-14.0f);
+            pJogador1->setNoChao(false);
+        }
+    }
+    if (pJogador2)
+    {
+        float velocidadeAndar = 1.5f;
+        float velocidadeX = 0.0f;
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            velocidadeX += velocidadeAndar;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            velocidadeX -= velocidadeAndar;
+
+        pJogador2->setVelX(velocidadeX);
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && pJogador2->getNoChao())
+        {
+            pJogador2->setVelY(-14.0f);
+            pJogador2->setNoChao(false);
         }
     }
 }

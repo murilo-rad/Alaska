@@ -39,3 +39,6 @@
 #define T_JOG 50.0f
 
 #define A_MAX_GERAL 719.0f
+
+#define L_TELA 1366.0f
+#define A_TELA 768.0f

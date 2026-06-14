@@ -3,11 +3,26 @@
 
 Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5)
 {
+	printf("novo jogador\n");
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
     //sprite.setPosition(x, y); 
+	pontos = 0;
+}
+
+Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5)
+{
+	pFig = new sf::Texture();
+	printf("novo jogador (%d)\n", num);
+	if (num == 1)
+		pFig->loadFromFile("imgs/Jogador01.png");
+	else
+	    pFig->loadFromFile("imgs/Jogador02.png");
+	sprite.setTexture(*pFig);
+	ajustarSprite(sprite, T_JOG, T_JOG);
+	//sprite.setPosition(x, y); 
 	pontos = 0;
 }
 

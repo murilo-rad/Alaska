@@ -13,7 +13,8 @@ namespace Alaska
         {
         private:
             sf::RenderWindow* janela;
-            Alaska::Entidades::Personagens::Jogador* pJogador;
+            Alaska::Entidades::Personagens::Jogador* pJogador1;
+            Alaska::Entidades::Personagens::Jogador* pJogador2;
 			Alaska::Menu* pMenu;
 
         public:
@@ -21,7 +22,7 @@ namespace Alaska
             ~Gerenciador_Eventos();
 
             void setJanela(sf::RenderWindow* pJ);
-            void setJogador(Alaska::Entidades::Personagens::Jogador* pJ);
+            void setJogadores(Alaska::Entidades::Personagens::Jogador* pJ, Alaska::Entidades::Personagens::Jogador* pJ2);
             void setMenu(Alaska::Menu* pM);
             void verificarEventos();
         };

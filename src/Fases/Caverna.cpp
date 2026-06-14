@@ -89,7 +89,7 @@ void Alaska::Fases::Caverna::criarAbominaveis()
 
     for (int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Abominavel(posAbominaveis[i].x, posAbominaveis[i].y, pJogador);
+        pInimigo = new Alaska::Entidades::Personagens::Abominavel(posAbominaveis[i].x, posAbominaveis[i].y, randJogador());
         if (pInimigo)
         {
             lAbms.push_back(pInimigo);

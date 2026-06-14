@@ -15,6 +15,7 @@ namespace Alaska
                     int pontos;
                 public:
                     Jogador();
+                    Jogador(int num);
                     ~Jogador();
                     void executar();
                     void salvar();
