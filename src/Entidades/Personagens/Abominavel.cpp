@@ -8,7 +8,6 @@ Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska:
     pFig->loadFromFile("imgs/Yeti.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_ABO, T_ABO);
-    //sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel()

@@ -8,7 +8,6 @@ Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inim
     pFig->loadFromFile("imgs/Lobo.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_LOBO, T_LOBO);
-    //sprite.setPosition(x, y);
 }
 
 Alaska::Entidades::Personagens::Lobo::~Lobo() {}

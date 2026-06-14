@@ -31,8 +31,6 @@ void Menu::mudarOpcao(int direcao) {
 void Menu::confirmarOpcao() {
     switch(opcao){
 	    case 0:
-            //ativo = false;
-		    //nmrFase = 1;
 			if (pAlaskapp->getPJog1() == nullptr)
                 pAlaskapp->criarJogadores(1);
             else {
@@ -40,19 +38,15 @@ void Menu::confirmarOpcao() {
                 ativo = false;
             }
             estagio = 1;
-		    //pAlaskapp->setFaseSelecionada(new Fases::Tundra(pAlaskapp->getPJog1(), nullptr));
             break;
         case 1:
-            //ativo = false;
             if (pAlaskapp->getPJog1() == nullptr && pAlaskapp->getPJog2() == nullptr)
                 pAlaskapp->criarJogadores(2);
             else {
 				pAlaskapp->setFaseSelecionada(new Fases::Caverna(pAlaskapp->getPJog1(), pAlaskapp->getPJog2()));
                 ativo = false;
             }
-            //nmrFase = 2;
             estagio = 1;
-            //pAlaskapp->setFaseSelecionada(new Fases::Caverna(pAlaskapp->getPJog1(), nullptr
             break;
         case 2:
             break;

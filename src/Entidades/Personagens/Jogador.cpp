@@ -8,7 +8,6 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
-    //sprite.setPosition(x, y); 
 	pontos = 0;
 }
 
@@ -22,7 +21,6 @@ Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 5
 	    pFig->loadFromFile("imgs/Jogador02.png");
 	sprite.setTexture(*pFig);
 	ajustarSprite(sprite, T_JOG, T_JOG);
-	//sprite.setPosition(x, y); 
 	pontos = 0;
 }
 
