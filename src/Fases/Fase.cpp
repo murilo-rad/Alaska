@@ -52,7 +52,7 @@ Alaska::Fases::Fase::~Fase()
 
 void Alaska::Fases::Fase::criarNevosos()
 {
-    int quantidade = (rand()%max_Nevosos);
+    int quantidade = ((rand()%max_Nevosos) + 1);
     if(quantidade < MIN)
         quantidade = MIN;
 
@@ -75,7 +75,7 @@ void Alaska::Fases::Fase::criarNevosos()
 
 void Alaska::Fases::Fase::criarPlataformas()
 {
-    int quantidade = (rand() % max_Plataformas);
+    int quantidade = ((rand() % max_Plataformas) + 1);
     if (quantidade < MIN)
         quantidade = MIN;
 
