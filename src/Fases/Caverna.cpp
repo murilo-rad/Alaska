@@ -2,6 +2,23 @@
 
 Alaska::Fases::Caverna::Caverna(Alaska::Entidades::Personagens::Jogador *pJ1, Alaska::Entidades::Personagens::Jogador *pJ2) : Fase(MAX_INI, MAX_OBS, pJ1, pJ2), max_Abominaveis(MAX_INI), max_Conjunto_Estalagmites(MAX_OBS)
 {
+    posEstalagmites =
+    {
+        {100.f, 695.f},
+        {380.f, 695.f},
+        {660.f, 695.f},
+        {940.f, 695.f},
+        {1088.f, 695.f}
+    };
+
+    posAbominaveis =
+    {
+        {500.f, 598.f},
+        {700.f, 598.f},
+        {900.f, 598.f},
+        {1100.f, 598.f},
+        {1260.f, 598.f}
+    };  
 }
 
 Alaska::Fases::Caverna::~Caverna()
@@ -48,7 +65,7 @@ void Alaska::Fases::Caverna::criarConjuntos_Estalagmites()
     for (int i = 0; i < quantidade; i++)
     {
         printf("novo gelo\n");
-        pObstaculo = new Alaska::Entidades::Obstaculos::Conjunto_Estalagmites(posicaoRandX(), A_MAX_GERAL-21);
+        pObstaculo = new Alaska::Entidades::Obstaculos::Conjunto_Estalagmites(posEstalagmites[i].x, posEstalagmites[i].y);
         if (pObstaculo)
         {
             lista_ents.incluir(pObstaculo);
@@ -72,7 +89,7 @@ void Alaska::Fases::Caverna::criarAbominaveis()
 
     for (int i = 0; i < quantidade; i++)
     {
-        pInimigo = new Alaska::Entidades::Personagens::Abominavel(posicaoRandX(), posicaoRandY(), pJogador);
+        pInimigo = new Alaska::Entidades::Personagens::Abominavel(posAbominaveis[i].x, posAbominaveis[i].y, pJogador);
         if (pInimigo)
         {
             lAbms.push_back(pInimigo);
