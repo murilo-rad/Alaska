@@ -67,6 +67,24 @@ void Alaska::Entidades::Bola_de_Neve::antiGravitar()
     velY *= 0.8f;
 }
 
+void Alaska::Entidades::Bola_de_Neve::acertar(Alaska::Entidades::Personagens::Jogador* pJ)
+{
+    sf::FloatRect caixaJogador = pJ->getSprite()->getGlobalBounds();
+    sf::FloatRect caixaBola = sprite.getGlobalBounds();
+    sf::FloatRect inter;
+
+    if (caixaJogador.intersects(caixaBola, inter))
+    {
+        pJ->operator--();
+
+        pJ->setY(pJ->getY() - 50.0f);
+
+        pJ->setVelY(-11.0f);
+
+        pJ->setNoChao(false);
+    }    
+}
+
 
 void Alaska::Entidades::Bola_de_Neve::salvar()
 {
