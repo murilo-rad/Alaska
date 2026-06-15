@@ -44,6 +44,7 @@ namespace Alaska
             void incluirChao(Alaska::Entidades::Chao* pCh);
 			void tratarColisoesParedeInvisivel();
             void executar();
+            int getQtdInimigos() const { return (int)LIs.size(); }
         };
     }
 }

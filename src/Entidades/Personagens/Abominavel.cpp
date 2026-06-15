@@ -14,7 +14,9 @@ Alaska::Entidades::Personagens::Abominavel::Abominavel()
 {
 }
 
-Alaska::Entidades::Personagens::Abominavel::~Abominavel(){}
+Alaska::Entidades::Personagens::Abominavel::~Abominavel(){
+    pJogador->addPontos(5);
+}
 
 void Alaska::Entidades::Personagens::Abominavel::executar()
 {

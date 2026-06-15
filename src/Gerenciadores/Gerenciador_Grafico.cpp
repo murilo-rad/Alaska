@@ -59,6 +59,16 @@ void Alaska::Gerenciadores::Gerenciador_Grafico::desenharOpcaoMenu(const sf::Str
         janela->draw(text);
 }
 
+void Alaska::Gerenciadores::Gerenciador_Grafico::mostrarPontos(int pontos) {
+    sf::String strPontos = ("Pontos: " + std::to_string(pontos));
+    text.setString(strPontos);
+    text.setCharacterSize(36);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(1.f, 10.f);
+    if (janela && janela->isOpen())
+        janela->draw(text);
+}
+
 bool Alaska::Gerenciadores::Gerenciador_Grafico::isJanelaAberta()
 {
     return janela->isOpen();

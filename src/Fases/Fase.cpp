@@ -146,3 +146,9 @@ Alaska::Entidades::Personagens::Jogador* Alaska::Fases::Fase::randJogador()
 {
     return (pJogador2 ? (rand() % 2) ? pJogador1 : pJogador2 : pJogador1);
 }
+
+bool Alaska::Fases::Fase::faseTerminada() const
+{
+    if (!GC) return false;
+    return GC->getQtdInimigos() == 0;
+}

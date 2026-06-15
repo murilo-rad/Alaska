@@ -271,3 +271,4 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesParedeInvisivel(
             pJog2->setX(L_TELA - pJog2->getSprite()->getGlobalBounds().width);
     }
 }
+
