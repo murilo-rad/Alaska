@@ -2,7 +2,7 @@
 
 
 
-Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2) : Fase(MAX_INI, MAX_OBS, pJ1, pJ2), max_Lobos(MAX_INI), max_Gelos(MAX_OBS), pJogador1(pJ1), pJogador2(pJ2 ? pJ2 : nullptr)
+Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ1, Entidades::Personagens::Jogador* pJ2) : Fase(MAX_INI, MAX_OBS, pJ1, pJ2), max_Lobos(MAX_INI), max_Gelos(MAX_OBS)
 {
     posGelos =
     {

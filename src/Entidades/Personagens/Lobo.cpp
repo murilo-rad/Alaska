@@ -10,7 +10,9 @@ Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inim
     ajustarSprite(sprite, T_LOBO, T_LOBO);
 }
 
-Alaska::Entidades::Personagens::Lobo::~Lobo() {}
+Alaska::Entidades::Personagens::Lobo::~Lobo() {
+    pJogador->addPontos(3);
+}
 
 void Alaska::Entidades::Personagens::Lobo::executar()
 {

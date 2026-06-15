@@ -1,17 +1,16 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5)
+Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
 {
 	printf("novo jogador\n");
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_JOG, T_JOG);
-	pontos = 0;
 }
 
-Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5)
+Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
 {
 	pFig = new sf::Texture();
 	printf("novo jogador (%d)\n", num);
@@ -21,7 +20,6 @@ Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 5
 	    pFig->loadFromFile("imgs/Jogador02.png");
 	sprite.setTexture(*pFig);
 	ajustarSprite(sprite, T_JOG, T_JOG);
-	pontos = 0;
 }
 
 Alaska::Entidades::Personagens::Jogador::~Jogador() 
@@ -53,6 +51,10 @@ void Alaska::Entidades::Personagens::Jogador::mover()
 int Alaska::Entidades::Personagens::Jogador::getPontos()
 {
     return pontos;
+}
+
+void Alaska::Entidades::Personagens::Jogador::addPontos(int qtd) {
+    pontos += qtd;
 }
 
 void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)

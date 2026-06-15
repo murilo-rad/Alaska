@@ -16,9 +16,6 @@ namespace Alaska
             const int max_Lobos;
             const int max_Gelos;
             
-            Entidades::Personagens::Jogador *pJogador1;
-            Entidades::Personagens::Jogador *pJogador2;
-
             std::vector<sf::Vector2f> posLobos;
             std::vector<sf::Vector2f> posGelos;
 

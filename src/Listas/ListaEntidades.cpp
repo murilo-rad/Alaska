@@ -1,4 +1,5 @@
 #include "ListaEntidades.h"
+#include <Jogador.h>
 
 Alaska::Listas::ListaEntidades::ListaEntidades(): LEs(){}
 
@@ -43,7 +44,8 @@ void Alaska::Listas::ListaEntidades::cemiterio()
         {
             Entidades::Entidade* ptr = *atual;
             LEs.removerE(ptr);
-            delete ptr;
+            if (!dynamic_cast<Entidades::Personagens::Jogador*>(ptr))
+                delete ptr;
         }
     }
 }

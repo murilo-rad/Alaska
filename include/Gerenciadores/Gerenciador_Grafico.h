@@ -28,6 +28,7 @@ namespace Alaska
 			void desenharOpcaoMenu(const sf::String& pStrOpcao, int indice, bool selecionado);
             void limpar();
             void mostrar();
+            void mostrarPontos(int pontos);
             bool isJanelaAberta();
             sf::RenderWindow* getJanela();
 

@@ -37,6 +37,7 @@ namespace Alaska
                 ~Fase();
                 virtual void executar() = 0;
                 virtual void iniciarFase(short fase) = 0;
+                virtual bool faseTerminada() const;
                 
             protected:
                 virtual void criarInimigos() = 0;

@@ -11,7 +11,9 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : 
 
 Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
 
-Alaska::Entidades::Personagens::Nevoso::~Nevoso(){}
+Alaska::Entidades::Personagens::Nevoso::~Nevoso(){
+    pJogador->addPontos(1);
+}
 
 void Alaska::Entidades::Personagens::Nevoso::executar()
 {

@@ -23,6 +23,7 @@ namespace Alaska
 					void colidir(Inimigo* pIni);
                     void danificar(Inimigo* pIni);
 					int getPontos();
+                    void addPontos(int qtd);
             };
         }
     }
