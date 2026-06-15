@@ -1,6 +1,7 @@
 #pragma once
 #include "Entidade.h"
 #include "Abominavel.h"
+#include "Jogador.h"
 
 namespace Alaska
 {
@@ -20,6 +21,7 @@ namespace Alaska
                 void mover();
                 void antiGravitar();
                 void salvar();
+                void acertar(Alaska::Entidades::Personagens::Jogador* pJ);
         };
     }
 }

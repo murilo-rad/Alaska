@@ -28,7 +28,7 @@ namespace Alaska
             const bool verificarColisao(Alaska::Entidades::Entidade* pE1, Alaska::Entidades::Entidade* pE2)const;
             void tratarColisoesJogsObstacs();
             void tratarColisoesJogsInimigs();
-            //void tratarColisoesJogsProjeteis();
+            void tratarColisoesJogsProjeteis();
             void tratarColisoesInimigosObstacs();
 			void tratarColisoesInimigosInimigos();
             void tratarColisoesChao();
