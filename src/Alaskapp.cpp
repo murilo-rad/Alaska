@@ -66,19 +66,18 @@ void Alaska::Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE, shor
 {
     if (!faseSelecionada) return;
 
+    if (pJog1) pJog1->resetar();
+    if (pJog2) pJog2->resetar();
+
     faseSelecionada->iniciarFase(numFase);
 
-    while (GG.isJanelaAberta() && verificarJogadores())
-    {
+    while (GG.isJanelaAberta() && verificarJogadores() && !faseSelecionada->faseTerminada()) {
         GE.verificarEventos();
         GG.limpar();
         faseSelecionada->executar();
         GG.mostrarPontos(qntd_pontos);
         GG.mostrar();
-        qntd_pontos =  pJog1->getPontos() + (pJog2 ? pJog2->getPontos() : 0);
-
-        if (faseSelecionada->faseTerminada())
-            GG.getJanela()->close();
+        qntd_pontos = pJog1->getPontos() + (pJog2 ? pJog2->getPontos() : 0);
     }
     
     delete faseSelecionada;

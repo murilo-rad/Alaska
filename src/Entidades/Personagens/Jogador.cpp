@@ -88,3 +88,14 @@ void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo* pIni)
 {
     pIni->operator--();
 }
+
+void Alaska::Entidades::Personagens::Jogador::resetar()
+{
+    setX(0.0f);
+    setY(500.0f);
+    setVelX(0.0f);
+    setVelY(0.0f);
+    num_vidas = 5;
+    vivo = true;
+    noChao = false;
+}
