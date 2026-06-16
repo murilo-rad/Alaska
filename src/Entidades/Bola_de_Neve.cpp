@@ -2,7 +2,7 @@
 #include "Abominavel.h"
 
 Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA) : 
-                                    ativo(false), pAbm(nullptr), Entidade()
+                                    ativo(false), pAbm(nullptr), Entidade(0, 0, 0, 0)
 {
     if(pA)
     {
@@ -48,6 +48,7 @@ void Alaska::Entidades::Bola_de_Neve::mover()
             }
         }
         x -= velX;
+        printf("bola y = %f\n", getY());
         sprite.setPosition(x,y);
     }
 }

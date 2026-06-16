@@ -2,7 +2,7 @@
 #include "Bola_de_Neve.h"
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska::Entidades::Personagens::Jogador* pJ)
-: Inimigo(x, y, 3, pJ), forca(calcularForca())
+: Inimigo(x, y, 3, pJ), forca(calcularForca()), pBola(nullptr)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Yeti.png");
@@ -70,6 +70,7 @@ void Alaska::Entidades::Personagens::Abominavel::arremessar()
     if(pBola)
         if(!pBola->getAtivo())
         {
+            printf("bola arremssada\n");
             pBola->setAtivo();
             pBola->setVelX((float)(getForca() * 5));
         }
