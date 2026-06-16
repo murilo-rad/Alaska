@@ -19,6 +19,7 @@ namespace Alaska
                     ~Jogador();
                     void executar();
                     void salvar();
+                    void resetar();
                     void mover();
 					void colidir(Inimigo* pIni);
                     void danificar(Inimigo* pIni);
