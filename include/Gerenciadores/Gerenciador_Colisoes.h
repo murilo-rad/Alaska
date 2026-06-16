@@ -31,6 +31,7 @@ namespace Alaska
             void tratarColisoesJogsProjeteis();
             void tratarColisoesInimigosObstacs();
 			void tratarColisoesInimigosInimigos();
+			void tratarColisoesParedeInvisivel();
             void tratarColisoesChao();
         public:
             Gerenciador_Colisoes();
@@ -42,7 +43,6 @@ namespace Alaska
             void setJogadorDois(Alaska::Entidades::Personagens::Jogador* pJ2);
             void limparMortos();
             void incluirChao(Alaska::Entidades::Chao* pCh);
-			void tratarColisoesParedeInvisivel();
             void executar();
             int getQtdInimigos() const { return (int)LIs.size(); }
         };

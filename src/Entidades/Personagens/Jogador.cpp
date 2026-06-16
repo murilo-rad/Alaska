@@ -48,7 +48,7 @@ void Alaska::Entidades::Personagens::Jogador::mover()
     setNoChao(false);
 }
 
-int Alaska::Entidades::Personagens::Jogador::getPontos()
+int Alaska::Entidades::Personagens::Jogador::getPontos() const
 {
     return pontos;
 }

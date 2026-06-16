@@ -19,20 +19,20 @@ namespace Alaska
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
         Alaska::Entidades::Personagens::Jogador* pJog2;
-		Alaska::Fases::Fase* faseSelecionada;
+		Alaska::Fases::Fase* pFaseSelecionada;
         int qntd_pontos;
     public:
         Alaskapp();
         ~Alaskapp();
         void executar();
         void sementear();
-		void setFaseSelecionada(Alaska::Fases::Fase* fase) { faseSelecionada = fase; }
+		void setFaseSelecionada(Alaska::Fases::Fase* fase) { pFaseSelecionada = fase; }
         Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
         Alaska::Entidades::Personagens::Jogador* getPJog2() const { return pJog2; }
         void criarJogadores(int qntd);
         bool verificarJogadores() const;
     private:
         void executarFase(Alaska::Gerenciadores::Gerenciador_Eventos& GE, short numFase);
-        Fases::Fase* criarFase(int numFase);
+        Fases::Fase* criarFase(short numFase);
     };
 }

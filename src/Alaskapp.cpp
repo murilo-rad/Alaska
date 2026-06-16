@@ -3,7 +3,7 @@
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), faseSelecionada(nullptr), qntd_pontos(0)
+Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSelecionada(nullptr), qntd_pontos(0)
 {
     executar();
 }
@@ -32,8 +32,8 @@ void Alaska::Alaskapp::executar()
     {
         if (!GG.isJanelaAberta() || !verificarJogadores()) break;
 
-        if (!faseSelecionada)
-            faseSelecionada = criarFase(i);
+        if (!pFaseSelecionada)
+            pFaseSelecionada = criarFase(i);
 
         executarFase(GE, i);
     }
@@ -64,27 +64,27 @@ bool Alaska::Alaskapp::verificarJogadores() const
 
 void Alaska::Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE, short numFase)
 {
-    if (!faseSelecionada) return;
+    if (!pFaseSelecionada) return;
 
     if (pJog1) pJog1->resetar();
     if (pJog2) pJog2->resetar();
 
-    faseSelecionada->iniciarFase(numFase);
+    pFaseSelecionada->iniciarFase(numFase);
 
-    while (GG.isJanelaAberta() && verificarJogadores() && !faseSelecionada->faseTerminada()) {
+    while (GG.isJanelaAberta() && verificarJogadores() && !pFaseSelecionada->faseTerminada()) {
         GE.verificarEventos();
         GG.limpar();
-        faseSelecionada->executar();
+        pFaseSelecionada->executar();
         GG.mostrarPontos(qntd_pontos);
         GG.mostrar();
         qntd_pontos = pJog1->getPontos() + (pJog2 ? pJog2->getPontos() : 0);
     }
     
-    delete faseSelecionada;
-    faseSelecionada = nullptr;
+    delete pFaseSelecionada;
+    pFaseSelecionada = nullptr;
 }
 
-Alaska::Fases::Fase* Alaska::Alaskapp::criarFase(int numFase)
+Alaska::Fases::Fase* Alaska::Alaskapp::criarFase(short numFase)
 {
     switch (numFase)
     {
