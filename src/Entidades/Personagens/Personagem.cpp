@@ -60,7 +60,9 @@ void Alaska::Entidades::Personagens::Personagem::operator--(int dano)
 
 void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
 {
-    //implementar
+    Personagem::coletarDados();
+    std::cout << buffer.str();
+    Entidade::salvarDataBuffer();
 }
 
 const bool Alaska::Entidades::Personagens::Personagem::estaVivo()const
@@ -72,4 +74,10 @@ void Alaska::Entidades::Personagens::Personagem::verificarSaude()
 {
 	if (num_vidas <= 0)
 		setMorto();
+}
+
+void Alaska::Entidades::Personagens::Personagem::coletarDados() {
+    buffer << num_vidas <<",";
+    buffer << (noChao ? "true" : "false") << ",";
+    buffer << (vivo ? "true" : "false" ) << ",";
 }

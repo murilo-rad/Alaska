@@ -21,6 +21,7 @@ namespace Alaska
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
+                    void coletarDados() {};
                     void salvar();
             };
         }

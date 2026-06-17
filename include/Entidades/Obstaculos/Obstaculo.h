@@ -21,6 +21,7 @@ namespace Alaska
 					void salvarDataBuffer();
 
                     void antiGravitar();
+                    virtual void coletarDados() {};
                     virtual void executar() = 0;
                     virtual void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ) = 0;
 					virtual void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI) = 0;

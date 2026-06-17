@@ -17,6 +17,7 @@ namespace Alaska
                     Jogador();
                     Jogador(int num);
                     ~Jogador();
+                    void coletarDados();
                     void executar();
                     void salvar();
                     void resetar();

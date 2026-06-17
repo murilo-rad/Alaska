@@ -15,9 +15,11 @@ namespace Alaska
                 float y;
                 float velX; 
                 float velY;
-                std::ostream buffer;
+                std::stringstream buffer;
+
             protected:
                 void salvarDataBuffer();
+                virtual void coletarDados();
             public:
                 Entidade(float x, float y, float vX, float vY);
                 Entidade();
@@ -36,6 +38,7 @@ namespace Alaska
 
                 virtual void executar() = 0;
 				virtual void salvar() = 0;
+            
         };
     }
 }

@@ -14,6 +14,8 @@ namespace Alaska
                     short num_vidas;
                     bool noChao;
                     bool vivo;
+                protected:
+                    virtual void coletarDados();
                 public:
                     Personagem(float x, float y, float vX, float vY, short nv);
                     Personagem();

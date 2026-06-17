@@ -60,6 +60,7 @@ set_target_properties(Alaska PROPERTIES
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/fonts DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets/imgs DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+target_compile_definitions(Alaska PRIVATE SAVE_PATH="${CMAKE_CURRENT_SOURCE_DIR}/save")
 
 target_include_directories(Alaska PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include/

@@ -67,6 +67,8 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
             pJogador1->setVelY(-14.0f);
             pJogador1->setNoChao(false);
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+            pJogador1->salvar();
     }
     if (pJogador2)
     {
