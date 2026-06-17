@@ -87,10 +87,10 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsObstacs()
             pObs = (*it);
             if (pObs)
             {
-                if(pJog1)
+                if (pJog1)
                     if (verificarColisao(pJog1, pObs))
                         pObs->obstaculizar(pJog1);
-                        
+
                 if (pJog2)
                     if (verificarColisao(pJog2, pObs))
                         pObs->obstaculizar(pJog2);
@@ -126,8 +126,14 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesInimigosObstacs(
                     pIni = (*itIni);
                     if (pIni)
                     {
-                        if (verificarColisao(pIni, pObs))
-                            pObs->obstaculizarInimigo(pIni);
+                        if (dynamic_cast<Alaska::Entidades::Personagens::Abominavel *>(pIni) &&
+                            dynamic_cast<Alaska::Entidades::Obstaculos::Conjunto_Estalagmites *>(pObs))
+                        {}  // nao acontece a colisao
+                        else
+                        {
+                            if (verificarColisao(pIni, pObs))
+                                pObs->obstaculizarInimigo(pIni);
+                        }
                     }
                     pIni = nullptr;
                     itIni++;
@@ -155,7 +161,7 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsInimigs()
             pIni = (*it);
             if (pIni)
             {
-                if(pJog1)
+                if (pJog1)
                     if (verificarColisao(pJog1, pIni))
                         pJog1->colidir(pIni);
 
@@ -185,7 +191,7 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesJogsProjeteis()
             pBola = (*it);
             if (pBola)
             {
-                if(pJog1)
+                if (pJog1)
                     if (verificarColisao(pJog1, pBola))
                         pBola->acertar(pJog1);
 
