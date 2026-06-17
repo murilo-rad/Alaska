@@ -31,8 +31,6 @@ namespace Alaska
             void mostrarPontos(int pontos);
             bool isJanelaAberta();
             sf::RenderWindow* getJanela();
-
-            void atualizarCamera(float x, float y);
         };
     }
 }

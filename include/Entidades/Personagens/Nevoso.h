@@ -14,7 +14,7 @@ namespace Alaska
                 private:
                     float acumulacao;
                 public:
-                    Nevoso(float vx, float vy, Jogador* pJ);
+                    Nevoso(float x, float y, Jogador* pJ);
                     Nevoso();
                     ~Nevoso();
                     int calcularAcumulacao();

@@ -48,8 +48,6 @@ namespace Alaska
                 void criarNevosos();
                 void criarPlataformas();
                 void gerarFase();
-                float posicaoRandX();
-                float posicaoRandY();
                 Alaska::Entidades::Personagens::Jogador* randJogador();
         };
     }

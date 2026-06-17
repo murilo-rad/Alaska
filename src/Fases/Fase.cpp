@@ -104,20 +104,6 @@ void Alaska::Fases::Fase::criarCenario(short fase)
 	criarChao(fase);
 }
 
-float Alaska::Fases::Fase::posicaoRandX()
-{
-    float pos_x;
-    pos_x = (rand()%1800) + 200;
-    return pos_x;
-}
-
-float Alaska::Fases::Fase::posicaoRandY()
-{
-    float pos_y;
-    pos_y = (rand()%300) + 200.0f;
-    return pos_y;
-}
-
 void Alaska::Fases::Fase::criarChao(short fase)
 {
 	Alaska::Entidades::Chao* pChao;
