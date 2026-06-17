@@ -17,6 +17,8 @@ namespace Alaska
                 ~Chao();
                 void executar();
                 void salvar();
+
+                void coletarDados() {};
                 void empurrar(Alaska::Entidades::Personagens::Personagem* pP);
         };
     }

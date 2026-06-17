@@ -8,7 +8,9 @@
 #include <time.h>
 #include <cmath>
 #include <windows.h>
-
+#include <string.h>
+#include <sstream>
+#include <fstream>
 
 #define GRAVIDADE 0.50f
 #define MAX_INI 5

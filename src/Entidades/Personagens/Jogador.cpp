@@ -38,7 +38,12 @@ void Alaska::Entidades::Personagens::Jogador::executar()
 
 void Alaska::Entidades::Personagens::Jogador::salvar() 
 {
-    
+    coletarDados();
+    std::cout << buffer.str();
+    Alaska::Entidades::Personagens::Personagem::salvarDataBuffer();
+    std::cout << buffer.str();
+    //buffer.str("");
+    //buffer.clear();
 }
 
 void Alaska::Entidades::Personagens::Jogador::mover() 
@@ -98,4 +103,9 @@ void Alaska::Entidades::Personagens::Jogador::resetar()
     num_vidas = 5;
     vivo = true;
     noChao = false;
+}
+
+void Alaska::Entidades::Personagens::Jogador::coletarDados() 
+{
+   buffer << pontos << ",";
 }

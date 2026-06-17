@@ -21,6 +21,8 @@ namespace Alaska
                 void mover();
                 void antiGravitar();
                 void salvar();
+                
+                void coletarDados() {};
                 void acertar(Alaska::Entidades::Personagens::Jogador* pJ);
         };
     }

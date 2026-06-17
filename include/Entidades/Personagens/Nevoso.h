@@ -21,6 +21,7 @@ namespace Alaska
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
                     void salvar();
+                    void coletarDados() {};
                     void mover();
             };
         }

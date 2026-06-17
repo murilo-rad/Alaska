@@ -19,6 +19,7 @@ namespace Alaska
                     int calcularVoracidade();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void executar();
+                    void coletarDados() {};
                     void salvar();
                     void mover();
             };

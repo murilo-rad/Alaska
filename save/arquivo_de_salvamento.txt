@@ -1,0 +1,13 @@
+=== JOGADOR ===
+pontos: 1
+=== PERSONAGEM ===
+num_vidas: 5
+noChao: false
+vivo: true
+=== ENTIDADE ===
+x: 331
+y: 342.5
+velX: 0
+velY: 1
+
+---

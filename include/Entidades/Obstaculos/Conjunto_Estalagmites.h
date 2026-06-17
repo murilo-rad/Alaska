@@ -19,6 +19,7 @@ namespace Alaska
                     Conjunto_Estalagmites(float x, float y);
                     ~Conjunto_Estalagmites();
                     void salvar();
+                    void coletarDados() {};
                     void executar();
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJogador);
                     void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
