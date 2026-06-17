@@ -10,6 +10,8 @@
 #include "Plataforma.h"
 #include "Nevoso.h"
 #include "Bola_de_Neve.h"
+#include "Abominavel.h"
+#include "Conjunto_Estalagmites.h"
 
 namespace Alaska 
 {
