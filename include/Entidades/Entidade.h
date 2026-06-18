@@ -24,6 +24,9 @@ namespace Alaska
                 Entidade(float x, float y, float vX, float vY);
                 Entidade();
                 virtual ~Entidade();
+
+                virtual void executar() = 0;
+				virtual void salvar() = 0;
 		
                 void setX(const float xx);
                 void setY(const float yy);
@@ -34,11 +37,8 @@ namespace Alaska
                 void setVelY(const float velYy);
                 const float getVelX()const;
                 const float getVelY()const;
-                void gravitar();
 
-                virtual void executar() = 0;
-				virtual void salvar() = 0;
-            
+                void gravitar();
         };
     }
 }

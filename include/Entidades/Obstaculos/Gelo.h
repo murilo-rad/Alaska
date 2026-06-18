@@ -17,9 +17,13 @@ namespace Alaska
                     Gelo(float x, float y);
                     Gelo();
                     ~Gelo();
-                    void coletarDados() {};
+
+                    void coletarDados();
                     void salvar();
                     void executar();
+
+                    void setAtrito(float a);
+
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
             };

@@ -24,23 +24,24 @@ namespace Alaska
                     void salvarDataBuffer();
                     virtual void executar() = 0;
                     virtual void salvar() = 0;
-                    virtual void mover() = 0;
 
-					void verificarSaude();
-                    void setMorto();
-
+                    void setVidas(int v);
                     const int getVidas()const;
                     const bool estaVivo()const;
 
                     void setNoChao(bool c);
                     const bool getNoChao() const;
 
+                    void setMorto();
+                    void setMorto(bool v);
+                    void verificarSaude();
+
                     void operator++();
                     void operator++(int vida);
                     void operator--();
                     void operator--(int dano);
 
-                    
+                    virtual void mover() = 0;
             };
         }
 

@@ -9,7 +9,18 @@ Alaska::Entidades::Obstaculos::Obstaculo::~Obstaculo(){}
 
 void Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer() 
 {
-	//implementar
+	coletarDados();
+	Entidade::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Obstaculos::Obstaculo::coletarDados()
+{
+	buffer << danoso << "," << id << ",";
+}
+
+void Alaska::Entidades::Obstaculos::Obstaculo::setDanoso(bool d)
+{
+	danoso = d;
 }
 
 void Alaska::Entidades::Obstaculos::Obstaculo::antiGravitar() 

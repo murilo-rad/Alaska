@@ -44,3 +44,13 @@
 
 #define L_TELA 1366.0f
 #define A_TELA 768.0f
+
+#define IND_CHAO 1
+#define IND_PLAT 2
+#define IND_GELO 3
+#define IND_MITE 4
+#define IND_NEV 5
+#define IND_LOBO 6
+#define IND_ABM 7
+#define IND_BOLA 8
+#define IND_JOG 9

@@ -9,7 +9,42 @@ Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jog
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
 
-Alaska::Entidades::Personagens::Inimigo::~Inimigo(){}
+Alaska::Entidades::Personagens::Inimigo::~Inimigo()
+{
+    if(pJogador)
+        pJogador = nullptr;
+}
+
+void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
+{
+    coletarDados();
+    Personagem::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Personagens::Inimigo::coletarDados()
+{
+    buffer << nivel_maldade << "," << pJogador->getID() << "," << velocidade << ",";
+}
+
+void Alaska::Entidades::Personagens::Inimigo::setMaldade(int m)
+{
+    nivel_maldade = m;
+}
+
+int Alaska::Entidades::Personagens::Inimigo::getMaldade()
+{
+    return nivel_maldade;
+}
+
+void Alaska::Entidades::Personagens::Inimigo::setJogador(Alaska::Entidades::Personagens::Jogador* pJ)
+{
+    pJogador = pJ;
+}
+
+void Alaska::Entidades::Personagens::Inimigo::setVelocidade(float vel)
+{
+    velocidade = vel;
+}
 
 void Alaska::Entidades::Personagens::Inimigo::seguirJogador()
 {
@@ -35,12 +70,6 @@ int Alaska::Entidades::Personagens::Inimigo::calcularMaldade()
     return aux;
 }
 
-
-int Alaska::Entidades::Personagens::Inimigo::getMaldade()
-{
-    return nivel_maldade;
-}
-
 sf::Vector2f Alaska::Entidades::Personagens::Inimigo::normalizarVetor(sf::Vector2f v)
 {
     double tamVetorV = std::sqrt(std::pow(v.x, 2) + std::pow(v.y, 2));
@@ -48,11 +77,6 @@ sf::Vector2f Alaska::Entidades::Personagens::Inimigo::normalizarVetor(sf::Vector
     sf::Vector2f vetorNormalizado(v.x/tamVetorV, v.y/tamVetorV);
 
     return vetorNormalizado;
-}
-
-void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
-{
-    //implementar
 }
 
 void Alaska::Entidades::Personagens::Inimigo::impedirSobrePosicao(Entidade* pI)
@@ -70,8 +94,3 @@ void Alaska::Entidades::Personagens::Inimigo::impedirSobrePosicao(Entidade* pI)
 		}
 	}
 }
-
-// void Alaska::Entidades::Personagens::Inimigo::recuar()
-// {
-//     setVelX(100.0f);
-// }

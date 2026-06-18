@@ -21,6 +21,22 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::executar()
    desenhar();
 }
 
+void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::salvar()
+{
+   coletarDados();
+   Obstaculo::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::coletarDados()
+{
+   buffer << IND_MITE << "," << danosidade << "," << id << ",";
+}
+
+void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::setDanosidade(short int d)
+{
+   danosidade = d;
+}
+
 void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizar(Alaska::Entidades::Personagens::Jogador *pJ)
 {
    sf::FloatRect caixaJogador = pJ->getSprite()->getGlobalBounds();
@@ -38,7 +54,7 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizar(Alaska::
             pJ->setY(caixaEstalagmites.top - caixaJogador.height);
             pJ->setVelY(0.0f);
             pJ->setVelY(-11.0f);
-            pJ->operator--();
+            pJ->operator--(danosidade);
             pJ->setNoChao(false);
          }
          else if (pJ->getVelY() < 0 && caixaJogador.top > caixaEstalagmites.top)
@@ -89,7 +105,3 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::obstaculizarInimigo(A
    }
 }
 
-void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::salvar()
-{
-   
-}

@@ -14,8 +14,16 @@ Alaska::Entidades::Personagens::Abominavel::Abominavel()
 {
 }
 
-Alaska::Entidades::Personagens::Abominavel::~Abominavel(){
-    pJogador->addPontos(5);
+Alaska::Entidades::Personagens::Abominavel::~Abominavel()
+{
+    if(pJogador)
+    {
+        pJogador->addPontos(5);
+        pJogador = nullptr;
+    }
+
+    if(pBola)
+        pBola = nullptr;
 }
 
 void Alaska::Entidades::Personagens::Abominavel::executar()
@@ -25,6 +33,27 @@ void Alaska::Entidades::Personagens::Abominavel::executar()
     mover();
     desenhar();
     verificarSaude();
+}
+
+void Alaska::Entidades::Personagens::Abominavel::salvar()
+{
+    coletarDados();
+    Inimigo::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Personagens::Abominavel::coletarDados()
+{
+    buffer << IND_ABM << "," << pBola->getID() << "," << forca << "," << id << ",";
+}
+
+void Alaska::Entidades::Personagens::Abominavel::setBola(Alaska::Entidades::Bola_de_Neve* pProj) 
+{
+	pBola = pProj;
+}
+
+void Alaska::Entidades::Personagens::Abominavel::setForca(int f) 
+{
+	forca = f;
 }
 
 void Alaska::Entidades::Personagens::Abominavel::mover()
@@ -46,11 +75,13 @@ void Alaska::Entidades::Personagens::Abominavel::danificar(Alaska::Entidades::Pe
     float centroJog = caixaJog.left + caixaJog.width / 2.f;
     float centroAbm = caixaAbm.left + caixaAbm.width / 2.f;
 
+    float xJog = pJ->getSprite()->getPosition().x;
+
     if (centroJog < centroAbm)
-        pJ->setVelX(-forca*20.0f);
+        pJ->setVelX(xJog - 40.f);
     else
-        pJ->setVelX(forca*20.0f);
-    pJ->setVelY(forca*5.0f);
+        pJ->setVelX(xJog + 40.f);
+    pJ->setVelY(forca*50.0f);
 }
 
 int Alaska::Entidades::Personagens::Abominavel::calcularForca()
@@ -60,7 +91,7 @@ int Alaska::Entidades::Personagens::Abominavel::calcularForca()
     return forca;
 }
 
-int Alaska::Entidades::Personagens::Abominavel::getForca()
+const int Alaska::Entidades::Personagens::Abominavel::getForca()const
 {
     return forca;
 }
@@ -71,18 +102,8 @@ void Alaska::Entidades::Personagens::Abominavel::arremessar()
         if(!pBola->getAtivo())
         {
             printf("bola arremssada\n");
-            pBola->setAtivo();
+            pBola->setAtivo(true);
             pBola->setVelX((float)(getForca() * 5));
         }
-}
-
-void Alaska::Entidades::Personagens::Abominavel::setBola(Alaska::Entidades::Bola_de_Neve* pProj) 
-{
-	pBola = pProj;
-}
-
-void Alaska::Entidades::Personagens::Abominavel::salvar()
-{
-
 }
 

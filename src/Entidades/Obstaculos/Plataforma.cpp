@@ -5,7 +5,7 @@ Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstac
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Plataforma.png");
     sprite.setTexture(*pFig);
-    ajustarSprite(sprite, A_PLAT, L_PLAT);
+    ajustarSprite(sprite, A_PLAT, largura);
     sprite.setPosition(x, y);
 }
 
@@ -18,6 +18,22 @@ void Alaska::Entidades::Obstaculos::Plataforma::executar()
     gravitar();
     antiGravitar();
     desenhar();
+}
+
+void Alaska::Entidades::Obstaculos::Plataforma::salvar()
+{
+    coletarDados();
+    Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Obstaculos::Plataforma::coletarDados()
+{
+    buffer << IND_PLAT << "," << largura << "," << id << ",";
+}
+
+void Alaska::Entidades::Obstaculos::Plataforma::setLargura(int l)
+{
+    largura = l;
 }
 
 void Alaska::Entidades::Obstaculos::Plataforma::obstaculizar(Alaska::Entidades::Personagens::Jogador *pJ)
@@ -52,7 +68,3 @@ void Alaska::Entidades::Obstaculos::Plataforma::obstaculizarInimigo(Alaska::Enti
     }
 }
 
-void Alaska::Entidades::Obstaculos::Plataforma::salvar()
-{
-    // implementar
-}

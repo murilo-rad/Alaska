@@ -18,11 +18,16 @@ namespace Alaska
                     Plataforma(float x, float y);
                     Plataforma();
                     ~Plataforma();
+
+                    void coletarDados();
                     void executar();
+                    void salvar();
+
+                    void setLargura(int l);
+
                     void obstaculizar(Alaska::Entidades::Personagens::Jogador* pJ);
                     void obstaculizarInimigo(Alaska::Entidades::Personagens::Inimigo* pI);
-                    void coletarDados() {};
-                    void salvar();
+
             };
         }
     }

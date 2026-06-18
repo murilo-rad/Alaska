@@ -13,19 +13,27 @@ namespace Alaska
             {
                 protected:
                     int pontos;
+                    std::string nome;
                 public:
-                    Jogador();
                     Jogador(int num);
+                    Jogador();
                     ~Jogador();
-                    void coletarDados();
+
                     void executar();
+                    void coletarDados();
                     void salvar();
+
+                    void setPontos(int p);
+                    const int getPontos() const;
+                    void addPontos(int qtd);
+
+                    void setNome(std::string n);
+
                     void resetar();
                     void mover();
 					void colidir(Inimigo* pIni);
                     void danificar(Inimigo* pIni);
-					int getPontos() const;
-                    void addPontos(int qtd);
+					
             };
         }
     }
