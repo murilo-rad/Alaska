@@ -23,6 +23,22 @@ void Alaska::Entidades::Chao::executar()
     desenhar();
 }
 
+void Alaska::Entidades::Chao::salvar()
+{
+    coletarDados();
+    Entidade::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Chao::coletarDados()
+{
+    buffer << fase << "," << id << ",";
+}
+
+void Alaska::Entidades::Chao::setFase(short f)
+{
+    fase = f;
+}
+
 void Alaska::Entidades::Chao::empurrar(Alaska::Entidades::Personagens::Personagem *pP)
 {
     sf::FloatRect caixaEnti = pP->getSprite()->getGlobalBounds();
@@ -55,6 +71,3 @@ void Alaska::Entidades::Chao::empurrar(Alaska::Entidades::Personagens::Personage
     }
 }
 
-void Alaska::Entidades::Chao::salvar()
-{
-}

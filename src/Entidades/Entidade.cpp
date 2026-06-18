@@ -5,6 +5,28 @@ Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0) {}
 
 Alaska::Entidades::Entidade::~Entidade(){}
 
+void Alaska::Entidades::Entidade::salvarDataBuffer()
+{
+    std::ofstream arquivo("../../../save/arquivo_de_salvamento.txt", std::ios::trunc);
+    if (arquivo.is_open()) 
+    {
+        printf("arquivo encontrado\n");
+        coletarDados();
+        arquivo << buffer.str() << "\n";
+        arquivo.close();
+    }
+    else 
+        printf("Erro: Nao foi possivel abrir o arquivo.\n");
+
+    buffer.str("");
+    buffer.clear();
+}
+
+void Alaska::Entidades::Entidade::coletarDados() 
+{
+    buffer << x << "," << y << "," << velX << "," << velY;
+}
+
 const float Alaska::Entidades::Entidade::getX()const
 {
     return x;
@@ -25,27 +47,6 @@ void Alaska::Entidades::Entidade::setY(const float yy)
 {
     y = yy;
     sprite.setPosition(x, y);
-}
-
-void Alaska::Entidades::Entidade::salvarDataBuffer()
-{
-    std::ofstream arquivo("../../../save/arquivo_de_salvamento.txt", std::ios::trunc);
-    if (arquivo.is_open()) {
-        printf("arquivo encontrado\n");
-        arquivo.flush();
-        arquivo.clear();
-        Entidade::coletarDados();
-        std::cout << buffer.str();
-        arquivo << buffer.str();
-        arquivo << "---\n";
-        arquivo.close();
-    }
-    else {
-        printf("Erro: Nao foi possivel abrir o arquivo. Verifique se a pasta 'save' existe.\n");
-    }
-
-    //buffer.str("");
-    //buffer.clear();
 }
 
 void Alaska::Entidades::Entidade::setVelY(const float velYy)
@@ -80,9 +81,3 @@ void Alaska::Entidades::Entidade::gravitar()
     sprite.setPosition(x, y);
 }
 
-void Alaska::Entidades::Entidade::coletarDados() {
-    buffer << x << ",";
-    buffer << "y: " << y << ",";
-    buffer << "velX: " << velX << ",";
-    buffer << "velY: " << velY;
-}

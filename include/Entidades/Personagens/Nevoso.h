@@ -17,11 +17,15 @@ namespace Alaska
                     Nevoso(float x, float y, Jogador* pJ);
                     Nevoso();
                     ~Nevoso();
+
+                    void executar();
+                    void coletarDados();
+                    void salvar();
+
+                    void setAcumulacao(float ac);
+
                     int calcularAcumulacao();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
-                    void executar();
-                    void salvar();
-                    void coletarDados() {};
                     void mover();
             };
         }

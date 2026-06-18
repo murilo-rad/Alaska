@@ -16,11 +16,15 @@ namespace Alaska
                     Lobo(float x, float y, Jogador* pJ);
                     Lobo();
                     ~Lobo();
+
+                    void executar();
+                    void coletarDados();
+                    void salvar();
+
+                    void setVoracidade(int v);
+
                     int calcularVoracidade();
                     void danificar(Alaska::Entidades::Personagens::Jogador* pJ);
-                    void executar();
-                    void coletarDados() {};
-                    void salvar();
                     void mover();
             };
         }

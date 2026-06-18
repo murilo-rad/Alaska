@@ -3,7 +3,7 @@
 
 Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
 {
-	printf("novo jogador\n");
+    printf("novo jogador\n");
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
@@ -12,23 +12,23 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0
 
 Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
 {
-	pFig = new sf::Texture();
-	printf("novo jogador (%d)\n", num);
-	if (num == 1)
-		pFig->loadFromFile("imgs/Jogador01.png");
-	else
-	    pFig->loadFromFile("imgs/Jogador02.png");
-	sprite.setTexture(*pFig);
-	ajustarSprite(sprite, T_JOG, T_JOG);
+    pFig = new sf::Texture();
+    printf("novo jogador (%d)\n", num);
+    if (num == 1)
+        pFig->loadFromFile("imgs/Jogador01.png");
+    else
+        pFig->loadFromFile("imgs/Jogador02.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_JOG, T_JOG);
 }
 
-Alaska::Entidades::Personagens::Jogador::~Jogador() 
+Alaska::Entidades::Personagens::Jogador::~Jogador()
 {
-	pontos = -1;
+    pontos = -1;
     printf("morte");
 }
 
-void Alaska::Entidades::Personagens::Jogador::executar() 
+void Alaska::Entidades::Personagens::Jogador::executar()
 {
     mover();
     gravitar();
@@ -36,37 +36,49 @@ void Alaska::Entidades::Personagens::Jogador::executar()
     verificarSaude();
 }
 
-void Alaska::Entidades::Personagens::Jogador::salvar() 
+void Alaska::Entidades::Personagens::Jogador::salvar()
 {
     coletarDados();
-    std::cout << buffer.str();
     Alaska::Entidades::Personagens::Personagem::salvarDataBuffer();
-    std::cout << buffer.str();
-    //buffer.str("");
-    //buffer.clear();
 }
 
-void Alaska::Entidades::Personagens::Jogador::mover() 
+void Alaska::Entidades::Personagens::Jogador::coletarDados()
+{
+    buffer << IND_JOG << "," << pontos << "," << nome << "," << id << ",";
+}
+
+void Alaska::Entidades::Personagens::Jogador::setPontos(int p)
+{
+    pontos = p;
+}
+
+const int Alaska::Entidades::Personagens::Jogador::getPontos()const
+{
+    return pontos;
+}
+
+void Alaska::Entidades::Personagens::Jogador::addPontos(int qtd)
+{
+    pontos += qtd;
+}
+
+void Alaska::Entidades::Personagens::Jogador::setNome(std::string n)
+{
+    nome = n;
+}
+
+void Alaska::Entidades::Personagens::Jogador::mover()
 {
     x += velX;
     sprite.setPosition(x, y);
     setNoChao(false);
 }
 
-int Alaska::Entidades::Personagens::Jogador::getPontos() const
+void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo *pIni)
 {
-    return pontos;
-}
-
-void Alaska::Entidades::Personagens::Jogador::addPontos(int qtd) {
-    pontos += qtd;
-}
-
-void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
-{
-	sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
+    sf::FloatRect caixaIni = pIni->getSprite()->getGlobalBounds();
     sf::FloatRect caixaJog = sprite.getGlobalBounds();
-    
+
     if (getVelY() > 0 && caixaJog.top < caixaIni.top && !getNoChao())
     {
         setY(caixaIni.top - caixaJog.height);
@@ -75,7 +87,7 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
         printf("hit jogador\n");
         danificar(pIni);
     }
-    else if(caixaJog.top >= caixaIni.top)
+    else if (caixaJog.top >= caixaIni.top)
     {
         sf::FloatRect inter;
         if (caixaJog.intersects(caixaIni, inter))
@@ -89,7 +101,7 @@ void Alaska::Entidades::Personagens::Jogador::colidir(Inimigo* pIni)
     }
 }
 
-void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo* pIni)
+void Alaska::Entidades::Personagens::Jogador::danificar(Inimigo *pIni)
 {
     pIni->operator--();
 }
@@ -103,9 +115,4 @@ void Alaska::Entidades::Personagens::Jogador::resetar()
     num_vidas = 5;
     vivo = true;
     noChao = false;
-}
-
-void Alaska::Entidades::Personagens::Jogador::coletarDados() 
-{
-   buffer << pontos << ",";
 }

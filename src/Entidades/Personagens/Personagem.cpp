@@ -8,14 +8,47 @@ Alaska::Entidades::Personagens::Personagem::Personagem() : Entidade(), num_vidas
 
 Alaska::Entidades::Personagens::Personagem::~Personagem(){}
 
-void Alaska::Entidades::Personagens::Personagem::setMorto()
+
+void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
 {
-    vivo = false;
+    Personagem::coletarDados();
+    Entidade::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Personagens::Personagem::coletarDados() 
+{
+    buffer << num_vidas << "," << noChao << "," << vivo << ",";
+}
+
+void Alaska::Entidades::Personagens::Personagem::setVidas(int v)
+{
+    num_vidas = v;
 }
 
 const int Alaska::Entidades::Personagens::Personagem::getVidas()const
 {
     return num_vidas;
+}
+
+const bool Alaska::Entidades::Personagens::Personagem::estaVivo()const
+{
+    return vivo;
+}
+
+void Alaska::Entidades::Personagens::Personagem::setMorto()
+{
+    vivo = false;
+}
+
+void Alaska::Entidades::Personagens::Personagem::setMorto(bool v)
+{
+    vivo = v;
+}
+
+void Alaska::Entidades::Personagens::Personagem::verificarSaude()
+{
+	if (num_vidas <= 0)
+		setMorto();
 }
 
 void Alaska::Entidades::Personagens::Personagem::setNoChao(bool c) 
@@ -58,26 +91,3 @@ void Alaska::Entidades::Personagens::Personagem::operator--(int dano)
         num_vidas = 0;
 }
 
-void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
-{
-    Personagem::coletarDados();
-    std::cout << buffer.str();
-    Entidade::salvarDataBuffer();
-}
-
-const bool Alaska::Entidades::Personagens::Personagem::estaVivo()const
-{
-    return vivo;
-}
-
-void Alaska::Entidades::Personagens::Personagem::verificarSaude()
-{
-	if (num_vidas <= 0)
-		setMorto();
-}
-
-void Alaska::Entidades::Personagens::Personagem::coletarDados() {
-    buffer << num_vidas <<",";
-    buffer << (noChao ? "true" : "false") << ",";
-    buffer << (vivo ? "true" : "false" ) << ",";
-}

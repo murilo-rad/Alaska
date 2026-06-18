@@ -18,6 +18,7 @@ namespace Alaska
                 void incluir(Entidades::Entidade* pE);
                 void percorrer();
                 void cemiterio();
+                void salvarEntidades();
                 void remover(Entidades::Entidade* pE);
                 Lista<Alaska::Entidades::Entidade*>* getLista();
         };

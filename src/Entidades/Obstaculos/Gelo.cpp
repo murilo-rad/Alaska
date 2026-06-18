@@ -20,6 +20,22 @@ void Alaska::Entidades::Obstaculos::Gelo::executar()
     desenhar();
 }
 
+void Alaska::Entidades::Obstaculos::Gelo::salvar()
+{
+    coletarDados();
+    Obstaculo::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Obstaculos::Gelo::coletarDados()
+{
+    buffer << IND_GELO << "," << atrito << "," << id << ",";
+}
+
+void Alaska::Entidades::Obstaculos::Gelo::setAtrito(float a)
+{
+    atrito = a;
+}
+
 void Alaska::Entidades::Obstaculos::Gelo::obstaculizar(Alaska::Entidades::Personagens::Jogador *pJ)
 {
 
@@ -86,8 +102,4 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades:
         else
             pI->setY(pI->getY() - 8.0f);
     }
-}
-
-void Alaska::Entidades::Obstaculos::Gelo::salvar()
-{
 }

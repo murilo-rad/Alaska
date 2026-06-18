@@ -11,8 +11,13 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : 
 
 Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
 
-Alaska::Entidades::Personagens::Nevoso::~Nevoso(){
-    pJogador->addPontos(1);
+Alaska::Entidades::Personagens::Nevoso::~Nevoso()
+{
+    if(pJogador)
+    {
+        pJogador->addPontos(1);
+        pJogador = nullptr;
+    }
 }
 
 void Alaska::Entidades::Personagens::Nevoso::executar()
@@ -21,6 +26,22 @@ void Alaska::Entidades::Personagens::Nevoso::executar()
     gravitar();
     desenhar();
     verificarSaude();
+}
+
+void Alaska::Entidades::Personagens::Nevoso::salvar()
+{
+    coletarDados();
+    Inimigo::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Personagens::Nevoso::coletarDados()
+{
+    buffer << IND_NEV << "," << acumulacao << "," << id << ",";
+}
+
+void Alaska::Entidades::Personagens::Nevoso::setAcumulacao(float ac)
+{
+    acumulacao = ac;
 }
 
 void Alaska::Entidades::Personagens::Nevoso::mover()
@@ -51,9 +72,4 @@ int Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()
 {
     acumulacao = nivel_maldade * T_NEVOSO;
     return acumulacao;
-}
-
-void Alaska::Entidades::Personagens::Nevoso::salvar()
-{
-  
 }

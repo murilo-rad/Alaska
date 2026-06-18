@@ -15,10 +15,13 @@ namespace Alaska
                 Chao(short f);
                 Chao();
                 ~Chao();
+
+                void coletarDados();
                 void executar();
                 void salvar();
 
-                void coletarDados() {};
+                void setFase(short f);
+
                 void empurrar(Alaska::Entidades::Personagens::Personagem* pP);
         };
     }

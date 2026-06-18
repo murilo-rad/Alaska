@@ -33,6 +33,27 @@ void Alaska::Entidades::Bola_de_Neve::executar()
     }
 }
 
+void Alaska::Entidades::Bola_de_Neve::salvar()
+{
+    coletarDados();
+    Entidade::salvarDataBuffer();
+}
+
+void Alaska::Entidades::Bola_de_Neve::coletarDados()
+{
+    buffer << IND_BOLA << "," << pAbm->getID() << "," << ativo << "," << id << ",";
+}
+
+void Alaska::Entidades::Bola_de_Neve::setAtivo(bool a)
+{
+    ativo = a;
+}
+
+void Alaska::Entidades::Bola_de_Neve::setAbominavel(Alaska::Entidades::Personagens::Abominavel* pAbo)
+{
+    pAbm = pAbo;
+}
+
 void Alaska::Entidades::Bola_de_Neve::mover()
 {
     if(ativo)
@@ -51,11 +72,6 @@ void Alaska::Entidades::Bola_de_Neve::mover()
         printf("bola y = %f\n", getY());
         sprite.setPosition(x,y);
     }
-}
-
-void Alaska::Entidades::Bola_de_Neve::setAtivo()
-{
-    ativo = true;
 }
 
 const bool Alaska::Entidades::Bola_de_Neve::getAtivo()const
@@ -84,10 +100,4 @@ void Alaska::Entidades::Bola_de_Neve::acertar(Alaska::Entidades::Personagens::Jo
 
         pJ->setNoChao(false);
     }    
-}
-
-
-void Alaska::Entidades::Bola_de_Neve::salvar()
-{
-
 }
