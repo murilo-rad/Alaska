@@ -78,10 +78,10 @@ void Alaska::Entidades::Personagens::Abominavel::danificar(Alaska::Entidades::Pe
     float xJog = pJ->getSprite()->getPosition().x;
 
     if (centroJog < centroAbm)
-        pJ->setVelX(xJog - 40.f);
+        pJ->setX(xJog - 40.f);
     else
-        pJ->setVelX(xJog + 40.f);
-    pJ->setVelY(forca*50.0f);
+        pJ->setX(xJog + 40.f);
+    pJ->setY(forca*30.0f);
 }
 
 int Alaska::Entidades::Personagens::Abominavel::calcularForca()
