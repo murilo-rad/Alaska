@@ -1,41 +1,71 @@
 #include "Alaskapp.h"
 #include "Gerenciador_Eventos.h"
+#include "Menu.h"
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSelecionada(nullptr), qntd_pontos(0)
+Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSelecionada(nullptr), pFase(nullptr), faseEscolhida(TipoFase::NENHUMA), estado(EstadoJogo::MENU), qntd_pontos(0)
 {
     executar();
 }
 
 Alaska::Alaskapp::~Alaskapp() {}
 
+//
+//void Alaska::Alaskapp::executar()
+//{
+//    sementear();
+//
+//    Gerenciadores::Gerenciador_Eventos GE;
+//    Ente::setGG(&GG);
+//    GE.setJanela(GG.getJanela());
+//
+//    Alaska::Menu menu(this, &GE);
+//    GE.setMenu(&menu);
+//    menu.executar();
+//    //printf("Menu finalizado %d\n", menu.getOpcao());
+//    int faseInicial = menu.getOpcao() + 1;
+//    GE.setMenu(nullptr);
+//    GE.setJogadores(pJog1, pJog2);
+//
+//    const int totalFases = 2;
+//    for (int i = faseInicial; i <= totalFases; i++)
+//    {
+//        if (!GG.isJanelaAberta() || !verificarJogadores()) break;
+//
+//        if (!pFaseSelecionada)
+//            pFaseSelecionada = criarFase(i);
+//
+//        executarFase(GE, i);
+//    }
+//}
 
-void Alaska::Alaskapp::executar()
+void Alaskapp::executar()
 {
     sementear();
 
     Gerenciadores::Gerenciador_Eventos GE;
     Ente::setGG(&GG);
+    Alaska::Menu menu(this, &GE);
     GE.setJanela(GG.getJanela());
 
-    Alaska::Menu menu(this, &GE);
     GE.setMenu(&menu);
-    menu.executar();
-    printf("Menu finalizado %d\n", menu.getOpcao());
-    int faseInicial = menu.getOpcao() + 1;
-    GE.setMenu(nullptr);
-    GE.setJogadores(pJog1, pJog2);
 
-    const int totalFases = 2;
-    for (int i = faseInicial; i <= totalFases; i++)
+    while (GG.isJanelaAberta())
     {
-        if (!GG.isJanelaAberta() || !verificarJogadores()) break;
+        switch (estado)
+        {
+        case EstadoJogo::MENU:
+            executarMenu(&menu, GE);
+            break;
 
-        if (!pFaseSelecionada)
-            pFaseSelecionada = criarFase(i);
+        case EstadoJogo::FASE:
+            executarFase(GE);
+            break;
 
-        executarFase(GE, i);
+        case EstadoJogo::ENCERRANDO:
+            return;
+        }
     }
 }
 
@@ -62,26 +92,31 @@ bool Alaska::Alaskapp::verificarJogadores() const
     return false;
 }
 
-void Alaska::Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE, short numFase)
+void Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE)
 {
-    if (!pFaseSelecionada) return;
+    if (!pFase) return;
 
     if (pJog1) pJog1->resetar();
     if (pJog2) pJog2->resetar();
 
-    pFaseSelecionada->iniciarFase(numFase);
+    GE.setJogadores(pJog1, pJog2);
+    pFase->iniciarFase(faseEscolhida == TipoFase::CAVERNA ? 2 : 1);
 
-    while (GG.isJanelaAberta() && verificarJogadores() && !pFaseSelecionada->faseTerminada()) {
+    while (GG.isJanelaAberta() && verificarJogadores() && !pFase->terminou())
+    {
         GE.verificarEventos();
         GG.limpar();
-        pFaseSelecionada->executar();
+        pFase->executar();
         GG.mostrarPontos(qntd_pontos);
         GG.mostrar();
         qntd_pontos = pJog1->getPontos() + (pJog2 ? pJog2->getPontos() : 0);
     }
-    
-    delete pFaseSelecionada;
-    pFaseSelecionada = nullptr;
+
+    delete pFase;
+    pFase = nullptr;
+
+    GE.setMenu(nullptr);
+    estado = EstadoJogo::MENU;
 }
 
 Alaska::Fases::Fase* Alaska::Alaskapp::criarFase(short numFase)
@@ -91,5 +126,46 @@ Alaska::Fases::Fase* Alaska::Alaskapp::criarFase(short numFase)
     case 1: return new Fases::Tundra(pJog1, pJog2);
     case 2: return new Fases::Caverna(pJog1, pJog2);
     default: return nullptr;
+    }
+}
+
+void Alaskapp::executarMenu(Alaska::Menu* pMenu, Gerenciadores::Gerenciador_Eventos& GE)
+{
+    GE.setMenu(pMenu);
+
+    pMenu->reset();
+    pMenu->executar();
+
+    criarFaseSelecionada();
+    estado = EstadoJogo::FASE;
+}
+
+void Alaskapp::criarFaseSelecionada()
+{
+    delete pFase;
+    pFase = nullptr;
+
+    switch (faseEscolhida)
+    {
+    case TipoFase::TUNDRA:
+
+        pFase = new Fases::Tundra(
+            pJog1,
+            pJog2
+        );
+
+        break;
+
+    case TipoFase::CAVERNA:
+
+        pFase = new Fases::Caverna(
+            pJog1,
+            pJog2
+        );
+
+        break;
+
+    default:
+        break;
     }
 }

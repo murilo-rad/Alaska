@@ -138,3 +138,20 @@ bool Alaska::Fases::Fase::faseTerminada() const
     if (!GC) return false;
     return GC->getQtdInimigos() == 0;
 }
+
+
+const bool Alaska::Fases::Fase::terminou() {
+    if (GC->getQtdInimigos() == 0 || !GC || !verificarJogadores())
+        concluida = true;
+
+    concluida = false;
+
+    return concluida;
+}
+
+const bool Alaska::Fases::Fase::verificarJogadores() const
+{
+    if (pJogador1 && pJogador1->estaVivo() && (!pJogador2 || pJogador2->estaVivo()))
+        return true;
+    return false;
+}

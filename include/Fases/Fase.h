@@ -20,6 +20,7 @@ namespace Alaska
             private:
                 const int max_Nevosos;
                 const int max_Plataformas;
+                bool concluida;
 
                 std::vector<sf::Vector2f> posPlataformas;
                 std::vector<sf::Vector2f> posNevosos;
@@ -38,6 +39,8 @@ namespace Alaska
                 virtual void executar() = 0;
                 virtual void iniciarFase(short fase) = 0;
                 virtual bool faseTerminada() const;
+                bool const terminou();
+                bool const verificarJogadores() const;
                 
             protected:
                 virtual void criarInimigos() = 0;
