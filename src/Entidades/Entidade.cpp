@@ -1,7 +1,7 @@
 #include "Entidade.h"
 
 Alaska::Entidades::Entidade::Entidade(float x, float y, float vX, float vY): Ente(), x(x), y(y), velX(vX), velY(vY) {}
-Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0) {}
+Alaska::Entidades::Entidade::Entidade() : Ente(), x(0), y(0), velX(0), velY(0) {}
 
 Alaska::Entidades::Entidade::~Entidade(){}
 
