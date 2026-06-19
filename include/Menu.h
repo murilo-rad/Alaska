@@ -41,8 +41,6 @@ namespace Alaska {
 		void carregarMenuFases();
 		void adicionarOpcao(const std::string& texto, void (Menu::*acao)());
 
-		//void confirmarOpcao();
-
 		void subir();
 		void descer();
 

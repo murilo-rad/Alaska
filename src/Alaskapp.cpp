@@ -11,35 +11,6 @@ Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSeleci
 
 Alaska::Alaskapp::~Alaskapp() {}
 
-//
-//void Alaska::Alaskapp::executar()
-//{
-//    sementear();
-//
-//    Gerenciadores::Gerenciador_Eventos GE;
-//    Ente::setGG(&GG);
-//    GE.setJanela(GG.getJanela());
-//
-//    Alaska::Menu menu(this, &GE);
-//    GE.setMenu(&menu);
-//    menu.executar();
-//    //printf("Menu finalizado %d\n", menu.getOpcao());
-//    int faseInicial = menu.getOpcao() + 1;
-//    GE.setMenu(nullptr);
-//    GE.setJogadores(pJog1, pJog2);
-//
-//    const int totalFases = 2;
-//    for (int i = faseInicial; i <= totalFases; i++)
-//    {
-//        if (!GG.isJanelaAberta() || !verificarJogadores()) break;
-//
-//        if (!pFaseSelecionada)
-//            pFaseSelecionada = criarFase(i);
-//
-//        executarFase(GE, i);
-//    }
-//}
-
 void Alaskapp::executar()
 {
     sementear();

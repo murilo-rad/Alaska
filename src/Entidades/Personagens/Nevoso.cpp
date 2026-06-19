@@ -14,7 +14,6 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso() : Inimigo(0, 0, 1, nullptr), ac
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Nevoso.png");
     sprite.setTexture(*pFig);
-    //ajustarSprite(sprite, acumulacao, acumulacao);
 }
 
 Alaska::Entidades::Personagens::Nevoso::~Nevoso()
