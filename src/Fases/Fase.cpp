@@ -42,14 +42,21 @@ Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador*
 Alaska::Fases::Fase::~Fase()
 {
     auto* lista = lista_ents.getLista();
+
     for (auto it = lista->begin(); it != lista->end(); ++it)
     {
         if (*it && *it != pJogador1 && *it != pJogador2)
-            delete* it;
+            delete *it;
     }
 
+    delete GC;
     GC = nullptr;
+
+    delete pFundo;
     pFundo = nullptr;
+
+    pJogador1 = nullptr;
+    pJogador2 = nullptr;
 }
 
 void Alaska::Fases::Fase::criarNevosos()

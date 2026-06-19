@@ -2,7 +2,6 @@
 #include "pch.h"
 #include "Jogador.h"
 #include "Menu.h"
-
 namespace Alaska
 {
     class Menu;

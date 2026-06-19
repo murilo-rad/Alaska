@@ -7,11 +7,8 @@ Alaska::Entidades::Entidade::~Entidade(){}
 
 void Alaska::Entidades::Entidade::salvarDataBuffer()
 {
-    buffer.str("");
-    buffer.clear();
-
     Entidade::coletarDados();
-    std::ofstream arquivo("../../../save/arquivo_de_salvamento.txt", std::ios::app);
+    std::ofstream arquivo("../save/arquivo_de_salvamento.txt", std::ios::app);
 
     if (arquivo.is_open())
     {
