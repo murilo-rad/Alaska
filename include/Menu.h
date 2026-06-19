@@ -35,7 +35,6 @@ namespace Alaska {
 		void mudarOpcao(int direcao);
 		int getOpcao() const { return opcaoSelecionada; }
 		void reset();
-		void desenharEstagio();
 		void desenhar();
 		void carregarMenuPrincipal();
 		void carregarMenuFases();
