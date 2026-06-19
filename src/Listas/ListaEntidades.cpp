@@ -62,7 +62,7 @@ void Alaska::Listas::ListaEntidades::cemiterio()
 
 void Alaska::Listas::ListaEntidades::salvarEntidades()
 {
-    std::ofstream limpar("../../../save/arquivo_de_salvamento.txt", std::ios::trunc);
+    std::ofstream limpar("../save/arquivo_de_salvamento.txt", std::ios::trunc);
     limpar.close();
 
     for (Lista<Alaska::Entidades::Entidade *>::Iterador it = LEs.begin(); it != LEs.end(); ++it)

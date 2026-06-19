@@ -1,7 +1,7 @@
 #include "Jogador.h"
 #include "Inimigo.h"
 
-Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
+Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0), nome("NA")
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
@@ -9,7 +9,7 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0
     ajustarSprite(sprite, T_JOG, T_JOG);
 }
 
-Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
+Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0), nome("Padrao")
 {
     pFig = new sf::Texture();
     printf("novo jogador (%d)\n", num);
