@@ -7,7 +7,7 @@ Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jog
       pJogador = pJ;
 }
 
-Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
+Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0, 0, 0, 0, 1), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
 
 Alaska::Entidades::Personagens::Inimigo::~Inimigo()
 {

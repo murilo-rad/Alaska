@@ -4,7 +4,7 @@ Alaska::Entidades::Personagens::Personagem::Personagem
 (float x, float y, float vX, float vY, short nv) :
 Entidade(x, y, vX, vY), num_vidas(nv), noChao(false), vivo(true) {}
 
-Alaska::Entidades::Personagens::Personagem::Personagem() : Entidade(), num_vidas(1), noChao(false), vivo(true){}
+Alaska::Entidades::Personagens::Personagem::Personagem() : Entidade(0,0,0,0), num_vidas(1), noChao(false), vivo(true){}
 
 Alaska::Entidades::Personagens::Personagem::~Personagem(){}
 

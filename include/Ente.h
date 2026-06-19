@@ -26,6 +26,7 @@ namespace Alaska
         virtual void executar() = 0;
 
         void desenhar();
+        void setID(int i);
         const int getID()const;
 
         static void setGG(Alaska::Gerenciadores::Gerenciador_Grafico* pG);
