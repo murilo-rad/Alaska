@@ -1,10 +1,13 @@
 #include "Inimigo.h"
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jogador* pJ) 
-: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f), idJogador(pJogador->getID())
+: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f), idJogador(0)
 {
     if(pJ)
+    {
       pJogador = pJ;
+      setIdJogador(pJogador->getID());
+    }
 }
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0, 0, 0, 0, 1), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f), idJogador(0) {}
@@ -23,7 +26,7 @@ void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
 
 void Alaska::Entidades::Personagens::Inimigo::coletarDados()
 {
-    buffer << nivel_maldade << "," << pJogador->getID() << "," << velocidade << ",";
+    buffer << nivel_maldade << "," << idJogador << "," << velocidade << ",";
 }
 
 void Alaska::Entidades::Personagens::Inimigo::setMaldade(int m)

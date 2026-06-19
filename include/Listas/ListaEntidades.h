@@ -2,7 +2,12 @@
 #include "pch.h"
 #include "Lista.h"
 #include "Entidade.h"
+#include "Obstaculo.h"
+#include "Plataforma.h"
+#include "Gelo.h"
+#include "Conjunto_Estalagmites.h"
 #include "Personagem.h"
+#include "Jogador.h"
 
 namespace Alaska
 {

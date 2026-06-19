@@ -2,8 +2,10 @@
 #include "Bola_de_Neve.h"
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska::Entidades::Personagens::Jogador* pJ)
-: Inimigo(x, y, 3, pJ), forca(calcularForca()), pBola(nullptr), idBola(pBola->getID())
+: Inimigo(x, y, 3, pJ), forca(calcularForca()), pBola(nullptr), idBola(0)
 {
+    if(pBola)
+        setIdBola(pBola->getID());
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Yeti.png");
     sprite.setTexture(*pFig);
@@ -47,7 +49,7 @@ void Alaska::Entidades::Personagens::Abominavel::salvar()
 
 void Alaska::Entidades::Personagens::Abominavel::coletarDados()
 {
-    buffer << IND_ABM << "," << pBola->getID() << "," << forca << "," << id << ",";
+    buffer << IND_ABM << "," << idBola << "," << forca << "," << id << ",";
 }
 
 void Alaska::Entidades::Personagens::Abominavel::setIdBola(int i)
