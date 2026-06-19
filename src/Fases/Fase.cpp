@@ -145,12 +145,11 @@ bool Alaska::Fases::Fase::faseTerminada() const
     return GC->getQtdInimigos() == 0;
 }
 
-
 const bool Alaska::Fases::Fase::terminou() {
-    if (GC->getQtdInimigos() == 0 || !GC || !verificarJogadores())
+    if (!GC || GC->getQtdInimigos() == 0 || !verificarJogadores())
         concluida = true;
-
-    concluida = false;
+    else
+        concluida = false;
 
     return concluida;
 }

@@ -86,6 +86,14 @@ void Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE)
     delete pFase;
     pFase = nullptr;
 
+    if (verificarJogadores() && faseEscolhida == TipoFase::TUNDRA)
+    {
+        faseEscolhida = TipoFase::CAVERNA;
+        criarFaseSelecionada();
+        estado = EstadoJogo::FASE;
+        return;
+    }
+
     GE.setMenu(nullptr);
     estado = EstadoJogo::MENU;
 }
