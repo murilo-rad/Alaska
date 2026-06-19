@@ -16,6 +16,7 @@ namespace Alaska
                     int nivel_maldade;
                     Jogador* pJogador;
                     float velocidade;
+                    int idJogador;
                 protected:
                     void seguirJogador();
                     virtual void coletarDados();
@@ -32,6 +33,7 @@ namespace Alaska
                     int getMaldade();
 
                     void setJogador(Alaska::Entidades::Personagens::Jogador* pJ);
+                    void setIdJogador(int i);
 
                     void setVelocidade(float vel);
 

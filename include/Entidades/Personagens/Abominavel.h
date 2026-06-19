@@ -15,6 +15,7 @@ namespace Alaska
                 private:
                     Alaska::Entidades::Bola_de_Neve* pBola;
                     int forca;
+                    int idBola;
                 public:
                     Abominavel(float x, float y, Jogador* pJ);
                     Abominavel();
@@ -25,6 +26,7 @@ namespace Alaska
                     void salvar();
 
                     void setBola(Alaska::Entidades::Bola_de_Neve* pProj);
+                    void setIdBola(int i);
                     void setForca(int f);
                     const int getForca()const;
 

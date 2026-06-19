@@ -12,6 +12,7 @@ namespace Alaska
             private:
                 Alaska::Entidades::Personagens::Abominavel* pAbm;
                 bool ativo;
+                int idAbm;
             public:
                 Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA);
                 Bola_de_Neve();
@@ -24,6 +25,7 @@ namespace Alaska
                 void setAtivo(bool a);
                 const bool getAtivo()const;
                 void setAbominavel(Alaska::Entidades::Personagens::Abominavel* pAbo);
+                void setIdAbominavel(int i);
                 
                 void mover();
                 void antiGravitar();

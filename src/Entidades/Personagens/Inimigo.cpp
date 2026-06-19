@@ -1,13 +1,13 @@
 #include "Inimigo.h"
 
 Alaska::Entidades::Personagens::Inimigo::Inimigo(float x, float y, short nv, Jogador* pJ) 
-: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f)
+: Personagem(x, y, 0.0f, 0.0f, nv), nivel_maldade(calcularMaldade()), pJogador(nullptr), velocidade(1.0f), idJogador(pJogador->getID())
 {
     if(pJ)
       pJogador = pJ;
 }
 
-Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0, 0, 0, 0, 1), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f) {}
+Alaska::Entidades::Personagens::Inimigo::Inimigo() : Personagem(0, 0, 0, 0, 1), nivel_maldade(1), pJogador(nullptr), velocidade(1.0f), idJogador(0) {}
 
 Alaska::Entidades::Personagens::Inimigo::~Inimigo()
 {
@@ -39,6 +39,11 @@ int Alaska::Entidades::Personagens::Inimigo::getMaldade()
 void Alaska::Entidades::Personagens::Inimigo::setJogador(Alaska::Entidades::Personagens::Jogador* pJ)
 {
     pJogador = pJ;
+}
+
+void Alaska::Entidades::Personagens::Inimigo::setIdJogador(int i)
+{
+    idJogador = i;
 }
 
 void Alaska::Entidades::Personagens::Inimigo::setVelocidade(float vel)
