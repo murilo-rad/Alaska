@@ -9,7 +9,14 @@ Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y, fa
     sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Gelo::Gelo() : Obstaculo(), atrito() {}
+Alaska::Entidades::Obstaculos::Gelo::Gelo() : Obstaculo(0, 0, false), atrito(0.1f) 
+{
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Gelo.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, A_GELO, L_GELO);
+    sprite.setPosition(x, y);   
+}
 
 Alaska::Entidades::Obstaculos::Gelo::~Gelo() {}
 

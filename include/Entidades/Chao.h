@@ -21,6 +21,7 @@ namespace Alaska
                 void salvar();
 
                 void setFase(short f);
+                const short getFase()const;
 
                 void empurrar(Alaska::Entidades::Personagens::Personagem* pP);
         };

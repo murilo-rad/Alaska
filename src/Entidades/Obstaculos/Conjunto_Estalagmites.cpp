@@ -1,6 +1,13 @@
 #include "Conjunto_Estalagmites.h"
 
-Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::Conjunto_Estalagmites() : danosidade(0), Obstaculo() {}
+Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::Conjunto_Estalagmites() : Obstaculo(0, 0, true), danosidade(1) 
+{
+   pFig = new sf::Texture();
+   pFig->loadFromFile("imgs/Estalagmites.png");
+   sprite.setTexture(*pFig);
+   ajustarSprite(sprite, A_MITE, L_MITE);
+   sprite.setPosition(x, y);
+}
 
 Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::Conjunto_Estalagmites(float x, float y)
     : Obstaculo(x, y, true), danosidade(1)
@@ -12,7 +19,10 @@ Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::Conjunto_Estalagmites(floa
    sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::~Conjunto_Estalagmites() {}
+Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::~Conjunto_Estalagmites() 
+{
+
+}
 
 void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::executar()
 {

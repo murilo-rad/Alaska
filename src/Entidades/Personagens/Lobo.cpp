@@ -1,13 +1,19 @@
 #include "Lobo.h"
 
-Alaska::Entidades::Personagens::Lobo::Lobo() : voracidade(), Inimigo() {}
-
 Alaska::Entidades::Personagens::Lobo::Lobo(float x, float y, Jogador* pJ) : Inimigo(x, y, 2, pJ), voracidade(calcularVoracidade())
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Lobo.png");
     sprite.setTexture(*pFig);
     ajustarSprite(sprite, T_LOBO, T_LOBO);
+}
+
+Alaska::Entidades::Personagens::Lobo::Lobo() : Inimigo(0, 0, 2, nullptr), voracidade(0) 
+{
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Lobo.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_LOBO, T_LOBO);  
 }
 
 Alaska::Entidades::Personagens::Lobo::~Lobo() 

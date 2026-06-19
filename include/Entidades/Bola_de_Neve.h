@@ -14,6 +14,7 @@ namespace Alaska
                 bool ativo;
             public:
                 Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA);
+                Bola_de_Neve();
                 ~Bola_de_Neve();
 
                 void executar();

@@ -3,7 +3,6 @@
 
 Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0)
 {
-    printf("novo jogador\n");
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Jogador01.png");
     sprite.setTexture(*pFig);
