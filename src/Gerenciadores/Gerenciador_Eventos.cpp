@@ -72,7 +72,7 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
     }
     if (pJogador2)
     {
-        float velocidadeAndar = 1.5f;
+        float velocidadeAndar = 3.0f;
         float velocidadeX = 0.0f;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
