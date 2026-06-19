@@ -17,6 +17,14 @@ Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Ab
     ajustarSprite(sprite, T_BOLA, T_BOLA);
 }
 
+Alaska::Entidades::Bola_de_Neve::Bola_de_Neve() : ativo(false), pAbm(nullptr), Entidade(0,0,0,0)
+{
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/BolaDeNeve.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_BOLA, T_BOLA);
+}
+
 Alaska::Entidades::Bola_de_Neve::~Bola_de_Neve()
 {
     pAbm = nullptr;

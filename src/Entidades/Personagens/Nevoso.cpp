@@ -9,7 +9,13 @@ Alaska::Entidades::Personagens::Nevoso::Nevoso(float x, float y, Jogador* pJ) : 
     ajustarSprite(sprite, acumulacao, acumulacao);
 }
 
-Alaska::Entidades::Personagens::Nevoso::Nevoso(){}
+Alaska::Entidades::Personagens::Nevoso::Nevoso() : Inimigo(0, 0, 1, nullptr), acumulacao(0)
+{
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Nevoso.png");
+    sprite.setTexture(*pFig);
+    //ajustarSprite(sprite, acumulacao, acumulacao);
+}
 
 Alaska::Entidades::Personagens::Nevoso::~Nevoso()
 {

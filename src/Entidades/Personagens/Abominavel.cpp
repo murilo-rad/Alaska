@@ -10,8 +10,12 @@ Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska:
     ajustarSprite(sprite, T_ABO, T_ABO);
 }
 
-Alaska::Entidades::Personagens::Abominavel::Abominavel()
+Alaska::Entidades::Personagens::Abominavel::Abominavel() : Inimigo(0, 0, 3, nullptr), forca(0), pBola(nullptr)
 {
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Yeti.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, T_ABO, T_ABO);
 }
 
 Alaska::Entidades::Personagens::Abominavel::~Abominavel()

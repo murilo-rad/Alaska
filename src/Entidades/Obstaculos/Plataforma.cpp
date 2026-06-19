@@ -9,7 +9,14 @@ Alaska::Entidades::Obstaculos::Plataforma::Plataforma(float x, float y) : Obstac
     sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Plataforma::Plataforma() : Obstaculo(), largura(){}
+Alaska::Entidades::Obstaculos::Plataforma::Plataforma() : Obstaculo(0, 0, false), largura(L_PLAT)
+{
+    pFig = new sf::Texture();
+    pFig->loadFromFile("imgs/Plataforma.png");
+    sprite.setTexture(*pFig);
+    ajustarSprite(sprite, A_PLAT, largura);
+    sprite.setPosition(x, y);
+}
 
 Alaska::Entidades::Obstaculos::Plataforma::~Plataforma() {}
 

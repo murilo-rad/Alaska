@@ -3,7 +3,10 @@
 Alaska::Entidades::Obstaculos::Obstaculo::Obstaculo(float x, float y, bool dn) : 
 													Entidade(x, y, 0, 0), danoso(dn){}
 
-Alaska::Entidades::Obstaculos::Obstaculo::Obstaculo() : Entidade(), danoso(false){}
+Alaska::Entidades::Obstaculos::Obstaculo::Obstaculo() : Entidade(0, 0, 0, 0), danoso(false)
+{
+	
+}
 
 Alaska::Entidades::Obstaculos::Obstaculo::~Obstaculo(){}
 
