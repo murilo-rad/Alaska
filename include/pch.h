@@ -11,6 +11,9 @@
 #include <string.h>
 #include <sstream>
 #include <fstream>
+#include <map>
+#include <exception>
+
 
 #define GRAVIDADE 0.50f
 #define MAX_INI 5

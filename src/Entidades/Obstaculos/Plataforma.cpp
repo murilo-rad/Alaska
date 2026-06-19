@@ -29,9 +29,13 @@ void Alaska::Entidades::Obstaculos::Plataforma::executar()
 
 void Alaska::Entidades::Obstaculos::Plataforma::salvar()
 {
-    coletarDados();
-    Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer();
+    buffer.str("");
+    buffer.clear();
+
+    Plataforma::coletarDados();
+    Obstaculo::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Obstaculos::Plataforma::coletarDados()
 {

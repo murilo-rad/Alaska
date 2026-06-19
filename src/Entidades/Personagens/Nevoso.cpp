@@ -35,9 +35,13 @@ void Alaska::Entidades::Personagens::Nevoso::executar()
 
 void Alaska::Entidades::Personagens::Nevoso::salvar()
 {
-    coletarDados();
+    buffer.str("");
+    buffer.clear();
+
+    Nevoso::coletarDados();
     Inimigo::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Personagens::Nevoso::coletarDados()
 {
@@ -68,9 +72,9 @@ void Alaska::Entidades::Personagens::Nevoso::danificar(Alaska::Entidades::Person
     float centroNev = caixaNev.left + caixaNev.width / 2.f;
 
     if (centroJog < centroNev)
-        pJ->setX(pJogador->getX() - acumulacao*2);
+        pJ->setVelX(-acumulacao*2);
     else
-        pJ->setX(pJogador->getX() + acumulacao*2);
+        pJ->setVelX(acumulacao*2);
 }
 
 int Alaska::Entidades::Personagens::Nevoso::calcularAcumulacao()

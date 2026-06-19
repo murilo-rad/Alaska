@@ -104,6 +104,12 @@ void Alaska::Fases::Fase::criarCenario(short fase)
 	criarChao(fase);
 }
 
+void Alaska::Fases::Fase::carregarFaseSalva(short fase)
+{
+    criarFundo(fase);
+    lista_ents.carregarEntidades(pJogador1, pJogador2, GC);
+}
+
 void Alaska::Fases::Fase::criarChao(short fase)
 {
 	Alaska::Entidades::Chao* pChao;

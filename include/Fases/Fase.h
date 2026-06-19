@@ -38,6 +38,7 @@ namespace Alaska
                 ~Fase();
                 virtual void executar() = 0;
                 virtual void iniciarFase(short fase) = 0;
+                void carregarFaseSalva(short fase);
                 virtual bool faseTerminada() const;
                 bool const terminou();
                 bool const verificarJogadores() const;
