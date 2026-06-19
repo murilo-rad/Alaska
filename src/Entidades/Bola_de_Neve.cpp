@@ -8,6 +8,7 @@ Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Ab
     {
         pAbm = pA;
         pAbm->setBola(this);
+        setIdAbominavel(pAbm->getID());
         x = pAbm->getX();
         y = pAbm->getY();
     }
@@ -49,7 +50,7 @@ void Alaska::Entidades::Bola_de_Neve::salvar()
 
 void Alaska::Entidades::Bola_de_Neve::coletarDados()
 {
-    buffer << IND_BOLA << "," << pAbm->getID() << "," << ativo << "," << id << ",";
+    buffer << IND_BOLA << "," << idAbm << "," << ativo << "," << id << ",";
 }
 
 void Alaska::Entidades::Bola_de_Neve::setAtivo(bool a)

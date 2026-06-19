@@ -58,3 +58,4 @@ void Alaska::Listas::ListaEntidades::salvarEntidades()
             (*it)->salvar();
     }
 }
+
