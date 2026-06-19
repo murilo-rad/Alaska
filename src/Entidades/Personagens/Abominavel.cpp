@@ -2,7 +2,7 @@
 #include "Bola_de_Neve.h"
 
 Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska::Entidades::Personagens::Jogador* pJ)
-: Inimigo(x, y, 3, pJ), forca(calcularForca()), pBola(nullptr)
+: Inimigo(x, y, 3, pJ), forca(calcularForca()), pBola(nullptr), idBola(pBola->getID())
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Yeti.png");
@@ -10,7 +10,7 @@ Alaska::Entidades::Personagens::Abominavel::Abominavel(float x, float y, Alaska:
     ajustarSprite(sprite, T_ABO, T_ABO);
 }
 
-Alaska::Entidades::Personagens::Abominavel::Abominavel() : Inimigo(0, 0, 3, nullptr), forca(0), pBola(nullptr)
+Alaska::Entidades::Personagens::Abominavel::Abominavel() : Inimigo(0, 0, 3, nullptr), forca(0), pBola(nullptr), idBola(0)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Yeti.png");
@@ -48,6 +48,11 @@ void Alaska::Entidades::Personagens::Abominavel::salvar()
 void Alaska::Entidades::Personagens::Abominavel::coletarDados()
 {
     buffer << IND_ABM << "," << pBola->getID() << "," << forca << "," << id << ",";
+}
+
+void Alaska::Entidades::Personagens::Abominavel::setIdBola(int i)
+{
+    idBola = i;
 }
 
 void Alaska::Entidades::Personagens::Abominavel::setBola(Alaska::Entidades::Bola_de_Neve* pProj) 

@@ -62,6 +62,11 @@ void Alaska::Entidades::Bola_de_Neve::setAbominavel(Alaska::Entidades::Personage
     pAbm = pAbo;
 }
 
+void Alaska::Entidades::Bola_de_Neve::setIdAbominavel(int i)
+{
+    idAbm = i;
+}
+
 void Alaska::Entidades::Bola_de_Neve::mover()
 {
     if(ativo)
