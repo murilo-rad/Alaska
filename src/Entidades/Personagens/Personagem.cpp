@@ -15,6 +15,7 @@ void Alaska::Entidades::Personagens::Personagem::salvarDataBuffer()
     Entidade::salvarDataBuffer();
 }
 
+
 void Alaska::Entidades::Personagens::Personagem::coletarDados() 
 {
     buffer << num_vidas << "," << noChao << "," << vivo << ",";

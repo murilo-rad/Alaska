@@ -10,16 +10,18 @@ Alaska::Entidades::Obstaculos::Obstaculo::Obstaculo() : Entidade(0, 0, 0, 0), da
 
 Alaska::Entidades::Obstaculos::Obstaculo::~Obstaculo(){}
 
-void Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer() 
+void Alaska::Entidades::Obstaculos::Obstaculo::salvarDataBuffer()
 {
-	coletarDados();
-	Entidade::salvarDataBuffer();
+    Obstaculo::coletarDados();
+    Entidade::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Obstaculos::Obstaculo::coletarDados()
 {
-	buffer << danoso << "," << id << ",";
+    buffer << danoso << ",";
 }
+
 
 void Alaska::Entidades::Obstaculos::Obstaculo::setDanoso(bool d)
 {

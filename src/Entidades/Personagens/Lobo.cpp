@@ -33,11 +33,15 @@ void Alaska::Entidades::Personagens::Lobo::executar()
     verificarSaude();
 }
 
-void Alaska::Entidades::Personagens::Lobo::salvar() 
+void Alaska::Entidades::Personagens::Lobo::salvar()
 {
-    coletarDados();
+    buffer.str("");
+    buffer.clear();
+
+    Lobo::coletarDados();
     Inimigo::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Personagens::Lobo::coletarDados()
 {

@@ -1,8 +1,8 @@
 #include "Bola_de_Neve.h"
 #include "Abominavel.h"
 
-Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA) : 
-                                    ativo(false), pAbm(nullptr), Entidade(0, 0, 0, 0)
+Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Abominavel* pA) :
+                                    Entidade(0, 0, 0, 0), pAbm(nullptr), ativo(false), idAbm(0)
 {
     if(pA)
     {
@@ -18,7 +18,7 @@ Alaska::Entidades::Bola_de_Neve::Bola_de_Neve(Alaska::Entidades::Personagens::Ab
     ajustarSprite(sprite, T_BOLA, T_BOLA);
 }
 
-Alaska::Entidades::Bola_de_Neve::Bola_de_Neve() : ativo(false), pAbm(nullptr), Entidade(0,0,0,0)
+Alaska::Entidades::Bola_de_Neve::Bola_de_Neve() : Entidade(0,0,0,0), pAbm(nullptr), ativo(false), idAbm(0)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/BolaDeNeve.png");
@@ -44,9 +44,13 @@ void Alaska::Entidades::Bola_de_Neve::executar()
 
 void Alaska::Entidades::Bola_de_Neve::salvar()
 {
-    coletarDados();
+    buffer.str("");
+    buffer.clear();
+
+    Bola_de_Neve::coletarDados();
     Entidade::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Bola_de_Neve::coletarDados()
 {
@@ -61,7 +65,9 @@ void Alaska::Entidades::Bola_de_Neve::setAtivo(bool a)
 void Alaska::Entidades::Bola_de_Neve::setAbominavel(Alaska::Entidades::Personagens::Abominavel* pAbo)
 {
     pAbm = pAbo;
+    idAbm = pAbo ? pAbo->getID() : 0;
 }
+
 
 void Alaska::Entidades::Bola_de_Neve::setIdAbominavel(int i)
 {
@@ -87,6 +93,7 @@ void Alaska::Entidades::Bola_de_Neve::mover()
         sprite.setPosition(x,y);
     }
 }
+
 
 const bool Alaska::Entidades::Bola_de_Neve::getAtivo()const
 {

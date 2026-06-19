@@ -37,14 +37,19 @@ void Alaska::Entidades::Chao::executar()
 
 void Alaska::Entidades::Chao::salvar()
 {
-    coletarDados();
+    buffer.str("");
+    buffer.clear();
+
+    Chao::coletarDados();
     Entidade::salvarDataBuffer();
 }
 
+
 void Alaska::Entidades::Chao::coletarDados()
 {
-    buffer << fase << "," << id << ",";
+    buffer << IND_CHAO << "," << fase << "," << id << ",";
 }
+
 
 void Alaska::Entidades::Chao::setFase(short f)
 {

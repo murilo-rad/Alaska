@@ -33,9 +33,13 @@ void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::executar()
 
 void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::salvar()
 {
-   coletarDados();
-   Obstaculo::salvarDataBuffer();
+    buffer.str("");
+    buffer.clear();
+
+    Conjunto_Estalagmites::coletarDados();
+    Obstaculo::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Obstaculos::Conjunto_Estalagmites::coletarDados()
 {

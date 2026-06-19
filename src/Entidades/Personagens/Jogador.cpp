@@ -37,9 +37,13 @@ void Alaska::Entidades::Personagens::Jogador::executar()
 
 void Alaska::Entidades::Personagens::Jogador::salvar()
 {
-    coletarDados();
-    Alaska::Entidades::Personagens::Personagem::salvarDataBuffer();
+    buffer.str("");
+    buffer.clear();
+
+    Jogador::coletarDados();
+    Personagem::salvarDataBuffer();
 }
+
 
 void Alaska::Entidades::Personagens::Jogador::coletarDados()
 {

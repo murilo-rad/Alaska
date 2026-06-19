@@ -7,20 +7,26 @@ Alaska::Entidades::Entidade::~Entidade(){}
 
 void Alaska::Entidades::Entidade::salvarDataBuffer()
 {
-    std::ofstream arquivo("../../../save/arquivo_de_salvamento.txt", std::ios::trunc);
-    if (arquivo.is_open()) 
+    buffer.str("");
+    buffer.clear();
+
+    Entidade::coletarDados();
+    std::ofstream arquivo("../../../save/arquivo_de_salvamento.txt", std::ios::app);
+
+    if (arquivo.is_open())
     {
-        printf("arquivo encontrado\n");
-        coletarDados();
         arquivo << buffer.str() << "\n";
         arquivo.close();
     }
-    else 
+    else
+    {
         printf("Erro: Nao foi possivel abrir o arquivo.\n");
+    }
 
     buffer.str("");
     buffer.clear();
 }
+
 
 void Alaska::Entidades::Entidade::coletarDados() 
 {
@@ -58,6 +64,7 @@ void Alaska::Entidades::Entidade::setVelX(const float velXx)
 {
     velX = velXx;
 }
+
 
 const float Alaska::Entidades::Entidade::getVelX()const
 {
