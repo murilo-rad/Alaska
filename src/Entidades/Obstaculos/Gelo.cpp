@@ -1,6 +1,6 @@
 #include "Gelo.h"
 
-Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y, false), atrito(0.1f)
+Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y, false), atrito(0.5f)
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Gelo.png");
@@ -9,7 +9,7 @@ Alaska::Entidades::Obstaculos::Gelo::Gelo(float x, float y) : Obstaculo(x, y, fa
     sprite.setPosition(x, y);
 }
 
-Alaska::Entidades::Obstaculos::Gelo::Gelo() : Obstaculo(0, 0, false), atrito(0.1f) 
+Alaska::Entidades::Obstaculos::Gelo::Gelo() : Obstaculo(0, 0, false), atrito(0.5f) 
 {
     pFig = new sf::Texture();
     pFig->loadFromFile("imgs/Gelo.png");
@@ -58,10 +58,10 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizar(Alaska::Entidades::Person
             {
                 pJ->setY(caixaGelo.top - caixaJogador.height);
                 pJ->setVelY(0.0f);
-                if (pJ->getVelX() > 0)
-                    pJ->setVelX(pJ->getVelX() + atrito);
-                else if (pJ->getVelX() < 0)
-                    pJ->setVelX(pJ->getVelX() - atrito);
+                if (pJ->getVelX() != 0.0f)
+                {
+                    pJ->setX(pJ->getX() + pJ->getVelX() * atrito);
+                }
                 pJ->setNoChao(false);
             }
             else if (pJ->getVelY() < 0 && caixaJogador.top > caixaGelo.top)
@@ -94,10 +94,10 @@ void Alaska::Entidades::Obstaculos::Gelo::obstaculizarInimigo(Alaska::Entidades:
             {
                 pI->setY(caixaGelo.top - caixaInimigo.height);
                 pI->setVelY(0.0f);
-                if (pI->getVelX() > 0)
-                    pI->setVelX(pI->getVelX() + atrito);
-                else if (pI->getVelX() < 0)
-                    pI->setVelX(pI->getVelX() - atrito);
+                if (pI->getVelX() != 0.0f)
+                {
+                    pI->setX(pI->getX() + pI->getVelX() * atrito);
+                }
                 pI->setNoChao(false);
             }
             else if (pI->getVelY() < 0 && caixaInimigo.top > caixaGelo.top)
