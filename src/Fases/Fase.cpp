@@ -117,6 +117,18 @@ void Alaska::Fases::Fase::carregarFaseSalva(short fase)
     lista_ents.carregarEntidades(pJogador1, pJogador2, GC);
 }
 
+void Alaska::Fases::Fase::desenharEstadoAtual()
+{
+    if (pFundo)
+        pFundo->executar();
+    lista_ents.desenharEntidades();
+}
+
+void Alaska::Fases::Fase::salvarEstado()
+{
+    lista_ents.salvarEntidades();
+}
+
 void Alaska::Fases::Fase::criarChao(short fase)
 {
 	Alaska::Entidades::Chao* pChao;

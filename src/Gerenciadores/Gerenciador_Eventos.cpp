@@ -1,4 +1,5 @@
 #include "Gerenciador_Eventos.h"
+#include "Menu.h"
 
 Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos() : janela(nullptr), pJogador1(nullptr), pJogador2(nullptr), pMenu(nullptr) {}
 
@@ -40,15 +41,24 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
             {
                 if (evento.key.code == sf::Keyboard::Up)
                     pMenu->mudarOpcao(-1);
-
-                if (evento.key.code == sf::Keyboard::Down)
+                    else if (evento.key.code == sf::Keyboard::Down)
                     pMenu->mudarOpcao(1);
-
-                if (evento.key.code == sf::Keyboard::Enter)
+                    else if (evento.key.code == sf::Keyboard::Enter)
                     pMenu->confirmarOpcao();
             }
         }
+            else
+            {
+                if (evento.key.code == sf::Keyboard::P)
+                    botaoPause = true;
+                else if (evento.key.code == sf::Keyboard::M)
+                    botaoSalvar = true;
+            }
+        }
     }
+
+    if (!processarInputsJogadores || pMenu)
+        return;
 
     if (pJogador1)
     {
@@ -87,5 +97,6 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
             pJogador2->setVelY(-14.0f);
             pJogador2->setNoChao(false);
         }
+    }
     }
 }
