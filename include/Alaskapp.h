@@ -38,6 +38,11 @@ namespace Alaska
         TipoFase faseEscolhida;
         EstadoJogo estado;
         int qntd_pontos;
+        int qntdJogadores;
+        bool pausado;
+        bool faseCarregadaDeSave;
+        float tempoPartidaSegundos;
+
     public:
         Alaskapp();
         ~Alaskapp();
@@ -55,5 +60,6 @@ namespace Alaska
     private:
         void executarFase(Alaska::Gerenciadores::Gerenciador_Eventos& GE);
         Fases::Fase* criarFase(short numFase);
+        void limparJogadores();
     };
 }
