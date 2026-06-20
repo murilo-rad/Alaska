@@ -1,7 +1,7 @@
 #include "Gerenciador_Eventos.h"
 #include "Menu.h"
 
-Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos() : janela(nullptr), pJogador1(nullptr), pJogador2(nullptr), pMenu(nullptr) {}
+Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos()
 
 Alaska::Gerenciadores::Gerenciador_Eventos::~Gerenciador_Eventos(){}
 
@@ -22,7 +22,7 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::setMenu(Alaska::Menu* pM)
     pMenu = pM;
 }
 
-void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
+void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos(bool processarInputsJogadores)
 {
     if (!janela) return;
 
@@ -98,5 +98,18 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos()
             pJogador2->setNoChao(false);
         }
     }
+}
+
+bool Alaska::Gerenciadores::Gerenciador_Eventos::pause()
+{
+    const bool valor = botaoPause;
+    botaoPause = false;
+    return valor;
     }
+
+bool Alaska::Gerenciadores::Gerenciador_Eventos::salvaEstadoAtual()
+{
+    const bool valor = botaoSalvar;
+    botaoSalvar = false;
+    return valor;
 }
