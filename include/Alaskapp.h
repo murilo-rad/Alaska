@@ -6,7 +6,6 @@
 #include "Fase.h"
 #include "Tundra.h"
 #include "Caverna.h"
-#include "Menu.h"
 
 namespace Alaska
 {
