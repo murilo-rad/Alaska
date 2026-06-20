@@ -4,7 +4,10 @@
 
 using namespace Alaska;
 
-Alaska::Alaskapp::Alaskapp() : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSelecionada(nullptr), pFase(nullptr), faseEscolhida(TipoFase::NENHUMA), estado(EstadoJogo::MENU), qntd_pontos(0)
+Alaska::Alaskapp::Alaskapp()
+    : GG(), pJog1(nullptr), pJog2(nullptr), pFaseSelecionada(nullptr), pFase(nullptr),
+      faseEscolhida(TipoFase::NENHUMA), estado(EstadoJogo::MENU), qntd_pontos(0),
+      qntdJogadores(0), pausado(false), faseCarregadaDeSave(false), tempoPartidaSegundos(0.0f)
 {
     executar();
 }
@@ -43,6 +46,15 @@ void Alaskapp::executar()
 void Alaska::Alaskapp::sementear()
 {
     srand(time(NULL));
+}
+
+void Alaska::Alaskapp::limparJogadores()
+{
+    delete pJog1;
+    delete pJog2;
+    pJog1 = nullptr;
+    pJog2 = nullptr;
+    qntdJogadores = 0;
 }
 
 void Alaska::Alaskapp::criarJogadores(int qntd)
