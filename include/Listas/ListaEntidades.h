@@ -80,6 +80,7 @@ namespace Alaska
 
                 void incluir(Entidades::Entidade* pE);
                 void percorrer();
+                void desenharEntidades();
                 void cemiterio();
                 void salvarEntidades();
                 void remover(Entidades::Entidade* pE);

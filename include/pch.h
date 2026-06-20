@@ -8,11 +8,18 @@
 #include <time.h>
 #include <cmath>
 #include <windows.h>
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 #include <string.h>
 #include <sstream>
 #include <fstream>
 #include <map>
 #include <exception>
+#include <iomanip>
+#include <algorithm>
 
 
 #define GRAVIDADE 0.50f
@@ -57,3 +64,17 @@
 #define IND_ABM 7
 #define IND_BOLA 8
 #define IND_JOG 9
+
+#define CAMINHO_SAVE "save/arquivo_de_salvamento.txt"
+#define CAMINHO_META_SAVE "save/meta_save.txt"
+#define CAMINHO_LEADERBOARD "save/leaderboard.txt"
+#define MAX_LEADERBOARD 10
+
+inline void garantirPastaSaveAlaska()
+{
+#ifdef _WIN32
+    _mkdir("save");
+#else
+    mkdir("save", 0755);
+#endif
+}

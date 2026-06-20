@@ -43,6 +43,15 @@ void Alaska::Listas::ListaEntidades::percorrer()
     }
 }
 
+void Alaska::Listas::ListaEntidades::desenharEntidades()
+{
+    for (Lista<Alaska::Entidades::Entidade *>::Iterador it = LEs.begin(); it != LEs.end(); ++it)
+    {
+        if (*it)
+            (*it)->desenhar();
+    }
+}
+
 void Alaska::Listas::ListaEntidades::cemiterio()
 {
     for (Lista<Alaska::Entidades::Entidade *>::Iterador it = LEs.begin(); it != LEs.end();)
@@ -62,7 +71,8 @@ void Alaska::Listas::ListaEntidades::cemiterio()
 
 void Alaska::Listas::ListaEntidades::salvarEntidades()
 {
-    std::ofstream limpar("../save/arquivo_de_salvamento.txt", std::ios::trunc);
+    garantirPastaSaveAlaska();
+    std::ofstream limpar(CAMINHO_SAVE, std::ios::trunc);
     limpar.close();
 
     for (Lista<Alaska::Entidades::Entidade *>::Iterador it = LEs.begin(); it != LEs.end(); ++it)
@@ -171,7 +181,7 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
     Alaska::Entidades::Personagens::Jogador *pJogador2,
     Alaska::Gerenciadores::Gerenciador_Colisoes *pGC)
 {
-    std::ifstream arquivo("../../../save/arquivo_de_salvamento.txt");
+    std::ifstream arquivo(CAMINHO_SAVE);
 
     if (!arquivo.is_open())
     {
@@ -295,11 +305,8 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_NEV:
             {
-                // IND_NEV, acumulacao, id,
-                // nivel_maldade, idJogador, velocidade,
-                // num_vidas, noChao, vivo,
-                // x, y, velX, velY
-                if (d.size() < 13)
+                // IND_NEV, acumulacao, id, nivel_maldade, idJogador, velocidade,
+                if (d.size() < 10)
                 {
                     printf("Erro: dados incompletos para Nevoso.\n");
                     break;
@@ -313,8 +320,16 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                 pNevoso->setID(id);
 
                 restaurarInimigo(pNevoso, d, 3, idJogador);
-                restaurarPersonagem(pNevoso, d, 6);
-                restaurarEntidade(pNevoso, d, 9);
+
+                if (d.size() >= 13)
+                {
+                    restaurarPersonagem(pNevoso, d, 6);
+                    restaurarEntidade(pNevoso, d, 9);
+                }
+                else
+                {
+                    restaurarEntidade(pNevoso, d, 6);
+                }
 
                 const float tamanho = paraFloat(d[1]);
                 if (tamanho > 0.0f)
@@ -327,11 +342,8 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_LOBO:
             {
-                // IND_LOBO, voracidade, id,
-                // nivel_maldade, idJogador, velocidade,
-                // num_vidas, noChao, vivo,
-                // x, y, velX, velY
-                if (d.size() < 13)
+                // IND_LOBO, voracidade, id, nivel_maldade, idJogador, velocidade,
+                if (d.size() < 10)
                 {
                     printf("Erro: dados incompletos para Lobo.\n");
                     break;
@@ -345,8 +357,16 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                 pLobo->setID(id);
 
                 restaurarInimigo(pLobo, d, 3, idJogador);
-                restaurarPersonagem(pLobo, d, 6);
-                restaurarEntidade(pLobo, d, 9);
+
+                if (d.size() >= 13)
+                {
+                    restaurarPersonagem(pLobo, d, 6);
+                    restaurarEntidade(pLobo, d, 9);
+                }
+                else
+                {
+                    restaurarEntidade(pLobo, d, 6);
+                }
 
                 relacoesInimigoJogador.push_back({pLobo, idJogador});
                 pEntidade = pLobo;
@@ -355,11 +375,8 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_ABM:
             {
-                // IND_ABM, idBola, forca, id,
-                // nivel_maldade, idJogador, velocidade,
-                // num_vidas, noChao, vivo,
-                // x, y, velX, velY
-                if (d.size() < 14)
+                // IND_ABM, idBola, forca, id, nivel_maldade, idJogador, velocidade,
+                if (d.size() < 11)
                 {
                     printf("Erro: dados incompletos para Abominavel.\n");
                     break;
@@ -375,8 +392,16 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                 pAbo->setID(id);
 
                 restaurarInimigo(pAbo, d, 4, idJogador);
-                restaurarPersonagem(pAbo, d, 7);
-                restaurarEntidade(pAbo, d, 10);
+
+                if (d.size() >= 14)
+                {
+                    restaurarPersonagem(pAbo, d, 7);
+                    restaurarEntidade(pAbo, d, 10);
+                }
+                else
+                {
+                    restaurarEntidade(pAbo, d, 7);
+                }
 
                 relacoesInimigoJogador.push_back({pAbo, idJogador});
                 relacoesAbominavelBola.push_back({pAbo, idBola});
