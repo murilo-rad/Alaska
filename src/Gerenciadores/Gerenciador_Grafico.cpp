@@ -4,6 +4,7 @@ Alaska::Gerenciadores::Gerenciador_Grafico::Gerenciador_Grafico()
 {
     janela = new sf::RenderWindow(sf::VideoMode(static_cast<int>(L_TELA), static_cast<int>(A_TELA)), "Demo Alaska");
     janela->setFramerateLimit(60);
+    janela->setKeyRepeatEnabled(false);
 
     fontMenu.loadFromFile("fonts/Roboto/static/Roboto-Regular.ttf");
     text.setFont(fontMenu);
@@ -41,7 +42,7 @@ void Alaska::Gerenciadores::Gerenciador_Grafico::desenharTituloMenu(const sf::St
 {
     text.setString(pStrTitulo);
     text.setCharacterSize(72);
-    text.setFillColor(sf::Color::White);
+    text.setFillColor(sf::Color::Black);
     text.setPosition(300.f, 150.f);
     if (janela && janela->isOpen())
         janela->draw(text);
@@ -53,7 +54,7 @@ void Alaska::Gerenciadores::Gerenciador_Grafico::desenharOpcaoMenu(const sf::Str
 
     text.setString(pStrOpcao);
     text.setCharacterSize(36);
-    text.setFillColor(selecionado ? sf::Color::Yellow : sf::Color::White);
+    text.setFillColor(selecionado ? sf::Color::Cyan : sf::Color::Black);
     text.setPosition(340.f, BASE_Y + indice * ESPACAMENTO);
     if (janela && janela->isOpen())
         janela->draw(text);
@@ -79,3 +80,37 @@ sf::RenderWindow* Alaska::Gerenciadores::Gerenciador_Grafico::getJanela()
     return janela;
 }
 
+
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharTextoMenu(const sf::String& textoMenu, float x, float y, unsigned int tamanho, sf::Color cor)
+{
+    text.setString(textoMenu);
+    text.setCharacterSize(tamanho);
+    text.setFillColor(cor);
+    text.setPosition(x, y);
+
+    if (janela && janela->isOpen())
+        janela->draw(text);
+}
+
+void Alaska::Gerenciadores::Gerenciador_Grafico::desenharOverlayPausa()
+{
+    if (!janela || !janela->isOpen())
+        return;
+
+    sf::RectangleShape overlay(sf::Vector2f(L_TELA, A_TELA));
+    overlay.setFillColor(sf::Color(0, 0, 0, 140));
+    overlay.setPosition(0.f, 0.f);
+    janela->draw(overlay);
+
+    text.setString("PAUSE");
+    text.setCharacterSize(86);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(530.f, 300.f);
+    janela->draw(text);
+
+    text.setString("Pressione P para continuar");
+    text.setCharacterSize(28);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(500.f, 405.f);
+    janela->draw(text);
+}
