@@ -14,9 +14,7 @@ namespace Alaska
             sf::RenderWindow* janela;
             Alaska::Entidades::Personagens::Jogador* pJogador1;
             Alaska::Entidades::Personagens::Jogador* pJogador2;
-            Alaska::Menu* pMenu;
-            bool botaoPause;
-            bool botaoSalvar;
+			Alaska::Menu* pMenu;
 
         public:
             Gerenciador_Eventos();
@@ -25,9 +23,7 @@ namespace Alaska
             void setJanela(sf::RenderWindow* pJ);
             void setJogadores(Alaska::Entidades::Personagens::Jogador* pJ, Alaska::Entidades::Personagens::Jogador* pJ2);
             void setMenu(Alaska::Menu* pM);
-            void verificarEventos(bool processarInputsJogadores = true);
-            bool pause();
-            bool salvaEstadoAtual();
+            void verificarEventos();
         };
 
     }
