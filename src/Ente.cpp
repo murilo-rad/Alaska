@@ -27,6 +27,9 @@ sf::Sprite* Alaska::Ente::getSprite()
 void Alaska::Ente::setID(int i)
 {
     id = i;
+
+    if (i >= I)
+        I = i + 1;
 }
 
 const int Alaska::Ente::getID()const

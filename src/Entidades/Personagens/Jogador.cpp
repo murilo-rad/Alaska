@@ -9,7 +9,7 @@ Alaska::Entidades::Personagens::Jogador::Jogador() : Personagem(100.0f, 500, 0.0
     ajustarSprite(sprite, T_JOG, T_JOG);
 }
 
-Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0), nome("Padrao")
+Alaska::Entidades::Personagens::Jogador::Jogador(int num) : Personagem(100.0f, 500, 0.0f, 0.0f, 5), pontos(0), nome("Eitaa")
 {
     pFig = new sf::Texture();
     printf("novo jogador (%d)\n", num);
@@ -68,6 +68,11 @@ void Alaska::Entidades::Personagens::Jogador::addPontos(int qtd)
 void Alaska::Entidades::Personagens::Jogador::setNome(std::string n)
 {
     nome = n;
+}
+
+const std::string& Alaska::Entidades::Personagens::Jogador::getNome() const
+{
+    return nome;
 }
 
 void Alaska::Entidades::Personagens::Jogador::mover()

@@ -28,6 +28,7 @@ namespace Alaska
                     void addPontos(int qtd);
 
                     void setNome(std::string n);
+                    const std::string& getNome() const;
 
                     void resetar();
                     void mover();

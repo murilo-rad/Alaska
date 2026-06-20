@@ -21,7 +21,7 @@ Alaska::Entidades::Personagens::Inimigo::~Inimigo()
 void Alaska::Entidades::Personagens::Inimigo::salvarDataBuffer()
 {
     Inimigo::coletarDados();
-    Entidade::salvarDataBuffer();
+    Personagem::salvarDataBuffer();
 }
 
 
