@@ -2,6 +2,8 @@
 #include "Menu.h"
 
 Alaska::Gerenciadores::Gerenciador_Eventos::Gerenciador_Eventos()
+    : janela(nullptr), pJogador1(nullptr), pJogador2(nullptr), pMenu(nullptr),
+      botaoPause(false), botaoSalvar(false) {}
 
 Alaska::Gerenciadores::Gerenciador_Eventos::~Gerenciador_Eventos(){}
 
@@ -13,8 +15,7 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::setJanela(sf::RenderWindow* pJ)
 void Alaska::Gerenciadores::Gerenciador_Eventos::setJogadores(Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2)
 {
     pJogador1 = pJ1;
-    if(pJ2)
-	    pJogador2 = pJ2;
+    pJogador2 = pJ2;
 }
 
 void Alaska::Gerenciadores::Gerenciador_Eventos::setMenu(Alaska::Menu* pM)
@@ -32,6 +33,9 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos(bool processar
         if (evento.type == sf::Event::Closed)
             janela->close();
 
+        if (pMenu && evento.type == sf::Event::TextEntered)
+            pMenu->receberTexto(evento.text.unicode);
+
         if (evento.type == sf::Event::KeyPressed)
         {
             if (evento.key.code == sf::Keyboard::Escape)
@@ -39,15 +43,24 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos(bool processar
 
             if (pMenu)
             {
-                if (evento.key.code == sf::Keyboard::Up)
-                    pMenu->mudarOpcao(-1);
-                    else if (evento.key.code == sf::Keyboard::Down)
-                    pMenu->mudarOpcao(1);
+                if (pMenu->estaDigitandoNome())
+                {
+                    if (evento.key.code == sf::Keyboard::BackSpace)
+                        pMenu->apagarCaractere();
                     else if (evento.key.code == sf::Keyboard::Enter)
-                    pMenu->confirmarOpcao();
+                        pMenu->confirmarNomeDigitado();
+                }
+                else
+                {
+                    if (evento.key.code == sf::Keyboard::Up)
+                        pMenu->mudarOpcao(-1);
+                    else if (evento.key.code == sf::Keyboard::Down)
+                        pMenu->mudarOpcao(1);
+                    else if (evento.key.code == sf::Keyboard::Enter)
+                        pMenu->confirmarOpcao();
+                }
             }
-        }
-            else
+            else 
             {
                 if (evento.key.code == sf::Keyboard::P)
                     botaoPause = true;
@@ -77,8 +90,6 @@ void Alaska::Gerenciadores::Gerenciador_Eventos::verificarEventos(bool processar
             pJogador1->setVelY(-14.0f);
             pJogador1->setNoChao(false);
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
-            pJogador1->salvar();
     }
     if (pJogador2)
     {
@@ -105,7 +116,7 @@ bool Alaska::Gerenciadores::Gerenciador_Eventos::pause()
     const bool valor = botaoPause;
     botaoPause = false;
     return valor;
-    }
+}
 
 bool Alaska::Gerenciadores::Gerenciador_Eventos::salvaEstadoAtual()
 {
