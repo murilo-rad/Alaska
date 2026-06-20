@@ -1,66 +1,90 @@
 #pragma once
 #include "pch.h"
 #include "Ente.h"
-#include "Alaskapp.h"
-#include "Gerenciador_Eventos.h"
 #include <functional>
 
-namespace Alaska {
-	class Alaskapp;
-	namespace Gerenciadores { class Gerenciador_Eventos; }
+namespace Alaska
+{
+    class Alaskapp;
+    namespace Gerenciadores
+    {
+        class Gerenciador_Eventos;
+    }
 
-	enum class EstadoMenu {
-		EscolherJogadores,
-		EscolherFase,
-		NomeJogador1,
-		NomeJogador2
-	};
+    enum class EstadoMenu
+    {
+        Principal,
+        EscolherFase,
+        NomeJogador1,
+        NomeJogador2,
+        Leaderboard
+    };
 
-	struct OpcaoMenu;
+    struct OpcaoMenu;
 
-	class Menu : public Ente
-	{
-	private:
-		Alaska::Alaskapp* pAlaskapp;
-		Alaska::Gerenciadores::Gerenciador_Eventos* pEventos;
-		std::vector<OpcaoMenu> opcoes;
-		int opcaoSelecionada;
-		bool ativo;
+    class Menu : public Ente
+    {
+    private:
+        Alaska::Alaskapp *pAlaskapp;
+        Alaska::Gerenciadores::Gerenciador_Eventos *pEventos;
+        std::vector<OpcaoMenu> opcoes;
+        std::vector<std::string> linhasLeaderboard;
+        EstadoMenu estadoMenu;
+        std::string textoDigitado;
+        std::string mensagemRodape;
+        sf::Texture texturaFundo;
+        sf::Sprite spriteFundo;
+        bool fundoCarregado;
+        int opcaoSelecionada;
+        int quantidadeJogadoresSelecionada;
+        bool ativo;
 
-	public:
-		Menu(Alaska::Alaskapp* pAlaskapp, Alaska::Gerenciadores::Gerenciador_Eventos* pEventos);
-		~Menu();
-		void executar();
-		void confirmarOpcao();
-		void mudarOpcao(int direcao);
-		int getOpcao() const { return opcaoSelecionada; }
-		void reset();
-		void desenhar();
-		void carregarMenuPrincipal();
-		void carregarMenuFases();
-		void adicionarOpcao(const std::string& texto, void (Menu::*acao)());
+    public:
+        Menu(Alaska::Alaskapp *pAlaskapp, Alaska::Gerenciadores::Gerenciador_Eventos *pEventos);
+        ~Menu();
+        void executar();
+        void confirmarOpcao();
+        void mudarOpcao(int direcao);
+        int getOpcao() const { return opcaoSelecionada; }
+        void reset();
+        void desenhar();
+        void carregarMenuPrincipal();
+        void carregarMenuFases();
+        void carregarMenuLeaderboard();
+        void adicionarOpcao(const std::string &texto, void (Menu::*acao)());
 
-		void subir();
-		void descer();
+        bool estaDigitandoNome() const;
+        void receberTexto(sf::Uint32 unicode);
+        void apagarCaractere();
+        void confirmarNomeDigitado();
 
-		void acaoUmJogador();
-		void acaoDoisJogadores();
+        void subir();
+        void descer();
 
-		void acaoTundra();
-		void acaoCaverna();
+        void acaoUmJogador();
+        void acaoDoisJogadores();
+        void acaoCarregarJogo();
 
-		void acaoScoreboard();
-		void acaoVoltarPrincipal();
+        void acaoTundra();
+        void acaoCaverna();
 
-		void acaoSair();
+        void acaoScoreboard();
+        void acaoVoltarPrincipal();
 
-	};
+        void acaoSair();
 
-	struct OpcaoMenu
-	{
-		std::string texto;
-		void (Menu::* acao)();
-	};
+    private:
+        void carregarFundo();
+        void desenharFundo();
+        void carregarTelaNomeJogador(int indiceJogador);
+        void desenharInputNome();
+        void desenharLeaderboard();
+    };
+
+    struct OpcaoMenu
+    {
+        std::string texto;
+        void (Menu::*acao)();
+    };
 
 }
-
