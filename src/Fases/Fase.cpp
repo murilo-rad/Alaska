@@ -1,12 +1,12 @@
 #include "Fase.h"
 #include "Gerenciador_Grafico.h"
 
-Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
+Alaska::Fases::Fase::Fase() : max_Nevosos(0), max_Plataformas(0), concluida(false), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
 {
 }
 
 Alaska::Fases::Fase::Fase(int n, int p, Alaska::Entidades::Personagens::Jogador* pJ1, Alaska::Entidades::Personagens::Jogador* pJ2)
-    : max_Nevosos(n), max_Plataformas(p), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
+    : max_Nevosos(n), max_Plataformas(p), concluida(false), pJogador1(nullptr), pJogador2(nullptr), GC(nullptr), pFundo(nullptr)
 {
     if(pJ1)
         pJogador1 = pJ1;

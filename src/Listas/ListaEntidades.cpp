@@ -305,7 +305,9 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_NEV:
             {
+                // Formato atual:
                 // IND_NEV, acumulacao, id, nivel_maldade, idJogador, velocidade,
+                // num_vidas, noChao, vivo, x, y, velX, velY
                 if (d.size() < 10)
                 {
                     printf("Erro: dados incompletos para Nevoso.\n");
@@ -342,7 +344,10 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_LOBO:
             {
+                // Formato atual:
                 // IND_LOBO, voracidade, id, nivel_maldade, idJogador, velocidade,
+                // num_vidas, noChao, vivo, x, y, velX, velY
+                // Formato antigo quebrado: sem num_vidas/noChao/vivo.
                 if (d.size() < 10)
                 {
                     printf("Erro: dados incompletos para Lobo.\n");
@@ -375,7 +380,10 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
             case IND_ABM:
             {
+                // Formato atual:
                 // IND_ABM, idBola, forca, id, nivel_maldade, idJogador, velocidade,
+                // num_vidas, noChao, vivo, x, y, velX, velY
+                // Formato antigo quebrado: sem num_vidas/noChao/vivo.
                 if (d.size() < 11)
                 {
                     printf("Erro: dados incompletos para Abominavel.\n");

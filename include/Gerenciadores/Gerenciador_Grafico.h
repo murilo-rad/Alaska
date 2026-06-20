@@ -26,6 +26,8 @@ namespace Alaska
             void desenharTexto(sf::Text* pTexto);
 			void desenharTituloMenu(const sf::String& pStrTitulo);
 			void desenharOpcaoMenu(const sf::String& pStrOpcao, int indice, bool selecionado);
+            void desenharTextoMenu(const sf::String& texto, float x, float y, unsigned int tamanho, sf::Color cor = sf::Color::Black);
+            void desenharOverlayPausa();
             void limpar();
             void mostrar();
             void mostrarPontos(int pontos);

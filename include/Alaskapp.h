@@ -34,7 +34,7 @@ namespace Alaska
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
         Alaska::Entidades::Personagens::Jogador* pJog2;
-		Alaska::Fases::Fase* pFase;
+        Alaska::Fases::Fase* pFase;
         TipoFase faseEscolhida;
         EstadoJogo estado;
         int qntd_pontos;
@@ -50,16 +50,23 @@ namespace Alaska
         void executar();
         void setFaseEscolhida(Alaska::TipoFase fase) { faseEscolhida = fase; }
         void sementear();
-		void setFaseSelecionada(Alaska::Fases::Fase* fase) { pFaseSelecionada = fase; }
+        void setFaseSelecionada(Alaska::Fases::Fase* fase) { pFaseSelecionada = fase; }
         Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
         Alaska::Entidades::Personagens::Jogador* getPJog2() const { return pJog2; }
         void criarJogadores(int qntd);
+        void setNomeJogador(int indice, const std::string& nome);
         bool verificarJogadores() const;
         void executarMenu(Alaska::Menu* pMenu, Alaska::Gerenciadores::Gerenciador_Eventos& GE);
         void criarFaseSelecionada();
+        bool salvarJogoAtual();
+        bool carregarJogoSalvo();
+        std::vector<std::string> carregarLeaderboardTexto(int limite = MAX_LEADERBOARD) const;
+
     private:
         void executarFase(Alaska::Gerenciadores::Gerenciador_Eventos& GE);
         Fases::Fase* criarFase(short numFase);
+        void registrarResultadoLeaderboard();
+        int getNumeroFaseAtual() const;
         void limparJogadores();
     };
 }
