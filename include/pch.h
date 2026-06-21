@@ -20,6 +20,7 @@
 #include <exception>
 #include <iomanip>
 #include <algorithm>
+#include <stdio.h>
 
 
 #define GRAVIDADE 0.50f
