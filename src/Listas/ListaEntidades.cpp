@@ -550,6 +550,5 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
             }
         }
     }
-
     printf("Entidades carregadas com sucesso.\n");
 }
