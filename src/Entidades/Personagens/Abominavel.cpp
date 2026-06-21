@@ -118,7 +118,7 @@ void Alaska::Entidades::Personagens::Abominavel::arremessar()
     if(pBola)
         if(!pBola->getAtivo())
         {
-            printf("bola arremssada\n");
+            printf("bola arremessada\n");
             pBola->setAtivo(true);
             pBola->setVelX((float)(getForca() * 5));
         }

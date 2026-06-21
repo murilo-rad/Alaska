@@ -43,15 +43,12 @@ namespace Alaska
                         bool operator!=(const Iterador& it);
                 };
 
-            private:
-                Elemento<TL>* buscar(TL elemento);
             public:
                 Lista();
                 ~Lista();
                 void inserirNoFim(TL elemento);
                 void removerE(TL elemento);
 				void limpar();
-                bool contem(TL elemento);
                 Elemento<TL>* getPrimeiro()const;
                 Elemento<TL>* getUltimo()const;
                 Iterador begin();
@@ -166,32 +163,21 @@ Alaska::Listas::Lista<TL>::Lista(): l_primeiro(nullptr), l_ultimo(nullptr){}
 template <class TL>
 Alaska::Listas::Lista<TL>::~Lista() 
 {
-    Elemento<TL>* elementoAtual = this->getPrimeiro(); 
-    Elemento<TL>* temporario;
-
-    while (elementoAtual != nullptr) 
-    {
-        temporario = elementoAtual;
-        elementoAtual = elementoAtual->getProximo();
-        delete temporario;
-    }
+    limpar();
 }
 
-
-//implementar limpar
-
 template <class TL>
-typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::buscar(TL elemento) 
+void Alaska::Listas::Lista<TL>::limpar()
 {
-    Elemento<TL>* temporario = l_primeiro;
-
-    while (temporario != nullptr) 
+    Elemento<TL>* atual = l_primeiro;
+    while (atual)
     {
-        if (temporario->getDado() == elemento)
-            return temporario;
-        temporario = temporario->getProximo();
+        Elemento<TL>* tmp = atual;
+        atual = atual->getProximo();
+        delete tmp;
     }
-    return nullptr;
+    l_primeiro = nullptr;
+    l_ultimo = nullptr;
 }
 
 template <class TL>
@@ -237,13 +223,6 @@ void Alaska::Listas::Lista<TL>::removerE(TL elemento)
 }
 
 template <class TL>
-bool Alaska::Listas::Lista<TL>::contem(TL elemento) 
-{
-    Elemento<TL>* temporario = buscar(elemento);
-    return temporario != nullptr;
-}
-
-template <class TL>
 typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::getPrimeiro()const 
 {
     return l_primeiro;
@@ -253,18 +232,4 @@ template <class TL>
 typename Alaska::Listas::Lista<TL>::template Elemento<TL>* Alaska::Listas::Lista<TL>::getUltimo()const 
 {
     return l_ultimo;
-}
-
-template <class TL>
-void Alaska::Listas::Lista<TL>::limpar()
-{
-    Elemento<TL>* atual = l_primeiro;
-    while (atual)
-    {
-        Elemento<TL>* tmp = atual;
-        atual = atual->getProximo();
-        delete tmp;
-    }
-    l_primeiro = nullptr;
-    l_ultimo = nullptr;
 }
