@@ -65,9 +65,9 @@
 #define IND_BOLA 8
 #define IND_JOG 9
 
-#define CAMINHO_SAVE "save/arquivo_de_salvamento.txt"
-#define CAMINHO_META_SAVE "save/meta_save.txt"
-#define CAMINHO_LEADERBOARD "save/leaderboard.txt"
+#define CAMINHO_SAVE "save/arquivo_de_salvamento.csv"
+#define CAMINHO_META_SAVE "save/meta_save.csv"
+#define CAMINHO_LEADERBOARD "save/leaderboard.csv"
 #define MAX_LEADERBOARD 10
 
 inline void garantirPastaSaveAlaska()
