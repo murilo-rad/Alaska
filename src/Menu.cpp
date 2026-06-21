@@ -85,12 +85,12 @@ void Menu::mudarOpcao(int direcao)
 
 void Menu::desenhar()
 {
-    for (size_t i = 0; i < opcoes.size(); i++)
+    for (int i = 0; i < opcoes.size(); i++)
     {
         pGG->desenharOpcaoMenu(
             opcoes[i].texto,
-            static_cast<int>(i),
-            i == static_cast<size_t>(opcaoSelecionada)
+            i,
+            i == static_cast<int>(opcaoSelecionada)
         );
     }
 }

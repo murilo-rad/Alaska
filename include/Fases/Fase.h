@@ -41,7 +41,6 @@ namespace Alaska
                 void carregarFaseSalva(short fase);
                 void desenharEstadoAtual();
                 void salvarEstado();
-                virtual bool faseTerminada() const;
                 bool const terminou();
                 bool const verificarJogadores() const;
                 
@@ -53,7 +52,6 @@ namespace Alaska
                 void criarCenario(short fase);
                 void criarNevosos();
                 void criarPlataformas();
-                void gerarFase();
                 Alaska::Entidades::Personagens::Jogador* randJogador();
         };
     }

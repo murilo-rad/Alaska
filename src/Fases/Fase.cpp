@@ -147,21 +147,9 @@ void Alaska::Fases::Fase::criarFundo(short fase)
     pFundo = new Alaska::Fundo(A_FUNDO, L_FUNDO, fase);
 }
 
-void Alaska::Fases::Fase::gerarFase() {
-	criarCenario(2);
-	criarNevosos();
-	criarPlataformas();
-}
-
 Alaska::Entidades::Personagens::Jogador* Alaska::Fases::Fase::randJogador()
 {
     return (pJogador2 ? (rand() % 2) ? pJogador1 : pJogador2 : pJogador1);
-}
-
-bool Alaska::Fases::Fase::faseTerminada() const
-{
-    if (!GC) return false;
-    return GC->getQtdInimigos() == 0;
 }
 
 const bool Alaska::Fases::Fase::terminou() {

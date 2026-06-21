@@ -1,8 +1,3 @@
-#include "pch.h"
-#include "Gerenciador_Grafico.h"
-#include "Gerenciador_Eventos.h"
-#include "Jogador.h"
-#include "Tundra.h" 
 #include "Alaskapp.h"
 
 using namespace Alaska;

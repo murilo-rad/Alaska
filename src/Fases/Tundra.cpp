@@ -9,8 +9,8 @@ Alaska::Fases::Tundra::Tundra(Entidades::Personagens::Jogador* pJ1, Entidades::P
         {0.f,   718.f},
         {300.f, 718.f},
         {600.f, 718.f},
-        {900.f, 718.f},
-        {988.f, 718.f}
+        {900.f, 718.f}
+        //{1200.f, 718.f}
     };
 
     posLobos =
@@ -76,7 +76,7 @@ void Alaska::Fases::Tundra::criarLobos()
 
 void Alaska::Fases::Tundra::criarGelos() 
 {
-    int quantidade = ((rand() % max_Gelos) + 1);
+    int quantidade = ((rand() % max_Gelos - 1) + 1);
     if (quantidade < MIN)
         quantidade = MIN;
 

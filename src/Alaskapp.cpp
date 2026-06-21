@@ -148,7 +148,7 @@ void Alaskapp::executarFase(Gerenciadores::Gerenciador_Eventos& GE)
         GG.mostrar();
     }
 
-    const bool concluiuComSucesso = verificarJogadores() && pFase->faseTerminada();
+    const bool concluiuComSucesso = verificarJogadores() && pFase->terminou();
     const TipoFase faseFinalizada = faseEscolhida;
 
     delete pFase;
