@@ -306,13 +306,6 @@ void Alaskapp::registrarResultadoLeaderboard()
     if (!pJog1)
         return;
 
-    struct Registro
-    {
-        std::string nome;
-        int pontos;
-        float tempo;
-    };
-
     std::vector<Registro> registros;
     std::ifstream entrada(CAMINHO_LEADERBOARD);
     std::string linha;
@@ -326,7 +319,7 @@ void Alaskapp::registrarResultadoLeaderboard()
         {
             try
             {
-                registros.push_back({ nome, std::stoi(pontosStr), std::stof(tempoStr) });
+                registros.emplace_back(nome, std::stoi(pontosStr), std::stof(tempoStr));
             }
             catch (const std::exception&)
             {
@@ -338,13 +331,11 @@ void Alaskapp::registrarResultadoLeaderboard()
     if (pJog2)
         nomeRegistro += " & " + pJog2->getNome();
 
-    registros.push_back({ nomeRegistro, qntd_pontos, tempoPartidaSegundos });
+    registros.emplace_back(nomeRegistro, qntd_pontos, tempoPartidaSegundos);
 
     std::sort(registros.begin(), registros.end(), [](const Registro& a, const Registro& b)
     {
-        if (a.pontos != b.pontos)
-            return a.pontos > b.pontos;
-        return a.tempo < b.tempo;
+        return a.vemAntesDo(b);
     });
 
     if (registros.size() > MAX_LEADERBOARD)
@@ -353,18 +344,11 @@ void Alaskapp::registrarResultadoLeaderboard()
     garantirPastaSaveAlaska();
     std::ofstream saida(CAMINHO_LEADERBOARD, std::ios::trunc);
     for (const auto& r : registros)
-        saida << r.nome << ';' << r.pontos << ';' << r.tempo << ";\n";
+        saida << r.gerarLinhaArquivo();
 }
 
 std::vector<std::string> Alaskapp::carregarLeaderboardTexto(int limite) const
 {
-    struct Registro
-    {
-        std::string nome;
-        int pontos;
-        float tempo;
-    };
-
     std::vector<Registro> registros;
     std::ifstream entrada(CAMINHO_LEADERBOARD);
     std::string linha;
@@ -378,7 +362,7 @@ std::vector<std::string> Alaskapp::carregarLeaderboardTexto(int limite) const
         {
             try
             {
-                registros.push_back({ nome, std::stoi(pontosStr), std::stof(tempoStr) });
+                registros.emplace_back(nome, std::stoi(pontosStr), std::stof(tempoStr));
             }
             catch (const std::exception&)
             {
@@ -388,27 +372,14 @@ std::vector<std::string> Alaskapp::carregarLeaderboardTexto(int limite) const
 
     std::sort(registros.begin(), registros.end(), [](const Registro& a, const Registro& b)
     {
-        if (a.pontos != b.pontos)
-            return a.pontos > b.pontos;
-        return a.tempo < b.tempo;
+        return a.vemAntesDo(b);
     });
 
     std::vector<std::string> linhas;
     const int total = std::min(limite, static_cast<int>(registros.size()));
 
     for (int i = 0; i < total; ++i)
-    {
-        const int minutos = static_cast<int>(registros[i].tempo) / 60;
-        const int segundos = static_cast<int>(registros[i].tempo) % 60;
-
-        std::stringstream linhaFormatada;
-        linhaFormatada << (i + 1) << ". " << registros[i].nome
-                       << " - " << registros[i].pontos << " pts - "
-                       << std::setw(2) << std::setfill('0') << minutos << ':'
-                       << std::setw(2) << std::setfill('0') << segundos;
-
-        linhas.push_back(linhaFormatada.str());
-    }
+        linhas.push_back(registros[i].gerarLinhaFormatada(i + 1));
 
     return linhas;
 }

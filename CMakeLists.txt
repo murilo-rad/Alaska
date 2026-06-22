@@ -24,6 +24,8 @@ add_executable(Alaska
     src/Menu.cpp
     src/Alaskapp.cpp
     src/Fundo.cpp
+    src/OpcaoMenu.cpp
+    src/Registro.cpp
 
     #Entidades
     src/Entidades/Entidade.cpp
@@ -52,6 +54,9 @@ add_executable(Alaska
 
     #Listas
     src/Listas/ListaEntidades.cpp
+    src/Listas/RelacaoAbominavelBola.cpp
+    src/Listas/RelacaoBolaAbominavel.cpp
+    src/Listas/RelacaoInimigoJogador.cpp
 )
 
 set_target_properties(Alaska PROPERTIES

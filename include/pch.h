@@ -21,6 +21,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <stdio.h>
+#include <functional>
 
 
 #define GRAVIDADE 0.50f

@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Ente.h"
-#include <functional>
 
 namespace Alaska
 {
@@ -11,20 +10,34 @@ namespace Alaska
         class Gerenciador_Eventos;
     }
 
-    enum class EstadoMenu
-    {
-        Principal,
-        EscolherFase,
-        NomeJogador1,
-        NomeJogador2,
-        Leaderboard
-    };
-
-    struct OpcaoMenu;
-
     class Menu : public Ente
     {
+    public:
+        enum class EstadoMenu
+        {
+            Principal,
+            EscolherFase,
+            NomeJogador1,
+            NomeJogador2,
+            Leaderboard
+        };
+
     private:
+        class OpcaoMenu
+        {
+        private:
+            std::string texto;
+            void (Menu::*acao)();
+
+        public:
+            OpcaoMenu();
+            OpcaoMenu(const std::string &texto, void (Menu::*acao)());
+            ~OpcaoMenu();
+
+            const std::string &getTexto() const;
+            void executar(Menu *pMenu) const;
+        };
+
         Alaska::Alaskapp *pAlaskapp;
         Alaska::Gerenciadores::Gerenciador_Eventos *pEventos;
         std::vector<OpcaoMenu> opcoes;
@@ -80,11 +93,4 @@ namespace Alaska
         void desenharInputNome();
         void desenharLeaderboard();
     };
-
-    struct OpcaoMenu
-    {
-        std::string texto;
-        void (Menu::*acao)();
-    };
-
 }

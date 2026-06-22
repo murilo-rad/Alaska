@@ -24,25 +24,51 @@ namespace Alaska
         class ListaEntidades
         {
             private:
-                struct RelacaoInimigoJogador
+                class RelacaoInimigoJogador
                 {
+                private:
                     Alaska::Entidades::Personagens::Inimigo* pInimigo;
                     int idJogador;
+
+                public:
+                    RelacaoInimigoJogador();
+                    RelacaoInimigoJogador(Alaska::Entidades::Personagens::Inimigo* pInimigo, int idJogador);
+                    ~RelacaoInimigoJogador();
+
+                    Alaska::Entidades::Personagens::Inimigo* getInimigo() const;
+                    int getIdJogador() const;
                 };
 
-                struct RelacaoAbominavelBola
+                class RelacaoAbominavelBola
                 {
+                private:
                     Alaska::Entidades::Personagens::Abominavel* pAbominavel;
                     int idBola;
+
+                public:
+                    RelacaoAbominavelBola();
+                    RelacaoAbominavelBola(Alaska::Entidades::Personagens::Abominavel* pAbominavel, int idBola);
+                    ~RelacaoAbominavelBola();
+
+                    Alaska::Entidades::Personagens::Abominavel* getAbominavel() const;
+                    int getIdBola() const;
                 };
 
-                struct RelacaoBolaAbominavel
+                class RelacaoBolaAbominavel
                 {
+                private:
                     Alaska::Entidades::Bola_de_Neve* pBola;
                     int idAbominavel;
+
+                public:
+                    RelacaoBolaAbominavel();
+                    RelacaoBolaAbominavel(Alaska::Entidades::Bola_de_Neve* pBola, int idAbominavel);
+                    ~RelacaoBolaAbominavel();
+
+                    Alaska::Entidades::Bola_de_Neve* getBola() const;
+                    int getIdAbominavel() const;
                 };
 
-            private:
                 Lista<Alaska::Entidades::Entidade*> LEs;
 
                 std::vector<std::string> dividirPorVirgula(const std::string& linha);

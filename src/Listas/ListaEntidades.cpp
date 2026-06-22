@@ -337,7 +337,7 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                 if (tamanho > 0.0f)
                     pNevoso->ajustarSprite(*pNevoso->getSprite(), tamanho, tamanho);
 
-                relacoesInimigoJogador.push_back({pNevoso, idJogador});
+                relacoesInimigoJogador.emplace_back(pNevoso, idJogador);
                 pEntidade = pNevoso;
                 break;
             }
@@ -373,7 +373,7 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                     restaurarEntidade(pLobo, d, 6);
                 }
 
-                relacoesInimigoJogador.push_back({pLobo, idJogador});
+                relacoesInimigoJogador.emplace_back(pLobo, idJogador);
                 pEntidade = pLobo;
                 break;
             }
@@ -411,8 +411,8 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                     restaurarEntidade(pAbo, d, 7);
                 }
 
-                relacoesInimigoJogador.push_back({pAbo, idJogador});
-                relacoesAbominavelBola.push_back({pAbo, idBola});
+                relacoesInimigoJogador.emplace_back(pAbo, idJogador);
+                relacoesAbominavelBola.emplace_back(pAbo, idBola);
                 pEntidade = pAbo;
                 break;
             }
@@ -435,7 +435,7 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
                 pBola->setID(id);
                 restaurarEntidade(pBola, d, 4);
 
-                relacoesBolaAbominavel.push_back({pBola, idAbominavel});
+                relacoesBolaAbominavel.emplace_back(pBola, idAbominavel);
                 pEntidade = pBola;
                 break;
             }
@@ -500,53 +500,53 @@ void Alaska::Listas::ListaEntidades::carregarEntidades(
 
     for (auto &rel : relacoesInimigoJogador)
     {
-        if (!rel.pInimigo)
+        if (!rel.getInimigo())
             continue;
 
-        auto it = entidadesPorId.find(rel.idJogador);
+        auto it = entidadesPorId.find(rel.getIdJogador());
         if (it != entidadesPorId.end())
         {
             auto *pJogador = dynamic_cast<Alaska::Entidades::Personagens::Jogador *>(it->second);
             if (pJogador)
             {
-                rel.pInimigo->setJogador(pJogador);
+                rel.getInimigo()->setJogador(pJogador);
                 continue;
             }
         }
 
-        rel.pInimigo->setJogador(pJogador1);
+        rel.getInimigo()->setJogador(pJogador1);
     }
 
     for (auto &rel : relacoesBolaAbominavel)
     {
-        if (!rel.pBola)
+        if (!rel.getBola())
             continue;
 
-        auto it = entidadesPorId.find(rel.idAbominavel);
+        auto it = entidadesPorId.find(rel.getIdAbominavel());
         if (it != entidadesPorId.end())
         {
             auto *pAbo = dynamic_cast<Alaska::Entidades::Personagens::Abominavel *>(it->second);
             if (pAbo)
             {
-                rel.pBola->setAbominavel(pAbo);
-                pAbo->setBola(rel.pBola);
+                rel.getBola()->setAbominavel(pAbo);
+                pAbo->setBola(rel.getBola());
             }
         }
     }
 
     for (auto &rel : relacoesAbominavelBola)
     {
-        if (!rel.pAbominavel)
+        if (!rel.getAbominavel())
             continue;
 
-        auto it = entidadesPorId.find(rel.idBola);
+        auto it = entidadesPorId.find(rel.getIdBola());
         if (it != entidadesPorId.end())
         {
             auto *pBola = dynamic_cast<Alaska::Entidades::Bola_de_Neve *>(it->second);
             if (pBola)
             {
-                rel.pAbominavel->setBola(pBola);
-                pBola->setAbominavel(rel.pAbominavel);
+                rel.getAbominavel()->setBola(pBola);
+                pBola->setAbominavel(rel.getAbominavel());
             }
         }
     }
