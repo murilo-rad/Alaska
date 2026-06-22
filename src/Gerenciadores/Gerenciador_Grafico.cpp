@@ -2,7 +2,7 @@
 
 Alaska::Gerenciadores::Gerenciador_Grafico::Gerenciador_Grafico()
 {
-    janela = new sf::RenderWindow(sf::VideoMode(static_cast<int>(L_TELA), static_cast<int>(A_TELA)), "Alaska");
+    janela = new sf::RenderWindow(sf::VideoMode(static_cast<int>(L_TELA), static_cast<int>(A_TELA)), "Demo Alaska");
     janela->setFramerateLimit(60);
     janela->setKeyRepeatEnabled(false);
 

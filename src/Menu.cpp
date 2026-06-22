@@ -88,7 +88,7 @@ void Menu::desenhar()
     for (int i = 0; i < opcoes.size(); i++)
     {
         pGG->desenharOpcaoMenu(
-            opcoes[i].texto,
+            opcoes[i].getTexto(),
             i,
             i == static_cast<int>(opcaoSelecionada)
         );
@@ -149,7 +149,7 @@ void Menu::confirmarOpcao()
     if (opcaoSelecionada >= 0 &&
         opcaoSelecionada < static_cast<int>(opcoes.size()))
     {
-        (this->*opcoes[opcaoSelecionada].acao)();
+        opcoes[opcaoSelecionada].executar(this);
     }
 }
 
@@ -158,7 +158,7 @@ void Menu::adicionarOpcao(
     void (Menu::* acao)()
 )
 {
-    opcoes.push_back({ texto, acao });
+    opcoes.emplace_back(texto, acao);
 }
 
 bool Menu::estaDigitandoNome() const
@@ -227,13 +227,13 @@ void Menu::acaoCarregarJogo()
 
 void Menu::acaoTundra()
 {
-    pAlaskapp->setFaseEscolhida(TipoFase::TUNDRA);
+    pAlaskapp->setFaseEscolhida(Alaskapp::TipoFase::TUNDRA);
     ativo = false;
 }
 
 void Menu::acaoCaverna()
 {
-    pAlaskapp->setFaseEscolhida(TipoFase::CAVERNA);
+    pAlaskapp->setFaseEscolhida(Alaskapp::TipoFase::CAVERNA);
     ativo = false;
 }
 
@@ -292,5 +292,5 @@ void Menu::desenharLeaderboard()
             pGG->desenharTextoMenu(linhasLeaderboard[i], 330.f, 280.f + static_cast<float>(i) * 38.f, 26);
     }
 
-    pGG->desenharOpcaoMenu(opcoes[0].texto, 6, true);
+    pGG->desenharOpcaoMenu(opcoes[0].getTexto(), 6, true);
 }

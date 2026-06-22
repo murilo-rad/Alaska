@@ -9,28 +9,51 @@
 
 namespace Alaska
 {
-    namespace Gerenciadores {
+    namespace Gerenciadores 
+    {
         class Gerenciador_Eventos;
     }
     class Menu;
 
-    enum class EstadoJogo
-    {
-        MENU,
-        FASE,
-        ENCERRANDO
-    };
-
-    enum class TipoFase
-    {
-        NENHUMA,
-        TUNDRA,
-        CAVERNA
-    };
-
     class Alaskapp
     {
+    public:
+        enum class EstadoJogo
+        {
+            MENU,
+            FASE,
+            ENCERRANDO
+        };
+
+        enum class TipoFase
+        {
+            NENHUMA,
+            TUNDRA,
+            CAVERNA
+        };
+
     private:
+        class Registro
+        {
+        private:
+            std::string nome;
+            int pontos;
+            float tempo;
+
+        public:
+            Registro();
+            Registro(const std::string& nome, int pontos, float tempo);
+            ~Registro();
+
+            const std::string& getNome() const;
+            int getPontos() const;
+            float getTempo() const;
+
+            bool vemAntesDo(const Registro& outro) const;
+            std::string gerarLinhaArquivo() const;
+            std::string gerarLinhaFormatada(int posicao) const;
+        };
+
         Alaska::Gerenciadores::Gerenciador_Grafico GG;
         Alaska::Entidades::Personagens::Jogador* pJog1;
         Alaska::Entidades::Personagens::Jogador* pJog2;
@@ -48,7 +71,7 @@ namespace Alaska
         ~Alaskapp();
         Alaska::Fases::Fase* pFaseSelecionada;
         void executar();
-        void setFaseEscolhida(Alaska::TipoFase fase) { faseEscolhida = fase; }
+        void setFaseEscolhida(TipoFase fase) { faseEscolhida = fase; }
         void sementear();
         void setFaseSelecionada(Alaska::Fases::Fase* fase) { pFaseSelecionada = fase; }
         Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
