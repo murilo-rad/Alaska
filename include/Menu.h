@@ -52,6 +52,13 @@ namespace Alaska
         int quantidadeJogadoresSelecionada;
         bool ativo;
 
+    private:
+        void carregarFundo();
+        void desenharFundo();
+        void carregarTelaNomeJogador(int indiceJogador);
+        void desenharInputNome();
+        void desenharLeaderboard();
+
     public:
         Menu(Alaska::Alaskapp *pAlaskapp, Alaska::Gerenciadores::Gerenciador_Eventos *pEventos);
         ~Menu();
@@ -85,12 +92,5 @@ namespace Alaska
         void acaoVoltarPrincipal();
 
         void acaoSair();
-
-    private:
-        void carregarFundo();
-        void desenharFundo();
-        void carregarTelaNomeJogador(int indiceJogador);
-        void desenharInputNome();
-        void desenharLeaderboard();
     };
 }
