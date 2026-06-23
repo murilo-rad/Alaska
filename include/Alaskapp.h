@@ -66,6 +66,14 @@ namespace Alaska
         bool faseCarregadaDeSave;
         float tempoPartidaSegundos;
 
+
+    private:
+        void executarFase(Alaska::Gerenciadores::Gerenciador_Eventos& GE);
+        Fases::Fase* criarFase(short numFase);
+        void registrarResultadoLeaderboard();
+        int getNumeroFaseAtual() const;
+        void limparJogadores();
+
     public:
         Alaskapp();
         ~Alaskapp();
@@ -84,12 +92,5 @@ namespace Alaska
         bool salvarJogoAtual();
         bool carregarJogoSalvo();
         std::vector<std::string> carregarLeaderboardTexto(int limite = MAX_LEADERBOARD) const;
-
-    private:
-        void executarFase(Alaska::Gerenciadores::Gerenciador_Eventos& GE);
-        Fases::Fase* criarFase(short numFase);
-        void registrarResultadoLeaderboard();
-        int getNumeroFaseAtual() const;
-        void limparJogadores();
     };
 }
