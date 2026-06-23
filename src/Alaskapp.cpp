@@ -383,3 +383,23 @@ std::vector<std::string> Alaskapp::carregarLeaderboardTexto(int limite) const
 
     return linhas;
 }
+
+void  Alaskapp::setFaseEscolhida(TipoFase fase) 
+{ 
+    faseEscolhida = fase; 
+}
+
+void Alaskapp::setFaseSelecionada(Alaska::Fases::Fase* fase) 
+{
+    pFaseSelecionada = fase; 
+}
+
+Alaska::Entidades::Personagens::Jogador* Alaskapp::getPJog1() const 
+{
+    return pJog1;
+}
+
+Alaska::Entidades::Personagens::Jogador* Alaskapp::getPJog2() const 
+{
+    return pJog2;
+}

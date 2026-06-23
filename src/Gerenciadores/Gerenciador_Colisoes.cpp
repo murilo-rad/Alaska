@@ -315,3 +315,8 @@ void Alaska::Gerenciadores::Gerenciador_Colisoes::tratarColisoesParedeInvisivel(
             pJog2->setX(L_TELA - pJog2->getSprite()->getGlobalBounds().width);
     }
 }
+
+int Alaska::Gerenciadores::Gerenciador_Colisoes::getQtdInimigos() const
+{ 
+    return (int)LIs.size(); 
+}
