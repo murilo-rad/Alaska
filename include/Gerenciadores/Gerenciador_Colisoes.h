@@ -46,7 +46,7 @@ namespace Alaska
             void limparMortos();
             void incluirChao(Alaska::Entidades::Chao* pCh);
             void executar();
-            int getQtdInimigos() const { return (int)LIs.size(); }
+            int getQtdInimigos() const;
         };
     }
 }

@@ -79,11 +79,11 @@ namespace Alaska
         ~Alaskapp();
         Alaska::Fases::Fase* pFaseSelecionada;
         void executar();
-        void setFaseEscolhida(TipoFase fase) { faseEscolhida = fase; }
+        void setFaseEscolhida(TipoFase fase);
         void sementear();
-        void setFaseSelecionada(Alaska::Fases::Fase* fase) { pFaseSelecionada = fase; }
-        Alaska::Entidades::Personagens::Jogador* getPJog1() const { return pJog1; }
-        Alaska::Entidades::Personagens::Jogador* getPJog2() const { return pJog2; }
+        void setFaseSelecionada(Alaska::Fases::Fase* fase);
+        Alaska::Entidades::Personagens::Jogador* getPJog1() const;
+        Alaska::Entidades::Personagens::Jogador* getPJog2() const;
         void criarJogadores(int qntd);
         void setNomeJogador(int indice, const std::string& nome);
         bool verificarJogadores() const;
